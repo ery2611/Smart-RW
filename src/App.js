@@ -6,28 +6,9 @@ import { Box } from "@mui/material";
 
 function App() {
   return (
+   <Box>
+    <Header />
     <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        background: "#EFEFEF",
-        minHeight: '100vh'  // Ensure the Box takes up at least the full viewport height
-      }}
-    >
-      <Box
-        sx={{
-          flex: '0 1 auto',
-          backgroundColor: "lightblue",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          background:'#EFEFEF',
-        }}
-      >
-        <Header />
-      </Box>
-      
-      <Box
         sx={{
           flex: "1 1 auto",
           display: "flex",
@@ -50,13 +31,14 @@ function App() {
           sx={{
             flex: 1,  // Allow Routes to take up the remaining space
             marginLeft: "30px", // Optional: add some space between the sidebar and the main content
-            marginTop: '20px'
+            marginTop: '20px',
+            maxHeight:'500px'
           }}
         >
           <Routes />
         </Box>
       </Box>
-    </Box>
+   </Box>
   );
 }
 
