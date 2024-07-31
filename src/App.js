@@ -32,7 +32,7 @@ function App() {
             flex: 1,  // Allow Routes to take up the remaining space
             marginLeft: "30px", // Optional: add some space between the sidebar and the main content
             marginTop: '20px',
-            maxHeight:'500px'
+            maxHeight:'700px'
           }}
         >
           <Routes />

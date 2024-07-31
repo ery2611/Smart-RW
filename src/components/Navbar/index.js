@@ -16,10 +16,12 @@ const Navbar = () => {
   const isActive = (path) => location.pathname === path;
   return (
     <Drawer
+      
       variant="permanent"
       anchor="left"
       sx={{
         '& .MuiDrawer-paper': {
+          position:"fixed",
           top: 100,
           width: 240,
           boxSizing: 'border-box',
