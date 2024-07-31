@@ -92,7 +92,7 @@ import {
             <Typography variant="h8" sx={{ color: "#A0A1A4" }}>
               Early Warning System/
             </Typography>
-            <Typography variant="h9" sx={{color:'black', fontWeight:'bold'}}>
+            <Typography variant="h9" align="center" sx={{color:'black', fontWeight:'bold'}}>
               Form Peringatan Dini
             </Typography>
           </Stack>
@@ -101,7 +101,7 @@ import {
           </Box>
   
           {/* subBencana = ambil keterangan dari informasi bencana */}
-          <Box sx={{ height: "100%", overflowY: "auto" }}>
+          <Box sx={{ height: "100%", overflowY: "auto", textAlign:'center', marginTop:'0px' }}>
             <Typography>FORM PERINGATAN DINI</Typography>
             {/* informasi cuaca */}
             <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
