@@ -6,11 +6,32 @@ import {
     MenuItem,
     TextField,
     Typography,
+    Stack,
+    Button
   } from "@mui/material";
+
   import { useState } from "react";
   
   const SmartCity = () => {
     const [cardBencana, setCardBencana] = useState("");
+  
+    const peringatan = [
+      {
+        value:'Waspada',
+        label:'Waspada',
+        status : 'success'
+      },
+      {
+        value:'Siaga',
+        label:'Siaga',
+        status: 'warning'
+      },
+      {
+        value:'Awas',
+        label:'Awas',
+        status: 'erorr'
+      }
+    ]
   
     const bencana = [
       {
@@ -27,15 +48,28 @@ import {
       },
     ];
   
+    const cuaca = [
+      {
+        value:'Cerah',
+      },
+      {
+        value:'Hujan'
+      }
+    ]
+  
+    const statusSiaga = [{value:'siaga 1'},{value:'siaga 2'},{value:'siaga 3'},{value:'siaga 4'},]
+    const statusApi = [{value:'Padam', status:'success'},{value:'Belum Padam', status:'error'}]
+    const statusLongsor = [{value:'Selesai Proses', status:'success'},{value:'Dalam Proses', status:'warning'},{value:'Belum Proses', status:'error'}]
+  
+  
     const handleChange = (e) => {
-      setCardBencana(e.target.value);
+      setCardBencana(e.target.value)
     };
   
     return (
       <Box sx={{ background: "#EFEFEF" }}>
         <Box
           sx={{
-           
             width: "100%",
             height: "100%",
             overflowX: "hidden",
@@ -44,10 +78,26 @@ import {
         >
           {/* Text pojok kiri atas */}
           <Box sx={{ m: 2, display: "flex", height: "3%", width: "100%" }}>
-            <Typography fontWeight="bold" color="#00A9AD">
-              {" "}
-              EARLY WARNING SYSTEM
+          <Stack direction="column" textAlign='left'>
+          <Typography
+            variant="h5"
+            sx={{ marginBottom: 0, color: "#00A9AD", fontSize: 18, fontWeight:'bold' }}
+          >
+            COMMAND CENTER
+          </Typography>
+          <Stack direction="row" sx={{ marginBottom: 2, fontSize: 14 }}>
+            <Typography variant="h8" sx={{ color: "#A0A1A4" }}>
+              Dashboard/
             </Typography>
+            <Typography variant="h8" sx={{ color: "#A0A1A4" }}>
+              Early Warning System/
+            </Typography>
+            <Typography variant="h9" sx={{color:'black', fontWeight:'bold'}}>
+              Form Peringatan Dini
+            </Typography>
+          </Stack>
+        </Stack>
+  
           </Box>
   
           {/* subBencana = ambil keterangan dari informasi bencana */}
@@ -70,7 +120,13 @@ import {
                       size="small"
                       variant="outlined"
                       select
-                    ></TextField>
+                    >
+                      {cuaca.map((value) => (
+                        <MenuItem key={value.value} value={value.value}>
+                          {value.value}
+                        </MenuItem>
+                      ))}
+                    </TextField>
                   </Box>
                   <Box sx={{ mr: 1, width: "50%", textAlign: "left" }}>
                     <Typography variant="body1">Suhu</Typography>
@@ -155,7 +211,12 @@ import {
                     size="small"
                     variant="outlined"
                     select
-                  ></TextField>
+                  >
+                    {peringatan.map((opsi) => (
+                      <MenuItem key={opsi.value} value={opsi.value}>
+                        {opsi.label}
+                      </MenuItem>))}
+                  </TextField>
   
                   <Box sx={{ display: "flex", mt: 1 }}>
                     <Box sx={{ width: "50%", textAlign: "left" }}>
@@ -221,7 +282,13 @@ import {
                           label="Masukan Status Api"
                           size="small"
                           variant="outlined"
-                        ></TextField>
+                        >
+                          {statusApi.map((opsi) => (
+                            <MenuItem key={opsi.value} value={opsi.value}>
+                              {opsi.value}
+                            </MenuItem>
+                          ))}
+                        </TextField>
                       </Box>
                     </Box>
   
@@ -234,7 +301,13 @@ import {
                       size="small"
                       variant="outlined"
                       select
-                    ></TextField>
+                    >
+                      {statusSiaga.map((opsi) => (
+                        <MenuItem key={opsi.value} value={opsi.value}>
+                          {opsi.value}
+                        </MenuItem>
+                      ))}
+                    </TextField>
                     <Typography sx={{ mt: 1 }} variant="body1">
                       Parameter Penentuan
                     </Typography>
@@ -294,7 +367,13 @@ import {
                         size="small"
                         variant="outlined"
                         select
-                      ></TextField>
+                      >
+                        {statusSiaga.map((opsi) => (
+                        <MenuItem key={opsi.value} value={opsi.value}>
+                          {opsi.value}
+                        </MenuItem>
+                      ))}
+                      </TextField>
                       <Typography sx={{ mt: 1 }} variant="body1">
                         Parameter Penentuan
                       </Typography>
@@ -331,7 +410,13 @@ import {
                         size="small"
                         variant="outlined"
                         select
-                      ></TextField>
+                      >
+                        {statusLongsor.map((opsi) => (
+                          <MenuItem key={opsi.value} value={opsi.value}>
+                            {opsi.value}
+                          </MenuItem>
+                        ))}
+                      </TextField>
   
                       <Typography sx={{ mt: 1 }} variant="body1">
                         Status Sianga
@@ -342,7 +427,13 @@ import {
                         size="small"
                         variant="outlined"
                         select
-                      ></TextField>
+                      >
+                        {statusSiaga.map((opsi) => (
+                        <MenuItem key={opsi.value} value={opsi.value}>
+                          {opsi.value}
+                        </MenuItem>
+                      ))}
+                      </TextField>
                       <Typography sx={{ mt: 1 }} variant="body1">
                         Parameter Penentuan
                       </Typography>
@@ -375,7 +466,6 @@ import {
                       label="Masukan Deskripsi kondisi"
                       size="small"
                       variant="outlined"
-                      select
                     ></TextField>
                     <Typography sx={{ mt: 1 }} variant="body1">
                       Peringatan
@@ -385,7 +475,8 @@ import {
                       label="Masukan Peringatan"
                       size="small"
                       variant="outlined"
-                    ></TextField>
+                    >
+                    </TextField>
                     <Typography sx={{ mt: 1 }} variant="body1">
                       Tindakan yang perlu diambil
                     </Typography>
@@ -421,6 +512,13 @@ import {
                 </Card>
               </Box>
             )}
+            {/* button submit dan batal */}
+            <Box sx={{display:'flex',justifyContent:'center',mt:4}}>
+              <Box sx={{width:'65%', textAlign:'end'}}>
+                <Button variant='contained' sx={{height:38, background:'#00A9AD', mr:3}}>SUBMIT</Button>
+                <Button variant='outlined' sx={{height:38, color:'#00A9AD'}}>BATAL</Button>
+              </Box>
+            </Box>
           </Box>
         </Box>
       </Box>
@@ -428,4 +526,3 @@ import {
   };
   
   export default SmartCity;
-  
