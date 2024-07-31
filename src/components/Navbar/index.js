@@ -21,7 +21,7 @@ const Navbar = () => {
       anchor="left"
       sx={{
         '& .MuiDrawer-paper': {
-          position:"fixed",
+          position:"absolute",
           top: 100,
           width: 240,
           boxSizing: 'border-box',

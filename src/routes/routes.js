@@ -10,6 +10,7 @@ const Loadable = Component => props => {
 }
 const Home = Loadable(lazy(()=>import('../pages/Dashboard')))
 const EWS = Loadable(lazy(()=>import('../pages/Ews')))
+const Tambah = Loadable(lazy(()=>import('../pages/Tews')))
 
 const mainRoutes =[{
     path: '',
@@ -18,6 +19,10 @@ const mainRoutes =[{
 {
     path:'/Ews',
     element: <EWS />
+},
+{
+    path:'/Ews/Tambah',
+    element:<Tambah />
 }
 
 ]
