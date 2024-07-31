@@ -7,7 +7,6 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import Navbar from "./Components/NavbarRafif";
 import { useState } from "react";
 
 const SmartCity = () => {
