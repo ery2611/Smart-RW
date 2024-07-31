@@ -15,11 +15,9 @@ import {
 } from "@mui/material";
 import Chip from "@mui/material/Chip";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
-import { DatePicker } from "@mui/x-date-pickers";
-import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-import { LocalizationProvider } from "@mui/x-date-pickers";
 import SearchIcon from "@mui/icons-material/Search";
 import AddIcon from "@mui/icons-material/Add";
+import Datepicker from "../../Components/Datepicker/Index";
 
 const data = [
   {
@@ -100,14 +98,7 @@ const getPeringatanColor = (peringatan) => {
 };
 
 const EWS = () => {
-  const [selectedDate, setSelectedDate] = useState(null);
   const [searchText, setSearchText] = useState("");
-
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-    // Lakukan pencarian atau filter data berdasarkan tanggal jika perlu
-  };
-
   const handleSearchChange = (event) => {
     setSearchText(event.target.value);
   };
@@ -122,24 +113,33 @@ const EWS = () => {
 
   return (
     <div>
-      <Typography variant="h5" sx={{ marginBottom: 2, color: "#00A9AD" }}>
-        EARLY WARNING SYSTEM
-      </Typography>
+      <Stack direction="column">
+        <Typography
+          variant="h5"
+          sx={{ marginBottom: 0, color: "#00A9AD", fontSize: 18 }}
+        >
+          COMMAND CENTER
+        </Typography>
+        <Stack direction="row" sx={{ marginBottom: 2, fontSize: 14 }}>
+          <Typography variant="h8" sx={{ color: "#A0A1A4" }}>
+            Dashboard/
+          </Typography>
+          <Typography variant="h9" sx={{ color: "black", fontWeight: "bold" }}>
+            Early Warning System
+          </Typography>
+        </Stack>
+        <Typography variant="h9" sx={{ color: "black", fontWeight: "hin" }}>
+          Tanggal
+        </Typography>
+      </Stack>
       <Stack
         direction="row"
         spacing={2}
         alignItems="center"
         sx={{ marginBottom: 2 }}
       >
-        <LocalizationProvider dateAdapter={AdapterDateFns}>
-          <DatePicker
-            value={selectedDate}
-            onChange={handleDateChange}
-            renderInput={(params) => <TextField {...params} />}
-            inputFormat="dd/MM/yyyy"
-            label="Tanggal"
-          />
-        </LocalizationProvider>
+        <Datepicker sx={{ height: 1 }} />
+
         <TextField
           value={searchText}
           onChange={handleSearchChange}
@@ -147,16 +147,26 @@ const EWS = () => {
           InputProps={{
             startAdornment: <SearchIcon />,
           }}
+          sx={{ width: 180, height: 38 }}
         />
-        <Button variant="contained" color="primary" onClick={handleSearch}>
+        <Button
+          variant="contained"
+          onClick={handleSearch}
+          sx={{ backgroundColor: "#00A9AD", height: 38 }}
+        >
           CARI
         </Button>
         <Button
           variant="contained"
-          color="primary"
           onClick={handleAdd}
           startIcon={<AddIcon />}
-          style={{ marginLeft: 435 }}
+          sx={{
+            backgroundColor: "#00A9AD",
+            height: 38,
+            display: "flex",
+            alignItems: "center",
+          }}
+          style={{ marginLeft: "auto" }}
         >
           TAMBAH
         </Button>
