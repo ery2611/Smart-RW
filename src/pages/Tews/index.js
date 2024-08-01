@@ -9,10 +9,11 @@ import {
     Stack,
     Button
   } from "@mui/material";
-
+  import { useNavigate } from "react-router-dom";
   import { useState } from "react";
   
   const SmartCity = () => {
+    const Navigate = useNavigate();
     const [cardBencana, setCardBencana] = useState("");
   
     const peringatan = [
@@ -516,7 +517,7 @@ import {
             <Box sx={{display:'flex',justifyContent:'center',mt:4}}>
               <Box sx={{width:'65%', textAlign:'end'}}>
                 <Button variant='contained' sx={{height:38, background:'#00A9AD', mr:3}}>SUBMIT</Button>
-                <Button variant='outlined' sx={{height:38, color:'#00A9AD'}}>BATAL</Button>
+                <Button onClick={() => Navigate("/Ews")}  variant='outlined' sx={{height:38, color:'#00A9AD'}}>BATAL</Button>
               </Box>
             </Box>
           </Box>

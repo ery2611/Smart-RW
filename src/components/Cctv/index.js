@@ -20,8 +20,8 @@ function index() {
         alignItems:'center',
         alignContent:'center'
         }}>
-      <Card sx={{ minWidth: 100, minHeight: 330 }}>
-      <CardActionArea>  
+      <Card sx={{ minWidth: 100, minHeight: 330, boxShadow:5 }}>
+  
         <CardContent>
           <Typography gutterBottom variant="body1" fontSize='16' fontWeight='bold' component="div" align='center' color='#00A9AD'>
           CCTV
@@ -73,7 +73,7 @@ function index() {
               </Box>
     
         </CardContent>
-      </CardActionArea>
+      
     </Card>
         </Box>
   )

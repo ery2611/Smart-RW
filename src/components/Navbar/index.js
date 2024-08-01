@@ -60,7 +60,10 @@ const Navbar = () => {
           {/* <ListItemIcon>
             <GateIcon />
           </ListItemIcon> */}
-          <ListItemText primary="One Gate System" />
+          <ListItemText primary="One Gate System"  onClick={() => Navigate("/Ogs")} 
+            sx={{ color: isActive("/Ogs") ? '#00A9AD' : 'inherit', 
+              borderBottom: isActive("/Ogs") ? '1px solid #EFEFEF' : '0px'}}
+            />
         </ListItem>
         <ListItem button>
           {/* <ListItemIcon>

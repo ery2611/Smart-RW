@@ -34,7 +34,7 @@ const CommandCenterAppBar = () => {
         </Box>
         
         <Typography variant="h5" component="div" sx={{ flexGrow: 1, marginLeft: 1, color:'#00A9AD', fontSize:'1.5rem', fontWeight:'bolder' }}>
-          SMART CITY
+          SMART RW
         </Typography>
         <IconButton aria-label="notifications" color="inherit">
           <Badge badgeContent={2} color="error">

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { Pie } from 'react-chartjs-2';
-import { Paper, Typography, Select, MenuItem, FormControl, Box, Grid } from '@mui/material';
+import { Paper, Typography, Select, MenuItem, FormControl, Box, Grid, Card } from '@mui/material';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -27,7 +27,8 @@ function App() {
 
   return (
     <Box display="flex" justifyContent="center" alignItems="center" height="400px" marginTop='0px'>
-      <Paper style={{ padding: 10, textAlign: 'center', minWidth: '300px', marginTop:'0px', maxHeight:400, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+      <Paper sx={{ padding: 10, textAlign: 'center', minWidth: '230px', marginTop:'0px',marginLeft:'59px',
+         maxHeight:220, display: 'flex', flexDirection: 'column', justifyContent: 'center',  boxShadow:5 }}>
         <Box display="flex" flexDirection="column" alignItems="center">
           <Typography variant="body2" style={{ fontSize: 16, fontWeight: 'bold', marginBottom: 8, color:'#00A9AD' }}>
             ONE GATE SYSTEM

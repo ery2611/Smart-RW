@@ -27,7 +27,7 @@ const rows = [
 function MyTable() {
   return (
     <Box sx={{ padding: 2, width: '100%', maxWidth: 500, margin: '0 auto', marginLeft:'10px', marginTop:'10px'}}>
-      <Card sx={{ }}>
+      <Card sx={{  boxShadow:5}}>
       <CardHeader
           title={
             <Typography variant="body2" fontWeight='bold' align="center" color="#00A9AD" marginBottom='0'>
