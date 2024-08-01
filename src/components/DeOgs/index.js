@@ -21,7 +21,8 @@ function index() {
       sx={{
         backgroundColor: "#EFEFEF",
         justifyContent: "center",
-        height: "985px",
+        marginBottom:'10px',
+        overflowY: "auto",
         borderRadius: "10px",
       }}
     >
@@ -229,6 +230,7 @@ function index() {
             justifyContent:'flex-end',
             display:'flex',
             marginTop:'15px',
+            marginBottom:'15px',
             marginRight: 4
         }}>
           
@@ -237,7 +239,7 @@ function index() {
                 border: '2px solid #00A9AD',
                 color:'#00A9AD'
                 },
-                
+
             }} variant="outlined">Kembali</Button>
       
         </Box>

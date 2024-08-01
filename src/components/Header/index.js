@@ -8,8 +8,10 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import Avatar from '@mui/material/Avatar';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Box } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const CommandCenterAppBar = () => {
+  const Navigate = useNavigate();
   return (
     <AppBar position="static" color="default" sx={{ backgroundColor: 'white'}}>
       <Toolbar sx={{ display:'flex' }}>
@@ -36,7 +38,7 @@ const CommandCenterAppBar = () => {
         <Typography variant="h5" component="div" sx={{ flexGrow: 1, marginLeft: 1, color:'#00A9AD', fontSize:'1.5rem', fontWeight:'bolder' }}>
           SMART RW
         </Typography>
-        <IconButton aria-label="notifications" color="inherit">
+        <IconButton aria-label="notifications" color="inherit" onClick={() => Navigate("/Notif")} >
           <Badge badgeContent={2} color="error">
             <NotificationsIcon />
           </Badge>

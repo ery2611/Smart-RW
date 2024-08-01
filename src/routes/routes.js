@@ -12,6 +12,7 @@ const Home = Loadable(lazy(()=>import('../pages/Dashboard')))
 const EWS = Loadable(lazy(()=>import('../pages/Ews')))
 const Tambah = Loadable(lazy(()=>import('../pages/Tews')))
 const Ogs = Loadable(lazy(()=>import('../pages/Ogs')))
+const Notif = Loadable(lazy(()=>import('../pages/Notif')))
 
 const mainRoutes =[{
     path: '',
@@ -28,6 +29,10 @@ const mainRoutes =[{
 {
     path:'/Ogs',
     element:<Ogs />
+},
+{
+    path:'/Notif',
+    element:<Notif />
 }]
 
 export default mainRoutes
