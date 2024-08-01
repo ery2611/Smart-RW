@@ -18,6 +18,7 @@ import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import AddIcon from "@mui/icons-material/Add";
 import Datepicker from "../../Components/Datepicker/Index";
+import { useNavigate } from "react-router";
 
 const data = [
   {
@@ -72,6 +73,7 @@ const data = [
   },
 ];
 
+
 const getPeringatanColor = (peringatan) => {
   switch (peringatan) {
     case "WASPADA":
@@ -98,6 +100,8 @@ const getPeringatanColor = (peringatan) => {
 };
 
 const EWS = () => {
+  const navigate = useNavigate('');
+
   const [searchText, setSearchText] = useState("");
   const handleSearchChange = (event) => {
     setSearchText(event.target.value);
@@ -109,6 +113,7 @@ const EWS = () => {
 
   const handleAdd = () => {
     // Tambahkan fungsi untuk menambah data baru
+    navigate('/tambah')
   };
 
   return (
@@ -158,7 +163,7 @@ const EWS = () => {
         </Button>
         <Button
           variant="contained"
-          onClick={handleAdd}
+          onClick={()=>{navigate('/tambah')}}
           startIcon={<AddIcon />}
           sx={{
             backgroundColor: "#00A9AD",
