@@ -10,7 +10,6 @@ import {
   Button,
   Container
 } from "@mui/material";
-import Navbar from "./Components/NavbarRafif";
 import { useState } from "react";
 
 const SmartCity = () => {
@@ -68,7 +67,7 @@ const SmartCity = () => {
   };
 
   return (
-    <Container sx={{background:'#CDCDCD'}}>
+    <Box sx={{}}>
       <Box
         sx={{
           width: "100%",
@@ -78,7 +77,6 @@ const SmartCity = () => {
         }}
       >
         {/* Text pojok kiri atas */}
-        <Box sx={{ m: 2, display: "flex", width: "100%",height:'50px' }}>
         <Stack direction="column" textAlign='left'>
         <Typography
           variant="h5"
@@ -99,10 +97,8 @@ const SmartCity = () => {
         </Stack>
       </Stack>
 
-        </Box>
-
         {/* subBencana = ambil keterangan dari informasi bencana */}
-        <Box sx={{ height: "100%", overflowY: "auto" }}>
+        <Box sx={{ height: "100%", overflowY: "auto", textAlign:'center' }}>
           <Typography variant="h6">FORM PERINGATAN DINI</Typography>
           {/* informasi cuaca */}
           <Box sx={{ display: "flex", justifyContent: "center", mt:1 }}>
@@ -521,7 +517,7 @@ const SmartCity = () => {
           </Box>
         </Box>
       </Box>
-    </Container>
+    </Box>
   );
 };
 
