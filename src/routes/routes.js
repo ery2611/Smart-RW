@@ -11,8 +11,12 @@ const Loadable = Component => props => {
 const Home = Loadable(lazy(()=>import('../pages/Dashboard')))
 const EWS = Loadable(lazy(()=>import('../pages/Ews')))
 const Tambah = Loadable(lazy(()=>import('../pages/Tews')))
-const Ogs = Loadable(lazy(()=>import('../pages/Ogs')))
+const Ogs = Loadable(lazy(()=>import('../pages/Ogs/index')))
+const Ogsdetail = Loadable(lazy(()=>import('../pages/Ogs/detail')))
+const TambahOgs = Loadable(lazy(()=>import('../pages/Ogs/tambah')))
 const Notif = Loadable(lazy(()=>import('../pages/Notif')))
+const Keamanan = Loadable(lazy(()=>import('../pages/Keamanan/index')))
+const DeKeamanan = Loadable(lazy(()=>import('../pages/Keamanan/deKeamanan')))
 
 const mainRoutes =[{
     path: '',
@@ -27,12 +31,28 @@ const mainRoutes =[{
     element:<Tambah />
 },
 {
-    path:'/Ogs',
-    element:<Ogs />
+    path:'/Ogs/Detail',
+    element:<Ogsdetail />
 },
 {
     path:'/Notif',
     element:<Notif />
-}]
+},
+{
+    path:'/Ogs',
+    element:<Ogs />
+},
+{
+    path:'/Ogs/Tambah',
+    element:<TambahOgs />
+},
+{
+    path:'/Keamanan',
+    element:<Keamanan />
+},
+{
+    path:'/Keamanan/Detail',
+    element:<DeKeamanan />
+ }]
 
 export default mainRoutes

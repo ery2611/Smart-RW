@@ -54,7 +54,9 @@ const Navbar = () => {
           {/* <ListItemIcon>
             <SecurityIcon />
           </ListItemIcon> */}
-          <ListItemText primary="Keamanan" />
+          <ListItemText primary="Keamanan" onClick={() => Navigate("/Keamanan")} 
+            sx={{ color: isActive("/Keamanan") ? '#00A9AD' : 'inherit', 
+              borderBottom: isActive("/Keamanan") ? '1px solid #EFEFEF' : '0px'}} />
         </ListItem>
         <ListItem button>
           {/* <ListItemIcon>

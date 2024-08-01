@@ -6,6 +6,7 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import ComplexGrid from '../Nunread';
 import TextTerbaca from '../Nread';
+import { Stack, Typography } from '@mui/material';
 
 
 export default function Labtabs() {
@@ -17,6 +18,7 @@ export default function Labtabs() {
   
   return (
     <Box sx={{ width: '100%', borderRadius:'10px' ,typography: 'body1', backgroundColor: '#EFEFEF' }}>
+      
       <Box component="h1" sx={{ color: '#00A9AD',marginLeft:'10px',marginTop:'20px', marginBottom:'10px' }}>
         NOTIFIKASI
       

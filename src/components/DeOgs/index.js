@@ -2,9 +2,10 @@ import { Box, Container, Typography, Card, CardContent } from "@mui/material";
 import React from "react";
 import { styled } from "@mui/system";
  import Button from '@mui/material/Button';
+import { useNavigate } from "react-router-dom";
 
-
-function index() {
+function Index() {
+  const Navigate = useNavigate();
   const StatusBadge = styled(Box)(({ theme }) => ({
     backgroundColor: "#D4FFDB",
 
@@ -14,6 +15,8 @@ function index() {
     display: "inline-block",
     marginBottom: theme.spacing(2),
   }));
+
+  
 
   return (
     <Container
@@ -234,13 +237,13 @@ function index() {
             marginRight: 4
         }}>
           
-            <Button sx={{color:'#00A9AD', fontWeight:'bold',  border: '2px solid #00A9AD',
+            <Button onClick={() => Navigate("/Ogs")} sx={{color:'#00A9AD', fontWeight:'bold',  border: '2px solid #00A9AD',
                 '&:hover': {
                 border: '2px solid #00A9AD',
                 color:'#00A9AD'
                 },
 
-            }} variant="outlined">Kembali</Button>
+            }} variant="outlined"  >Kembali</Button>
       
         </Box>
       </Box>
@@ -248,4 +251,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;

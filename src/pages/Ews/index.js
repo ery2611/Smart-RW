@@ -12,17 +12,17 @@ import {
   Button,
   Stack,
   Typography,
+  Chip,
+  Pagination,
 } from "@mui/material";
-import Chip from "@mui/material/Chip";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import AddIcon from "@mui/icons-material/Add";
-import Datepicker from "../../components/Datepicker/Index";
 import { useNavigate } from "react-router-dom";
-
-
+import Datepicker from "../../components/Datepicker/Index";
 
 const data = [
+  // Your data array
   {
     id: 1,
     judul_bencana: "Banjir Bandang",
@@ -36,7 +36,7 @@ const data = [
   {
     id: 2,
     judul_bencana: "Kebakaran Rumah",
-    jenis_bencana: "Kebarakan",
+    jenis_bencana: "Kebakaran",
     tanggal: "06/01/2024",
     jam: "08:00",
     parameter: "Sumber Api",
@@ -73,13 +73,19 @@ const data = [
     lokasi: "Area RW02 Kemang Pratama",
     peringatan: "WASPADA",
   },
+  {
+    id: 6,
+    judul_bencana: "Banjir Bandang",
+    jenis_bencana: "Banjir",
+    tanggal: "06/01/2024",
+    jam: "08:00",
+    parameter: "Prakiraan cuaca",
+    lokasi: "Area RW02 Kemang Pratama",
+    peringatan: "WASPADA",
+  },
 ];
 
-
 const getPeringatanColor = (peringatan) => {
-
- 
-
   switch (peringatan) {
     case "WASPADA":
       return {
@@ -104,8 +110,22 @@ const getPeringatanColor = (peringatan) => {
   }
 };
 
+const truncateText = (text, maxLength) => {
+  if (!text) {
+    return "";
+  }
+  if (text.length <= maxLength) {
+    return text;
+  }
+  return text.substring(0, maxLength) + "...";
+};
+
 const EWS = () => {
   const [searchText, setSearchText] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
+  const Navigate = useNavigate();
+
   const handleSearchChange = (event) => {
     setSearchText(event.target.value);
   };
@@ -118,7 +138,16 @@ const EWS = () => {
     // Tambahkan fungsi untuk menambah data baru
   };
 
-  const Navigate = useNavigate();
+  const handlePageChange = (event, value) => {
+    setCurrentPage(value);
+  };
+
+  // Get current data
+  const currentData = data.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
   return (
     <div>
       <Stack direction="column">
@@ -136,7 +165,7 @@ const EWS = () => {
             Early Warning System
           </Typography>
         </Stack>
-        <Typography variant="h9" sx={{ color: "black" }}>
+        <Typography variant="h9" sx={{ color: "black", fontWeight: "hin" }}>
           Tanggal
         </Typography>
       </Stack>
@@ -166,20 +195,23 @@ const EWS = () => {
         </Button>
         <Button
           variant="contained"
+          color="primary"
           onClick={() => Navigate("/Ews/Tambah")}
           startIcon={<AddIcon />}
+          style={{marginLeft:'auto'}}
           sx={{
             backgroundColor: "#00A9AD",
+            marginLeft: "auto",
             height: 38,
             display: "flex",
             alignItems: "center",
+
           }}
-          style={{ marginLeft: "auto" }}
         >
           TAMBAH
         </Button>
       </Stack>
-      <TableContainer component={Paper} sx={{marginTop:3}}>
+      <TableContainer component={Paper} sx={{ flexGrow: 1 }}>
         <Table>
           <TableHead>
             <TableRow>
@@ -249,7 +281,7 @@ const EWS = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data.map((row) => (
+            {currentData.map((row) => (
               <TableRow
                 key={row.id}
                 sx={{
@@ -261,9 +293,9 @@ const EWS = () => {
                 <TableCell>{row.id}</TableCell>
                 <TableCell>
                   <Stack direction="column" alignItems="left">
-                    <span>{row.judul_bencana}</span>
+                    <span>{truncateText(row.judul_bencana, 20)}</span>
                     <span style={{ color: "#A1A5B7" }}>
-                      {row.jenis_bencana}
+                      {truncateText(row.jenis_bencana, 20)}
                     </span>
                   </Stack>
                 </TableCell>
@@ -273,11 +305,11 @@ const EWS = () => {
                     <span style={{ color: "#A1A5B7" }}>{row.jam}</span>
                   </Stack>
                 </TableCell>
-                <TableCell>{row.parameter}</TableCell>
-                <TableCell>{row.lokasi}</TableCell>
+                <TableCell>{truncateText(row.parameter, 20)}</TableCell>
+                <TableCell>{truncateText(row.lokasi, 20)}</TableCell>
                 <TableCell>
                   <Chip
-                    label={row.peringatan}
+                    label={truncateText(row.peringatan, 20)}
                     sx={getPeringatanColor(row.peringatan)}
                   />
                 </TableCell>
@@ -291,6 +323,14 @@ const EWS = () => {
           </TableBody>
         </Table>
       </TableContainer>
+      <Stack direction="row" justifyContent="center" sx={{ marginTop: 2 }}>
+        <Pagination
+          count={Math.ceil(data.length / itemsPerPage)}
+          page={currentPage}
+          onChange={handlePageChange}
+          color="primary"
+        />
+      </Stack>
     </div>
   );
 };
