@@ -19,6 +19,10 @@ import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import AddIcon from "@mui/icons-material/Add";
 import Datepicker from "../../Components/Datepicker/Index";
+<<<<<<< HEAD
+=======
+import { useNavigate } from "react-router";
+>>>>>>> 6ec6d03659c19e4203f66a9b9a2b6cafc66a0061
 
 const data = [
   // Your data array
@@ -35,7 +39,11 @@ const data = [
   {
     id: 2,
     judul_bencana: "Kebakaran Rumah",
+<<<<<<< HEAD
     jenis_bencana: "Kebakaran",
+=======
+    jenis_bencana: "Kebarakan",
+>>>>>>> 6ec6d03659c19e4203f66a9b9a2b6cafc66a0061
     tanggal: "06/01/2024",
     jam: "08:00",
     parameter: "Sumber Api",
@@ -109,6 +117,7 @@ const getPeringatanColor = (peringatan) => {
   }
 };
 
+<<<<<<< HEAD
 const truncateText = (text, maxLength) => {
   if (!text) {
     return "";
@@ -119,10 +128,16 @@ const truncateText = (text, maxLength) => {
   return text.substring(0, maxLength) + "...";
 };
 
+=======
+>>>>>>> 6ec6d03659c19e4203f66a9b9a2b6cafc66a0061
 const EWS = () => {
   const [searchText, setSearchText] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
+<<<<<<< HEAD
+=======
+  const navigate = useNavigate('')
+>>>>>>> 6ec6d03659c19e4203f66a9b9a2b6cafc66a0061
 
   const handleSearchChange = (event) => {
     setSearchText(event.target.value);
@@ -132,8 +147,14 @@ const EWS = () => {
     // Lakukan pencarian berdasarkan selectedDate dan searchText
   };
 
+<<<<<<< HEAD
   const handleAdd = () => {
     // Tambahkan fungsi untuk menambah data baru
+=======
+  const handleAdd = (params) => {
+    // Tambahkan fungsi untuk menambah data baru
+    navigate(params)
+>>>>>>> 6ec6d03659c19e4203f66a9b9a2b6cafc66a0061
   };
 
   const handlePageChange = (event, value) => {
@@ -163,9 +184,12 @@ const EWS = () => {
             Early Warning System
           </Typography>
         </Stack>
+<<<<<<< HEAD
         <Typography variant="h9" sx={{ color: "black", fontWeight: "hin" }}>
           Tanggal
         </Typography>
+=======
+>>>>>>> 6ec6d03659c19e4203f66a9b9a2b6cafc66a0061
       </Stack>
       <Stack
         direction="row"
@@ -173,7 +197,11 @@ const EWS = () => {
         alignItems="center"
         sx={{ marginBottom: 2 }}
       >
+<<<<<<< HEAD
         <Datepicker />
+=======
+        <Datepicker sx={{ height: 1 }} />
+>>>>>>> 6ec6d03659c19e4203f66a9b9a2b6cafc66a0061
 
         <TextField
           value={searchText}
@@ -194,7 +222,11 @@ const EWS = () => {
         <Button
           variant="contained"
           color="primary"
+<<<<<<< HEAD
           onClick={handleAdd}
+=======
+          onClick={()=>{handleAdd('/tambah')}}
+>>>>>>> 6ec6d03659c19e4203f66a9b9a2b6cafc66a0061
           startIcon={<AddIcon />}
           sx={{
             backgroundColor: "#00A9AD",
@@ -207,7 +239,11 @@ const EWS = () => {
           TAMBAH
         </Button>
       </Stack>
+<<<<<<< HEAD
       <TableContainer component={Paper} sx={{ flexGrow: 1 }}>
+=======
+      <TableContainer component={Paper}>
+>>>>>>> 6ec6d03659c19e4203f66a9b9a2b6cafc66a0061
         <Table>
           <TableHead>
             <TableRow>
@@ -289,9 +325,15 @@ const EWS = () => {
                 <TableCell>{row.id}</TableCell>
                 <TableCell>
                   <Stack direction="column" alignItems="left">
+<<<<<<< HEAD
                     <span>{truncateText(row.judul_bencana, 20)}</span>
                     <span style={{ color: "#A1A5B7" }}>
                       {truncateText(row.jenis_bencana, 20)}
+=======
+                    <span>{row.judul_bencana}</span>
+                    <span style={{ color: "#A1A5B7" }}>
+                      {row.jenis_bencana}
+>>>>>>> 6ec6d03659c19e4203f66a9b9a2b6cafc66a0061
                     </span>
                   </Stack>
                 </TableCell>
@@ -301,11 +343,19 @@ const EWS = () => {
                     <span style={{ color: "#A1A5B7" }}>{row.jam}</span>
                   </Stack>
                 </TableCell>
+<<<<<<< HEAD
                 <TableCell>{truncateText(row.parameter, 20)}</TableCell>
                 <TableCell>{truncateText(row.lokasi, 20)}</TableCell>
                 <TableCell>
                   <Chip
                     label={truncateText(row.peringatan, 20)}
+=======
+                <TableCell>{row.parameter}</TableCell>
+                <TableCell>{row.lokasi}</TableCell>
+                <TableCell>
+                  <Chip
+                    label={row.peringatan}
+>>>>>>> 6ec6d03659c19e4203f66a9b9a2b6cafc66a0061
                     sx={getPeringatanColor(row.peringatan)}
                   />
                 </TableCell>

@@ -1,8 +1,11 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+<<<<<<< HEAD
 # Ignore cache directory
 node_modules/.cache/
 
+=======
+>>>>>>> 6ec6d03659c19e4203f66a9b9a2b6cafc66a0061
 # dependencies
 /.pnp
 .pnp.js
