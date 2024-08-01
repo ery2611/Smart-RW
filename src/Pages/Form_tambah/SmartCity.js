@@ -523,7 +523,7 @@ const SmartCity = () => {
             </Box>
           )}
           {/* button submit dan batal */}
-          <Box sx={{display:'flex',justifyContent:'center',mt:3}}>
+          <Box sx={{display:'flex',justifyContent:'end',width:'93%',mt:3}}>
             <Box sx={{width:'65%', textAlign:'end'}}>
               <Button variant='contained' sx={{height:38, background:'#00A9AD', mr:3}}>SUBMIT</Button>
               <Button variant='outlined' onClick={()=>{handleCancel('/')}} sx={{height:38, color:'#00A9AD'}}>BATAL</Button>
