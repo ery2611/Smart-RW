@@ -11,9 +11,12 @@ import {
   Container
 } from "@mui/material";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 const SmartCity = () => {
   const [cardBencana, setCardBencana] = useState("");
+
+  const navigate = useNavigate('')
 
   const peringatan = [
     {
@@ -65,6 +68,14 @@ const SmartCity = () => {
   const handleChange = (e) => {
     setCardBencana(e.target.value)
   };
+
+  const handleSubmit = () => {
+    // 
+  }
+
+  const handleCancel = (params) => {
+    navigate(params)
+  }
 
   return (
     <Box sx={{}}>
@@ -512,7 +523,7 @@ const SmartCity = () => {
           <Box sx={{display:'flex',justifyContent:'center',mt:4}}>
             <Box sx={{width:'65%', textAlign:'end'}}>
               <Button variant='contained' sx={{height:38, background:'#00A9AD', mr:3}}>SUBMIT</Button>
-              <Button variant='outlined' sx={{height:38, color:'#00A9AD'}}>BATAL</Button>
+              <Button variant='outlined' onClick={()=>{handleCancel('/')}} sx={{height:38, color:'#00A9AD'}}>BATAL</Button>
             </Box>
           </Box>
         </Box>

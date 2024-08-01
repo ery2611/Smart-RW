@@ -19,6 +19,7 @@ import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import AddIcon from "@mui/icons-material/Add";
 import Datepicker from "../../Components/Datepicker/Index";
+import { useNavigate } from "react-router";
 
 const data = [
   // Your data array
@@ -113,6 +114,7 @@ const EWS = () => {
   const [searchText, setSearchText] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
+  const navigate = useNavigate('')
 
   const handleSearchChange = (event) => {
     setSearchText(event.target.value);
@@ -122,8 +124,9 @@ const EWS = () => {
     // Lakukan pencarian berdasarkan selectedDate dan searchText
   };
 
-  const handleAdd = () => {
+  const handleAdd = (params) => {
     // Tambahkan fungsi untuk menambah data baru
+    navigate(params)
   };
 
   const handlePageChange = (event, value) => {
@@ -181,7 +184,7 @@ const EWS = () => {
         <Button
           variant="contained"
           color="primary"
-          onClick={handleAdd}
+          onClick={()=>{handleAdd('/tambah')}}
           startIcon={<AddIcon />}
           sx={{
             backgroundColor: "#00A9AD",
