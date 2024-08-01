@@ -109,11 +109,12 @@ const SmartCity = () => {
       </Stack>
 
         {/* subBencana = ambil keterangan dari informasi bencana */}
-        <Box sx={{ height: "100%", overflowY: "auto", textAlign:'center', background:'#EFEFEF' }}>
+      <Box sx={{ display:'flex', justifyContent:'center'}}>
+        <Box sx={{ height: "100%", overflowY: "auto", textAlign:'center', background:'#EFEFEF', width:'80%', paddingTop:2, paddingBottom:2, borderRadius:'12px' }}>
           <Typography variant="h6">FORM PERINGATAN DINI</Typography>
           {/* informasi cuaca */}
           <Box sx={{ display: "flex", justifyContent: "center", mt:1 }}>
-            <Card sx={{ width: "65%", borderRadius:'12px' }}>
+            <Card sx={{ width: "85%", borderRadius:'12px' }}>
               <Typography marginTop="10px" variant="body1" fontWeight="bold">
                 INFORMASI CUACA
               </Typography>
@@ -174,7 +175,7 @@ const SmartCity = () => {
               overflowY: "auto",
             }}
           >
-            <Card sx={{ width: "65%" }}>
+            <Card sx={{ width: "85%", borderRadius:'12px' }}>
               <Typography marginTop="10px" variant="body1" fontWeight="bold">
                 INFORMASI BENCANA
               </Typography>
@@ -265,7 +266,7 @@ const SmartCity = () => {
           {/* informasi 'subBencana' */}
           {(cardBencana === "Kebakaran" && (
             <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
-              <Card sx={{ width: "65%" }}>
+              <Card sx={{ width: "85%", borderRadius:'12px' }}>
                 <Typography marginTop="10px" variant="body1" fontWeight="bold">
                   INFORMASI KEBAKARAN
                 </Typography>
@@ -332,7 +333,7 @@ const SmartCity = () => {
           )) ||
             (cardBencana === "Banjir" && (
               <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
-                <Card sx={{ width: "65%" }}>
+                <Card sx={{ width: "85%", borderRadius:'12px'}}>
                   <Typography
                     marginTop="10px"
                     variant="body1"
@@ -398,7 +399,7 @@ const SmartCity = () => {
             )) ||
             (cardBencana === "Tanah Longsor" && (
               <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
-                <Card sx={{ width: "65%" }}>
+                <Card sx={{ width: "85%", borderRadius:'12px' }}>
                   <Typography
                     marginTop="10px"
                     variant="body1"
@@ -459,7 +460,7 @@ const SmartCity = () => {
           {/* keterangan 'subBencana' */}
           {cardBencana && (
             <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
-              <Card sx={{ width: "65%" }}>
+              <Card sx={{ width: "85%", borderRadius:'12px' }}>
                 <Typography marginTop="10px" variant="body1" fontWeight="bold">
                   KETERANGAN BENCANA{" "}
                 </Typography>
@@ -520,7 +521,7 @@ const SmartCity = () => {
             </Box>
           )}
           {/* button submit dan batal */}
-          <Box sx={{display:'flex',justifyContent:'center',mt:4}}>
+          <Box sx={{display:'flex',justifyContent:'center',mt:3}}>
             <Box sx={{width:'65%', textAlign:'end'}}>
               <Button variant='contained' sx={{height:38, background:'#00A9AD', mr:3}}>SUBMIT</Button>
               <Button variant='outlined' onClick={()=>{handleCancel('/')}} sx={{height:38, color:'#00A9AD'}}>BATAL</Button>
@@ -528,6 +529,7 @@ const SmartCity = () => {
           </Box>
         </Box>
       </Box>
+    </Box>
     </Box>
   );
 };
