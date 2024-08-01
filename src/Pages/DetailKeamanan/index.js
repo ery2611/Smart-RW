@@ -1,13 +1,15 @@
-import React from "react";
-import { Box, Container, Stack, Typography } from "@mui/material";
-import Table from "../../Component/Pengaduan/pengaduan";
-import Kalender from "../../Component/Kalender/calender";
-import Detail from "../../Component/Detail/detail";
+import { Box, Container, Stack, Typography } from '@mui/material'
+import React from 'react'
+import Detail from '../../Component/Detail/detail'
 
-export default function index() {
+const index = () => {
   return (
     <div>
-      <Container sx={{ maxWidth: "lg" }}>
+      <Container // Mengatur ukuran maksimum container menjadi "lg" (large)
+        sx={{
+            maxWidth:'lg',
+        }}
+      >
         <Stack direction="column">
           <Typography
             variant="h5"
@@ -22,21 +24,28 @@ export default function index() {
           </Typography>
           <Stack direction="row" sx={{ marginBottom: 2, fontSize: 14 }}>
             <Typography variant="h8" sx={{ color: "#A0A1A4" }}>
-              Dashboard/
+              Dashboard/Keamanan/
             </Typography>
             <Typography
               variant="h9"
               sx={{ color: "black", fontWeight: "bold" }}
             >
-              Keamanan
+              Detail
             </Typography>
           </Stack>
         </Stack>
-        <Box marginLeft="200px" sx={{ marginTop: "20px" }}>
-          <Kalender />
-          <Table />
+        <Box
+          sx={{
+            marginTop: "20px",
+            marginLeft: "200px", // gunakan `marginLeft` di dalam `sx`
+            width: "100%", // memastikan Box mengisi lebar penuh container
+          }}
+        >
+          <Detail />
         </Box>
       </Container>
     </div>
-  );
+  )
 }
+
+export default index

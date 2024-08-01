@@ -11,16 +11,45 @@ import {
   Paper,
   Chip,
   Container,
+  Card,
+  CardContent,
+  styled,
+  CardMedia,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
-const detail = () => {
+const Detail = () => {
+  // const Navigate = useNavigate();
+  const Navigate = useNavigate();
+  const StatusBadge = styled(Box)(({ theme }) => ({
+    backgroundColor: "#D4FFDB",
+
+    color: "#5AF411",
+    padding: "4px 8px",
+    borderRadius: "4px",
+    display: "inline-block",
+    marginBottom: theme.spacing(2),
+  }));
+
+  const Kembali = styled(Box)(({ theme }) => ({
+    color: "#00A9AD",
+    padding: "4px 8px",
+    borderRadius: "4px",
+    display: "inline-block",
+    border: "1px solid #00A9AD",
+    marginBottom: theme.spacing(2),
+  }));
+
   return (
     <Container
       maxWidth="md" // Mengatur ukuran maksimum container menjadi "md" (medium)
       sx={{
         maxWidth: "1200px", // Anda dapat menyesuaikan nilai ini untuk mengatur lebar maksimum container
         marginTop: 2,
+        marginBottom:2,
         fontFamily: "Montserrat, sans-serif",
+        bgcolor: "#EFEFEF",
+        padding: 1,
       }}
     >
       <Box
@@ -32,145 +61,270 @@ const detail = () => {
       >
         <h3 style={{ marginBottom: "0" }}>DETAIL</h3>
       </Box>
-      <Box
-        component={Paper}
+      <Card
         sx={{
+          maxWidth: 700,
+          margin: "0 auto",
+          borderRadius: 2,
           p: 2,
           background: "white",
           marginTop: 2,
-          maxWidth: "100%",
-          fontFamily: "Montserrat, sans-serif",
+          maxWidth: "auto",
+          boxShadow: 5,
         }}
       >
-        <Typography
-          variant="h6"
-          align="center"
-          gutterBottom
-          sx={{ fontFamily: "Montserrat" }}
-        >
-          INFORMASI PELAPOR
-        </Typography>
+        <CardContent>
+          <Typography
+            textAlign="center"
+            variant="h6"
+            component="div"
+            gutterBottom
+            fontWeight="bolder"
+            fontFamily="Montserrat"
+          >
+            INFORMASI OBJEK
+          </Typography>
+          {/* <StatusBadge>DITERIMA</StatusBadge> */}
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "flex-start", // Menyelaraskan item dengan awal (atas)
+              gap: "215px", // Mengatur jarak antar box
+              textAlign: "left",
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <Typography variant="body1" color="#A0A1A4">
+                Nama Objek
+              </Typography>
+              <Typography variant="body1" color="#A0A1A4">
+                Tipe Objek
+              </Typography>
+              <Typography variant="body1" color="#A0A1A4">
+                Aktivitas Objek
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <Typography variant="body1" color="#333333">
+                : Khoirul Mustaank
+              </Typography>
+              <Typography variant="body1" color="#333333">
+                : Tamu
+              </Typography>
+              <Typography variant="body1" color="#333333">
+                : Berkunjung ke rumah bapak Budi
+              </Typography>
+            </Box>
+          </Box>
+        </CardContent>
+      </Card>
 
-        <List>
-          <ListItem>
-            <ListItemText primary="Nama Warga" secondary=": Khoirul Mustaan" />
-          </ListItem>
-          <ListItem>
-            <ListItemText primary="NIK" secondary=": 3213124603450001" />
-          </ListItem>
-          <ListItem>
-            <ListItemText primary="Nomor Telepon" secondary=": 087889342226" />
-          </ListItem>
-        </List>
-      </Box>
-
-      <Box
-        component={Paper}
-        sx={{ p: 2, background: "white", marginTop: 2, maxWidth: "800px" }}
+      <Card
+        sx={{
+          maxWidth: 700,
+          margin: "0 auto",
+          borderRadius: 2,
+          p: 2,
+          background: "white",
+          marginTop: 2,
+          maxWidth: "auto",
+          boxShadow: 5,
+        }}
       >
-        <Typography
-          variant="h6"
-          align="center"
-          gutterBottom
-          sx={{ fontFamily: "Montserrat" }}
-        >
-          INFORMASI ADUAN KEAMANAN
-        </Typography>
-
-        <Chip
-          label="DITERIMA"
-          sx={{
-            color: "#5AF411",
-            bgcolor: "#DBF8DC",
-            justifyContent: "center",
-            display: "flex",
-            alignItems: "center",
-            width: "100px",
-            marginLeft: 2, // adjust height if necessary
-          }}
-        />
-
-        <List>
-          <ListItem>
-            <ListItemText
-              primary="Judul"
-              secondary=": Orang meresahkan lewat depan rumah"
-            />
-          </ListItem>
-          <ListItem>
-            <ListItemText primary="Jenis" secondary=": Keamanan" />
-          </ListItem>
-          <ListItem>
-            <ListItemText
-              primary="Tanggal Pengaduan"
-              secondary=": 06/01/2024"
-            />
-          </ListItem>
-          <ListItem>
-            <ListItemText primary="Waktu Pengaduan" secondary=": 08:00" />
-          </ListItem>
-          <ListItem>
-            <ListItemText
-              primary="Lokasi Kejadian"
-              secondary="Jalan Kemang Dahlia Blok Z no. 12, RT 02/RW 02"
-            />
-          </ListItem>
-          <ListItem
+        <CardContent>
+          <Typography
+            textAlign="center"
+            variant="h6"
+            component="div"
+            gutterBottom
+            fontWeight="bolder"
+            fontFamily="Montserrat"
+          >
+            INFORMASI ADUAN KEAMANAN
+          </Typography>
+          <StatusBadge
+            sx={{
+              justifyContent: "center",
+              display: "flex",
+              alignContent: "flex-start",
+              alignItems: "center",
+              width: "100px",
+            }}
+          >
+            DITERIMA
+          </StatusBadge>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "flex-start", // Menyelaraskan item dengan awal (atas)
+              gap: "180px", // Mengatur jarak antar box
+              textAlign: "left",
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <Typography variant="body1" color="#A0A1A4" marginBottom={1}>
+                Judul
+              </Typography>
+              <Typography variant="body1" color="#A0A1A4" marginBottom={1}>
+                Jenis
+              </Typography>
+              <Typography variant="body1" color="#A0A1A4" marginBottom={1}>
+                Tanggal Pengaduan
+              </Typography>
+              <Typography variant="body1" color="#A0A1A4" marginBottom={1}>
+                Waktu Pengaduan
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <Typography variant="body1" color="#333333" marginBottom={1}>
+                : Orang meresahkan lewat depan Rumah
+              </Typography>
+              <Typography variant="body1" color="#333333" marginBottom={1}>
+                : Keamanan
+              </Typography>
+              <Typography variant="body1" color="#333333" marginBottom={1}>
+                : 06 / 01 / 2024
+              </Typography>
+              <Typography variant="body1" color="#333333" marginBottom={1}>
+                : 08.00
+              </Typography>
+            </Box>
+          </Box>
+          <Box
             sx={{
               display: "flex",
               flexDirection: "column",
-              alignItems: "flex-start",
+              textAlign: "start",
+              marginTop: 2,
             }}
           >
-            <ListItemText primary="Media" />
-            <img
+            <Typography variant="body1" color="#A0A1A4">
+              Lokasi Kejadian
+            </Typography>
+            <Typography variant="body1" color="#333333">
+              Jalan Kemang Dahlia Blok Z no. 12, RT 02/ RW 02
+            </Typography>
+            <Typography variant="body1" color="#A0A1A4" marginTop={2}>
+              Media
+            </Typography>
+            <CardMedia>
+              <img
+                src="https://images2.alphacoders.com/925/thumb-1920-925917.png"
+                alt="Media Laporan"
+                style={{
+                  maxWidth: "400px",
+                  width: "100%",
+                }}
+              ></img>
+            </CardMedia>
+          </Box>
+        </CardContent>
+      </Card>
+      {/* <img
               src="https://images2.alphacoders.com/925/thumb-1920-925917.png"
               alt="Media"
               style={{
                 maxWidth: "300px",
                 width: "100%",
               }}
-            />
-          </ListItem>
-        </List>
-      </Box>
+            /> */}
 
-      <Box
-        component={Paper}
+      <Card
         sx={{
+          maxWidth: 700,
+          margin: "0 auto",
+          borderRadius: 2,
           p: 2,
           background: "white",
           marginTop: 2,
-          maxWidth: "100%",
-          fontFamily: "Montserrat, sans-serif",
+          maxWidth: "auto",
+          boxShadow: 5,
         }}
       >
-        <Typography
-          variant="h6"
-          align="center"
-          gutterBottom
-          sx={{ fontFamily: "Montserrat" }}
-        >
-          KETERANGAN ADUAN
-        </Typography>
+        <CardContent>
+          <Typography
+            textAlign="center"
+            variant="h6"
+            component="div"
+            gutterBottom
+            fontWeight="bolder"
+            fontFamily="Montserrat"
+          >
+            INFORMASI ADUAN KEAMANAN
+          </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              textAlign: "start",
+              marginTop: 2,
+            }}
+          >
+            <Typography variant="body1" color="#A0A1A4">
+              Alasan Pengaduan
+            </Typography>
+            <Typography variant="body1" color="#333333">
+              Ada orang tidak jelas yang setiap hari keliling keliling depan
+              rumah saya, entah apa tujuan orang tersebut tetapi terlihat
+              mencurigakan
+            </Typography>
+            <Typography variant="body1" color="#A0A1A4" marginTop={3}>
+              Keterangan
+            </Typography>
+            <Typography variant="body1" color="#333333">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat
+            </Typography>
+          </Box>
+        </CardContent>
+      </Card>
 
-        <List>
-          <ListItem>
-            <ListItemText
-              primary="Alasan Pengaduan"
-              secondary="Ada orang tidak jelas yang setiap hari keliling keliling depan rumah saya, entah apa tujuan orang tersebut tetapi terlihat mencurigakan"
-            />
-          </ListItem>
-          <ListItem>
-            <ListItemText
-              primary="Keterangan"
-              secondary="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim  veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea  commodo consequat"
-            />
-          </ListItem>
-        </List>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "flex-end", // Memindahkan kotak ke kanan
+          padding: 2,
+        }}
+      >
+        <Kembali
+          sx={{
+            margin: 2,
+            justifyContent: "center",
+            display: "flex",
+            alignContent: "flex-start",
+            alignItems: "center",
+            width: "100px",
+            cursor:'pointer'
+          }}
+          onClick={() => Navigate("/")}
+        >
+          Kembali
+        </Kembali>
       </Box>
     </Container>
   );
 };
 
-export default detail;
+export default Detail;

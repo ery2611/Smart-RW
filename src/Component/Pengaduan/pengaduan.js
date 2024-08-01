@@ -12,6 +12,7 @@ import {
   Box,
 } from "@mui/material";
 import Mata from "@mui/icons-material/VisibilityOutlined";
+import { useNavigate } from "react-router-dom";
 
 // Data array
 const rows = [
@@ -77,6 +78,7 @@ const getStatuscolor = (status) => {
   }
 };
 const SimpleTable = () => {
+  const Navigate = useNavigate();
   return (
     <Container>
       <Box
@@ -90,7 +92,7 @@ const SimpleTable = () => {
       </Box>
       <TableContainer
         component={Paper}
-        sx={{ marginTop: 4, fontFamily: "Montserrat, sans-serif" }}
+        sx={{ marginTop: 4,marginBottom:2, fontFamily: "Montserrat, sans-serif",boxShadow:5 }}
       >
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
@@ -159,7 +161,7 @@ const SimpleTable = () => {
                   <Chip label={row.status} sx={getStatuscolor(row.status)} />
                 </TableCell>
                 <TableCell>
-                  <Mata sx={{ color: "#00A9AD" }} />
+                  <Mata onClick={() => Navigate("/detail")} sx={{ color: "#00A9AD",cursor:'pointer' }} />
                 </TableCell>
               </TableRow>
             ))}

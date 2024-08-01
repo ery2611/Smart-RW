@@ -93,15 +93,14 @@ const calender = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            backgroundColor: "#eeeeee",
+            backgroundColor: "#fff",
           }}
         >
           <Box
             sx={{
               width: "450px",
-              border: "1px solid #ddd",
               borderRadius: "8px",
-              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+              boxShadow: 5,
               bgcolor:'#00A9AD',
               p: 1,
               
