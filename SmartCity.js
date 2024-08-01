@@ -7,13 +7,16 @@ import {
   TextField,
   Typography,
   Stack,
-  Button
+  Button,
+  Container
 } from "@mui/material";
-import Navbar from "./Components/NavbarRafif";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 const SmartCity = () => {
   const [cardBencana, setCardBencana] = useState("");
+
+  const navigate = useNavigate('')
 
   const peringatan = [
     {
@@ -66,8 +69,16 @@ const SmartCity = () => {
     setCardBencana(e.target.value)
   };
 
+  const handleSubmit = () => {
+    // 
+  }
+
+  const handleCancel = (params) => {
+    navigate(params)
+  }
+
   return (
-    <Box sx={{ background: "#EFEFEF" }}>
+    <Box sx={{}}>
       <Box
         sx={{
           width: "100%",
@@ -77,11 +88,11 @@ const SmartCity = () => {
         }}
       >
         {/* Text pojok kiri atas */}
-        <Box sx={{ m: 2, display: "flex", height: "3%", width: "100%" }}>
+      <Box height='70px'>
         <Stack direction="column" textAlign='left'>
         <Typography
           variant="h5"
-          sx={{ marginBottom: 0, color: "#00A9AD", fontSize: 18, fontWeight:'bold' }}
+          sx={{ marginBottom: 0, color: "#00A9AD", fontSize: 18 }}
         >
           COMMAND CENTER
         </Typography>
@@ -97,15 +108,15 @@ const SmartCity = () => {
           </Typography>
         </Stack>
       </Stack>
-
-        </Box>
+    </Box>
 
         {/* subBencana = ambil keterangan dari informasi bencana */}
-        <Box sx={{ height: "100%", overflowY: "auto" }}>
-          <Typography>FORM PERINGATAN DINI</Typography>
+      <Box sx={{ display:'flex', justifyContent:'center'}}>
+        <Box sx={{ height: "100%", overflowY: "auto", textAlign:'center', background:'#EFEFEF', width:'80%', paddingTop:2, paddingBottom:2, borderRadius:'12px' }}>
+          <Typography variant="h6">FORM PERINGATAN DINI</Typography>
           {/* informasi cuaca */}
-          <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
-            <Card sx={{ width: "65%" }}>
+          <Box sx={{ display: "flex", justifyContent: "center", mt:1 }}>
+            <Card sx={{ width: "85%", borderRadius:'12px' }}>
               <Typography marginTop="10px" variant="body1" fontWeight="bold">
                 INFORMASI CUACA
               </Typography>
@@ -116,7 +127,6 @@ const SmartCity = () => {
                   <Typography variant="body1">Cuaca</Typography>
                   <TextField
                     sx={{ width: "95%" }}
-                    label="pilih cuaca"
                     size="small"
                     variant="outlined"
                     select
@@ -132,7 +142,7 @@ const SmartCity = () => {
                   <Typography variant="body1">Suhu</Typography>
                   <TextField
                     sx={{ width: "95%" }}
-                    label="Masukan suhu"
+                    placeholder="Masukan suhu"
                     size="small"
                     variant="outlined"
                   >
@@ -146,7 +156,7 @@ const SmartCity = () => {
                 <Typography variant="body1">Keterangan cuaca</Typography>
                 <TextField
                   sx={{ width: "100%" }}
-                  label="Masukan keterangan cuaca"
+                  placeholder="Masukan keterangan cuaca"
                   variant="outlined"
                   multiline
                   rows={3}
@@ -167,7 +177,7 @@ const SmartCity = () => {
               overflowY: "auto",
             }}
           >
-            <Card sx={{ width: "65%" }}>
+            <Card sx={{ width: "85%", borderRadius:'12px' }}>
               <Typography marginTop="10px" variant="body1" fontWeight="bold">
                 INFORMASI BENCANA
               </Typography>
@@ -178,7 +188,7 @@ const SmartCity = () => {
                 </Typography>
                 <TextField
                   sx={{ width: "100%" }}
-                  label="Masukan judul bencana"
+                  placeholder="Masukan judul bencana"
                   size="small"
                   variant="outlined"
                 ></TextField>
@@ -188,7 +198,7 @@ const SmartCity = () => {
                 </Typography>
                 <TextField
                   sx={{ width: "100%" }}
-                  label="Pilih Jenis Bencana"
+                  placeholder="Pilih Jenis Bencana"
                   size="small"
                   variant="outlined"
                   value={cardBencana}
@@ -207,7 +217,7 @@ const SmartCity = () => {
                 </Typography>
                 <TextField
                   sx={{ width: "100%" }}
-                  label="Pilih Peringatan"
+                  placeholder="Pilih Peringatan"
                   size="small"
                   variant="outlined"
                   select
@@ -246,7 +256,7 @@ const SmartCity = () => {
                 </Typography>
                 <TextField
                   sx={{ width: "100%" }}
-                  label="Masukan Lokasi Bencana"
+                  placeholder="Masukan Lokasi Bencana"
                   size="small"
                   variant="outlined"
                 ></TextField>
@@ -258,7 +268,7 @@ const SmartCity = () => {
           {/* informasi 'subBencana' */}
           {(cardBencana === "Kebakaran" && (
             <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
-              <Card sx={{ width: "65%" }}>
+              <Card sx={{ width: "85%", borderRadius:'12px' }}>
                 <Typography marginTop="10px" variant="body1" fontWeight="bold">
                   INFORMASI KEBAKARAN
                 </Typography>
@@ -269,7 +279,7 @@ const SmartCity = () => {
                       <Typography variant="body1">Panas Api</Typography>
                       <TextField
                         sx={{ width: "95%" }}
-                        label="Masukan Panas Api"
+                        placeholder="Masukan Panas Api"
                         size="small"
                         variant="outlined"
                       ></TextField>
@@ -279,7 +289,7 @@ const SmartCity = () => {
                       <TextField
                         sx={{ width: "100%" }}
                         select
-                        label="Masukan Status Api"
+                        placeholder="Masukan Status Api"
                         size="small"
                         variant="outlined"
                       >
@@ -297,7 +307,7 @@ const SmartCity = () => {
                   </Typography>
                   <TextField
                     sx={{ width: "100%" }}
-                    label="Masukan Status Siaga"
+                    placeholder="Masukan Status Siaga"
                     size="small"
                     variant="outlined"
                     select
@@ -313,7 +323,7 @@ const SmartCity = () => {
                   </Typography>
                   <TextField
                     sx={{ width: "100%" }}
-                    label="Masukan Parameter Penentuan"
+                    placeholder="Masukan Parameter Penentuan"
                     size="small"
                     variant="outlined"
                   ></TextField>
@@ -325,7 +335,7 @@ const SmartCity = () => {
           )) ||
             (cardBencana === "Banjir" && (
               <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
-                <Card sx={{ width: "65%" }}>
+                <Card sx={{ width: "85%", borderRadius:'12px'}}>
                   <Typography
                     marginTop="10px"
                     variant="body1"
@@ -340,7 +350,7 @@ const SmartCity = () => {
                         <Typography variant="body1">Tinggi Air</Typography>
                         <TextField
                           sx={{ width: "95%" }}
-                          label="Masukan Tinggi Air"
+                          placeholder="Masukan Tinggi Air"
                           size="small"
                           variant="outlined"
                         ></TextField>
@@ -349,7 +359,7 @@ const SmartCity = () => {
                         <Typography variant="body1">Curah Hujan</Typography>
                         <TextField
                           sx={{ width: "100%", color: "#00A9AD" }}
-                          label="Masukan Curah Hujan"
+                          placeholder="Masukan Curah Hujan"
                           size="small"
                           variant="outlined"
                         >
@@ -363,7 +373,7 @@ const SmartCity = () => {
                     </Typography>
                     <TextField
                       sx={{ width: "100%" }}
-                      label="Masukan Status Siaga"
+                      placeholder="Masukan Status Siaga"
                       size="small"
                       variant="outlined"
                       select
@@ -379,7 +389,7 @@ const SmartCity = () => {
                     </Typography>
                     <TextField
                       sx={{ width: "100%" }}
-                      label="Masukan Parameter Penentuan"
+                      placeholder="Masukan Parameter Penentuan"
                       size="small"
                       variant="outlined"
                     ></TextField>
@@ -391,7 +401,7 @@ const SmartCity = () => {
             )) ||
             (cardBencana === "Tanah Longsor" && (
               <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
-                <Card sx={{ width: "65%" }}>
+                <Card sx={{ width: "85%", borderRadius:'12px' }}>
                   <Typography
                     marginTop="10px"
                     variant="body1"
@@ -406,7 +416,7 @@ const SmartCity = () => {
                     </Typography>
                     <TextField
                       sx={{ width: "100%" }}
-                      label="Masukan Status Perbaikan"
+                      placeholder="Masukan Status Perbaikan"
                       size="small"
                       variant="outlined"
                       select
@@ -423,7 +433,7 @@ const SmartCity = () => {
                     </Typography>
                     <TextField
                       sx={{ width: "100%" }}
-                      label="Masukan Status Siaga"
+                      placeholder="Masukan Status Siaga"
                       size="small"
                       variant="outlined"
                       select
@@ -439,7 +449,7 @@ const SmartCity = () => {
                     </Typography>
                     <TextField
                       sx={{ width: "100%" }}
-                      label="Masukan Parameter Penentuan"
+                      placeholder="Masukan Parameter Penentuan"
                       size="small"
                       variant="outlined"
                     ></TextField>
@@ -452,7 +462,7 @@ const SmartCity = () => {
           {/* keterangan 'subBencana' */}
           {cardBencana && (
             <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
-              <Card sx={{ width: "65%" }}>
+              <Card sx={{ width: "85%", borderRadius:'12px' }}>
                 <Typography marginTop="10px" variant="body1" fontWeight="bold">
                   KETERANGAN BENCANA{" "}
                 </Typography>
@@ -463,7 +473,7 @@ const SmartCity = () => {
                   </Typography>
                   <TextField
                     sx={{ width: "100%" }}
-                    label="Masukan Deskripsi kondisi"
+                    placeholder="Masukan Deskripsi kondisi"
                     size="small"
                     variant="outlined"
                   ></TextField>
@@ -472,7 +482,7 @@ const SmartCity = () => {
                   </Typography>
                   <TextField
                     sx={{ width: "100%" }}
-                    label="Masukan Peringatan"
+                    placeholder="Masukan Peringatan"
                     size="small"
                     variant="outlined"
                   >
@@ -482,7 +492,7 @@ const SmartCity = () => {
                   </Typography>
                   <TextField
                     sx={{ width: "100%" }}
-                    label="Masukan Tindakan"
+                    placeholder="Masukan Tindakan"
                     size="small"
                     variant="outlined"
                   ></TextField>
@@ -491,7 +501,7 @@ const SmartCity = () => {
                   </Typography>
                   <TextField
                     sx={{ width: "100%" }}
-                    label="Masukan Penyebab"
+                    placeholder="Masukan Penyebab"
                     size="small"
                     variant="outlined"
                   ></TextField>
@@ -500,7 +510,7 @@ const SmartCity = () => {
                   </Typography>
                   <TextField
                     sx={{ width: "100%" }}
-                    label="Masukan Keterangan"
+                    placeholder="Masukan Keterangan"
                     size="small"
                     variant="outlined"
                     multiline
@@ -513,14 +523,15 @@ const SmartCity = () => {
             </Box>
           )}
           {/* button submit dan batal */}
-          <Box sx={{display:'flex',justifyContent:'center',mt:4}}>
+          <Box sx={{display:'flex',justifyContent:'end',width:'93%',mt:3}}>
             <Box sx={{width:'65%', textAlign:'end'}}>
               <Button variant='contained' sx={{height:38, background:'#00A9AD', mr:3}}>SUBMIT</Button>
-              <Button variant='outlined' sx={{height:38, color:'#00A9AD'}}>BATAL</Button>
+              <Button variant='outlined' onClick={()=>{handleCancel('/')}} sx={{height:38, color:'#00A9AD'}}>BATAL</Button>
             </Box>
           </Box>
         </Box>
       </Box>
+    </Box>
     </Box>
   );
 };
