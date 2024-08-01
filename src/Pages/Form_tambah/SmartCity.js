@@ -109,11 +109,11 @@ const SmartCity = () => {
       </Stack>
 
         {/* subBencana = ambil keterangan dari informasi bencana */}
-        <Box sx={{ height: "100%", overflowY: "auto", textAlign:'center' }}>
+        <Box sx={{ height: "100%", overflowY: "auto", textAlign:'center', background:'#EFEFEF' }}>
           <Typography variant="h6">FORM PERINGATAN DINI</Typography>
           {/* informasi cuaca */}
           <Box sx={{ display: "flex", justifyContent: "center", mt:1 }}>
-            <Card sx={{ width: "65%" }}>
+            <Card sx={{ width: "65%", borderRadius:'12px' }}>
               <Typography marginTop="10px" variant="body1" fontWeight="bold">
                 INFORMASI CUACA
               </Typography>
