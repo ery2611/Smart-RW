@@ -19,7 +19,6 @@ import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import AddIcon from "@mui/icons-material/Add";
 import Datepicker from "../../Components/Datepicker/Index";
-import { useNavigate } from "react-router";
 
 const data = [
   // Your data array
@@ -36,7 +35,7 @@ const data = [
   {
     id: 2,
     judul_bencana: "Kebakaran Rumah",
-    jenis_bencana: "Kebarakan",
+    jenis_bencana: "Kebakaran",
     tanggal: "06/01/2024",
     jam: "08:00",
     parameter: "Sumber Api",
@@ -110,11 +109,20 @@ const getPeringatanColor = (peringatan) => {
   }
 };
 
+const truncateText = (text, maxLength) => {
+  if (!text) {
+    return "";
+  }
+  if (text.length <= maxLength) {
+    return text;
+  }
+  return text.substring(0, maxLength) + "...";
+};
+
 const EWS = () => {
   const [searchText, setSearchText] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
-  const navigate = useNavigate('')
 
   const handleSearchChange = (event) => {
     setSearchText(event.target.value);
@@ -124,9 +132,8 @@ const EWS = () => {
     // Lakukan pencarian berdasarkan selectedDate dan searchText
   };
 
-  const handleAdd = (params) => {
+  const handleAdd = () => {
     // Tambahkan fungsi untuk menambah data baru
-    navigate(params)
   };
 
   const handlePageChange = (event, value) => {
@@ -156,6 +163,9 @@ const EWS = () => {
             Early Warning System
           </Typography>
         </Stack>
+        <Typography variant="h9" sx={{ color: "black", fontWeight: "hin" }}>
+          Tanggal
+        </Typography>
       </Stack>
       <Stack
         direction="row"
@@ -163,7 +173,7 @@ const EWS = () => {
         alignItems="center"
         sx={{ marginBottom: 2 }}
       >
-        <Datepicker sx={{ height: 1 }} />
+        <Datepicker />
 
         <TextField
           value={searchText}
@@ -184,7 +194,7 @@ const EWS = () => {
         <Button
           variant="contained"
           color="primary"
-          onClick={()=>{handleAdd('/tambah')}}
+          onClick={handleAdd}
           startIcon={<AddIcon />}
           sx={{
             backgroundColor: "#00A9AD",
@@ -197,7 +207,7 @@ const EWS = () => {
           TAMBAH
         </Button>
       </Stack>
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} sx={{ flexGrow: 1 }}>
         <Table>
           <TableHead>
             <TableRow>
@@ -279,9 +289,9 @@ const EWS = () => {
                 <TableCell>{row.id}</TableCell>
                 <TableCell>
                   <Stack direction="column" alignItems="left">
-                    <span>{row.judul_bencana}</span>
+                    <span>{truncateText(row.judul_bencana, 20)}</span>
                     <span style={{ color: "#A1A5B7" }}>
-                      {row.jenis_bencana}
+                      {truncateText(row.jenis_bencana, 20)}
                     </span>
                   </Stack>
                 </TableCell>
@@ -291,11 +301,11 @@ const EWS = () => {
                     <span style={{ color: "#A1A5B7" }}>{row.jam}</span>
                   </Stack>
                 </TableCell>
-                <TableCell>{row.parameter}</TableCell>
-                <TableCell>{row.lokasi}</TableCell>
+                <TableCell>{truncateText(row.parameter, 20)}</TableCell>
+                <TableCell>{truncateText(row.lokasi, 20)}</TableCell>
                 <TableCell>
                   <Chip
-                    label={row.peringatan}
+                    label={truncateText(row.peringatan, 20)}
                     sx={getPeringatanColor(row.peringatan)}
                   />
                 </TableCell>
