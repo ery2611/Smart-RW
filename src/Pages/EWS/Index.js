@@ -12,15 +12,16 @@ import {
   Button,
   Stack,
   Typography,
+  Chip,
+  Pagination,
 } from "@mui/material";
-import Chip from "@mui/material/Chip";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import AddIcon from "@mui/icons-material/Add";
 import Datepicker from "../../Components/Datepicker/Index";
-import { useNavigate } from "react-router";
 
 const data = [
+  // Your data array
   {
     id: 1,
     judul_bencana: "Banjir Bandang",
@@ -71,8 +72,17 @@ const data = [
     lokasi: "Area RW02 Kemang Pratama",
     peringatan: "WASPADA",
   },
+  {
+    id: 6,
+    judul_bencana: "Banjir Bandang",
+    jenis_bencana: "Banjir",
+    tanggal: "06/01/2024",
+    jam: "08:00",
+    parameter: "Prakiraan cuaca",
+    lokasi: "Area RW02 Kemang Pratama",
+    peringatan: "WASPADA",
+  },
 ];
-
 
 const getPeringatanColor = (peringatan) => {
   switch (peringatan) {
@@ -100,9 +110,10 @@ const getPeringatanColor = (peringatan) => {
 };
 
 const EWS = () => {
-  const navigate = useNavigate('');
-
   const [searchText, setSearchText] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
+
   const handleSearchChange = (event) => {
     setSearchText(event.target.value);
   };
@@ -113,8 +124,17 @@ const EWS = () => {
 
   const handleAdd = () => {
     // Tambahkan fungsi untuk menambah data baru
-    navigate('/tambah')
   };
+
+  const handlePageChange = (event, value) => {
+    setCurrentPage(value);
+  };
+
+  // Get current data
+  const currentData = data.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
   return (
     <div>
@@ -133,9 +153,6 @@ const EWS = () => {
             Early Warning System
           </Typography>
         </Stack>
-        <Typography variant="h9" sx={{ color: "black", fontWeight: "hin" }}>
-          Tanggal
-        </Typography>
       </Stack>
       <Stack
         direction="row"
@@ -163,15 +180,16 @@ const EWS = () => {
         </Button>
         <Button
           variant="contained"
-          onClick={()=>{navigate('/tambah')}}
+          color="primary"
+          onClick={handleAdd}
           startIcon={<AddIcon />}
           sx={{
             backgroundColor: "#00A9AD",
+            marginLeft: "auto",
             height: 38,
             display: "flex",
             alignItems: "center",
           }}
-          style={{ marginLeft: "auto" }}
         >
           TAMBAH
         </Button>
@@ -246,7 +264,7 @@ const EWS = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data.map((row) => (
+            {currentData.map((row) => (
               <TableRow
                 key={row.id}
                 sx={{
@@ -288,6 +306,14 @@ const EWS = () => {
           </TableBody>
         </Table>
       </TableContainer>
+      <Stack direction="row" justifyContent="center" sx={{ marginTop: 2 }}>
+        <Pagination
+          count={Math.ceil(data.length / itemsPerPage)}
+          page={currentPage}
+          onChange={handlePageChange}
+          color="primary"
+        />
+      </Stack>
     </div>
   );
 };
