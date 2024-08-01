@@ -88,6 +88,7 @@ const SmartCity = () => {
         }}
       >
         {/* Text pojok kiri atas */}
+      <Box height='70px'>
         <Stack direction="column" textAlign='left'>
         <Typography
           variant="h5"
@@ -107,6 +108,7 @@ const SmartCity = () => {
           </Typography>
         </Stack>
       </Stack>
+    </Box>
 
         {/* subBencana = ambil keterangan dari informasi bencana */}
       <Box sx={{ display:'flex', justifyContent:'center'}}>
