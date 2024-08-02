@@ -24,6 +24,7 @@ const Index = () => {
         >
           <Container
             maxWidth="lg"
+            marginBottom='10px'
 
           >
             <Stack direction="column">
@@ -50,7 +51,7 @@ const Index = () => {
                 </Typography>
               </Stack>
             </Stack>
-            <Box sx={{ marginTop: "20px" }}>
+            <Box sx={{ marginTop: "0px" }}>
               <Table />
             </Box>
           </Container>

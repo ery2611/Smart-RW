@@ -32,7 +32,7 @@ export default function index() {
             </Typography>
           </Stack>
         </Stack>
-        <Box sx={{ marginTop: "20px", padding:4}}>
+        <Box sx={{ marginTop: "20px", paddingBottom:4}}>
           <Kalender />
           <Table />
         </Box>

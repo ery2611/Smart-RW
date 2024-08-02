@@ -26,8 +26,8 @@ function App() {
   };
 
   return (
-    <Box display="flex" justifyContent="center" alignItems="center" height="400px" marginTop='0px'>
-      <Paper sx={{ padding: 10, textAlign: 'center', minWidth: '230px', marginTop:'0px',marginLeft:'59px',
+    <Box display="flex" justifyContent="center" alignItems="center" height="400px" marginTop='25px'>
+      <Paper sx={{ padding: 9, textAlign: 'center', minWidth: '230px', marginTop:'0px',marginLeft:'59px',
          maxHeight:220, display: 'flex', flexDirection: 'column', justifyContent: 'center',  boxShadow:5 }}>
         <Box display="flex" flexDirection="column" alignItems="center">
           <Typography variant="body2" style={{ fontSize: 16, fontWeight: 'bold', marginBottom: 8, color:'#00A9AD' }}>

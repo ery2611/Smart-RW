@@ -15,6 +15,7 @@ function index() {
       
         height:'100%',
         width:'100%',
+        marginTop:'25px',
         display:'flex',
         justifyContent:'center',
         alignItems:'center',

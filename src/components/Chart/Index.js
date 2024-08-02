@@ -18,7 +18,9 @@ const PieChartComponent = ({ data }) => {
   };
 
   return (
-    <Box>
+    <Box sx={{
+      marginTop:'20px'
+    }}>
       <Typography variant="h6" sx={{ fontWeight: "bold", marginBottom: 1 }}>
         DATA ONE GATE SYSTEM
       </Typography>

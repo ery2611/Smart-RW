@@ -98,7 +98,7 @@ const Laporan = () => {
       >
         <Typography
           sx={{
-            fontFamily: "Montserrat",
+            marginTop:'10px',
             textAlign: "left",
           }}
         >
