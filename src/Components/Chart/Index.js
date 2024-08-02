@@ -18,7 +18,7 @@ const PieChartComponent = ({ data }) => {
   };
 
   return (
-    <Box>
+    <Box textAlign={"center"}>
       <Typography variant="h6" sx={{ fontWeight: "bold", marginBottom: 1 }}>
         {data.title} {/* Display title here */}
       </Typography>
