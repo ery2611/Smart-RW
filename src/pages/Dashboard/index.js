@@ -36,7 +36,7 @@ function index() {
           COMMAND CENTER
         </Typography>
         <Stack direction="row" sx={{ marginBottom: 2, fontSize: 14, fontWeight:'bolder' }}>
-          <Typography variant="h8" sx={{ color: "black" }}>
+          <Typography variant="h9" sx={{ color: "black" }}>
             Dashboard
           </Typography>
         </Stack>

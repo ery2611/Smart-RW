@@ -36,7 +36,7 @@ import {
     };
   
     return (
-      <Box sx={{}}>
+      <Box sx={{paddingBottom:4}}>
         <Box
           sx={{
             width: "100%",

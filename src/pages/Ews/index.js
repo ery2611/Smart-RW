@@ -18,8 +18,8 @@ import {
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import AddIcon from "@mui/icons-material/Add";
-import { useNavigate } from "react-router-dom";
 import Datepicker from "../../components/Datepicker/Index";
+import { useNavigate } from "react-router-dom";
 
 const data = [
   // Your data array
@@ -196,16 +196,16 @@ const EWS = () => {
         <Button
           variant="contained"
           color="primary"
-          onClick={() => Navigate("/Ews/Tambah")}
+          onClick={()=> Navigate('/Ews/Tambah')}
           startIcon={<AddIcon />}
-          style={{marginLeft:'auto'}}
+          style={{
+            marginLeft:"auto"
+          }}
           sx={{
             backgroundColor: "#00A9AD",
             marginLeft: "auto",
             height: 38,
             display: "flex",
-            alignItems: "center",
-
           }}
         >
           TAMBAH
@@ -314,7 +314,7 @@ const EWS = () => {
                   />
                 </TableCell>
                 <TableCell>
-                  <IconButton aria-label="Example">
+                  <IconButton aria-label="Example" onClick={()=> Navigate('/Ews/Detail')}>
                     <VisibilityOutlinedIcon sx={{ color: "#00A9AD" }} />
                   </IconButton>
                 </TableCell>
