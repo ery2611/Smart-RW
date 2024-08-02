@@ -136,22 +136,27 @@ const OGS = () => {
     setCurrentPage(value);
   };
 
-  // Calculate data for PieChart
   const calculatePieChartData = () => {
+    const chartTitle = "DATA ONE GATE SYSTEM"; // Set title here
+
+    // Hitung jumlah setiap jenis objek
     const counts = data.reduce((acc, item) => {
       acc[item.jenis_objek.toUpperCase()] =
         (acc[item.jenis_objek.toUpperCase()] || 0) + 1;
       return acc;
     }, {});
 
+    // Hitung total untuk mendapatkan persentase
     const total = Object.values(counts).reduce((sum, count) => sum + count, 0);
 
+    // Siapkan label dan nilai dengan persentase
     const labels = Object.keys(counts);
     const values = Object.values(counts).map((count) =>
       ((count / total) * 100).toFixed(2)
     );
 
-    return { labels, values };
+    // Return data dengan title
+    return { labels, values, title: chartTitle };
   };
 
   // Get current data

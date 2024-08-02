@@ -20,10 +20,10 @@ const PieChartComponent = ({ data }) => {
   return (
     <Box>
       <Typography variant="h6" sx={{ fontWeight: "bold", marginBottom: 1 }}>
-        DATA ONE GATE SYSTEM
+        {data.title} {/* Display title here */}
       </Typography>
       <Typography variant="body2" sx={{ color: "#6c757d", marginBottom: 3 }}>
-        Senin, 6 Januari 2024
+        {new Date().toLocaleDateString()} {/* Display current date here */}
       </Typography>
       <Box
         sx={{
