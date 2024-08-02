@@ -17,13 +17,28 @@ export default function Labtabs() {
   };
   
   return (
-    <Box sx={{ width: '100%', borderRadius:'10px' ,typography: 'body1', backgroundColor: '#EFEFEF' }}>
-      
-      <Box component="h1" sx={{ color: '#00A9AD',marginLeft:'10px',marginTop:'20px', marginBottom:'10px' }}>
-        NOTIFIKASI
-      
-      </Box>
-
+    <Box>
+       <Box sx={{ marginBottom: '5px', display: "flex", height: "3%", width: "100%" }}>
+          <Stack direction="column" textAlign='left'>
+          <Typography
+            variant="h5"
+            sx={{ marginBottom: 0, color: "#00A9AD", fontSize: 18, fontWeight:'bold' }}
+          >
+            COMMAND CENTER
+          </Typography>
+          <Stack direction="row" sx={{ marginBottom: 2, fontSize: 14 }}>
+            <Typography variant="h8" sx={{ color: "#A0A1A4" }}>
+              Dashboard/
+            </Typography>
+            <Typography variant="h9" align="center" sx={{color:'black', fontWeight:'bold'}}>
+              Notifikasi
+            </Typography>
+          </Stack>
+        </Stack>
+  
+          
+    </Box>
+    <Box sx={{ width: '100%', borderRadius:'10px' ,typography: 'body1', boxShadow:5 }}>
       <TabContext value={value}>
         <Box sx={{ borderBottom: 1, borderColor: '#00A9AD' }}>
           <TabList onChange={handleChange} aria-label="lab API tabs example">
@@ -53,5 +68,7 @@ export default function Labtabs() {
         </TabPanel>
       </TabContext>
     </Box>
+    </Box>
+   
   );
 }

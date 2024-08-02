@@ -85,7 +85,9 @@ const Navbar = () => {
           {/* <ListItemIcon>
             <EmergencyIcon />
           </ListItemIcon> */}
-          <ListItemText primary="Panggilan Darurat" />
+          <ListItemText primary="Panggilan Darurat"  onClick={() => Navigate("/Panggilan/Detail")} 
+            sx={{ color: isActive("/Panggilan/Detail") ? '#00A9AD' : 'inherit', 
+              borderBottom: isActive("/Panggilan/Detail") ? '1px solid #EFEFEF' : '0px'}} />
         </ListItem>
       </List>
     </Drawer>
