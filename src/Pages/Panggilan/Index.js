@@ -121,7 +121,8 @@ const Panggilan = () => {
   // Calculate data for PieChart
   const calculatePieChartData = () => {
     const counts = data.reduce((acc, item) => {
-      acc[item.jenis_panggilan] = (acc[item.jenis_panggilan] || 0) + 1;
+      acc[item.jenis_panggilan.toUpperCase()] =
+        (acc[item.jenis_panggilan.toUpperCase()] || 0) + 1;
       return acc;
     }, {});
 
@@ -200,7 +201,7 @@ const Panggilan = () => {
           variant="contained"
           color="primary"
           onClick={() => {
-            handleAdd("/tambahObjek");
+            handleAdd("/");
           }}
           sx={{
             backgroundColor: "#00A9AD",
