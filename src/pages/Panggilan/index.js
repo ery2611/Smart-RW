@@ -1,4 +1,4 @@
-// OGS.js
+// Panggilan
 import React, { useState } from "react";
 import {
   Paper,
@@ -21,89 +21,71 @@ import {
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import AddIcon from "@mui/icons-material/Add";
-import Datepicker from "../../components/Datepicker/Index";
 import { useNavigate } from "react-router";
 import PieChartComponent from "../../components/Chart/Index"; // Update import path
 
 const data = [
   // data array
+
   {
     id: 1,
-    nama_objek: "Yan Azhari",
-    jenis_objek: "Warga",
-    informasi_masuk: "06/01/2024",
-    jam_masuk: "08:00",
-    informasi_keluar: "06/01/2024",
-    jam_keluar: "08:00",
-    keterangan: "Sedang jogging pagi",
-    status_objek: "MENCURIGAKAN",
+    warga: "Khoirul Mustaan",
+    informasi_pemanggilan: "06/01/2024",
+    jam_pemanggilan: "07:00",
+    jenis_panggilan: "Keamanan",
+    status_pemanggilan: "TERIMA",
   },
   {
     id: 2,
-    nama_objek: "Khoirul Mustaan",
-    jenis_objek: "Tamu",
-    informasi_masuk: "06/01/2024",
-    jam_masuk: "08:00",
-    informasi_keluar: "06/01/2024",
-    jam_keluar: "08:00",
-    keterangan: "Ingin berkunjung ke rumah bapak",
-    status_objek: "TIDAK MENCURIGAKAN",
+    warga: "Yan Azhari",
+    informasi_pemanggilan: "06/01/2024",
+    jam_pemanggilan: "07:00",
+    jenis_panggilan: "Bencana",
+    status_pemanggilan: "TOLAK",
   },
   {
     id: 3,
-    nama_objek: "Deddy Sunarya",
-    jenis_objek: "Tidak Dikenal",
-    informasi_masuk: "06/01/2024",
-    jam_masuk: "08:00",
-    informasi_keluar: "06/01/2024",
-    jam_keluar: "08:00",
-    keterangan: "Tidak jelas tujuannya apa",
-    status_objek: "MENCURIGAKAN",
+    warga: "Deddy Sunarya",
+    informasi_pemanggilan: "06/01/2024",
+    jam_pemanggilan: "07:00",
+    jenis_panggilan: "Keamanan",
+    status_pemanggilan: "TERIMA",
   },
   {
     id: 4,
-    nama_objek: "Cindy Riyanti",
-    jenis_objek: "Warga",
-    informasi_masuk: "06/01/2024",
-    jam_masuk: "08:00",
-    informasi_keluar: "06/01/2024",
-    jam_keluar: "08:00",
-    keterangan: "Ingin berkunjung ke rumah bapak",
-    status_objek: "TIDAK MENCURIGAKAN",
+    warga: "Daffa Syarif",
+    informasi_pemanggilan: "06/01/2024",
+    jam_pemanggilan: "07:00",
+    jenis_panggilan: "Kesehatan",
+    status_pemanggilan: "TERIMA",
   },
   {
     id: 5,
-    nama_objek: "Syahri Ramadhan",
-    jenis_objek: "Pengunjung",
-    informasi_masuk: "06/01/2024",
-    jam_masuk: "08:00",
-    informasi_keluar: "06/01/2024",
-    jam_keluar: "08:00",
-    keterangan: "Ingin sholat di Masjid Baitul Jihad",
-    status_objek: "TIDAK MENCURIGAKAN",
+    warga: "Syahri Ramadhan",
+    informasi_pemanggilan: "06/01/2024",
+    jam_pemanggilan: "07:00",
+    jenis_panggilan: "Keamanan",
+    status_pemanggilan: "TOLAK",
   },
   {
     id: 6,
-    nama_objek: "farrel savero",
-    jenis_objek: "Tamu",
-    informasi_masuk: "06/01/2024",
-    jam_masuk: "08:00",
-    informasi_keluar: "06/01/2024",
-    jam_keluar: "08:00",
-    keterangan: "Prakiraan cuaca",
-    status_objek: "TIDAK MENCURIGAKAN",
+    warga: "farrel savero",
+    informasi_pemanggilan: "06/01/2024",
+    jam_pemanggilan: "07:00",
+    jenis_panggilan: "Bencana",
+    status_pemanggilan: "TERIMA",
   },
 ];
 
 const getPeringatanColor = (peringatan) => {
   switch (peringatan) {
-    case "TIDAK MENCURIGAKAN":
+    case "TERIMA":
       return {
         backgroundColor: "#DBF8DC",
         color: "#5AF411",
         fontWeight: "bold",
       };
-    case "MENCURIGAKAN":
+    case "TOLAK":
       return {
         backgroundColor: "#FBE3E3",
         color: "#EE1717",
@@ -114,11 +96,11 @@ const getPeringatanColor = (peringatan) => {
   }
 };
 
-const OGS = () => {
+const Panggilan = () => {
   const [searchText, setSearchText] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
-  const navigate = useNavigate("");
+  const Navigate = useNavigate("");
 
   const handleSearchChange = (event) => {
     setSearchText(event.target.value);
@@ -129,7 +111,7 @@ const OGS = () => {
   };
 
   const handleAdd = (params) => {
-    navigate(params);
+    Navigate(params);
   };
 
   const handlePageChange = (event, value) => {
@@ -139,8 +121,8 @@ const OGS = () => {
   // Calculate data for PieChart
   const calculatePieChartData = () => {
     const counts = data.reduce((acc, item) => {
-      acc[item.jenis_objek.toUpperCase()] =
-        (acc[item.jenis_objek.toUpperCase()] || 0) + 1;
+      acc[item.jenis_panggilan.toUpperCase()] =
+        (acc[item.jenis_panggilan.toUpperCase()] || 0) + 1;
       return acc;
     }, {});
 
@@ -184,7 +166,7 @@ const OGS = () => {
             Dashboard/
           </Typography>
           <Typography variant="h9" sx={{ color: "black", fontWeight: "bold" }}>
-            One Get System
+            Laporan Hasil Deteksi
           </Typography>
         </Stack>
       </Stack>
@@ -199,19 +181,6 @@ const OGS = () => {
         alignItems="flex-end"
         sx={{ marginBottom: 2 }}
       >
-        <Stack>
-          <Typography variant="h9" sx={{ color: "black" }}>
-            Tanggal Masuk
-          </Typography>
-          <Datepicker />
-        </Stack>
-        <Stack>
-          <Typography variant="h9" sx={{ color: "black" }}>
-            Tanggal Keluar
-          </Typography>
-          <Datepicker />
-        </Stack>
-
         <TextField
           value={searchText}
           onChange={handleSearchChange}
@@ -232,9 +201,8 @@ const OGS = () => {
           variant="contained"
           color="primary"
           onClick={() => {
-            navigate("/Ogs/Tambah");
+            Navigate("/Panggilan/Riwayat");
           }}
-          startIcon={<AddIcon />}
           sx={{
             backgroundColor: "#00A9AD",
             height: 38,
@@ -243,7 +211,7 @@ const OGS = () => {
           }}
           style={{ marginLeft: "auto" }}
         >
-          TAMBAH OBJEK
+          RIWAYAT
         </Button>
       </Stack>
       <TableContainer component={Paper}>
@@ -266,7 +234,7 @@ const OGS = () => {
                   color: "#A0A1A4",
                 }}
               >
-                OBJEK
+                WARGA
               </TableCell>
               <TableCell
                 sx={{
@@ -275,7 +243,7 @@ const OGS = () => {
                   color: "#A0A1A4",
                 }}
               >
-                INFORMASI MASUK
+                INFORMASI PEMANGGILAN
               </TableCell>
               <TableCell
                 sx={{
@@ -284,7 +252,7 @@ const OGS = () => {
                   color: "#A0A1A4",
                 }}
               >
-                INFORMASI KELUAR
+                JENIS PANGGILAN
               </TableCell>
               <TableCell
                 sx={{
@@ -293,16 +261,7 @@ const OGS = () => {
                   color: "#A0A1A4",
                 }}
               >
-                KETERANGAN
-              </TableCell>
-              <TableCell
-                sx={{
-                  fontFamily: "Montserrat, sans-serif",
-                  fontWeight: "bold",
-                  color: "#A0A1A4",
-                }}
-              >
-                STATUS OBJEK
+                STATUS
               </TableCell>
               <TableCell
                 sx={{
@@ -328,37 +287,26 @@ const OGS = () => {
                 <TableCell>{row.id}</TableCell>
                 <TableCell>
                   <Stack direction="column" alignItems="left">
-                    <span>{truncateText(row.nama_objek, 20)}</span>
-                    <span style={{ color: "#A1A5B7" }}>
-                      {truncateText(row.jenis_objek, 20)}
-                    </span>
+                    <span>{truncateText(row.warga, 20)}</span>
                   </Stack>
                 </TableCell>
                 <TableCell>
                   <Stack direction="column" alignItems="left">
-                    <span>{truncateText(row.informasi_masuk, 20)}</span>
+                    <span>{truncateText(row.informasi_pemanggilan, 20)}</span>
                     <span style={{ color: "#A1A5B7" }}>
-                      {truncateText(row.jam_masuk, 20)}
+                      {truncateText(row.jam_pemanggilan, 20)}
                     </span>
                   </Stack>
                 </TableCell>
-                <TableCell>
-                  <Stack direction="column" alignItems="left">
-                    <span>{truncateText(row.informasi_keluar, 20)}</span>
-                    <span style={{ color: "#A1A5B7" }}>
-                      {truncateText(row.jam_keluar, 20)}
-                    </span>
-                  </Stack>
-                </TableCell>
-                <TableCell>{truncateText(row.keterangan, 20)}</TableCell>
+                <TableCell>{truncateText(row.jenis_panggilan, 20)}</TableCell>
                 <TableCell>
                   <Chip
-                    label={row.status_objek}
-                    sx={getPeringatanColor(row.status_objek)}
+                    label={row.status_pemanggilan}
+                    sx={getPeringatanColor(row.status_pemanggilan)}
                   />
                 </TableCell>
                 <TableCell>
-                  <IconButton aria-label="Example" onClick={()=> navigate('/Ogs/Detail')}>
+                  <IconButton aria-label="Example" onClick={()=> Navigate('/Panggilan/Detail')}>
                     <VisibilityOutlinedIcon sx={{ color: "#00A9AD" }} />
                   </IconButton>
                 </TableCell>
@@ -379,4 +327,4 @@ const OGS = () => {
   );
 };
 
-export default OGS;
+export default Panggilan;

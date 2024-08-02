@@ -3,6 +3,7 @@ import React from "react";
 import { Pie } from "react-chartjs-2";
 import { Box, Typography, Stack } from "@mui/material";
 import "chart.js/auto";
+import { useLocation } from "react-router-dom";
 
 const PieChartComponent = ({ data }) => {
   // Prepare the data for the chart
@@ -17,14 +18,23 @@ const PieChartComponent = ({ data }) => {
     ],
   };
 
+
+  const { pathname } = useLocation();
+
+  // Menentukan teks Typography berdasarkan URL
+  const typographyText = pathname === '/Panggilan' 
+    ? 'DATA PANGGILAN DARURAT' 
+    : pathname === '/Ogs'
+    ? 'DATA ONE GATE SYSTEM'
+    : 'Default Text';
   return (
     <Box sx={{
       marginTop:'20px'
     }}>
-      <Typography variant="h6" sx={{ fontWeight: "bold", marginBottom: 1 }}>
-        DATA ONE GATE SYSTEM
+      <Typography variant="h6" sx={{ fontWeight: "bold", marginBottom: 1, textAlign:"center" }}>
+      {typographyText}
       </Typography>
-      <Typography variant="body2" sx={{ color: "#6c757d", marginBottom: 3 }}>
+      <Typography variant="body2" sx={{ color: "#6c757d", marginBottom: 3, textAlign:"center" }}>
         Senin, 6 Januari 2024
       </Typography>
       <Box

@@ -213,7 +213,7 @@ function Index() {
             marginRight: 4
         }}>
           
-            <Button onClick={() => Navigate("/Ogs")} sx={{color:'#00A9AD', fontWeight:'bold',  border: '2px solid #00A9AD',
+            <Button onClick={() => Navigate("/Panggilan")} sx={{color:'#00A9AD', fontWeight:'bold',  border: '2px solid #00A9AD',
                 '&:hover': {
                 border: '2px solid #00A9AD',
                 color:'#00A9AD'
