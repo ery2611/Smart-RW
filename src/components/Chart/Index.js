@@ -3,9 +3,20 @@ import React from "react";
 import { Pie } from "react-chartjs-2";
 import { Box, Typography, Stack } from "@mui/material";
 import "chart.js/auto";
-import { useLocation } from "react-router-dom";
 
 const PieChartComponent = ({ data }) => {
+
+    // Function to format the current date
+    const getCurrentDate = () => {
+      const today = new Date();
+      const options = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      };
+      return today.toLocaleDateString(undefined, options);
+    };
   // Prepare the data for the chart
   const chartData = {
     labels: data.labels,
@@ -18,24 +29,13 @@ const PieChartComponent = ({ data }) => {
     ],
   };
 
-
-  const { pathname } = useLocation();
-
-  // Menentukan teks Typography berdasarkan URL
-  const typographyText = pathname === '/Panggilan' 
-    ? 'DATA PANGGILAN DARURAT' 
-    : pathname === '/Ogs'
-    ? 'DATA ONE GATE SYSTEM'
-    : 'Default Text';
   return (
-    <Box sx={{
-      marginTop:'20px'
-    }}>
-      <Typography variant="h6" sx={{ fontWeight: "bold", marginBottom: 1, textAlign:"center" }}>
-      {typographyText}
+    <Box textAlign={"center"}>
+      <Typography variant="h6" sx={{ fontWeight: "bold", marginBottom: 1 }}>
+        {data.title} {/* Display title here */}
       </Typography>
-      <Typography variant="body2" sx={{ color: "#6c757d", marginBottom: 3, textAlign:"center" }}>
-        Senin, 6 Januari 2024
+      <Typography variant="body2" sx={{ color: "#6c757d", marginBottom: 3 }}>
+      {getCurrentDate()}
       </Typography>
       <Box
         sx={{

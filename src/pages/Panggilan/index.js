@@ -118,23 +118,29 @@ const Panggilan = () => {
     setCurrentPage(value);
   };
 
-  // Calculate data for PieChart
   const calculatePieChartData = () => {
+    const chartTitle = "DATA PANGGILAN DARURAT"; // Set title here
+
+    // Hitung jumlah setiap jenis objek
     const counts = data.reduce((acc, item) => {
       acc[item.jenis_panggilan.toUpperCase()] =
         (acc[item.jenis_panggilan.toUpperCase()] || 0) + 1;
       return acc;
     }, {});
 
+    // Hitung total untuk mendapatkan persentase
     const total = Object.values(counts).reduce((sum, count) => sum + count, 0);
 
+    // Siapkan label dan nilai dengan persentase
     const labels = Object.keys(counts);
     const values = Object.values(counts).map((count) =>
       ((count / total) * 100).toFixed(2)
     );
 
-    return { labels, values };
+    // Return data dengan title
+    return { labels, values, title: chartTitle };
   };
+
 
   // Get current data
   const currentData = data.slice(
@@ -166,7 +172,7 @@ const Panggilan = () => {
             Dashboard/
           </Typography>
           <Typography variant="h9" sx={{ color: "black", fontWeight: "bold" }}>
-            Laporan Hasil Deteksi
+            Data Panggilan Darurat
           </Typography>
         </Stack>
       </Stack>

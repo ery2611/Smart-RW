@@ -62,7 +62,7 @@ function Index() {
               >
                 INFORMASI OBJEK
               </Typography>
-              <StatusBadge>Tidak Mencurigakan</StatusBadge>
+              <StatusBadge>TIDAK MENCURIGAKAN</StatusBadge>
               <Box
                 sx={{
                   display: "flex",

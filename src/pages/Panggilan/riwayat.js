@@ -6,6 +6,8 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box'; 
 import Button from '@mui/material/Button';
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
+import { useNavigate } from 'react-router-dom';
+import { Stack } from '@mui/material';
 
 // Data Nama Panggilan
 const riwayatPanggilan = [
@@ -53,6 +55,7 @@ const EyeIcon = styled(RemoveRedEyeOutlinedIcon)({
 });
 
 function BoxPanggilan({ riwayat }) {
+  const Navigate = useNavigate();
   return (
     <div>
       {riwayat.map((item, index) => (
@@ -75,7 +78,7 @@ function BoxPanggilan({ riwayat }) {
               </TimeTypography>
             </Grid>
           </Grid>
-          <EyeIcon /> {/* Tambahkan ikon mata di sini */}
+          <EyeIcon onClick={()=> Navigate('/Panggilan/Riwayat/DetailRiwayat')} /> {/* Tambahkan ikon mata di sini */}
         </CustomPaper>
       ))}
     </div>
@@ -92,12 +95,25 @@ export default function HistoryPanggilan() {
 
   return (
     <div>
-      <Typography
-        variant="h5"
-        sx={{ marginBottom: 0, color: "#00A9AD", fontSize: 18 }}
-      >
-        COMMAND CENTER
-      </Typography>
+     <Stack direction="column">
+        <Typography
+          variant="h5"
+          sx={{ marginBottom: 0, color: "#00A9AD", fontSize: 18 }}
+        >
+          COMMAND CENTER
+        </Typography>
+        <Stack direction="row" sx={{ marginBottom: 2, fontSize: 14 }}>
+          <Typography variant="h8" sx={{ color: "#A0A1A4" }}>
+            Dashboard/
+          </Typography>
+          <Typography variant="h8" sx={{ color: "#A0A1A4" }}>
+            Panggilan Darurat/
+          </Typography>
+          <Typography variant="h9" sx={{ color: "black", fontWeight: "bold" }}>
+            Riwayat Panggilan Darurat
+          </Typography>
+        </Stack>
+      </Stack>
       <Typography variant="h6" sx={{ mb: 2, textAlign: 'center' }}>
         RIWAYAT PANGGILAN
       </Typography>

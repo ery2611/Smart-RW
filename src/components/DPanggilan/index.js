@@ -62,7 +62,7 @@ function Index() {
               >
                 INFORMASI PANGGILAN
               </Typography>
-              <StatusBadge>Diterima</StatusBadge>
+              <StatusBadge>DITERIMA</StatusBadge>
               <Box
                 sx={{
                   display: "flex",
