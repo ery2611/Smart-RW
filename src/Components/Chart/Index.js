@@ -5,6 +5,18 @@ import { Box, Typography, Stack } from "@mui/material";
 import "chart.js/auto";
 
 const PieChartComponent = ({ data }) => {
+  // Function to format the current date
+  const getCurrentDate = () => {
+    const today = new Date();
+    const options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
+    return today.toLocaleDateString(undefined, options);
+  };
+
   // Prepare the data for the chart
   const chartData = {
     labels: data.labels,
@@ -23,7 +35,7 @@ const PieChartComponent = ({ data }) => {
         {data.title} {/* Display title here */}
       </Typography>
       <Typography variant="body2" sx={{ color: "#6c757d", marginBottom: 3 }}>
-        {new Date().toLocaleDateString()} {/* Display current date here */}
+        {getCurrentDate()}
       </Typography>
       <Box
         sx={{
