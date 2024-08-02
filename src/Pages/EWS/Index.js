@@ -197,6 +197,7 @@ const EWS = () => {
           color="primary"
           onClick={handleAdd}
           startIcon={<AddIcon />}
+          style={{ marginLeft: "auto" }}
           sx={{
             backgroundColor: "#00A9AD",
             marginLeft: "auto",

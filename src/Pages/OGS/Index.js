@@ -85,7 +85,7 @@ const data = [
   {
     id: 6,
     nama_objek: "farrel savero",
-    jenis_objek: "Banjir",
+    jenis_objek: "Tamu",
     informasi_masuk: "06/01/2024",
     jam_masuk: "08:00",
     informasi_keluar: "06/01/2024",
@@ -139,12 +139,17 @@ const OGS = () => {
   // Calculate data for PieChart
   const calculatePieChartData = () => {
     const counts = data.reduce((acc, item) => {
-      acc[item.jenis_objek] = (acc[item.jenis_objek] || 0) + 1;
+      acc[item.jenis_objek.toUpperCase()] =
+        (acc[item.jenis_objek.toUpperCase()] || 0) + 1;
       return acc;
     }, {});
 
+    const total = Object.values(counts).reduce((sum, count) => sum + count, 0);
+
     const labels = Object.keys(counts);
-    const values = Object.values(counts);
+    const values = Object.values(counts).map((count) =>
+      ((count / total) * 100).toFixed(2)
+    );
 
     return { labels, values };
   };
@@ -179,7 +184,7 @@ const OGS = () => {
             Dashboard/
           </Typography>
           <Typography variant="h9" sx={{ color: "black", fontWeight: "bold" }}>
-            Early Warning System
+            One Get System
           </Typography>
         </Stack>
       </Stack>
@@ -227,7 +232,7 @@ const OGS = () => {
           variant="contained"
           color="primary"
           onClick={() => {
-            handleAdd("/tambahObjek");
+            handleAdd("/");
           }}
           startIcon={<AddIcon />}
           sx={{
@@ -236,7 +241,7 @@ const OGS = () => {
             display: "flex",
             alignItems: "center",
           }}
-          style={{ marginLeft: "28.5%" }}
+          style={{ marginLeft: "auto" }}
         >
           TAMBAH OBJEK
         </Button>
