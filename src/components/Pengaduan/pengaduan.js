@@ -86,6 +86,7 @@ const SimpleTable = () => {
           display: "flex",
           justifyContent: "center",
           alignContent: "center",
+          marginBottom:'10px'
         }}
       >
         <h3 style={{ marginBottom: "0" }}>ADUAN KEAMANAN</h3>

@@ -77,7 +77,9 @@ const Navbar = () => {
           {/* <ListItemIcon>
             <ReportIcon />
           </ListItemIcon> */}
-          <ListItemText primary="Laporan Hasil Deteksi" />
+          <ListItemText primary="Laporan Hasil Deteksi" onClick={() => Navigate("/LaporanHasilDeteksi")} 
+            sx={{ color: isActive("/LaporanHasilDeteksi") ? '#00A9AD' : 'inherit', 
+              borderBottom: isActive("/LaporanHasilDeteksi") ? '1px solid #EFEFEF' : '0px'}}  />
         </ListItem>
         <ListItem button>
           {/* <ListItemIcon>

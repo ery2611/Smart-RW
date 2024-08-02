@@ -37,8 +37,9 @@ const index = () => {
         <Box
           sx={{
             marginTop: "20px",
-            marginLeft: "200px", // gunakan `marginLeft` di dalam `sx`
+            paddingBottom:4,
             width: "100%", // memastikan Box mengisi lebar penuh container
+            
           }}
         >
           <Detail />

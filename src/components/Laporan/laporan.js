@@ -130,7 +130,7 @@ const Laporan = () => {
           </Button>
           <Button
           variant="contained"
-          onClick={() => Navigate("/laporan/detailobjek")}
+          onClick={() => Navigate("/LaporanHasilDeteksi/Tambah")}
           startIcon={<AddIcon />}
           sx={{
             bgcolor:'#00a9ad',

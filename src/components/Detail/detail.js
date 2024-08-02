@@ -47,7 +47,7 @@ const Detail = () => {
         maxWidth: "1200px", // Anda dapat menyesuaikan nilai ini untuk mengatur lebar maksimum container
         marginTop: 2,
         marginBottom:2,
-        fontFamily: "Montserrat, sans-serif",
+        borderRadius:'10px',
         bgcolor: "#EFEFEF",
         padding: 1,
       }}
