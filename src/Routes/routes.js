@@ -11,6 +11,7 @@ const Loadable = Component => props => {
 const Keamanan = Loadable(lazy(()=>import('../Pages/Keamanan')))
 const Detail = Loadable(lazy(()=>import('../Pages/DetailKeamanan')))
 const Laporan = Loadable(lazy(()=>import('../Pages/LaporanDeteksi')))
+const DetailRiwayat = Loadable(lazy(()=>import('../Pages/DetailRiwayat')))
 
 const mainRoutes =[{
     path: '',
@@ -23,6 +24,10 @@ const mainRoutes =[{
 {
     path:'/laporan',
     element: <Laporan />
+},
+{
+    path:'/detailriwayatpanggilan',
+    element: <DetailRiwayat />
 },
 
 
