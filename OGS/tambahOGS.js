@@ -1,20 +1,14 @@
 import {
   Box,
   Card,
-  FormControl,
-  InputLabel,
-  MenuItem,
   TextField,
   Typography,
   Stack,
   Button,
-  Container,
   Input,
   IconButton,
 } from "@mui/material";
 import { useState } from "react";
-import { useNavigate } from "react-router";
-import ImageIcon from "@mui/icons-material/Image";
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 
 const TambahOGS = () => {
@@ -58,7 +52,7 @@ const TambahOGS = () => {
                 Dashboard/
               </Typography>
               <Typography variant="h8" sx={{ color: "#A0A1A4" }}>
-                Early Warning System/
+                One Gate System/
               </Typography>
               <Typography
                 variant="h9"
@@ -89,7 +83,7 @@ const TambahOGS = () => {
             {/* informasi cuaca */}
             <Box sx={{ display: "flex", justifyContent: "center", mt: 1 }}>
               <Card sx={{ width: "85%", borderRadius: "12px" }}>
-                <Typography marginTop="10px" variant="body1" fontWeight="bold">
+                <Typography marginTop="10px" variant="h6" fontWeight="bold">
                   INFORMASI OBJEK
                 </Typography>
 
@@ -150,7 +144,7 @@ const TambahOGS = () => {
               }}
             >
               <Card sx={{ width: "85%", borderRadius: "12px" }}>
-                <Typography marginTop="10px" variant="body1" fontWeight="bold">
+                <Typography marginTop="10px" variant="h6" fontWeight="bold">
                   KETERANGAN OBJEK
                 </Typography>
 
