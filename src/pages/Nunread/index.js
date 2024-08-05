@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 const CustomPaper = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(2),
   margin: 'auto',
-  maxWidth: 1000,
+  maxWidth: 1500,
   flexGrow: 1,
   backgroundColor: '#19F4D6',
   color: '#000'

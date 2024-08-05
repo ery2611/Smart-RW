@@ -8,10 +8,11 @@ import Box from '@mui/material/Box';
 const CustomPaper = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(2),
   margin: 'auto',
-  maxWidth: 1000,
+  maxWidth: '100%',
   flexGrow: 1,
   backgroundColor: '#EEEEE',
-  color: '#000'
+  color: '#000',
+  width: '100%',
 }));
 
 const CustomTypography = styled(Typography)({

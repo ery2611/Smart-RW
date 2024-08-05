@@ -326,7 +326,14 @@ const Panggilan = () => {
           count={Math.ceil(data.length / itemsPerPage)}
           page={currentPage}
           onChange={handlePageChange}
-          color="primary"
+          sx={{
+            
+            '& .MuiPaginationItem-page.Mui-selected': {
+              backgroundColor: '#00A9AD', // Background color for selected page
+              color: '#fff', // Text color for selected page
+            
+                    }
+                }}
         />
       </Stack>
     </div>
