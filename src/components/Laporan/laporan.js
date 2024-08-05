@@ -93,7 +93,9 @@ const Laporan = () => {
           flexDirection: "column",
           alignItems: "flex-start",
           width: "100%",
-          gap: 2, // adding gap to space out the items vertically
+          gap: 1, // adding gap to space out the items vertically
+          marginLeft:"0px",
+          paddingLeft:'0px'
         }}
       >
         <Typography
@@ -247,7 +249,7 @@ const Laporan = () => {
                 <TableCell>{row.lokasi}</TableCell>
                 <TableCell>
                   <Mata
-                    onClick={() => Navigate("/detailobjek")}
+                    onClick={() => Navigate("/LaporanHasilDeteksi/Detail")}
                     sx={{ color: "#00A9AD", cursor: "pointer" }}
                   />
                 </TableCell>

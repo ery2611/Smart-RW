@@ -190,7 +190,7 @@ const OGS = () => {
             Dashboard/
           </Typography>
           <Typography variant="h9" sx={{ color: "black", fontWeight: "bold" }}>
-            One Get System
+            One Gate System
           </Typography>
         </Stack>
       </Stack>
@@ -373,12 +373,19 @@ const OGS = () => {
           </TableBody>
         </Table>
       </TableContainer>
-      <Stack direction="row" justifyContent="center" sx={{ marginTop: 2 }}>
+      <Stack direction="row" justifyContent="center" sx={{ marginTop: 2, paddingBottom:4 }}>
         <Pagination
           count={Math.ceil(data.length / itemsPerPage)}
           page={currentPage}
           onChange={handlePageChange}
-          color="primary"
+          sx={{
+            
+            '& .MuiPaginationItem-page.Mui-selected': {
+              backgroundColor: '#00A9AD', // Background color for selected page
+              color: '#fff', // Text color for selected page
+            
+                    }
+                }}
         />
       </Stack>
     </div>

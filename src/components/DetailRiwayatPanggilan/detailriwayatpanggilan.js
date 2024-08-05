@@ -7,8 +7,10 @@ import {
   CardContent,
   styled,
   CardMedia,
+  Button
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+
 
 
 function DetailRiwayatPanggilan() {
@@ -85,6 +87,7 @@ function DetailRiwayatPanggilan() {
               alignContent: "flex-start",
               alignItems: "center",
               width: "100px",
+              fontWeight:'bold'
             }}
           >
             DITERIMA
@@ -234,20 +237,9 @@ function DetailRiwayatPanggilan() {
           padding: 2,
         }}
       >
-        <Kembali
-          sx={{
-            margin: 2,
-            justifyContent: "center",
-            display: "flex",
-            alignContent: "flex-start",
-            alignItems: "center",
-            width: "100px",
-            cursor: "pointer",
-          }}
-          onClick={() => Navigate("/")}
-        >
-          KEMBALI
-        </Kembali>
+       <Button variant='outlined' sx={{ height: 38, color: '#00A9AD', fontWeight:'bolder', border:'2px solid #00AA9AD' }} onClick={()=> Navigate('/Panggilan/Riwayat')}>
+      KEMBALI
+    </Button>
       </Box>
     </Container>
   );

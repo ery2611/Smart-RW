@@ -568,7 +568,7 @@ import {
                 <Box sx={{ width: "65%", textAlign: "end" }}>
                   <Button
                     variant="contained"
-                    sx={{ height: 38, background: "#00A9AD", mr: 3 }}
+                    sx={{ height: 38, background: "#00A9AD", mr: 3, border:"2px solid #00A9AD" ,fontWeight:'bolder'  }}
                   >
                     SUBMIT
                   </Button>
@@ -577,7 +577,7 @@ import {
                     onClick={() => {
                       handleCancel("/Ews");
                     }}
-                    sx={{ height: 38, color: "#00A9AD" }}
+                    sx={{ height: 38, color: "#00A9AD", border:"2px solid #00A9AD" ,fontWeight:'bolder' }}
                   >
                     BATAL
                   </Button>

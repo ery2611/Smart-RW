@@ -8,7 +8,7 @@ function Index() {
   const Navigate = useNavigate();
   const StatusBadge = styled(Box)(({ theme }) => ({
     backgroundColor: "#D4FFDB",
-
+    fontWeight:'bold',
     color: "#5AF411",
     padding: "4px 8px",
     borderRadius: "4px",
@@ -237,13 +237,14 @@ function Index() {
             marginRight: 4
         }}>
           
-            <Button onClick={() => Navigate("/Ogs")} sx={{color:'#00A9AD', fontWeight:'bold',  border: '2px solid #00A9AD',
+            <Button onClick={() => Navigate("/Ogs")} sx={{color:'#00A9AD', fontWeight:'bolder',  border: '2px solid #00A9AD',
                 '&:hover': {
                 border: '2px solid #00A9AD',
-                color:'#00A9AD'
+                color:'#00A9AD',
+                
                 },
 
-            }} variant="outlined"  >Kembali</Button>
+            }} variant="outlined"  >KEMBALI</Button>
       
         </Box>
       </Box>

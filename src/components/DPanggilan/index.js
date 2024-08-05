@@ -14,6 +14,7 @@ function Index() {
     borderRadius: "4px",
     display: "inline-block",
     marginBottom: theme.spacing(2),
+    fontWeight:'bold'
   }));
 
   
@@ -216,10 +217,11 @@ function Index() {
             <Button onClick={() => Navigate("/Panggilan")} sx={{color:'#00A9AD', fontWeight:'bold',  border: '2px solid #00A9AD',
                 '&:hover': {
                 border: '2px solid #00A9AD',
-                color:'#00A9AD'
+                color:'#00A9AD',
+                fontWeight:'bold'
                 },
 
-            }} variant="outlined"  >Kembali</Button>
+            }} variant="outlined"  >KEMBALI</Button>
       
         </Box>
       </Box>

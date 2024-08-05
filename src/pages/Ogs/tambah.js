@@ -59,7 +59,7 @@ import {
                   Dashboard/
                 </Typography>
                 <Typography variant="h8" sx={{ color: "#A0A1A4" }}>
-                  Early Warning System/
+                  One Gate System/
                 </Typography>
                 <Typography
                   variant="h9"
@@ -294,16 +294,17 @@ import {
                 <Box sx={{ width: "65%", textAlign: "end" }}>
                   <Button
                     variant="contained"
-                    sx={{ height: 38, background: "#00A9AD", mr: 3 }}
+                    sx={{ height: 38, background: "#00A9AD", mr: 3, fontWeight:'bolder', border:'2px solid #00A9AD' }}
                   >
                     SUBMIT
                   </Button>
                   <Button
                     variant="outlined"
-                    sx={{ height: 38, color: "#00A9AD" }}
+                    sx={{ height: 38, color: "#00A9AD", fontWeight:'bolder', border:'2px solid #00A9AD' }}
                     onClick={() => {
                         Navigate("/Ogs");
                       }}
+                    
                   >
                     BATAL
                   </Button>

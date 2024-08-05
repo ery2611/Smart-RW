@@ -82,7 +82,7 @@ const Detail = () => {
             fontWeight="bolder"
             fontFamily="Montserrat"
           >
-            INFORMASI OBJEK
+            INFORMASI PELAPOR
           </Typography>
           {/* <StatusBadge>DITERIMA</StatusBadge> */}
           <Box
@@ -159,6 +159,7 @@ const Detail = () => {
               alignContent: "flex-start",
               alignItems: "center",
               width: "100px",
+              fontWeight:'bold'
             }}
           >
             DITERIMA
@@ -308,20 +309,15 @@ const Detail = () => {
           padding: 2,
         }}
       >
-        <Kembali
-          sx={{
-            margin: 2,
-            justifyContent: "center",
-            display: "flex",
-            alignContent: "flex-start",
-            alignItems: "center",
-            width: "100px",
-            cursor:'pointer'
-          }}
-          onClick={() => Navigate("/Keamanan")}
-        >
-          Kembali
-        </Kembali>
+        <Button onClick={() => Navigate("/Keamanan")} sx={{color:'#00A9AD', fontWeight:'bolder',  border: '2px solid #00A9AD',
+                '&:hover': {
+                border: '2px solid #00A9AD',
+                color:'#00A9AD',
+                
+                },
+
+            }} variant="outlined"  >KEMBALI</Button>
+      
       </Box>
     </Container>
   );

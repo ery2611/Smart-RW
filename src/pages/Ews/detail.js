@@ -27,19 +27,19 @@ const DetailEWS = () => {
           color: "#EE1717",
           fontWeight: "bold",
         };
-      case "Siaga 1":
+      case "SIAGA 1":
         return {
           background: "#CDFBE0",
           color: "#16E502",
           fontWeight: "bold",
         };
-      case "Siaga 2":
+      case "SIAGA 2":
         return {
           backgroundColor: "#FAF1C8",
           color: "#FED200",
           fontWeight: "bold",
         };
-      case "Siaga 3":
+      case "SIAGA 3":
         return {
           background: "#FDD399",
           color: "#FF9500",
@@ -199,7 +199,7 @@ const DetailEWS = () => {
                 </Typography>
 
                 <Box sx={{ width: "95%", mt: 1, ml: 1, textAlign: "left" }}>
-                  <Chip label='Awas' sx={getPeringatanColor("AWAS")}/>
+                  <Chip label='AWAS' sx={getPeringatanColor("AWAS")}/>
                   {/* awas akan di ganti dengan data.peringatan */}
                 <Box
                       sx={{
@@ -425,9 +425,9 @@ const DetailEWS = () => {
                 <Button
                   variant="outlined"
                   onClick={()=> Navigate('/Ews')}
-                  sx={{ height: 38, color: "#00A9AD" }}
+                  sx={{ height: 38, color: "#00A9AD",fontWeight:'bolder', border:'2px solid #00A9AD' }}
                 >
-                  BATAL
+                  KEMBALI
                 </Button>
               </Box>
             </Box>

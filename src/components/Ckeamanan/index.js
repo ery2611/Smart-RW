@@ -40,9 +40,9 @@ function MyTable() {
             <Table>
               <TableHead>
                 <TableRow>
-                  <TableCell>No</TableCell>
-                  <TableCell>Warga</TableCell>
-                  <TableCell>Status</TableCell>
+                  <TableCell sx={{color:'#A0A1A4', fontWeight:'medium'}}>No</TableCell>
+                  <TableCell sx={{color:'#A0A1A4', fontWeight:'medium'}}>Warga</TableCell>
+                  <TableCell sx={{color:'#A0A1A4', fontWeight:'medium'}}>Status</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>

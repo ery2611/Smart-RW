@@ -20,10 +20,12 @@ const Keamanan = Loadable(lazy(()=>import('../pages/Keamanan/index')))
 const DeKeamanan = Loadable(lazy(()=>import('../pages/Keamanan/deKeamanan')))
 const Laporan = Loadable(lazy(()=>import('../pages/LaporanDeteksi/index')))
 const TLaporan = Loadable(lazy(()=>import('../pages/LaporanDeteksi/tambah')))
+const DObjekLaporan = Loadable(lazy(()=>import('../pages/LaporanDeteksi/detail')))
 const Panggilan  = Loadable(lazy(()=>import('../pages/Panggilan/index')))
 const Dpanggilan = Loadable(lazy(()=>import('../pages/Panggilan/detail')))
 const Rpanggilan = Loadable(lazy(()=>import('../pages/Panggilan/riwayat')))
 const DRpanggilan = Loadable(lazy(()=>import('../pages/Panggilan/detailriwayat')))
+
 
 const mainRoutes =[{
     path: '',
@@ -70,6 +72,10 @@ const mainRoutes =[{
       element:<TLaporan />
    },
    {
+       path:'/LaporanHasilDeteksi/Detail',
+       element:<DObjekLaporan />
+    },
+   {
        path:'/Panggilan/Detail',
        element:<Dpanggilan />
     },
@@ -88,6 +94,7 @@ const mainRoutes =[{
        {
            path:'/Panggilan/Riwayat/DetailRiwayat',
            element:<DRpanggilan />
-        }]
+        },
+       ]
 
 export default mainRoutes

@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box'; 
 import Button from '@mui/material/Button';
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { Stack } from '@mui/material';
 
 // Data Nama Panggilan
@@ -87,6 +87,7 @@ function BoxPanggilan({ riwayat }) {
 
 // Komponen utama yang menggabungkan kedua bagian kode
 export default function HistoryPanggilan() {
+  const Navigate = useNavigate();
   const today = '2024-08-02'; // Ganti dengan tanggal hari ini secara dinamis jika diperlukan
   const yesterday = '2024-08-01'; // Ganti dengan tanggal kemarin secara dinamis jika diperlukan
 
@@ -139,7 +140,7 @@ export default function HistoryPanggilan() {
 
       <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
   <Box sx={{ width: '65%', textAlign: 'end', ml: 15}}> {/* Menambahkan margin-left */}
-    <Button variant='outlined' sx={{ height: 38, color: '#00A9AD' }}>
+    <Button variant='outlined' sx={{ height: 38, color: '#00A9AD', fontWeight:'bolder', border:'2px solid #00AA9AD' }} onClick={()=> Navigate('/Panggilan')}>
       KEMBALI
     </Button>
   </Box>
