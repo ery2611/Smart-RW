@@ -46,8 +46,8 @@ const Detail = () => {
       sx={{
         maxWidth: "1200px", // Anda dapat menyesuaikan nilai ini untuk mengatur lebar maksimum container
         marginTop: 2,
-        marginBottom:2,
-        borderRadius:'10px',
+        marginBottom: 2,
+        borderRadius: "10px",
         bgcolor: "#EFEFEF",
         padding: 1,
       }}
@@ -159,7 +159,7 @@ const Detail = () => {
               alignContent: "flex-start",
               alignItems: "center",
               width: "100px",
-              fontWeight:'bold'
+              fontWeight: "bold",
             }}
           >
             DITERIMA
@@ -309,15 +309,21 @@ const Detail = () => {
           padding: 2,
         }}
       >
-        <Button onClick={() => Navigate("/Keamanan")} sx={{color:'#00A9AD', fontWeight:'bolder',  border: '2px solid #00A9AD',
-                '&:hover': {
-                border: '2px solid #00A9AD',
-                color:'#00A9AD',
-                
-                },
-
-            }} variant="outlined"  >KEMBALI</Button>
-      
+        <Button
+          onClick={() => Navigate("/Keamanan")}
+          sx={{
+            color: "#00A9AD",
+            fontWeight: "bolder",
+            border: "2px solid #00A9AD",
+            "&:hover": {
+              border: "2px solid #00A9AD",
+              color: "#00A9AD",
+            },
+          }}
+          variant="outlined"
+        >
+          KEMBALI
+        </Button>
       </Box>
     </Container>
   );

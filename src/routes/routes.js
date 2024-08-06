@@ -26,6 +26,8 @@ const Dpanggilan = Loadable(lazy(()=>import('../pages/pagesCommand/Panggilan/det
 const Rpanggilan = Loadable(lazy(()=>import('../pages/pagesCommand/Panggilan/riwayat')))
 const DRpanggilan = Loadable(lazy(()=>import('../pages/pagesCommand/Panggilan/detailriwayat')))
 
+// Const Wrga
+const DashboardWarga = Loadable(lazy(()=>import('../pages/pagesWarga/Dashboard')))
 
 const mainRoutes =[{
     path: '',
@@ -95,6 +97,11 @@ const mainRoutes =[{
            path:'/Panggilan/Riwayat/DetailRiwayat',
            element:<DRpanggilan />
         },
+        // path warga
+        {
+            path:'/Warga',
+            element:<DashboardWarga /> 
+        }
        ]
 
 export default mainRoutes
