@@ -26,14 +26,14 @@ function index() {
             display:'flex'
         }}>
             <Box>
-                <Typography variant='h6' sx={{color:'#00A9AD'}}>Pengumuman Minggu Ini</Typography>
+                <Typography variant='h6' sx={{color:'#00A9AD'}}>Forum</Typography>
             </Box>
             <Box>
               <Button sx={{backgroundColor:'#00A9AD', color:'white',boxShadow:5,marginRight:'10px',
               '&:hover': {
                 backgroundColor: '#00A9AD',
                 color:'white',
-                },}}>Semua Pengumuman</Button>
+                },}}>Semua Forum</Button>
             </Box>
         </Box>
         <Box sx={{ padding: 2, display: 'flex',  overflowX: 'scroll', // Aktifkan scroll horizontal
@@ -44,7 +44,7 @@ function index() {
         <Card
           key={item}
           sx={{
-            width: '300px',
+            width: '380px',
             display: 'inline-flex', 
             marginRight: '20px', // Jarak antar card
             flexDirection: 'column',
@@ -69,35 +69,39 @@ function index() {
                 textOverflow: 'ellipsis',
                 whiteSpace: 'nowrap'        
             }}>
-             {truncateText('Renovasi Masjid',30)}
+             {truncateText('Forum Les Anak Bahasa Inggris TK-SD-SMP',30)}
             </Typography>
             
-           <Box sx={{
-            display:'flex',
-            justifyContent:'flex-start'
-           }}>
-           <Typography variant="body2" color="text.secondary">
-                {truncateText('Bulan ini ada akan ada renovasi untuk Toilet pria ',30)}
-              
-            </Typography>
-           </Box>
            
+            <Typography variant="body2" color="text.secondary">
+                {truncateText('Forum untuk pendataan dan pendaftaran lhjbyghkbvtuyjghkbn,es anak RW 02',30)}
+               
+            </Typography>
             <Box sx={{
-                display:'fluid',
-                justifyContent:'flex-start',
+                display:'flex',
+                justifyContent:'flex-end',
                 marginTop:'10px'
             }}>
                 <Box sx={{
                     display:'flex',
-                    justifyContent:'space-between',
+                    justifyContent:'space-around',
                     marginTop:'6px'
                 }}>
-                    <Box sx={{display:'flex', justifyContent:'flex-start'}}>
-                         <Lokasi sx={{color:'#EE1717'}} />
-                         <Typography variant='caption' sx={{marginLeft:'5px', marginTop:'5px', fontWeight:'bold'}}>Kemang Pratama 2</Typography>
+                    <Box sx={{marginRight:'20px'}}>
+                    <Button sx={{backgroundColor:'#00A9AD', color:'white',boxShadow:5,marginRight:'10px',width:'130px',
+              '&:hover': {
+                backgroundColor: '#00A9AD',
+                color:'white',
+                },}}>Gabung Forum</Button>
                     </Box>
                     <Box>
-                        <Mata fontSize='large' sx={{color:'#00A9AD'}} />
+                    <Button variant='outlined' sx={{border:'2px solid #00A9AD', color:'#00A9AD',
+                fontWeight:'bolder',marginRight:'10px',width:'120px',
+              '&:hover': {
+                border: '2px solid #00A9AD',
+                color:'#00A9AD',
+                fontWeight:'bolder'
+                },}}>Lihat Forum</Button>
                     </Box>
                 </Box>
             </Box>

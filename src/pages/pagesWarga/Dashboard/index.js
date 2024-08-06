@@ -3,6 +3,7 @@ import Bar from "../../../components/WargaComponents/Navbar";
 import { Box, Stack, Typography, Card, CardContent } from "@mui/material";
 import Kegiatan from "../../../components/WargaComponents/Kegiatan";
 import Pengumuman  from "../../../components/WargaComponents/Pengumuman"
+import Forum from '../../../components/WargaComponents/Forum'
 
 function index() {
   // Mendapatkan tanggal saat ini
@@ -197,6 +198,14 @@ function index() {
           }}
         >
           <Pengumuman />
+        </Box>
+        <Box
+          sx={{
+            marginTop: "30px",
+            width:'100%'
+          }}
+        >
+          <Forum />
         </Box>
       </Box>
     </div>
