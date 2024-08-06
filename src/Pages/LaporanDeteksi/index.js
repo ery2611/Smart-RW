@@ -5,22 +5,6 @@ import Table from "../../Component/Laporan/laporan";
 const Index = () => {
   return (
     <div>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "flex-end", // Menggeser konten ke kanan
-          alignItems: "flex-start", // Mengatur agar konten mulai dari atas
-          minHeight: "100vh",
-          backgroundColor: "#fff", // Warna latar belakang opsional untuk bagian kosong
-          padding: 2, // Opsional: Menambahkan padding untuk ruang ekstra
-        }}
-      >
-        <Box
-          sx={{
-            flexGrow: 1,
-            maxWidth: "lg",
-          }}
-        >
           <Container
             maxWidth="lg"
 
@@ -53,8 +37,6 @@ const Index = () => {
               <Table />
             </Box>
           </Container>
-        </Box>
-      </Box>
     </div>
   );
 };

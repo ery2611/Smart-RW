@@ -12,6 +12,8 @@ const Keamanan = Loadable(lazy(()=>import('../Pages/Keamanan')))
 const Detail = Loadable(lazy(()=>import('../Pages/DetailKeamanan')))
 const Laporan = Loadable(lazy(()=>import('../Pages/LaporanDeteksi')))
 const DetailRiwayat = Loadable(lazy(()=>import('../Pages/DetailRiwayat')))
+const Kegiatan = Loadable(lazy(()=>import('../Pages/Kegiatan/kegiatan')))
+const Pengumuman = Loadable(lazy(()=>import('../Pages/DetailPengumuman/index')))
 
 const mainRoutes =[{
     path: '',
@@ -28,6 +30,14 @@ const mainRoutes =[{
 {
     path:'/detailriwayatpanggilan',
     element: <DetailRiwayat />
+},
+{
+    path:'/kegiatan',
+    element: <Kegiatan/>
+},
+{
+    path:'/pengumuman',
+    element: <Pengumuman/>
 },
 
 
