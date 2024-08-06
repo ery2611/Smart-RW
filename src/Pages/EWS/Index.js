@@ -238,7 +238,7 @@ const EWS = () => {
                   color: "#A0A1A4",
                 }}
               >
-                TANGGAL & WAKTU
+                TANGGAL & <br /> WAKTU
               </TableCell>
               <TableCell
                 sx={{
@@ -247,7 +247,7 @@ const EWS = () => {
                   color: "#A0A1A4",
                 }}
               >
-                PARAMETER PEMANTAUAN
+                PARAMETER <br /> PEMANTAUAN
               </TableCell>
               <TableCell
                 sx={{
@@ -326,7 +326,12 @@ const EWS = () => {
           count={Math.ceil(data.length / itemsPerPage)}
           page={currentPage}
           onChange={handlePageChange}
-          color="primary"
+          sx={{
+            "& .MuiPaginationItem-page.Mui-selected": {
+              backgroundColor: "#00A9AD", // Background color for selected page
+              color: "#fff", // Text color for selected page
+            },
+          }}
         />
       </Stack>
     </div>

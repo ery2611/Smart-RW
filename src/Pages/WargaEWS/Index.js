@@ -1,4 +1,4 @@
-// Panggilan
+//EWS
 import React, { useState } from "react";
 import {
   Paper,
@@ -21,74 +21,107 @@ import {
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import AddIcon from "@mui/icons-material/Add";
-import { useNavigate } from "react-router";
-import PieChartComponent from "../../Components/Chart/Index"; // Update import path
+import Datepicker from "../../Components/Datepicker/Index";
+import InformasiCuacaHariIni from "../../Components/cardInformasiCuaca/Index";
 
 const data = [
-  // data array
-
+  // Your data array
   {
     id: 1,
-    warga: "Khoirul Mustaan",
-    informasi_pemanggilan: "06/01/2024",
-    jam_pemanggilan: "07:00",
-    jenis_panggilan: "Keamanan",
-    status_pemanggilan: "TERIMA",
+    cuaca: "Hujan",
+    suhu: "23",
+    tanggal: "23/12/2024",
+    jam: "05:00",
+    bencana_alam: "Banjir",
+    lokasi_bencana: "Seluruh area Kemang Pratama, Bekasi",
+    status_siaga: "SIAGA 1",
   },
   {
     id: 2,
-    warga: "Yan Azhari",
-    informasi_pemanggilan: "06/01/2024",
-    jam_pemanggilan: "07:00",
-    jenis_panggilan: "Bencana",
-    status_pemanggilan: "TOLAK",
+    cuaca: "Cerah",
+    suhu: "36",
+    tanggal: "16/12/2024",
+    jam: "07:00",
+    bencana_alam: "Kebakaran",
+    lokasi_bencana: "Jl. Kemang Dahlia Raya Blok Z No. 12, RT 02 / RW 36",
+    status_siaga: "SIAGA 2",
   },
   {
     id: 3,
-    warga: "Deddy Sunarya",
-    informasi_pemanggilan: "06/01/2024",
-    jam_pemanggilan: "07:00",
-    jenis_panggilan: "Keamanan",
-    status_pemanggilan: "TERIMA",
+    cuaca: "Hujan",
+    suhu: "20",
+    tanggal: "14/12/2024",
+    jam: "05:00",
+    bencana_alam: "Tanah Longsor",
+    lokasi_bencana: "Jalan di depan RW 36 Kemang Pratama, Bekasi",
+    status_siaga: "SIAGA 4",
   },
   {
     id: 4,
-    warga: "Daffa Syarif",
-    informasi_pemanggilan: "06/01/2024",
-    jam_pemanggilan: "07:00",
-    jenis_panggilan: "Kesehatan",
-    status_pemanggilan: "TERIMA",
+    cuaca: "Hujan",
+    suhu: "23",
+    tanggal: "23/12/2024",
+    jam: "05:00",
+    bencana_alam: "Banjir",
+    lokasi_bencana: "Seluruh area Kemang Pratama, Bekasi",
+    status_siaga: "SIAGA 4",
   },
   {
     id: 5,
-    warga: "Syahri Ramadhan",
-    informasi_pemanggilan: "06/01/2024",
-    jam_pemanggilan: "07:00",
-    jenis_panggilan: "Keamanan",
-    status_pemanggilan: "TOLAK",
+    cuaca: "Hujan",
+    suhu: "23",
+    tanggal: "23/12/2024",
+    jam: "05:00",
+    bencana_alam: "Banjir",
+    lokasi_bencana: "Seluruh area Kemang Pratama, Bekasi",
+    status_siaga: "SIAGA 1",
   },
   {
     id: 6,
-    warga: "farrel savero",
-    informasi_pemanggilan: "06/01/2024",
-    jam_pemanggilan: "07:00",
-    jenis_panggilan: "Bencana",
-    status_pemanggilan: "TERIMA",
+    cuaca: "Hujan",
+    suhu: "23",
+    tanggal: "23/12/2024",
+    jam: "05:00",
+    bencana_alam: "Banjir",
+    lokasi_bencana: "Seluruh area Kemang Pratama, Bekasi",
+    status_siaga: "SIAGA 1",
+  },
+  {
+    id: 7,
+    cuaca: "Hujan",
+    suhu: "23",
+    tanggal: "23/12/2024",
+    jam: "05:00",
+    bencana_alam: "Banjir",
+    lokasi_bencana: "Seluruh area Kemang Pratama, Bekasi",
+    status_siaga: "SIAGA 1",
   },
 ];
 
-const getPeringatanColor = (peringatan) => {
-  switch (peringatan) {
-    case "TERIMA":
+const getPeringatanColor = (status_siaga) => {
+  switch (status_siaga) {
+    case "SIAGA 1":
       return {
-        backgroundColor: "#DBF8DC",
-        color: "#5AF411",
+        backgroundColor: "#CDFBE0",
+        color: "#16E502",
         fontWeight: "bold",
       };
-    case "TOLAK":
+    case "SIAGA 2":
       return {
-        backgroundColor: "#FBE3E3",
-        color: "#EE1717",
+        backgroundColor: "#FAF1C8",
+        color: "#FED200",
+        fontWeight: "bold",
+      };
+    case "SIAGA 3":
+      return {
+        backgroundColor: "#FDD399",
+        color: "#FF9500",
+        fontWeight: "bold",
+      };
+    case "SIAGA 4":
+      return {
+        backgroundColor: "#D29A9A",
+        color: "#CE1305",
         fontWeight: "bold",
       };
     default:
@@ -96,49 +129,35 @@ const getPeringatanColor = (peringatan) => {
   }
 };
 
-const Panggilan = () => {
+const truncateText = (text, maxLength) => {
+  if (!text) {
+    return "";
+  }
+  if (text.length <= maxLength) {
+    return text;
+  }
+  return text.substring(0, maxLength) + `<br>`;
+};
+
+const WargaEWS = () => {
   const [searchText, setSearchText] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
-  const navigate = useNavigate("");
 
   const handleSearchChange = (event) => {
     setSearchText(event.target.value);
   };
 
   const handleSearch = () => {
-    // Perform search based on selectedDate and searchText
+    // Lakukan pencarian berdasarkan selectedDate dan searchText
   };
 
-  const handleAdd = (params) => {
-    navigate(params);
+  const handleAdd = () => {
+    // Tambahkan fungsi untuk menambah data baru
   };
 
   const handlePageChange = (event, value) => {
     setCurrentPage(value);
-  };
-
-  const calculatePieChartData = () => {
-    const chartTitle = "DATA PANGGILAN DARURAT"; // Set title here
-
-    // Hitung jumlah setiap jenis objek
-    const counts = data.reduce((acc, item) => {
-      acc[item.jenis_panggilan.toUpperCase()] =
-        (acc[item.jenis_panggilan.toUpperCase()] || 0) + 1;
-      return acc;
-    }, {});
-
-    // Hitung total untuk mendapatkan persentase
-    const total = Object.values(counts).reduce((sum, count) => sum + count, 0);
-
-    // Siapkan label dan nilai dengan persentase
-    const labels = Object.keys(counts);
-    const values = Object.values(counts).map((count) =>
-      ((count / total) * 100).toFixed(2)
-    );
-
-    // Return data dengan title
-    return { labels, values, title: chartTitle };
   };
 
   // Get current data
@@ -147,16 +166,6 @@ const Panggilan = () => {
     currentPage * itemsPerPage
   );
 
-  const truncateText = (text, maxLength) => {
-    if (!text) {
-      return "";
-    }
-    if (text.length <= maxLength) {
-      return text;
-    }
-    return text.substring(0, maxLength) + "...";
-  };
-
   return (
     <div>
       <Stack direction="column">
@@ -164,29 +173,33 @@ const Panggilan = () => {
           variant="h5"
           sx={{ marginBottom: 0, color: "#00A9AD", fontSize: 18 }}
         >
-          COMMAND CENTER
+          WARGA
         </Typography>
         <Stack direction="row" sx={{ marginBottom: 2, fontSize: 14 }}>
           <Typography variant="h8" sx={{ color: "#A0A1A4" }}>
             Dashboard/
           </Typography>
           <Typography variant="h9" sx={{ color: "black", fontWeight: "bold" }}>
-            Laporan Hasil Deteksi
+            Early Warning System
           </Typography>
         </Stack>
+        <Container sx={{ marginBottom: 2 }}>
+          <Box sx={{ marginLeft: "0%" }}>
+            <InformasiCuacaHariIni />
+          </Box>
+        </Container>
+        <Typography variant="h9" sx={{ color: "black", fontWeight: "hin" }}>
+          Bulan
+        </Typography>
       </Stack>
-      <Container component={Paper} sx={{ marginBottom: 2 }}>
-        <Box sx={{ marginLeft: "0%" }}>
-          <PieChartComponent data={calculatePieChartData()} />
-        </Box>
-      </Container>
-
       <Stack
         direction="row"
         spacing={2}
-        alignItems="flex-end"
+        alignItems="center"
         sx={{ marginBottom: 2 }}
       >
+        <Datepicker />
+
         <TextField
           value={searchText}
           onChange={handleSearchChange}
@@ -206,21 +219,20 @@ const Panggilan = () => {
         <Button
           variant="contained"
           color="primary"
-          onClick={() => {
-            handleAdd("/");
-          }}
+          onClick={handleAdd}
+          style={{ marginLeft: "auto" }}
           sx={{
             backgroundColor: "#00A9AD",
+            marginLeft: "auto",
             height: 38,
             display: "flex",
             alignItems: "center",
           }}
-          style={{ marginLeft: "auto" }}
         >
-          RIWAYAT
+          PENGADUAN WARGA
         </Button>
       </Stack>
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} sx={{ flexGrow: 1 }}>
         <Table>
           <TableHead>
             <TableRow>
@@ -240,7 +252,8 @@ const Panggilan = () => {
                   color: "#A0A1A4",
                 }}
               >
-                WARGA
+                CUACA & <br />
+                SUHU
               </TableCell>
               <TableCell
                 sx={{
@@ -249,7 +262,7 @@ const Panggilan = () => {
                   color: "#A0A1A4",
                 }}
               >
-                INFORMASI <br /> PEMANGGILAN
+                TANGGAL &<br /> WAKTU
               </TableCell>
               <TableCell
                 sx={{
@@ -258,7 +271,17 @@ const Panggilan = () => {
                   color: "#A0A1A4",
                 }}
               >
-                JENIS <br /> PANGGILAN
+                BENCANA <br />
+                ALAM
+              </TableCell>
+              <TableCell
+                sx={{
+                  fontFamily: "Montserrat, sans-serif",
+                  fontWeight: "bold",
+                  color: "#A0A1A4",
+                }}
+              >
+                LOKASI <br /> BENCANA
               </TableCell>
               <TableCell
                 sx={{
@@ -268,15 +291,6 @@ const Panggilan = () => {
                 }}
               >
                 STATUS
-              </TableCell>
-              <TableCell
-                sx={{
-                  fontFamily: "Montserrat, sans-serif",
-                  fontWeight: "bold",
-                  color: "#A0A1A4",
-                }}
-              >
-                AKSI
               </TableCell>
             </TableRow>
           </TableHead>
@@ -293,28 +307,25 @@ const Panggilan = () => {
                 <TableCell>{row.id}</TableCell>
                 <TableCell>
                   <Stack direction="column" alignItems="left">
-                    <span>{truncateText(row.warga, 20)}</span>
+                    <span>{truncateText(row.cuaca, 40)}</span>
+                    <span style={{ color: "#A1A5B7" }}>
+                      {truncateText(row.suhu + "°C", 40)}
+                    </span>
                   </Stack>
                 </TableCell>
                 <TableCell>
                   <Stack direction="column" alignItems="left">
-                    <span>{truncateText(row.informasi_pemanggilan, 20)}</span>
-                    <span style={{ color: "#A1A5B7" }}>
-                      {truncateText(row.jam_pemanggilan, 20)}
-                    </span>
+                    <span>{row.tanggal}</span>
+                    <span style={{ color: "#A1A5B7" }}>{row.jam}</span>
                   </Stack>
                 </TableCell>
-                <TableCell>{truncateText(row.jenis_panggilan, 20)}</TableCell>
+                <TableCell>{truncateText(row.bencana_alam, 40)}</TableCell>
+                <TableCell>{truncateText(row.lokasi_bencana, 200)}</TableCell>
                 <TableCell>
                   <Chip
-                    label={row.status_pemanggilan}
-                    sx={getPeringatanColor(row.status_pemanggilan)}
+                    label={truncateText(row.status_siaga, 40)}
+                    sx={getPeringatanColor(row.status_siaga)}
                   />
-                </TableCell>
-                <TableCell>
-                  <IconButton aria-label="Example">
-                    <VisibilityOutlinedIcon sx={{ color: "#00A9AD" }} />
-                  </IconButton>
                 </TableCell>
               </TableRow>
             ))}
@@ -338,4 +349,4 @@ const Panggilan = () => {
   );
 };
 
-export default Panggilan;
+export default WargaEWS;

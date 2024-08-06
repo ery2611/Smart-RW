@@ -280,7 +280,7 @@ const OGS = () => {
                   color: "#A0A1A4",
                 }}
               >
-                INFORMASI MASUK
+                INFORMASI <br /> MASUK
               </TableCell>
               <TableCell
                 sx={{
@@ -289,7 +289,7 @@ const OGS = () => {
                   color: "#A0A1A4",
                 }}
               >
-                INFORMASI KELUAR
+                INFORMASI <br /> KELUAR
               </TableCell>
               <TableCell
                 sx={{
@@ -307,7 +307,7 @@ const OGS = () => {
                   color: "#A0A1A4",
                 }}
               >
-                STATUS OBJEK
+                STATUS <br /> OBJEK
               </TableCell>
               <TableCell
                 sx={{
@@ -377,7 +377,12 @@ const OGS = () => {
           count={Math.ceil(data.length / itemsPerPage)}
           page={currentPage}
           onChange={handlePageChange}
-          color="primary"
+          sx={{
+            "& .MuiPaginationItem-page.Mui-selected": {
+              backgroundColor: "#00A9AD", // Background color for selected page
+              color: "#fff", // Text color for selected page
+            },
+          }}
         />
       </Stack>
     </div>
