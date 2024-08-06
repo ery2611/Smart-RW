@@ -1,10 +1,13 @@
 import { Box, Card, Typography, Stack, Button, Chip } from "@mui/material";
+import { useContext } from "react";
+import { useParams } from "react-router-dom";
 
-const data = [
-  // data diambil dari form tambah ews
-];
 
-const DetailEWS = () => {
+const DetailEWS = ({dataList}) => {
+  const { id } = useParams();
+  const data = dataList ? dataList.find(item => item.id === parseInt(id)) : null;
+
+
   const getPeringatanColor = (peringatan) => {
     switch (peringatan) {
       case "WASPADA":
@@ -54,7 +57,6 @@ const DetailEWS = () => {
     }
   };
 
-  const getData = data.slice();
 
   return (
     <Box sx={{}}>
@@ -147,7 +149,7 @@ const DetailEWS = () => {
                         }}
                       >
                         <Typography variant="body1" color="#333333">
-                          : Hujan
+                          : {data.cuaca}
                           {/* mengambil dari data cuaca */}
                         </Typography>
                         <Typography
@@ -155,7 +157,7 @@ const DetailEWS = () => {
                           color="#333333"
                           sx={{ mt: 1 }}
                         >
-                          : 32 Derajat selsius
+                          : {data.suhu}
                           {/* mengambil dari data suhu */}
                         </Typography>
                       </Box>
@@ -171,7 +173,7 @@ const DetailEWS = () => {
                         Keterangan cuaca
                       </Typography>
                       <Typography variant="body1" color="#333333">
-                        aman saja
+                        {data.ketCuaca}
                         {/* data.ketCuaca */}
                       </Typography>
                     </Box>
@@ -196,7 +198,7 @@ const DetailEWS = () => {
                 </Typography>
 
                 <Box sx={{ width: "95%", mt: 1, ml: 1, textAlign: "left" }}>
-                  <Chip label='Awas' sx={getPeringatanColor("AWAS")}/>
+                  <Chip label={data.peringatan} sx={getPeringatanColor(data.peringatan)}/>
                   {/* awas akan di ganti dengan data.peringatan */}
                 <Box
                       sx={{
@@ -239,7 +241,7 @@ const DetailEWS = () => {
                         }}
                       >
                         <Typography variant="body1" color="#333333">
-                          : jenis bencana
+                          : {data.judulBencana}
                           {/* mengambil dari data.judulBencana */}
                         </Typography>
                         <Typography
@@ -247,11 +249,11 @@ const DetailEWS = () => {
                           color="#333333"
                           sx={{ mt: 1 }}
                         >
-                          : Banjir/Kebakaran/Tanah longsor
+                          : {data.bencana}
                           {/* mengambil dari data.bencana */}
                         </Typography>
                         <Typography variant="body1" color="#333333" sx={{ mt: 1 }}>
-                          : 22/02/20
+                          : {data.tanggal}
                           {/* mengambil dari data.tanggal*/}
                         </Typography>
                         <Typography
@@ -259,8 +261,8 @@ const DetailEWS = () => {
                           color="#333333"
                           sx={{ mt: 1 }}
                         >
-                          : --:--
-                          {/* mengambil dari data.jam */}
+                          : {data.waktu}
+                          {/* mengambil dari data.waktu */}
                         </Typography>
                       </Box>
                     </Box>
@@ -275,7 +277,7 @@ const DetailEWS = () => {
                         Lokasi Bencana
                       </Typography>
                       <Typography variant="body1" color="#333333">
-                        lokasi terpantau aman
+                        {data.lokasi}
                         {/* data.lokasi */}
                       </Typography>
                     </Box>
@@ -287,14 +289,19 @@ const DetailEWS = () => {
             {/* informasi informasi {data.bencana} */}
             <Box sx={{ display: "flex", justifyContent: "center", mt: 1 }}>
               <Card sx={{ width: "85%", borderRadius: "12px" }}>
-              <Typography marginTop="10px" variant="h6" fontWeight="bold">
-                  INFORMASI //jenis becncana//
+              <Typography marginTop="10px" variant="h6" fontWeight="bold" textTransform='uppercase' >
+                  INFORMASI {data.bencana}
                   {/* data.bencana */}
                 </Typography>
 
                 <Box sx={{ width: "95%", mt: 1, ml: 1, textAlign: "left" }}>
-                   <Box
+                <Chip label={data.siaga} sx={getPeringatanColor(data.siaga)}/>
+
+
+                {data.bencana === "Banjir" && (
+                  <Box
                       sx={{
+                        mt:1,
                         display: "flex",
                         alignItems: "flex-start", // Menyelaraskan item dengan awal (atas)
                         gap: "210px", // Mengatur jarak antar box
@@ -304,20 +311,21 @@ const DetailEWS = () => {
                         sx={{
                           display: "flex",
                           flexDirection: "column",
+                  
                         }}
                       >
                         <Typography variant="body1" color="#A0A1A4">
-                          Judul
+                          Tinggi Air
                         </Typography>
                         <Typography
                           variant="body1"
                           color="#A0A1A4"
                           sx={{ mt: 1 }}
                         >
-                          Jenis
+                          Curah Hujan
                         </Typography>
                         <Typography variant="body1" color="#A0A1A4" sx={{ mt: 1 }}>
-                          Tanggal
+                          Parameter Penentuan
                         </Typography>
                       </Box>
                       <Box
@@ -327,23 +335,123 @@ const DetailEWS = () => {
                         }}
                       >
                         <Typography variant="body1" color="#333333">
-                          : jenis bencana
-                          {/* mengambil dari data.judulBencana */}
+                          : {data.tinggiAir}
+                          {/* mengambil dari data.tinggiAir */}
                         </Typography>
                         <Typography
                           variant="body1"
                           color="#333333"
                           sx={{ mt: 1 }}
                         >
-                          : Banjir/Kebakaran/Tanah longsor
-                          {/* mengambil dari data.bencana */}
+                          : {data.curahHujan}
+                          {/* mengambil dari data.curahHujan */}
                         </Typography>
                         <Typography variant="body1" color="#333333" sx={{ mt: 1 }}>
-                          : 22/02/20
-                          {/* mengambil dari data.tanggal*/}
+                          : {data.parameter}
+                          {/* mengambil dari data.parameter*/}
                         </Typography>
                       </Box>
                     </Box>
+                ) || data.bencana === 'Kebakaran' && (
+                  <Box
+                      sx={{
+                        mt:1,
+                        display: "flex",
+                        alignItems: "flex-start", // Menyelaraskan item dengan awal (atas)
+                        gap: "210px", // Mengatur jarak antar box
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          display: "flex",
+                          flexDirection: "column",
+                  
+                        }}
+                      >
+                        <Typography variant="body1" color="#A0A1A4">
+                          Panas Api
+                        </Typography>
+
+                        <Typography
+                          variant="body1"
+                          color="#A0A1A4"
+                          sx={{ mt: 1 }}
+                        >
+                          Status Api
+                        </Typography>
+
+                        <Typography variant="body1" color="#A0A1A4" sx={{ mt: 1 }}>
+                          Parameter Penentuan
+                        </Typography>
+
+                      </Box>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          flexDirection: "column",
+                        }}
+                      >
+                        <Typography variant="body1" color="#333333">
+                          : {data.panasApi}
+                          {/* mengambil dari data.panasApi */}
+                        </Typography>
+                        <Typography
+                          variant="body1"
+                          color="#333333"
+                          sx={{ mt: 1 }}
+                        >
+                          : {data.statApi}
+                          {/* mengambil dari data.statApi */}
+                        </Typography>
+                        <Typography variant="body1" color="#333333" sx={{ mt: 1 }}>
+                          : {data.parameter}
+                          {/* mengambil dari data.parameter*/}
+                        </Typography>
+                      </Box>
+                    </Box>
+                ) || data.bencana === 'Tanah Longsor' && (
+                  <Box
+                      sx={{
+                        mt:1,
+                        display: "flex",
+                        alignItems: "flex-start", // Menyelaraskan item dengan awal (atas)
+                        gap: "210px", // Mengatur jarak antar box
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          display: "flex",
+                          flexDirection: "column",
+                  
+                        }}
+                      >
+                        <Typography variant="body1" color="#A0A1A4">
+                          Status Perbaikan
+                        </Typography>
+
+                        <Typography variant="body1" color="#A0A1A4" sx={{ mt: 1 }}>
+                          Parameter Penentuan
+                        </Typography>
+
+                      </Box>
+                      <Box
+                        sx={{
+                          display: "flex",
+                          flexDirection: "column",
+                        }}
+                      >
+                        <Typography variant="body1" color="#333333">
+                          : {data.statPerbaikan}
+                          {/* mengambil dari data.statPerbaikan */}
+                        </Typography>
+                    
+                        <Typography variant="body1" color="#333333" sx={{ mt: 1 }}>
+                          : {data.parameter}
+                          {/* mengambil dari data.parameter*/}
+                        </Typography>
+                      </Box>
+                    </Box>
+                )}
                 </Box>
 
                 <Box sx={{height:'10px'}}/>
@@ -367,7 +475,7 @@ const DetailEWS = () => {
                         Deskripsi Kondisi
                       </Typography>
                       <Typography variant="body1" color="#333333">
-                        Kondisi terpantau aman
+                        {data.deskKondisi}
                         {/* data.deskKondisi */}
                       </Typography>
 
@@ -375,7 +483,7 @@ const DetailEWS = () => {
                         Peringatan
                       </Typography>
                       <Typography variant="body1" color="#333333">
-                        peringatan untuk memonitoring cuaca
+                        {data.deskPeringatan}
                         {/* data.deskPeringatan */}
                       </Typography>
                       
@@ -383,16 +491,16 @@ const DetailEWS = () => {
                         Tidakan Yang Perlu Diambil
                       </Typography>
                       <Typography variant="body1" color="#333333">
-                        Waspada tiap genangan air
+                        {data.deskTindakan}
                         {/* data.deskTindakan */}
                       </Typography>
 
                       <Typography mt={1} variant="body1" color="#A0A1A4">
-                        Penyebab //jenis bencana//
+                        Penyebab {data.bencana}
                         {/* data.bencana */}
                       </Typography>
                       <Typography variant="body1" color="#333333">
-                        hujan deras tak berhenti henti
+                        {data.deskPenyebab}
                         {/* data.deskPenyebab */}
                       </Typography>
 
@@ -400,7 +508,7 @@ const DetailEWS = () => {
                         Keterangan
                       </Typography>
                       <Typography variant="body1" color="#333333">
-                      Jalanan becek, tanah menjadi basah dan jalanan juga penuh dengan genangan air
+                      {data.deskKeterangan}
                         {/* data.deskKeterangan */}
                       </Typography>
 
@@ -420,16 +528,10 @@ const DetailEWS = () => {
             >
               <Box sx={{ width: "65%", textAlign: "end" }}>
                 <Button
-                  variant="contained"
-                  sx={{ height: 38, background: "#00A9AD", mr: 3 }}
-                >
-                  SUBMIT
-                </Button>
-                <Button
                   variant="outlined"
-                  sx={{ height: 38, color: "#00A9AD" }}
+                  sx={{ height: 38, color: "#00A9AD", fontWeight:'bold' }}
                 >
-                  BATAL
+                  KEMBALI
                 </Button>
               </Box>
             </Box>

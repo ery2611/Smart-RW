@@ -10,33 +10,123 @@ import {
   Button,
   Container,
 } from "@mui/material";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
 
-const SmartCity = () => {
-  const [cardBencana, setCardBencana] = useState("");
+const SmartCity = ({onTambah}) => {
+  //informasi cuaca
+  const [cuaca, setCuaca] = useState("");
+  const [suhu, setSuhu] = useState("");
+  const [ketCuaca, setKetCuaca] = useState("");
+
+  //informasi setiap bencana
+  //informasi bencana
+  const [judulBencana, setJudulBencana] = useState("");
+  const [bencana, setBencana] = useState("");
+  const [peringatan, setPeringatan] = useState("");
+  const [tanggal, setTanggal] = useState("");
+  const [waktu, setWaktu] = useState("");
+  const [lokasi, setLokasi] = useState("");
+
+  // hujan
+  const [tinggiAir, setTinggiAir] = useState("");
+  const [curahHujan, setCurahHujan] = useState("");
+
+  //kebakaran
+  const [panasApi, setPanasApi] = useState("");
+  const [statApi, setStatApi] = useState("");
+
+  //tanah longsor
+  const [statPerbaikan, setStatPerbaikan] = useState("");
+
+  //semua ada
+  const [parameter, setParameter] = useState("");
+  const [siaga, setSiaga] = useState('');
+
+  //keterangan bencana
+  const [deskKondisi, setDeskKondisi] = useState("");
+  const [deskPeringatan, setDeskPeringatan] = useState("");
+  const [deskTindakan, setDeskTindakan] = useState("");
+  const [deskPenyebab, setDeskPenyebab] = useState("");
+  const [deskKeterangan, setDeskKeterangan] = useState("");
+
+  //context
+
+  const handleChange = (e) => {
+    setBencana(e.target.value);
+  };
+
+  const tambah = () => {
+    if (onTambah) {
+    onTambah({
+      cuaca,
+      suhu,
+      ketCuaca,
+      judulBencana,
+      bencana,
+      peringatan,
+      tanggal,
+      waktu,
+      lokasi,
+      tinggiAir,
+      curahHujan,
+      panasApi,
+      statApi,
+      statPerbaikan,
+      parameter,
+      deskKondisi,
+      deskPeringatan,
+      deskTindakan,
+      deskPenyebab,
+      deskKeterangan,
+      siaga
+    });
+
+    setCuaca('');
+    setSuhu('');
+    setKetCuaca('');
+    setJudulBencana('');
+    setBencana('');
+    setPeringatan('');
+    setTanggal('');
+    setWaktu('');
+    setLokasi('');
+    setTinggiAir('');
+    setCurahHujan('');
+    setPanasApi('');
+    setStatApi('');
+    setStatPerbaikan('');
+    setParameter('');
+    setDeskKondisi('');
+    setDeskPeringatan('');
+    setDeskTindakan('');
+    setDeskPenyebab('');
+    setDeskKeterangan('');
+    setSiaga('');
+    }
+  };
 
   const navigate = useNavigate("");
 
-  const peringatan = [
+  const cardPeringatan = [
     {
-      value: "Waspada",
-      label: "Waspada",
+      value: "WASPADA",
+      label: "WASPADA",
       status: "success",
     },
     {
-      value: "Siaga",
-      label: "Siaga",
+      value: "SIAGA",
+      label: "SIAGA",
       status: "warning",
     },
     {
-      value: "Awas",
-      label: "Awas",
+      value: "AWAS",
+      label: "AWAS",
       status: "erorr",
     },
   ];
 
-  const bencana = [
+  const cardBencana = [
     {
       value: "Banjir",
       label: "Banjir",
@@ -51,7 +141,7 @@ const SmartCity = () => {
     },
   ];
 
-  const cuaca = [
+  const cardCuaca = [
     {
       value: "Cerah",
     },
@@ -61,10 +151,10 @@ const SmartCity = () => {
   ];
 
   const statusSiaga = [
-    { value: "siaga 1" },
-    { value: "siaga 2" },
-    { value: "siaga 3" },
-    { value: "siaga 4" },
+    { value: "Siaga 1" },
+    { value: "Siaga 2" },
+    { value: "Siaga 3" },
+    { value: "Siaga 4" },
   ];
   const statusApi = [
     { value: "Padam", status: "success" },
@@ -75,10 +165,6 @@ const SmartCity = () => {
     { value: "Dalam Proses", status: "warning" },
     { value: "Belum Proses", status: "error" },
   ];
-
-  const handleChange = (e) => {
-    setCardBencana(e.target.value);
-  };
 
   const handleSubmit = () => {
     //
@@ -155,11 +241,13 @@ const SmartCity = () => {
                       sx={{ width: "95%" }}
                       size="small"
                       variant="outlined"
+                      onChange={(e)=>setCuaca(e.target.value)}
+                      value={cuaca}
                       select
                     >
-                      {cuaca.map((value) => (
-                        <MenuItem key={value.value} value={value.value}>
-                          {value.value}
+                      {cardCuaca.map((opsi) => (
+                        <MenuItem key={opsi.value} value={opsi.value}>
+                          {opsi.value}
                         </MenuItem>
                       ))}
                     </TextField>
@@ -171,6 +259,8 @@ const SmartCity = () => {
                       placeholder="Masukan suhu"
                       size="small"
                       variant="outlined"
+                      value={suhu}
+                      onChange={(e)=>setSuhu(e.target.value)}
                     >
                       {" "}
                     </TextField>
@@ -185,6 +275,8 @@ const SmartCity = () => {
                     placeholder="Masukan keterangan cuaca"
                     variant="outlined"
                     multiline
+                    value={ketCuaca}
+                    onChange={(e)=>setKetCuaca(e.target.value)}
                     rows={3}
                   ></TextField>
                 </Box>
@@ -217,6 +309,8 @@ const SmartCity = () => {
                     label="Masukan judul bencana"
                     size="small"
                     variant="outlined"
+                    value={judulBencana}
+                    onChange={(e)=>setJudulBencana(e.target.value)}
                   ></TextField>
 
                   <Typography sx={{ mt: 1 }} variant="body1">
@@ -227,11 +321,11 @@ const SmartCity = () => {
                     label="Pilih Jenis Bencana"
                     size="small"
                     variant="outlined"
-                    value={cardBencana}
-                    onChange={handleChange}
+                    value={bencana}
+                    onChange={(e)=>setBencana(e.target.value)}
                     select
                   >
-                    {bencana.map((opsi) => (
+                    {cardBencana.map((opsi) => (
                       <MenuItem key={opsi.value} value={opsi.value}>
                         {opsi.label}
                       </MenuItem>
@@ -246,9 +340,11 @@ const SmartCity = () => {
                     label="Pilih Peringatan"
                     size="small"
                     variant="outlined"
+                    value={peringatan}
+                    onChange={(e)=> setPeringatan(e.target.value)}
                     select
                   >
-                    {peringatan.map((opsi) => (
+                    {cardPeringatan.map((opsi) => (
                       <MenuItem key={opsi.value} value={opsi.value}>
                         {opsi.label}
                       </MenuItem>
@@ -263,6 +359,8 @@ const SmartCity = () => {
                         size="small"
                         variant="outlined"
                         type="date"
+                        value={tanggal}
+                        onChange={(e)=>setTanggal(e.target.value)}
                       ></TextField>
                     </Box>
                     <Box sx={{ width: "50%", textAlign: "left" }}>
@@ -272,6 +370,8 @@ const SmartCity = () => {
                         size="small"
                         variant="outlined"
                         type="time"
+                        value={waktu}
+                        onChange={(e)=>setWaktu(e.target.value)}
                       >
                         {" "}
                       </TextField>
@@ -286,6 +386,8 @@ const SmartCity = () => {
                     label="Masukan Lokasi Bencana"
                     size="small"
                     variant="outlined"
+                    value={lokasi}
+                    onChange={(e)=>setLokasi(e.target.value)}
                   ></TextField>
 
                   <Box marginTop="10px" />
@@ -293,14 +395,10 @@ const SmartCity = () => {
               </Card>
             </Box>
             {/* informasi 'subBencana' */}
-            {(cardBencana === "Kebakaran" && (
+            {(bencana === "Kebakaran" && (
               <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
                 <Card sx={{ width: "85%", borderRadius: "12px" }}>
-                  <Typography
-                    marginTop="10px"
-                    variant="h6"
-                    fontWeight="bold"
-                  >
+                  <Typography marginTop="10px" variant="h6" fontWeight="bold">
                     INFORMASI KEBAKARAN
                   </Typography>
 
@@ -313,6 +411,8 @@ const SmartCity = () => {
                           label="Masukan Panas Api"
                           size="small"
                           variant="outlined"
+                          value={panasApi}
+                          onChange={(e)=>setPanasApi(e.target.value)}
                         ></TextField>
                       </Box>
                       <Box sx={{ width: "50%", textAlign: "left" }}>
@@ -323,6 +423,8 @@ const SmartCity = () => {
                           label="Masukan Status Api"
                           size="small"
                           variant="outlined"
+                          value={statApi}
+                          onChange={(e)=>setStatApi(e.target.value)}
                         >
                           {statusApi.map((opsi) => (
                             <MenuItem key={opsi.value} value={opsi.value}>
@@ -341,6 +443,8 @@ const SmartCity = () => {
                       label="Masukan Status Siaga"
                       size="small"
                       variant="outlined"
+                      value={siaga}
+                      onChange={(e)=>setSiaga(e.target.value)}
                       select
                     >
                       {statusSiaga.map((opsi) => (
@@ -357,6 +461,8 @@ const SmartCity = () => {
                       label="Masukan Parameter Penentuan"
                       size="small"
                       variant="outlined"
+                      value={parameter}
+                      onChange={(e)=>setParameter(e.target.value)}
                     ></TextField>
 
                     <Box marginTop="10px" />
@@ -364,14 +470,10 @@ const SmartCity = () => {
                 </Card>
               </Box>
             )) ||
-              (cardBencana === "Banjir" && (
+              (bencana === "Banjir" && (
                 <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
                   <Card sx={{ width: "85%", borderRadius: "12px" }}>
-                    <Typography
-                      marginTop="10px"
-                      variant="h6"
-                      fontWeight="bold"
-                    >
+                    <Typography marginTop="10px" variant="h6" fontWeight="bold">
                       INFORMASI BANJIR
                     </Typography>
 
@@ -384,6 +486,8 @@ const SmartCity = () => {
                             label="Masukan Tinggi Air"
                             size="small"
                             variant="outlined"
+                            value={tinggiAir}
+                            onChange={(e)=>setTinggiAir(e.target.value)}
                           ></TextField>
                         </Box>
                         <Box sx={{ width: "50%", textAlign: "left" }}>
@@ -393,6 +497,8 @@ const SmartCity = () => {
                             label="Masukan Curah Hujan"
                             size="small"
                             variant="outlined"
+                            value={curahHujan}
+                            onChange={(e)=>setCurahHujan(e.target.value)}
                           >
                             {" "}
                           </TextField>
@@ -408,6 +514,8 @@ const SmartCity = () => {
                         size="small"
                         variant="outlined"
                         select
+                        value={siaga}
+                        onChange={(e)=>setSiaga(e.target.value)}
                       >
                         {statusSiaga.map((opsi) => (
                           <MenuItem key={opsi.value} value={opsi.value}>
@@ -423,6 +531,8 @@ const SmartCity = () => {
                         label="Masukan Parameter Penentuan"
                         size="small"
                         variant="outlined"
+                        value={parameter}
+                        onChange={(e)=>setParameter(e.target.value)}
                       ></TextField>
 
                       <Box marginTop="10px" />
@@ -430,14 +540,10 @@ const SmartCity = () => {
                   </Card>
                 </Box>
               )) ||
-              (cardBencana === "Tanah Longsor" && (
+              (bencana === "Tanah Longsor" && (
                 <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
                   <Card sx={{ width: "85%", borderRadius: "12px" }}>
-                    <Typography
-                      marginTop="10px"
-                      variant="h6"
-                      fontWeight="bold"
-                    >
+                    <Typography marginTop="10px" variant="h6" fontWeight="bold">
                       INFORMASI TANAH LONGSOR
                     </Typography>
 
@@ -451,6 +557,8 @@ const SmartCity = () => {
                         size="small"
                         variant="outlined"
                         select
+                        value={statPerbaikan}
+                        onChange={(e)=>setStatPerbaikan(e.target.value)}
                       >
                         {statusLongsor.map((opsi) => (
                           <MenuItem key={opsi.value} value={opsi.value}>
@@ -468,6 +576,8 @@ const SmartCity = () => {
                         size="small"
                         variant="outlined"
                         select
+                        value={siaga}
+                        onChange={(e)=>setSiaga(e.target.value)}
                       >
                         {statusSiaga.map((opsi) => (
                           <MenuItem key={opsi.value} value={opsi.value}>
@@ -483,6 +593,8 @@ const SmartCity = () => {
                         label="Masukan Parameter Penentuan"
                         size="small"
                         variant="outlined"
+                        value={parameter}
+                        onChange={(e)=>setParameter(e.target.value)}
                       ></TextField>
 
                       <Box marginTop="10px" />
@@ -491,14 +603,10 @@ const SmartCity = () => {
                 </Box>
               ))}
             {/* keterangan 'subBencana' */}
-            {cardBencana && (
+            {bencana && (
               <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
                 <Card sx={{ width: "85%", borderRadius: "12px" }}>
-                  <Typography
-                    marginTop="10px"
-                    variant="h6"
-                    fontWeight="bold"
-                  >
+                  <Typography marginTop="10px" variant="h6" fontWeight="bold">
                     KETERANGAN BENCANA{" "}
                   </Typography>
 
@@ -511,6 +619,8 @@ const SmartCity = () => {
                       label="Masukan Deskripsi kondisi"
                       size="small"
                       variant="outlined"
+                      value={deskKondisi}
+                      onChange={(e)=>setDeskKondisi(e.target.value)}
                     ></TextField>
                     <Typography sx={{ mt: 1 }} variant="body1">
                       Peringatan
@@ -520,6 +630,8 @@ const SmartCity = () => {
                       label="Masukan Peringatan"
                       size="small"
                       variant="outlined"
+                      value={deskPeringatan}
+                      onChange={(e)=>setDeskPeringatan(e.target.value)}
                     ></TextField>
                     <Typography sx={{ mt: 1 }} variant="body1">
                       Tindakan yang perlu diambil
@@ -529,15 +641,19 @@ const SmartCity = () => {
                       label="Masukan Tindakan"
                       size="small"
                       variant="outlined"
+                      value={deskTindakan}
+                      onChange={(e)=>setDeskTindakan(e.target.value)}
                     ></TextField>
                     <Typography sx={{ mt: 1 }} variant="body1">
-                      Penyebab {cardBencana}
+                      Penyebab {bencana}
                     </Typography>
                     <TextField
                       sx={{ width: "100%" }}
                       label="Masukan Penyebab"
                       size="small"
                       variant="outlined"
+                      value={deskPenyebab}
+                      onChange={(e)=>setDeskPenyebab(e.target.value)}
                     ></TextField>
                     <Typography sx={{ mt: 1 }} variant="body1">
                       Keterangan
@@ -549,6 +665,8 @@ const SmartCity = () => {
                       variant="outlined"
                       multiline
                       rows={3}
+                      value={deskKeterangan}
+                      onChange={(e)=>setDeskKeterangan(e.target.value)}
                     ></TextField>
                   </Box>
 
@@ -568,6 +686,7 @@ const SmartCity = () => {
               <Box sx={{ width: "65%", textAlign: "end" }}>
                 <Button
                   variant="contained"
+                  onClick={tambah}
                   sx={{ height: 38, background: "#00A9AD", mr: 3 }}
                 >
                   SUBMIT
