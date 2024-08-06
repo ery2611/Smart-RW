@@ -5,6 +5,8 @@ import TambahOGS from './Pages/OGS/tambahOGS';
 import DetailEWS from './Pages/EWS/DetailEWS';
 import EWS from './Pages/EWS/dashboardEWS';
 
+import FormKeamananWarga from './Pages/Warga/Keamanan/Form';
+
 
 const App=()=> {
   const [dataList, setDataList] = useState([]);
@@ -33,6 +35,8 @@ const App=()=> {
           
           <Route path='/detail/:id' element={<DetailEWS dataList={dataList} />}/>
           <Route path='/dashboard' element={<EWS dataList={dataList} onDetail={toggleDetail}/>}/>
+
+          <Route path='/formWarga' element={<FormKeamananWarga/>}/>
 
           {/* Mungkin ada rute lain di sini */} 
           
