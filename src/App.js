@@ -1,7 +1,7 @@
 import Routes from "./routes";
 import "./App.css";
-import Header from "./components/Header";
-import Bar from "./components/Navbar";
+import Header from "./components/CommandComponents/Header";
+import Bar from "./components/CommandComponents/Navbar";
 import { Box } from "@mui/material";
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
             justifyContent: "center",
           }}
         >
-          <Bar />
+         
         </Box>
         
         <Box
