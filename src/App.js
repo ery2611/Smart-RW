@@ -8,6 +8,8 @@ import EWS from './Pages/EWS/dashboardEWS';
 import DashboardKeamanan from './Pages/Warga/Keamanan/dashboard';
 import FormKeamananWarga from './Pages/Warga/Keamanan/Form';
 
+import Pengumuman from './Pages/Warga/dashboard/pengumuman';
+
 
 const App=()=> {
   const [dataList, setDataList] = useState([]);
@@ -33,12 +35,13 @@ const App=()=> {
             navigate('/dashboard')
           }}/>}/>
           <Route path='/ogs' element={<TambahOGS/>}/>
-          
           <Route path='/detail/:id' element={<DetailEWS dataList={dataList} />}/>
           <Route path='/dashboard' element={<EWS dataList={dataList} onDetail={toggleDetail}/>}/>
 
           <Route path='/formWarga' element={<FormKeamananWarga/>}/>
           <Route path='/dashboard2' element={<DashboardKeamanan/>}/>
+
+          <Route path='/dashboard/pengumuman' element={<Pengumuman/>}/>
 
 
           {/* Mungkin ada rute lain di sini */} 
