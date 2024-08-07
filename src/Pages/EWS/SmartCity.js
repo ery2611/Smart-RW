@@ -1,16 +1,13 @@
 import {
   Box,
   Card,
-  FormControl,
-  InputLabel,
   MenuItem,
   TextField,
   Typography,
   Stack,
   Button,
-  Container,
 } from "@mui/material";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 
 const SmartCity = ({onTambah}) => {

@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { BrowserRouter as Router, Route, Switch, Routes, useNavigate,  } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Route, Routes, useNavigate,  } from 'react-router-dom';
 import SmartCity from './Pages/EWS/SmartCity';
 import TambahOGS from './Pages/OGS/tambahOGS';
 import DetailEWS from './Pages/EWS/DetailEWS';
