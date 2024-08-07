@@ -1,7 +1,7 @@
 import React from "react";
 import Bar from "../../../components/WargaComponents/Navbar";
 import { Box, Stack, Typography, Card, CardContent } from "@mui/material";
-import Kegiatan from "../../../components/WargaComponents/Kegiatan";
+import Kegiatan from "../../../components/WargaComponents/Kegiatan/index";
 import Pengumuman  from "../../../components/WargaComponents/Pengumuman"
 import Forum from '../../../components/WargaComponents/Forum'
 

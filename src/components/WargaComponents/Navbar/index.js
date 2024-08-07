@@ -38,18 +38,18 @@ const Navbar = () => {
           {/* <ListItemIcon>
             <WarningIcon />
           </ListItemIcon> */}
-          <ListItemText primary="Keamanan"  onClick={() => Navigate("/Warga")}
-           sx={{ color: isActive("/") ? '#00A9AD' : 'inherit', 
-            borderBottom: isActive("/") ? '1px solid #EFEFEF' : '0px'}}
+          <ListItemText primary="Keamanan"  onClick={() => Navigate("/Warga/Keamanan")}
+           sx={{ color: isActive("/Warga/Keamanan") ? '#00A9AD' : 'inherit', 
+            borderBottom: isActive("/Warga/Keamanan") ? '1px solid #EFEFEF' : '0px'}}
             />
         </ListItem>
         <ListItem button>
           {/* <ListItemIcon>
             <SecurityIcon />
           </ListItemIcon> */}
-          <ListItemText primary="Kebersihan" onClick={() => Navigate("/Warga")} 
-            sx={{ color: isActive("/") ? '#00A9AD' : 'inherit', 
-              borderBottom: isActive("/") ? '1px solid #EFEFEF' : '0px'}} />
+          <ListItemText primary="Kebersihan" onClick={() => Navigate("/Warga/Kebersihan")} 
+            sx={{ color: isActive("/Warga/Kebersihan") ? '#00A9AD' : 'inherit', 
+              borderBottom: isActive("/Warga/Kebersihan") ? '1px solid #EFEFEF' : '0px'}} />
         </ListItem>
         <ListItem button>
           {/* <ListItemIcon>
@@ -64,16 +64,18 @@ const Navbar = () => {
           {/* <ListItemIcon>
             <CameraIcon />
           </ListItemIcon> */}
-          <ListItemText primary="Early Warning System" />
+          <ListItemText primary="Early Warning System"  onClick={() => Navigate("/Warga/Ews")} 
+            sx={{ color: isActive("/Warga/Ews") ? '#00A9AD' : 'inherit', 
+              borderBottom: isActive("/Warga/Ews") ? '1px solid #EFEFEF' : '0px'}} />
         </ListItem>
        
         <ListItem button>
           {/* <ListItemIcon>
             <EmergencyIcon />
           </ListItemIcon> */}
-          <ListItemText primary="Panggilan Darurat"  onClick={() => Navigate("/Warga")} 
-            sx={{ color: isActive("/") ? '#00A9AD' : 'inherit', 
-              borderBottom: isActive("/") ? '1px solid #EFEFEF' : '0px'}} />
+          <ListItemText primary="Panggilan Darurat"  onClick={() => Navigate("/Warga/Panggilan")} 
+            sx={{ color: isActive("/Warga/Panggilan") ? '#00A9AD' : 'inherit', 
+              borderBottom: isActive("/Warga/Panggilan") ? '1px solid #EFEFEF' : '0px'}} />
         </ListItem>
       </List>
     </Drawer>

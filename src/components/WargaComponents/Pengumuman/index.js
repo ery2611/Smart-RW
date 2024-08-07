@@ -4,9 +4,12 @@ import Mata from '@mui/icons-material/VisibilityOutlined';
 import Lokasi from '@mui/icons-material/LocationOnOutlined';
 import Jam from '@mui/icons-material/QueryBuilderOutlined';
 import Kalender from '@mui/icons-material/CalendarMonthOutlined';
+import { useNavigate } from 'react-router-dom';
 
-function index() {
+function Index() {
+  const Navigate = useNavigate();
     const truncateText = (text, maxLength) => {
+      
         if (!text) {
           return "";
         }
@@ -97,7 +100,10 @@ function index() {
                          <Typography variant='caption' sx={{marginLeft:'5px', marginTop:'5px', fontWeight:'bold'}}>Kemang Pratama 2</Typography>
                     </Box>
                     <Box>
-                        <Mata fontSize='large' sx={{color:'#00A9AD'}} />
+                      <Button onClick={()=> Navigate('/DetailPengumuman')}>
+                      <Mata fontSize='large' sx={{color:'#00A9AD'}} />
+                      </Button>
+                        
                     </Box>
                 </Box>
             </Box>
@@ -109,4 +115,4 @@ function index() {
   )
 }
 
-export default index
+export default Index

@@ -1,13 +1,14 @@
+import { Box, Card,CardContent,CardMedia, Typography,Button, Container } from '@mui/material'
 import React from 'react'
-import { Box, Button, Typography, Card, CardMedia, CardContent } from '@mui/material'
 import Mata from '@mui/icons-material/VisibilityOutlined';
 import Lokasi from '@mui/icons-material/LocationOnOutlined';
 import Jam from '@mui/icons-material/QueryBuilderOutlined';
 import Kalender from '@mui/icons-material/CalendarMonthOutlined';
 import { useNavigate } from 'react-router-dom';
 
-function Index() {
-  const Navigate = useNavigate()
+
+function Semua() {
+    const Navigate = useNavigate();
     const truncateText = (text, maxLength) => {
         if (!text) {
           return "";
@@ -18,38 +19,43 @@ function Index() {
         return text.substring(0, maxLength) + "...";
       };
   return (
-    <Box sx={{
-        display:"fluid",
-        justifyContent:'flex-start',
-        marginTop:'10px',
+    <div style={{justifyContent:'center', display:'fluid', alignContent:"center", alignItems:'center'}}>
+         <Box sx={{
+        display:'fluid',
+        justifyContent:'center',
+        alignItems:'center',
+        textAlign:'center'
     }}>
-        <Box sx={{
-            justifyContent:'space-between',
-            display:'flex'
-        }}>
-            <Box>
-                <Typography variant='h6' sx={{color:'#00A9AD'}}>Kegiatan Minggu Ini</Typography>
-            </Box>
-            <Box>
-              <Button onClick={()=> Navigate('/Warga/Kegiatan')} sx={{backgroundColor:'#00A9AD', color:'white',boxShadow:5,marginRight:'10px',
-              '&:hover': {
-                backgroundColor: '#00A9AD',
-                color:'white',
-                },}}>Semua Kegiatan</Button>
-            </Box>
-        </Box>
-        <Box sx={{ padding: 2, display: 'flex',  overflowX: 'scroll', // Aktifkan scroll horizontal
-        whiteSpace: 'nowrap','&::-webkit-scrollbar': { display: 'none' },
-        '-ms-overflow-style': 'none',  /* Internet Explorer 10+ */
-        'scrollbar-width': 'none'  /* Firefox */ }}>
-      {[1, 2,2,2,2,2,].map((item) => (
+        <Typography variant='h6' fontWeight='bolder' gutterBottom>SELURUH KEGIATAN PADA HARI INI</Typography>
+        <Typography variant='body1' sx={{color:"#A1A5B7", textAlign:'center'}} gutterBottom>Total: 6 Kegiatan</Typography>
+       
+    </Box>
+    <Container sx={{display:'flex',justifyContent:'center'}}>
+    <Box sx={{
+        display:'fluid',
+        justifyContent:'center',
+      
+        alignItems:'center',
+        width:'80%'
+
+    }}>
+    <Box sx={{
+         display: 'flex',
+         flexWrap: 'wrap', 
+         justifyContent: 'center', 
+         gap: '20px', 
+         padding: '10px', 
+
+    }}>
+         {[1, 2,2,2,2,2,].map((item) => (
         <Card
           key={item}
           sx={{
             width: '400px',
-            display: 'inline-flex', 
+            display: 'flex', 
             marginRight: '20px', // Jarak antar card
             flexDirection: 'column',
+            justifyContent:'center',
             flexShrink: 0 // Menghindari penyusutan card
             
           }}
@@ -117,8 +123,30 @@ function Index() {
         </Card>
       ))}
     </Box>
+    <Box sx={{
+        marginBottom:2,
+        marginTop:1.2,
+        justifyContent:'flex-end',
+        display:'flex',
+        marginRight:'50px'
+    }}>
+    <Button onClick={() => Navigate("/Warga")} sx={{color:'#00A9AD', fontWeight:'bolder',  border: '2px solid #00A9AD',
+                '&:hover': {
+                border: '2px solid #00A9AD',
+                color:'#00A9AD',
+                
+                },
+
+            }} variant="outlined"  >KEMBALI</Button>
     </Box>
+    </Box>
+    </Container>
+   
+    
+    </div>
+   
+    
   )
 }
 
-export default Index
+export default Semua

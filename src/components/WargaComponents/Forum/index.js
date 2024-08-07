@@ -4,8 +4,10 @@ import Mata from '@mui/icons-material/VisibilityOutlined';
 import Lokasi from '@mui/icons-material/LocationOnOutlined';
 import Jam from '@mui/icons-material/QueryBuilderOutlined';
 import Kalender from '@mui/icons-material/CalendarMonthOutlined';
+import { useNavigate } from 'react-router-dom';
 
-function index() {
+function Index() {
+  const Navigate = useNavigate();
     const truncateText = (text, maxLength) => {
         if (!text) {
           return "";
@@ -95,7 +97,7 @@ function index() {
                 },}}>Gabung Forum</Button>
                     </Box>
                     <Box>
-                    <Button variant='outlined' sx={{border:'2px solid #00A9AD', color:'#00A9AD',
+                    <Button variant='outlined' onClick={()=> Navigate('/Forum/Lihat')} sx={{border:'2px solid #00A9AD', color:'#00A9AD',
                 fontWeight:'bolder',marginRight:'10px',width:'120px',
               '&:hover': {
                 border: '2px solid #00A9AD',
@@ -113,4 +115,4 @@ function index() {
   )
 }
 
-export default index
+export default Index
