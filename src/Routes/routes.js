@@ -14,6 +14,8 @@ const Laporan = Loadable(lazy(()=>import('../Pages/LaporanDeteksi')))
 const DetailRiwayat = Loadable(lazy(()=>import('../Pages/DetailRiwayat')))
 const Kegiatan = Loadable(lazy(()=>import('../Pages/Kegiatan/kegiatan')))
 const Pengumuman = Loadable(lazy(()=>import('../Pages/DetailPengumuman/index')))
+const FormPengaduan = Loadable(lazy(()=>import('../Pages/FormPengaduanWarga/form')))
+const ForumLihat = Loadable(lazy(()=>import('../Pages/ForumLihat/index')))
 
 const mainRoutes =[{
     path: '',
@@ -38,6 +40,14 @@ const mainRoutes =[{
 {
     path:'/pengumuman',
     element: <Pengumuman/>
+},
+{
+    path:'/FormPengaduan',
+    element: <FormPengaduan/>
+},
+{
+    path:'/ForumLihat',
+    element: <ForumLihat/>
 },
 
 
