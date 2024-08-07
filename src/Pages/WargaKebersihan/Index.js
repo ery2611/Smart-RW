@@ -15,94 +15,79 @@ import {
   Typography,
   Chip,
   Pagination,
+  Box,
+  Container,
 } from "@mui/material";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import SearchIcon from "@mui/icons-material/Search";
-import AddIcon from "@mui/icons-material/Add";
-import Datepicker from "../../Components/Datepicker/Index";
+import InformasiJadwalToday from "../../Components/cardJadwalToday/Index";
+import Calender from "../../Components/Calender/Index";
 
 const data = [
   // Your data array
   {
     id: 1,
-    judul_bencana: "Banjir Bandang",
-    jenis_bencana: "Banjir",
-    tanggal: "06/01/2024",
-    jam: "08:00",
-    parameter: "Prakiraan cuaca",
-    lokasi: "Area RW02 Kemang Pratama",
-    peringatan: "WASPADA",
+    nama_petugas: "Yan Azhari",
+    jam_mulai: "08:30",
+    jam_selesai: "09:30",
+    shift: "PAGI",
   },
   {
     id: 2,
-    judul_bencana: "Kebakaran Rumah",
-    jenis_bencana: "Kebakaran",
-    tanggal: "06/01/2024",
-    jam: "08:00",
-    parameter: "Sumber Api",
-    lokasi: "Kemang Dahlia Raya Blok Z No.12",
-    peringatan: "SIAGA",
+    nama_petugas: "Khoirul Mustaan",
+    jam_mulai: "13:00",
+    jam_selesai: "14:00",
+    shift: "SIANG",
   },
   {
     id: 3,
-    judul_bencana: "Tanah Longsor",
-    jenis_bencana: "Tanah Longsor",
-    tanggal: "06/01/2024",
-    jam: "08:00",
-    parameter: "Curah Hujan",
-    lokasi: "Area RW02 Kemang Pratama",
-    peringatan: "AWAS",
+    nama_petugas: "Deddy Sunarya",
+    jam_mulai: "10:00",
+    jam_selesai: "11:00",
+    shift: "PAGI",
   },
   {
     id: 4,
-    judul_bencana: "Banjir Bandang",
-    jenis_bencana: "Banjir",
-    tanggal: "06/01/2024",
-    jam: "08:00",
-    parameter: "Prakiraan cuaca",
-    lokasi: "Area RW02 Kemang Pratama",
-    peringatan: "WASPADA",
+    nama_petugas: "Syahri Ramadhan",
+    jam_mulai: "14:00",
+    jam_selesai: "15:00",
+    shift: "SIANG",
   },
   {
     id: 5,
-    judul_bencana: "Banjir Bandang",
-    jenis_bencana: "Banjir",
-    tanggal: "06/01/2024",
-    jam: "08:00",
-    parameter: "Prakiraan cuaca",
-    lokasi: "Area RW02 Kemang Pratama",
-    peringatan: "WASPADA",
+    nama_petugas: "Daffa Syarif",
+    jam_mulai: "10:00",
+    jam_selesai: "11:00",
+    shift: "PAGI",
   },
   {
     id: 6,
-    judul_bencana: "Banjir Bandang",
-    jenis_bencana: "Banjir",
-    tanggal: "06/01/2024",
-    jam: "08:00",
-    parameter: "Prakiraan cuaca",
-    lokasi: "Area RW02 Kemang Pratama",
-    peringatan: "WASPADA",
+    nama_petugas: "Farrel",
+    jam_mulai: "05:00",
+    jam_selesai: "05:00",
+    shift: "PAGI",
+  },
+  {
+    id: 7,
+    nama_petugas: "Savero",
+    jam_mulai: "05:00",
+    jam_selesai: "05:00",
+    shift: "PAGI",
   },
 ];
 
-const getPeringatanColor = (peringatan) => {
-  switch (peringatan) {
-    case "WASPADA":
+const getPeringatanColor = (shift) => {
+  switch (shift) {
+    case "PAGI":
       return {
-        backgroundColor: "#DBF8DC",
-        color: "#5AF411",
+        backgroundColor: "#AEF4F0",
+        color: "#74D6D0",
         fontWeight: "bold",
       };
-    case "SIAGA":
+    case "SIANG":
       return {
-        backgroundColor: "#FFF6CB",
-        color: "#FFE152",
-        fontWeight: "bold",
-      };
-    case "AWAS":
-      return {
-        backgroundColor: "#FBE3E3",
-        color: "#EE1717",
+        backgroundColor: "#D6FDFB",
+        color: "#00F0FF",
         fontWeight: "bold",
       };
     default:
@@ -117,14 +102,13 @@ const truncateText = (text, maxLength) => {
   if (text.length <= maxLength) {
     return text;
   }
-  return text.substring(0, maxLength) + "...";
+  return text.substring(0, maxLength) + `<br>`;
 };
 
-const EWS = () => {
+const WargaKebersihan = () => {
   const [searchText, setSearchText] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
-  const [searchDate, setSearchDate] = useState("");
 
   const handleSearchChange = (event) => {
     setSearchText(event.target.value);
@@ -155,19 +139,26 @@ const EWS = () => {
           variant="h5"
           sx={{ marginBottom: 0, color: "#00A9AD", fontSize: 18 }}
         >
-          COMMAND CENTER
+          WARGA
         </Typography>
         <Stack direction="row" sx={{ marginBottom: 2, fontSize: 14 }}>
           <Typography variant="h8" sx={{ color: "#A0A1A4" }}>
             Dashboard/
           </Typography>
           <Typography variant="h9" sx={{ color: "black", fontWeight: "bold" }}>
-            Early Warning System
+            Kebersihan
           </Typography>
         </Stack>
-        <Typography variant="h9" sx={{ color: "black", fontWeight: "hin" }}>
-          Tanggal
-        </Typography>
+        <Container sx={{ marginBottom: 2 }}>
+          <Box sx={{ marginLeft: "0%" }}>
+            <Calender />
+          </Box>
+        </Container>
+        <Container sx={{ marginBottom: 2 }}>
+          <Box sx={{ marginLeft: "0%" }}>
+            <InformasiJadwalToday />
+          </Box>
+        </Container>
       </Stack>
       <Stack
         direction="row"
@@ -176,18 +167,10 @@ const EWS = () => {
         sx={{ marginBottom: 2 }}
       >
         <TextField
-          value={searchDate}
-          onChange={(e) => setSearchDate(e.target.value)}
-          size="small"
-          type="date"
-          sx={{ width: 179, height: 38 }}
-        />
-
-        <TextField
           value={searchText}
           onChange={handleSearchChange}
-          size="small"
           placeholder="Cari"
+          size="small"
           InputProps={{
             startAdornment: <SearchIcon />,
           }}
@@ -196,15 +179,26 @@ const EWS = () => {
         <Button
           variant="contained"
           onClick={handleSearch}
+          size="small"
           sx={{ backgroundColor: "#00A9AD", height: 38 }}
         >
           CARI
         </Button>
+        <Stack
+          direction="row"
+          spacing={0.5}
+          sx={{ color: "#A1A5B7", fontFamily: "montserrat" }}
+        >
+          <Typography> Showing</Typography>
+          <Typography fontWeight="bold"> {currentData.length} Item</Typography>
+          <Typography> from</Typography>
+          <Typography fontWeight="bold"> {data.length} Result </Typography>
+        </Stack>
         <Button
           variant="contained"
           color="primary"
           onClick={handleAdd}
-          startIcon={<AddIcon />}
+          size="small"
           style={{ marginLeft: "auto" }}
           sx={{
             backgroundColor: "#00A9AD",
@@ -214,7 +208,7 @@ const EWS = () => {
             alignItems: "center",
           }}
         >
-          TAMBAH
+          PENGADUAN WARGA
         </Button>
       </Stack>
       <TableContainer component={Paper} sx={{ flexGrow: 1 }}>
@@ -237,7 +231,7 @@ const EWS = () => {
                   color: "#A0A1A4",
                 }}
               >
-                BENCANA
+                NAMA &<br /> PETUGAS
               </TableCell>
               <TableCell
                 sx={{
@@ -246,7 +240,8 @@ const EWS = () => {
                   color: "#A0A1A4",
                 }}
               >
-                TANGGAL & <br /> WAKTU
+                JAM <br />
+                MULAI
               </TableCell>
               <TableCell
                 sx={{
@@ -255,7 +250,7 @@ const EWS = () => {
                   color: "#A0A1A4",
                 }}
               >
-                PARAMETER <br /> PEMANTAUAN
+                JAM <br /> SELESAI
               </TableCell>
               <TableCell
                 sx={{
@@ -264,16 +259,7 @@ const EWS = () => {
                   color: "#A0A1A4",
                 }}
               >
-                LOKASI
-              </TableCell>
-              <TableCell
-                sx={{
-                  fontFamily: "Montserrat, sans-serif",
-                  fontWeight: "bold",
-                  color: "#A0A1A4",
-                }}
-              >
-                PERINGATAN
+                SHIFT
               </TableCell>
               <TableCell
                 sx={{
@@ -297,26 +283,13 @@ const EWS = () => {
                 }}
               >
                 <TableCell>{row.id}</TableCell>
-                <TableCell>
-                  <Stack direction="column" alignItems="left">
-                    <span>{truncateText(row.judul_bencana, 20)}</span>
-                    <span style={{ color: "#A1A5B7" }}>
-                      {truncateText(row.jenis_bencana, 20)}
-                    </span>
-                  </Stack>
-                </TableCell>
-                <TableCell>
-                  <Stack direction="column" alignItems="left">
-                    <span>{row.tanggal}</span>
-                    <span style={{ color: "#A1A5B7" }}>{row.jam}</span>
-                  </Stack>
-                </TableCell>
-                <TableCell>{truncateText(row.parameter, 20)}</TableCell>
-                <TableCell>{truncateText(row.lokasi, 20)}</TableCell>
+                <TableCell>{row.nama_petugas}</TableCell>
+                <TableCell>{truncateText(row.jam_mulai, 40)}</TableCell>
+                <TableCell>{truncateText(row.jam_selesai, 200)}</TableCell>
                 <TableCell>
                   <Chip
-                    label={truncateText(row.peringatan, 20)}
-                    sx={getPeringatanColor(row.peringatan)}
+                    label={truncateText(row.shift, 40)}
+                    sx={getPeringatanColor(row.shift)}
                   />
                 </TableCell>
                 <TableCell>
@@ -346,4 +319,4 @@ const EWS = () => {
   );
 };
 
-export default EWS;
+export default WargaKebersihan;

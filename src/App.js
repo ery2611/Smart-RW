@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import OGS from "./Pages/OGS/Index";
 import Panggilan from "./Pages/Panggilan/Index";
 import WargaEWS from "./Pages/WargaEWS/Index";
+import WargaKebersihan from "./Pages/WargaKebersihan/Index";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="OGS" element={<OGS />} />
           <Route path="Panggilan" element={<Panggilan />} />
           <Route path="WargaEWS" element={<WargaEWS />} />
+          <Route path="WargaKebersihan" element={<WargaKebersihan />} />
         </Routes>
       </Container>
     </div>

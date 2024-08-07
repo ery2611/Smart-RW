@@ -1,0 +1,128 @@
+import React, { useState, useEffect } from "react";
+import {
+  Card,
+  CardContent,
+  Typography,
+  Stack,
+  Chip,
+  Box,
+  Grid,
+} from "@mui/material";
+
+const weatherInfo = [
+  {
+    cuaca: "Cerah",
+    suhu: "36°",
+    lokasi: "Bekasi, Jawa Barat",
+    informasi: "Cuaca cerah terik dan panas",
+  },
+];
+
+const InformasiJadwalToday = () => {
+  const [currentDate, setCurrentDate] = useState(new Date());
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentDate(new Date());
+    }, 1000); // Update every second
+
+    return () => clearInterval(intervalId); // Cleanup interval on component unmount
+  }, []);
+
+  const getFormattedDate = (date) => {
+    const options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
+    return date.toLocaleDateString("id-ID", options);
+  };
+
+  const getFormattedTime = (date) => {
+    const options = { hour: "2-digit", minute: "2-digit", second: "2-digit" };
+    return date.toLocaleTimeString("id-ID", options);
+  };
+
+  return (
+    <Card
+      sx={{
+        marginBottom: 2,
+        padding: 2,
+        borderRadius: 2,
+        boxShadow: 3,
+        justifyContent: "space-between",
+      }}
+    >
+      <CardContent>
+        <Box>
+          {weatherInfo.map((info, index) => (
+            <Box key={index} sx={{ mb: 0 }}>
+              <Typography
+                sx={{
+                  textAlign: "center",
+                  marginBottom: 2,
+                  fontWeight: "bold",
+                }}
+              >
+                INFORMASI HARI INI
+              </Typography>
+              <Grid container spacing={1}>
+                <Grid item xs={5}>
+                  <Typography
+                    sx={{
+                      color: "#A1A5B7",
+                      fontSize: "14px",
+                      textAlign: "left",
+                    }}
+                  >
+                    Hari
+                  </Typography>
+                </Grid>
+                <Grid item xs={5}>
+                  <Typography
+                    sx={{ color: "#000", fontSize: "14px", textAlign: "left" }}
+                  >
+                    <span>
+                      <b>: </b>
+                    </span>
+                    {getFormattedDate(currentDate).split(",")[0]}
+                  </Typography>
+                </Grid>
+              </Grid>
+
+              <Grid container spacing={1}>
+                <Grid item xs={5}>
+                  <Typography
+                    sx={{
+                      color: "#A1A5B7",
+                      fontSize: "14px",
+                      textAlign: "left",
+                    }}
+                  >
+                    Tanggal
+                  </Typography>
+                </Grid>
+                <Grid item xs={5}>
+                  <Typography
+                    sx={{ color: "#000", fontSize: "14px", textAlign: "left" }}
+                  >
+                    <span>
+                      <b>: </b>
+                    </span>
+                    {getFormattedDate(currentDate)
+                      .split(",")
+                      .slice(1)
+                      .join(",")}
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Box>
+          ))}
+        </Box>
+      </CardContent>
+    </Card>
+  );
+};
+
+export default InformasiJadwalToday;

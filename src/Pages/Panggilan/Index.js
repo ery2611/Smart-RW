@@ -190,6 +190,7 @@ const Panggilan = () => {
         <TextField
           value={searchText}
           onChange={handleSearchChange}
+          size="small"
           placeholder="Cari"
           InputProps={{
             startAdornment: <SearchIcon />,
@@ -198,6 +199,7 @@ const Panggilan = () => {
         />
         <Button
           variant="contained"
+          size="small"
           onClick={handleSearch}
           sx={{ backgroundColor: "#00A9AD", height: 38 }}
         >
@@ -206,6 +208,7 @@ const Panggilan = () => {
         <Button
           variant="contained"
           color="primary"
+          size="small"
           onClick={() => {
             handleAdd("/");
           }}

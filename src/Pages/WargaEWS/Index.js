@@ -143,6 +143,7 @@ const WargaEWS = () => {
   const [searchText, setSearchText] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
+  const [searchMonth, setSearchMonth] = useState("");
 
   const handleSearchChange = (event) => {
     setSearchText(event.target.value);
@@ -198,12 +199,19 @@ const WargaEWS = () => {
         alignItems="center"
         sx={{ marginBottom: 2 }}
       >
-        <Datepicker />
+        <TextField
+          value={searchMonth}
+          onChange={(e) => setSearchMonth(e.target.value)}
+          size="small"
+          type="month"
+          sx={{ width: 179, height: 38 }}
+        />
 
         <TextField
           value={searchText}
           onChange={handleSearchChange}
           placeholder="Cari"
+          size="small"
           InputProps={{
             startAdornment: <SearchIcon />,
           }}
@@ -212,14 +220,26 @@ const WargaEWS = () => {
         <Button
           variant="contained"
           onClick={handleSearch}
+          size="small"
           sx={{ backgroundColor: "#00A9AD", height: 38 }}
         >
           CARI
         </Button>
+        <Stack
+          direction="row"
+          spacing={0.5}
+          sx={{ color: "#A1A5B7", fontFamily: "montserrat" }}
+        >
+          <Typography> Showing</Typography>
+          <Typography fontWeight="bold"> {currentData.length} Item</Typography>
+          <Typography> from</Typography>
+          <Typography fontWeight="bold"> {data.length} Result </Typography>
+        </Stack>
         <Button
           variant="contained"
           color="primary"
           onClick={handleAdd}
+          size="small"
           style={{ marginLeft: "auto" }}
           sx={{
             backgroundColor: "#00A9AD",

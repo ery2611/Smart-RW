@@ -119,6 +119,7 @@ const OGS = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
   const navigate = useNavigate("");
+  const [searchDate, setSearchDate] = useState("");
 
   const handleSearchChange = (event) => {
     setSearchText(event.target.value);
@@ -208,13 +209,25 @@ const OGS = () => {
           <Typography variant="h9" sx={{ color: "black" }}>
             Tanggal Masuk
           </Typography>
-          <Datepicker />
+          <TextField
+            value={searchDate}
+            onChange={(e) => setSearchDate(e.target.value)}
+            size="small"
+            type="date"
+            sx={{ width: 179, height: 38 }}
+          />
         </Stack>
         <Stack>
           <Typography variant="h9" sx={{ color: "black" }}>
             Tanggal Keluar
           </Typography>
-          <Datepicker />
+          <TextField
+            value={searchDate}
+            onChange={(e) => setSearchDate(e.target.value)}
+            size="small"
+            type="date"
+            sx={{ width: 179, height: 38 }}
+          />
         </Stack>
 
         <TextField
