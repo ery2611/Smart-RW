@@ -15,6 +15,7 @@ const DetailRiwayat = Loadable(lazy(()=>import('../Pages/DetailRiwayat')))
 const Kegiatan = Loadable(lazy(()=>import('../Pages/Kegiatan/kegiatan')))
 const Pengumuman = Loadable(lazy(()=>import('../Pages/DetailPengumuman/index')))
 const FormPengaduan = Loadable(lazy(()=>import('../Pages/FormPengaduanWarga/form')))
+const ProgressDarurat = Loadable(lazy(()=>import('../Pages/ProgressPanggilanDarurat/index')))
 const ForumLihat = Loadable(lazy(()=>import('../Pages/ForumLihat/index')))
 
 const mainRoutes =[{
@@ -44,6 +45,10 @@ const mainRoutes =[{
 {
     path:'/FormPengaduan',
     element: <FormPengaduan/>
+},
+{
+    path:'/ProgressDarurat',
+    element: <ProgressDarurat/>
 },
 {
     path:'/ForumLihat',

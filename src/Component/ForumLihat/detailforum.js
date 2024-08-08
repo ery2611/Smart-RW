@@ -182,7 +182,7 @@ function ForumDetail() {
                   flexDirection: "column",
                 }}
               >
-                <Typography variant="body1" height="25px" color="#A0A1A4">
+                <Typography variant="body1" height="30px" color="#A0A1A4">
                   Anggota forum
                 </Typography>
               </Box>
@@ -192,7 +192,7 @@ function ForumDetail() {
                   flexDirection: "column",
                 }}
               >
-                <Typography variant="body1" height="25px" color="#333333">
+                <Typography variant="body1" height="30px" color="#333333">
                   <span style={{ color: "green", fontWeight: "bold" }}>5</span>
                 </Typography>
               </Box>
