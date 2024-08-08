@@ -117,13 +117,13 @@ const DetailEWS = ({dataList}) => {
                 </Typography>
 
                 <Box sx={{ width: "95%", mt: 1, ml: 1, textAlign: "left" }}>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        alignItems: "flex-start", // Menyelaraskan item dengan awal (atas)
-                        gap: "210px", // Mengatur jarak antar box
-                      }}
-                    >
+                      <Box
+                        sx={{
+                          display: "flex",
+                          alignItems: "flex-start", // Menyelaraskan item dengan awal (atas)
+                          gap: "210px", // Mengatur jarak antar box
+                        }}
+                      >
                       <Box
                         sx={{
                           display: "flex",

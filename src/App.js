@@ -1,5 +1,6 @@
+
 import React, { useState } from 'react';
-import { BrowserRouter as Route, Routes, useNavigate,  } from 'react-router-dom';
+import { Route, Routes, useNavigate,  } from 'react-router-dom';
 import SmartCity from './Pages/EWS/SmartCity';
 import TambahOGS from './Pages/OGS/tambahOGS';
 import DetailEWS from './Pages/EWS/DetailEWS';
@@ -9,6 +10,8 @@ import DashboardKeamanan from './Pages/Warga/Keamanan/dashboard';
 import FormKeamananWarga from './Pages/Warga/Keamanan/Form';
 
 import Pengumuman from './Pages/Warga/dashboard/pengumuman';
+
+import FormPanggilan from './Pages/Warga/panggilanDarurat/formPanggilan';
 
 
 const App=()=> {
@@ -42,6 +45,8 @@ const App=()=> {
           <Route path='/dashboard2' element={<DashboardKeamanan/>}/>
 
           <Route path='/dashboard/pengumuman' element={<Pengumuman/>}/>
+
+          <Route path='/panggilanDarurat/form' element={<FormPanggilan/>}/>
 
 
           {/* Mungkin ada rute lain di sini */} 
