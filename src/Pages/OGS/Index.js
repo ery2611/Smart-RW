@@ -21,7 +21,6 @@ import {
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import AddIcon from "@mui/icons-material/Add";
-import Datepicker from "../../Components/Datepicker/Index";
 import { useNavigate } from "react-router";
 import PieChartComponent from "../../Components/Chart/Index"; // Update import path
 
@@ -238,6 +237,7 @@ const OGS = () => {
             startAdornment: <SearchIcon />,
           }}
           sx={{ width: 180, height: 38 }}
+          size="small"
         />
         <Button
           variant="contained"
