@@ -109,7 +109,7 @@ const Pengumuman = () => {
          {/* jumlah pengumuman ambil dari data */}
         </Stack>
 
-        <Container sx={{width:'60%'}}>
+        <Container sx={{width:'55%'}}>
             <Box sx={{display:'flex',justifyContent:'space-between', flexWrap:'wrap'}}>
                 {/* diambil dari data nantinya agar jumlah nya dapat disesuaikan */}
             {[1,2,2,2,2,2].map((item) => (
@@ -185,6 +185,27 @@ const Pengumuman = () => {
         </Container>
         </Box>
       </Box>
+
+      {/* Button */}
+      <Box display='flex' justifyContent='center'>
+      <Box
+              sx={{
+                display: "flex",
+                justifyContent: "end",
+                width: "50%",
+                mt: 3,
+              }}
+            >
+              <Box sx={{ width: "100%", textAlign: "end" }}>
+                <Button
+                  variant="outlined"
+                  sx={{ height: 38, color: "#00A9AD", fontWeight:'bold'}}
+                >
+                  KEMBALI
+                </Button>
+              </Box>
+            </Box>
+            </Box>
     </Box>
   );
 };
