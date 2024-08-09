@@ -72,6 +72,15 @@ const WargaEWS = () => {
               <TabList
                 onChange={handleChange}
                 aria-label="lab API tabs example"
+                sx={{
+                  "& .MuiTabs-indicator": {
+                    backgroundColor: "#00A9AD",
+                    height: 3,
+                  },
+                  "& .MuiTab-root.Mui-selected": {
+                    color: "#00A9AD",
+                  },
+                }}
               >
                 <Tab label="DATA TINGGI MUKA AIR" value="1" />
                 <Tab label="DATA POMPA AIR" value="2" />
