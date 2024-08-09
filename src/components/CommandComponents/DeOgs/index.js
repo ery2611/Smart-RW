@@ -1,14 +1,14 @@
 import { Box, Container, Typography, Card, CardContent } from "@mui/material";
 import React from "react";
 import { styled } from "@mui/system";
- import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 
 function Index() {
   const Navigate = useNavigate();
   const StatusBadge = styled(Box)(({ theme }) => ({
     backgroundColor: "#D4FFDB",
-    fontWeight:'bold',
+    fontWeight: "bold",
     color: "#5AF411",
     padding: "4px 8px",
     borderRadius: "4px",
@@ -16,15 +16,13 @@ function Index() {
     marginBottom: theme.spacing(2),
   }));
 
-  
-
   return (
     <Container
       maxWidth="md"
       sx={{
         backgroundColor: "#EFEFEF",
         justifyContent: "center",
-        marginBottom:'10px',
+        marginBottom: "10px",
         overflowY: "auto",
         borderRadius: "10px",
       }}
@@ -93,15 +91,12 @@ function Index() {
                   }}
                 >
                   <Typography variant="body1" color="#333333">
-                  
                     : Khoirul Mustaank
                   </Typography>
                   <Typography variant="body1" color="#333333">
-                  
                     : Tamu
                   </Typography>
                   <Typography variant="body1" color="#333333">
-                 
                     : Berkunjung ke rumah bapak Budi
                   </Typography>
                 </Box>
@@ -109,12 +104,14 @@ function Index() {
             </CardContent>
           </Card>
         </Box>
-        <Box  sx={{
+        <Box
+          sx={{
             marginTop: "20px",
-          }}>
-            <Card sx={{ maxWidth: 800, margin: "0 auto", borderRadius: 2 }}>
-                <CardContent>
-                <Typography
+          }}
+        >
+          <Card sx={{ maxWidth: 800, margin: "0 auto", borderRadius: 2 }}>
+            <CardContent>
+              <Typography
                 textAlign="center"
                 variant="h6"
                 component="div"
@@ -155,97 +152,108 @@ function Index() {
                   }}
                 >
                   <Typography variant="body1" color="#333333">
-                  
                     : 06/01/24
                   </Typography>
                   <Typography variant="body1" color="#333333">
-                  
                     : 06:00
                   </Typography>
                   <Typography variant="body1" color="#333333">
-                 
                     : 06/01/24
-                    </Typography>
-                    <Typography variant="body1" color="#333333">
-                 
+                  </Typography>
+                  <Typography variant="body1" color="#333333">
                     : 08:00
-                    </Typography>
+                  </Typography>
                 </Box>
               </Box>
-              <Box sx={{
-                display:'fluid',
-                justifyContent:'flex-start'
-              }}>
-                <Box sx={{
-                display:'fluid',
-                justifyContent:'flex-start',
-                marginTop:'10px'
-              }}>
-                 <Typography variant="body1" color="#A0A1A4">
-                    Tujuan Objek 
+              <Box
+                sx={{
+                  display: "fluid",
+                  justifyContent: "flex-start",
+                }}
+              >
+                <Box
+                  sx={{
+                    display: "fluid",
+                    justifyContent: "flex-start",
+                    marginTop: "10px",
+                  }}
+                >
+                  <Typography variant="body1" color="#A0A1A4">
+                    Tujuan Objek
                   </Typography>
                   <Typography variant="body1" color="#333333">
-                  Melakukan meeting terkait hal pekerjaan dengan bapak Budi di rumahnya
-                </Typography>
-              </Box>
-                <Box sx={{
-                display:'fluid',
-                justifyContent:'flex-start',
-                marginTop:'10px'
-              }}>
-                <Typography variant="body1" color="#A0A1A4">
-                    Keterangan 
+                    Melakukan meeting terkait hal pekerjaan dengan bapak Budi di
+                    rumahnya
                   </Typography>
-                  <Typography variant="body1" color="#333333">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                  sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua.
-                   Ut enim ad minim  veniam,
-                   quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea  commodo consequat
-                </Typography>
                 </Box>
-                <Box sx={{
-                display:'fluid',
-                justifyContent:'flex-start',
-                marginTop:'10px'
-              }}>
-                    <Typography variant="body1" color="#A0A1A4">
+                <Box
+                  sx={{
+                    display: "fluid",
+                    justifyContent: "flex-start",
+                    marginTop: "10px",
+                  }}
+                >
+                  <Typography variant="body1" color="#A0A1A4">
+                    Keterangan
+                  </Typography>
+                  <Typography variant="body1" color="#333333">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat
+                  </Typography>
+                </Box>
+                <Box
+                  sx={{
+                    display: "fluid",
+                    justifyContent: "flex-start",
+                    marginTop: "10px",
+                  }}
+                >
+                  <Typography variant="body1" color="#A0A1A4">
                     Media
                   </Typography>
-                  <img 
-    src=''
-    alt="Media"
-    style={{
-        backgroundColor: '#EFEFEF',
-        width: '240px', // Ubah dari 120px menjadi 240px atau ukuran yang Anda inginkan
-        height: '240px', // Ubah dari 120px menjadi 240px atau ukuran yang Anda inginkan
-        marginTop: '10px',
-        display: 'block', 
-        borderRadius:'10px'
-    }}
-/>
-
+                  <img
+                    src=""
+                    alt="Media"
+                    style={{
+                      backgroundColor: "#EFEFEF",
+                      width: "240px", // Ubah dari 120px menjadi 240px atau ukuran yang Anda inginkan
+                      height: "240px", // Ubah dari 120px menjadi 240px atau ukuran yang Anda inginkan
+                      marginTop: "10px",
+                      display: "block",
+                      borderRadius: "10px",
+                    }}
+                  />
                 </Box>
               </Box>
-                </CardContent>
-            </Card>
+            </CardContent>
+          </Card>
         </Box>
-        <Box sx={{
-            justifyContent:'flex-end',
-            display:'flex',
-            marginTop:'15px',
-            marginBottom:'15px',
-            marginRight: 4
-        }}>
-          
-            <Button onClick={() => Navigate("/Ogs")} sx={{color:'#00A9AD', fontWeight:'bolder',  border: '2px solid #00A9AD',
-                '&:hover': {
-                border: '2px solid #00A9AD',
-                color:'#00A9AD',
-                
-                },
-
-            }} variant="outlined"  >KEMBALI</Button>
-      
+        <Box
+          sx={{
+            justifyContent: "flex-end",
+            display: "flex",
+            marginTop: "15px",
+            marginBottom: "15px",
+            marginRight: 4,
+          }}
+        >
+          <Button
+            onClick={() => Navigate("/Ogs")}
+            sx={{
+              color: "#00A9AD",
+              fontWeight: "bolder",
+              border: "2px solid #00A9AD",
+              "&:hover": {
+                border: "2px solid #00A9AD",
+                color: "#00A9AD",
+              },
+            }}
+            variant="outlined"
+          >
+            KEMBALI
+          </Button>
         </Box>
       </Box>
     </Container>

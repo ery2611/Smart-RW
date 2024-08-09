@@ -144,6 +144,7 @@ const WargaEWS = () => {
   const [searchText, setSearchText] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
+  const [searchMonth, setSearchMonth] = useState("");
 
   const handleSearchChange = (event) => {
     setSearchText(event.target.value);
@@ -200,12 +201,19 @@ const WargaEWS = () => {
         alignItems="center"
         sx={{ marginBottom: 2 }}
       >
-        <Datepicker />
+         <TextField
+          value={searchMonth}
+          onChange={(e) => setSearchMonth(e.target.value)}
+          size="small"
+          type="month"
+          sx={{ width: 179, height: 38 }}
+        />
 
         <TextField
           value={searchText}
           onChange={handleSearchChange}
           placeholder="Cari"
+          size="small"
           InputProps={{
             startAdornment: <SearchIcon />,
           }}
@@ -218,21 +226,7 @@ const WargaEWS = () => {
         >
           CARI
         </Button>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleAdd}
-          style={{ marginLeft: "auto" }}
-          sx={{
-            backgroundColor: "#00A9AD",
-            marginLeft: "auto",
-            height: 38,
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
-          PENGADUAN WARGA
-        </Button>
+
       </Stack>
       <TableContainer component={Paper} sx={{ flexGrow: 1 }}>
         <Table>
