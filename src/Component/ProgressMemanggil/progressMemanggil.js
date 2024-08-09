@@ -53,7 +53,7 @@ function ProgressMemanggil() {
               height: "30px",
               fontWeight: "bolder",
             }}
-          >
+          > 
             MEMANGGIL
           </Memanggil>
           <Box
