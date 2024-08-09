@@ -97,6 +97,9 @@ const FormWargaKeamanan = Loadable(
 const DetailIkk = Loadable(
   lazy(() => import("../pages/pagesWarga/IKK/detail"))
 );
+const DetailTinggiMukaAir = Loadable(
+  lazy(() => import("../pages/pagesWarga/Ews/DataTinggiMukaAir/detail"))
+);
 
 const mainRoutes = [
   {
@@ -239,6 +242,10 @@ const mainRoutes = [
   {
     path: "/Warga/Ikk/Detail",
     element: <DetailIkk />,
+  },
+  {
+    path: "/Warga/Ews/DetailTinggiMukaAir",
+    element: <DetailTinggiMukaAir />,
   },
 ];
 
