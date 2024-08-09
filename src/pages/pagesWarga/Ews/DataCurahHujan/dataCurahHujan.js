@@ -16,6 +16,7 @@ import {
   IconButton,
 } from "@mui/material";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import { useNavigate } from "react-router-dom";
 
 const data = [
   // Your data array
@@ -127,6 +128,7 @@ const DataCurahHujan = () => {
   const itemsPerPage = 4;
   const [searchDate, setSearchDate] = useState("");
   const [searchTime, setSearchTime] = useState("");
+  const Navigate = useNavigate();
 
   const handlePageChange = (event, value) => {
     setCurrentPage(value);
@@ -304,7 +306,10 @@ const DataCurahHujan = () => {
                   />
                 </TableCell>
                 <TableCell>
-                  <IconButton aria-label="Example">
+                  <IconButton
+                    onClick={() => Navigate("/Warga/Ews/DetailCurahHujan")}
+                    aria-label="Example"
+                  >
                     <VisibilityOutlinedIcon sx={{ color: "#00A9AD" }} />
                   </IconButton>
                 </TableCell>

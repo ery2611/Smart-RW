@@ -14,7 +14,7 @@ import React from "react";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 
-function DetailTinggiMukaAir() {
+function DetailCurahHujan() {
   const Navigate = useNavigate();
   const Normal = styled(Box)(({ theme }) => ({
     backgroundColor: "#DBF8DC",
@@ -45,7 +45,7 @@ function DetailTinggiMukaAir() {
             alignContent: "center",
           }}
         >
-          <h3 style={{ marginBottom: "10px" }}>DETAIL TINGGI MUKA AIR</h3>
+          <h3 style={{ marginBottom: "10px" }}>DETAIL CURAH HUJAN</h3>
         </Box>
         <Card
           sx={{
@@ -62,7 +62,7 @@ function DetailTinggiMukaAir() {
               gutterBottom
               sx={{ fontWeight: "bold" }}
             >
-              INFORMASI TINGGI MUKA AIR
+              INFORMASI CURAH HUJAN
             </Typography>
             <Normal
               sx={{
@@ -115,34 +115,6 @@ function DetailTinggiMukaAir() {
                       textAlign: "left",
                     }}
                   >
-                    Kategori
-                  </Typography>
-                </Grid>
-                <Grid item xs={5}>
-                  <Typography
-                    sx={{
-                      color: "#000",
-                      fontSize: "16px",
-                      textAlign: "left",
-                    }}
-                  >
-                    <span>
-                      <b>: </b>
-                    </span>
-                    Pintu Air
-                  </Typography>
-                </Grid>
-              </Grid>
-
-              <Grid container spacing={1} marginBottom={1}>
-                <Grid item xs={5}>
-                  <Typography
-                    sx={{
-                      color: "#A1A5B7",
-                      fontSize: "16px",
-                      textAlign: "left",
-                    }}
-                  >
                     Tanggal
                   </Typography>
                 </Grid>
@@ -157,10 +129,11 @@ function DetailTinggiMukaAir() {
                     <span>
                       <b>: </b>
                     </span>
-                    23 / 12 / 2023
+                    23 / 12 / 2024
                   </Typography>
                 </Grid>
               </Grid>
+
               <Grid container spacing={1} marginBottom={1}>
                 <Grid item xs={5}>
                   <Typography
@@ -184,7 +157,7 @@ function DetailTinggiMukaAir() {
                     <span>
                       <b>: </b>
                     </span>
-                    05.00
+                    05:00
                   </Typography>
                 </Grid>
               </Grid>
@@ -197,7 +170,7 @@ function DetailTinggiMukaAir() {
                       textAlign: "left",
                     }}
                   >
-                    Aliran
+                    Siaga
                   </Typography>
                 </Grid>
                 <Grid item xs={5}>
@@ -211,7 +184,7 @@ function DetailTinggiMukaAir() {
                     <span>
                       <b>: </b>
                     </span>
-                    Aliran Barat
+                    9000
                   </Typography>
                 </Grid>
               </Grid>
@@ -224,7 +197,7 @@ function DetailTinggiMukaAir() {
                       textAlign: "left",
                     }}
                   >
-                    Cuaca
+                    Siaga 2
                   </Typography>
                 </Grid>
                 <Grid item xs={5}>
@@ -238,7 +211,61 @@ function DetailTinggiMukaAir() {
                     <span>
                       <b>: </b>
                     </span>
-                    Terang
+                    9000
+                  </Typography>
+                </Grid>
+              </Grid>
+              <Grid container spacing={1} marginBottom={1}>
+                <Grid item xs={5}>
+                  <Typography
+                    sx={{
+                      color: "#A1A5B7",
+                      fontSize: "16px",
+                      textAlign: "left",
+                    }}
+                  >
+                    Siaga 3
+                  </Typography>
+                </Grid>
+                <Grid item xs={5}>
+                  <Typography
+                    sx={{
+                      color: "#000",
+                      fontSize: "16px",
+                      textAlign: "left",
+                    }}
+                  >
+                    <span>
+                      <b>: </b>
+                    </span>
+                    9000
+                  </Typography>
+                </Grid>
+              </Grid>
+              <Grid container spacing={1} marginBottom={1}>
+                <Grid item xs={5}>
+                  <Typography
+                    sx={{
+                      color: "#A1A5B7",
+                      fontSize: "16px",
+                      textAlign: "left",
+                    }}
+                  >
+                    Siaga 4
+                  </Typography>
+                </Grid>
+                <Grid item xs={5}>
+                  <Typography
+                    sx={{
+                      color: "#000",
+                      fontSize: "16px",
+                      textAlign: "left",
+                    }}
+                  >
+                    <span>
+                      <b>: </b>
+                    </span>
+                    9000
                   </Typography>
                 </Grid>
               </Grid>
@@ -265,7 +292,7 @@ function DetailTinggiMukaAir() {
                     <span>
                       <b>: </b>
                     </span>
-                    40 cm
+                    6
                   </Typography>
                 </Grid>
               </Grid>
@@ -300,4 +327,4 @@ function DetailTinggiMukaAir() {
   );
 }
 
-export default DetailTinggiMukaAir;
+export default DetailCurahHujan;

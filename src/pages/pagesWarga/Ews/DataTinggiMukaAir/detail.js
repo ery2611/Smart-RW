@@ -23,8 +23,11 @@ function DetailMukaAir() {
           <Typography variant="h8" sx={{ color: "#A0A1A4" }}>
             Dashboard/
           </Typography>
+          <Typography variant="h8" sx={{ color: "#A0A1A4" }}>
+            Ews/
+          </Typography>
           <Typography variant="h9" sx={{ color: "black", fontWeight: "bold" }}>
-            Detail Forum
+            Detail Tinggi Muka Air
           </Typography>
         </Stack>
       </Stack>

@@ -1,9 +1,16 @@
 import React from "react";
 import Bar from "../../../components/WargaComponents/Navbar";
-import { Box, Stack, Typography, Card, CardContent } from "@mui/material";
+import {
+  Box,
+  Stack,
+  Typography,
+  Card,
+  CardContent,
+  Container,
+} from "@mui/material";
 import Kegiatan from "../../../components/WargaComponents/Kegiatan/index";
-import Pengumuman  from "../../../components/WargaComponents/Pengumuman"
-import Forum from '../../../components/WargaComponents/Forum'
+import Pengumuman from "../../../components/WargaComponents/Pengumuman";
+import Forum from "../../../components/WargaComponents/Forum";
 
 function index() {
   // Mendapatkan tanggal saat ini
@@ -19,19 +26,14 @@ function index() {
   const formatTanggal = `${hari}, ${tanggal} ${bulan} ${tahun}`;
 
   return (
-    <div style={{
-     
-      width:'1200px'
-
-    }}>
+    <Container style={{}}>
       <Bar />
       <Box
         display="fluid"
         sx={{
           justifyContent: "flex-start",
           overflowY: "auto",
-          width:'100%'
-
+          width: "100%",
         }}
       >
         <Box
@@ -194,7 +196,7 @@ function index() {
         <Box
           sx={{
             marginTop: "30px",
-            width:'100%'
+            width: "100%",
           }}
         >
           <Pengumuman />
@@ -202,13 +204,13 @@ function index() {
         <Box
           sx={{
             marginTop: "30px",
-            width:'100%'
+            width: "100%",
           }}
         >
           <Forum />
         </Box>
       </Box>
-    </div>
+    </Container>
   );
 }
 

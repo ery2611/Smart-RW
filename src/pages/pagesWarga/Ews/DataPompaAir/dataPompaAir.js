@@ -1,5 +1,6 @@
 //EWS
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Paper,
   Table,
@@ -85,6 +86,7 @@ const DataPompaAir = () => {
   const itemsPerPage = 4;
   const [searchDate, setSearchDate] = useState("");
   const [searchTime, setSearchTime] = useState("");
+  const Navigate = useNavigate();
 
   const handlePageChange = (event, value) => {
     setCurrentPage(value);
@@ -236,7 +238,10 @@ const DataPompaAir = () => {
                 <TableCell>{row.beroperasi}</TableCell>
                 <TableCell>{row.disiagakan}</TableCell>
                 <TableCell>
-                  <IconButton aria-label="Example">
+                  <IconButton
+                    onClick={() => Navigate("/Warga/Ews/DetailPompaAir")}
+                    aria-label="Example"
+                  >
                     <VisibilityOutlinedIcon sx={{ color: "#00A9AD" }} />
                   </IconButton>
                 </TableCell>

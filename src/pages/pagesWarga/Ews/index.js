@@ -5,8 +5,8 @@ import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
-import DataCurahHujan from "./dataCurahHujan";
-import DataPompaAir from "./dataPompaAir";
+import DataCurahHujan from "./DataCurahHujan/dataCurahHujan";
+import DataPompaAir from "./DataPompaAir/dataPompaAir";
 import DataTinggiMukaAir from "./DataTinggiMukaAir/dataTinggiMukaAir";
 import Bar from "../../../components/WargaComponents/Navbar";
 

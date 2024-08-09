@@ -1,11 +1,18 @@
 import React from "react";
 import Kegiatan from "../../../components/WargaComponents/Kegiatan/semua";
 import Bar from "../../../components/WargaComponents/Navbar";
-import { Box, Stack, Typography, Card, CardContent } from "@mui/material";
+import {
+  Box,
+  Stack,
+  Typography,
+  Card,
+  CardContent,
+  Container,
+} from "@mui/material";
 
 function index() {
   return (
-    <div
+    <Container
       sx={{
         width: "1200px",
       }}
@@ -55,7 +62,7 @@ function index() {
           <Kegiatan />
         </Box>
       </Box>
-    </div>
+    </Container>
   );
 }
 

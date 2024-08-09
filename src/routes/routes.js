@@ -100,6 +100,13 @@ const DetailIkk = Loadable(
 const DetailTinggiMukaAir = Loadable(
   lazy(() => import("../pages/pagesWarga/Ews/DataTinggiMukaAir/detail"))
 );
+const DetailCurahHujan = Loadable(
+  lazy(() => import("../pages/pagesWarga/Ews/DataCurahHujan/detail"))
+);
+
+const DetailPompaAir = Loadable(
+  lazy(() => import("../pages/pagesWarga/Ews/DataPompaAir/detail"))
+);
 
 const mainRoutes = [
   {
@@ -246,6 +253,14 @@ const mainRoutes = [
   {
     path: "/Warga/Ews/DetailTinggiMukaAir",
     element: <DetailTinggiMukaAir />,
+  },
+  {
+    path: "/Warga/Ews/DetailCurahHujan",
+    element: <DetailCurahHujan />,
+  },
+  {
+    path: "/Warga/Ews/DetailPompaAir",
+    element: <DetailPompaAir />,
   },
 ];
 

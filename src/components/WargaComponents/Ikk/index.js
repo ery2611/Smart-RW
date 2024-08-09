@@ -159,6 +159,16 @@ function Index() {
           sx={{ width: 179, height: 38 }}
         />
       </Stack>
+      <Stack
+        direction="row"
+        spacing={0.5}
+        sx={{ color: "#A1A5B7", fontFamily: "montserrat" }}
+      >
+        <Typography> Showing</Typography>
+        <Typography fontWeight="bold"> {currentData.length} Item</Typography>
+        <Typography> from</Typography>
+        <Typography fontWeight="bold"> {data.length} Result </Typography>
+      </Stack>
       <TableContainer component={Paper} sx={{ flexGrow: 1 }}>
         <Table>
           <TableHead>
@@ -260,6 +270,7 @@ function Index() {
               backgroundColor: "#00A9AD", // Background color for selected page
               color: "#fff", // Text color for selected page
             },
+            marginBottom: "20px",
           }}
         />
       </Stack>
