@@ -98,7 +98,7 @@ const FormWargaKeamanan = Loadable(
 );
 
 const DetailIkk = Loadable(
-  lazy(() => import("../pages/pagesWarga/IKK/detail"))
+  lazy(() => import("../pages/pagesWarga/IKK/detailPembayaran"))
 );
 const DetailTinggiMukaAir = Loadable(
   lazy(() => import("../pages/pagesWarga/Ews/DataTinggiMukaAir/detail"))

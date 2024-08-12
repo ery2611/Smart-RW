@@ -256,7 +256,10 @@ function Index() {
                 </TableCell>
                 <TableCell>{truncateText(row.total, 100)}</TableCell>
                 <TableCell>
-                  <Mata sx={{ color: "#00A9AD" }} />
+                  <Mata
+                    onClick={() => Navigate("/Warga/Ikk/Detail")}
+                    sx={{ color: "#00A9AD" }}
+                  />
                 </TableCell>
               </TableRow>
             ))}
