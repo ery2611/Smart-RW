@@ -260,6 +260,46 @@ function ForumDetail() {
             </Button>
           </CardContent>
         </Card>
+        <Card
+        sx={{
+          maxWidth: 700,
+          margin: "0 auto",
+          borderRadius: 2,
+          p: 2,
+          background: "white",
+          marginTop: 2,
+          maxWidth: "auto",
+          boxShadow: 5,
+        }}>
+          <CardContent>
+          <Typography
+              textAlign="center"
+              variant="h6"
+              component="div"
+              gutterBottom
+              fontWeight="bolder"
+              fontFamily="Montserrat"
+            >
+              LINK FORUM
+            </Typography>
+            <Typography
+              textAlign="center"
+              fontFamily="Montserrat"
+              color="#333333"
+              fontSize="16px"
+            >
+              Silahkan akses link dibawah ini:
+            </Typography>
+            <Typography
+              textAlign="center"
+              variant="p"
+              component="div"
+              fontFamily="Montserrat"
+            >
+              hhttp://www.chat.com
+            </Typography>
+          </CardContent>
+        </Card>
         <Box
           sx={{
             display: "flex",
