@@ -67,6 +67,7 @@ const WargaEWS = () => {
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
+              title="maps"
             ></iframe>
           </Box>
           <Box
