@@ -42,6 +42,7 @@ function ForumDetail() {
             margin: "0 auto",
             borderRadius: 2,
             p: 2,
+            pb:"0",
             background: "white",
             marginTop: 2,
             maxWidth: "auto",
@@ -193,7 +194,7 @@ function ForumDetail() {
                 }}
               >
                 <Typography variant="body1" height="30px" color="#333333">
-                  <span style={{ color: "green", fontWeight: "bold" }}>5</span>
+                  <span style={{ color: "#5AF411", fontWeight: "bold" }}>5</span>
                 </Typography>
               </Box>
             </Box>
