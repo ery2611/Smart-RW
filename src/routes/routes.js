@@ -118,7 +118,7 @@ const RiwayatPanggilanDaruratWarga = Loadable(
 
 const mainRoutes = [
   {
-    path: "",
+    path: "*",
     element: <Home />,
   },
   {
