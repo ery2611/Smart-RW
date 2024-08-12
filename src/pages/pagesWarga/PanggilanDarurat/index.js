@@ -127,6 +127,7 @@ const Dashboard = () => {
       <Box sx={{ display: "flex", justifyContent: "right", mt: 2 }}>
         <Box sx={{ width: "65%", textAlign: "end" }}>
           <Button
+            onClick={() => Navigate("/Warga/PanggilanDarurat/Riwayat")}
             variant="contained"
             sx={{ height: 38, background: "#00A9AD", mr: 22 }}
           >

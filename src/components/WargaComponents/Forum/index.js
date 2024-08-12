@@ -11,6 +11,7 @@ import Mata from "@mui/icons-material/VisibilityOutlined";
 import Lokasi from "@mui/icons-material/LocationOnOutlined";
 import Jam from "@mui/icons-material/QueryBuilderOutlined";
 import Kalender from "@mui/icons-material/CalendarMonthOutlined";
+import Avatar from "@mui/icons-material/PersonOutlineOutlined";
 import { useNavigate } from "react-router-dom";
 
 function Index() {
@@ -116,52 +117,44 @@ function Index() {
               <Box
                 sx={{
                   display: "flex",
-                  justifyContent: "flex-end",
+                  justifyContent: "space-around",
                   marginTop: "10px",
                 }}
               >
                 <Box
                   sx={{
                     display: "flex",
-                    justifyContent: "space-around",
+                    justifyContent: "flex-start",
+                    marginTop: "10px",
+                    marginLeft: "-10px",
+                  }}
+                >
+                  <Avatar />
+                  <Typography>Khairul Mustaan</Typography>
+                </Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
                     marginTop: "6px",
                   }}
                 >
-                  <Box sx={{ marginRight: "20px" }}>
+                  <Box sx={{ marginRight: "0px" }}>
                     <Button
+                      onClick={() => Navigate("/Forum/Lihat")}
                       sx={{
                         backgroundColor: "#00A9AD",
                         color: "white",
                         boxShadow: 5,
                         marginRight: "10px",
-                        width: "130px",
+                        width: "150px",
                         "&:hover": {
                           backgroundColor: "#00A9AD",
                           color: "white",
                         },
                       }}
                     >
-                      Gabung Forum
-                    </Button>
-                  </Box>
-                  <Box>
-                    <Button
-                      variant="outlined"
-                      onClick={() => Navigate("/Forum/Lihat")}
-                      sx={{
-                        border: "2px solid #00A9AD",
-                        color: "#00A9AD",
-                        fontWeight: "bolder",
-                        marginRight: "10px",
-                        width: "120px",
-                        "&:hover": {
-                          border: "2px solid #00A9AD",
-                          color: "#00A9AD",
-                          fontWeight: "bolder",
-                        },
-                      }}
-                    >
-                      Lihat Forum
+                      Informasi Forum
                     </Button>
                   </Box>
                 </Box>

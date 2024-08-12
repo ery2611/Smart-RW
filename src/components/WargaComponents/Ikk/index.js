@@ -18,6 +18,7 @@ import History from "@mui/icons-material/RestoreOutlined";
 import Datepicker from "../../CommandComponents/Datepicker/Index";
 import { useState } from "react";
 import Mata from "@mui/icons-material/RemoveRedEyeOutlined";
+import { useNavigate } from "react-router-dom";
 
 const data = [
   {
@@ -58,6 +59,7 @@ function Index() {
   const [setTanggal, setSearchTanggal] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3;
+  const Navigate = useNavigate();
 
   const handlePageChange = (event, value) => {
     setCurrentPage(value);
@@ -108,6 +110,7 @@ function Index() {
           </Box>
         </Box>
         <Box
+          onClick={() => Navigate("/Warga/Ikk/Riwayat")}
           sx={{
             display: "flex",
             textAlign: "center",

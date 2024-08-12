@@ -87,6 +87,9 @@ const FormKeamanan = Loadable(
   lazy(() => import("../pages/pagesWarga/Keamanan/Form"))
 );
 const Ikk = Loadable(lazy(() => import("../pages/pagesWarga/IKK/index")));
+const RiwayatIkk = Loadable(
+  lazy(() => import("../pages/pagesWarga/IKK/riwayat"))
+);
 const PanggilanKeamanan = Loadable(
   lazy(() => import("../pages/pagesWarga/PanggilanDarurat/keamanan"))
 );
@@ -106,6 +109,11 @@ const DetailCurahHujan = Loadable(
 
 const DetailPompaAir = Loadable(
   lazy(() => import("../pages/pagesWarga/Ews/DataPompaAir/detail"))
+);
+const RiwayatPanggilanDaruratWarga = Loadable(
+  lazy(() =>
+    import("../pages/pagesWarga/PanggilanDarurat/Riwayat/panggilanUtama")
+  )
 );
 
 const mainRoutes = [
@@ -239,6 +247,10 @@ const mainRoutes = [
     element: <Ikk />,
   },
   {
+    path: "/Warga/Ikk/Riwayat",
+    element: <RiwayatIkk />,
+  },
+  {
     path: "/Warga/Panggilan/Keamanan",
     element: <PanggilanKeamanan />,
   },
@@ -261,6 +273,10 @@ const mainRoutes = [
   {
     path: "/Warga/Ews/DetailPompaAir",
     element: <DetailPompaAir />,
+  },
+  {
+    path: "/Warga/PanggilanDarurat/Riwayat",
+    element: <RiwayatPanggilanDaruratWarga />,
   },
 ];
 
