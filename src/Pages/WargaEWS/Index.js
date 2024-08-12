@@ -1,6 +1,6 @@
 //EWS
 import React from "react";
-import { Stack, Typography, Box, Container } from "@mui/material";
+import { Stack, Typography, Box, Container, Paper } from "@mui/material";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
@@ -8,6 +8,10 @@ import TabPanel from "@mui/lab/TabPanel";
 import DataCurahHujan from "./DataCurahHujan";
 import DataPompaAir from "./DataPompaAir";
 import DataTinggiMukaAir from "./DataTinggiMukaAir";
+import ThunderstormIcon from "@mui/icons-material/Thunderstorm";
+import PoolIcon from "@mui/icons-material/Pool";
+import SanitizerIcon from "@mui/icons-material/Sanitizer";
+import WavesIcon from "@mui/icons-material/Waves";
 
 const WargaEWS = () => {
   const [value, setValue] = React.useState("1");
@@ -65,6 +69,177 @@ const WargaEWS = () => {
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
           </Box>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: 3,
+              marginBottom: 3,
+            }}
+          >
+            <Box
+              component={Paper}
+              sx={{
+                display: "flex",
+                textAlign: "center",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "165px",
+                height: "152px",
+                borderRadius: "10px",
+                marginRight: "30px",
+              }}
+            >
+              <Box sx={{ displlay: "fluid" }}>
+                <SanitizerIcon
+                  sx={{
+                    alignItems: "center",
+                    width: "64px",
+                    height: "64px",
+                    color: "#000000",
+                  }}
+                />
+                <Stack direction={"column"}>
+                  <Typography
+                    variant="h6"
+                    sx={{ color: "#000000", fontWeight: "bold", fontSize: 14 }}
+                  >
+                    POMPA AIR
+                  </Typography>
+                  <Typography
+                    variant="h6"
+                    sx={{ color: "#5AF411", fontWeight: "bold", fontSize: 14 }}
+                  >
+                    ON
+                  </Typography>
+                </Stack>
+              </Box>
+            </Box>
+            <Box
+              component={Paper}
+              sx={{
+                display: "flex",
+                textAlign: "center",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "165px",
+                height: "152px",
+                borderRadius: "10px",
+                marginRight: "30px",
+              }}
+            >
+              <Box sx={{ displlay: "fluid" }}>
+                <PoolIcon
+                  sx={{
+                    alignItems: "center",
+                    width: "64px",
+                    height: "64px",
+                    color: "#000000",
+                  }}
+                />
+                <Stack direction={"column"}>
+                  <Typography
+                    variant="h6"
+                    sx={{ color: "#000000", fontWeight: "bold", fontSize: 14 }}
+                  >
+                    TINGGI MUKA AIR
+                  </Typography>
+                  <Typography
+                    variant="h6"
+                    sx={{ color: "#EE1717", fontWeight: "bold", fontSize: 14 }}
+                  >
+                    500 CM
+                  </Typography>
+                </Stack>
+              </Box>
+            </Box>
+            <Box
+              component={Paper}
+              sx={{
+                display: "flex",
+                textAlign: "center",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "165px",
+                height: "152px",
+                borderRadius: "10px",
+                marginRight: "30px",
+              }}
+            >
+              <Box sx={{ displlay: "fluid" }}>
+                <WavesIcon
+                  sx={{
+                    alignItems: "center",
+                    width: "64px",
+                    height: "64px",
+                    color: "#000000",
+                  }}
+                />
+                <Stack direction={"column"}>
+                  <Typography
+                    variant="h6"
+                    sx={{ color: "#000000", fontWeight: "bold", fontSize: 14 }}
+                  >
+                    SITUASI SUNGAI
+                  </Typography>
+                  <Typography
+                    variant="h6"
+                    sx={{ color: "#BD560B", fontWeight: "bold", fontSize: 14 }}
+                  >
+                    KECOKLATAN
+                  </Typography>
+                </Stack>
+              </Box>
+            </Box>
+            <Box
+              component={Paper}
+              sx={{
+                display: "flex",
+                textAlign: "center",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "165px",
+                height: "152px",
+                borderRadius: "10px",
+                marginRight: "30px",
+              }}
+            >
+              <Box sx={{ displlay: "fluid" }}>
+                <ThunderstormIcon
+                  sx={{
+                    alignItems: "center",
+                    width: "64px",
+                    height: "64px",
+                    color: "#000000",
+                  }}
+                />
+                <Stack direction={"column"}>
+                  <Typography
+                    variant="h6"
+                    sx={{ color: "#000000", fontWeight: "bold", fontSize: 14 }}
+                  >
+                    CURAH HUJAN
+                  </Typography>
+                  <Typography
+                    variant="h6"
+                    sx={{ color: "#EE1717", fontWeight: "bold", fontSize: 14 }}
+                  >
+                    55 mm/ hari
+                  </Typography>
+                </Stack>
+              </Box>
+            </Box>
+          </Box>
+          <Typography
+            variant="h6"
+            sx={{
+              color: "#000000",
+              fontSize: 16,
+              textAlign: "center",
+            }}
+          >
+            INFORMASI STATUS SIAGA
+          </Typography>
         </Container>
         <Box sx={{ width: "100%", typography: "body1" }}>
           <TabContext value={value}>
