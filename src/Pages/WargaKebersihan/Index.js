@@ -95,6 +95,17 @@ const getPeringatanColor = (shift) => {
   }
 };
 
+const now = new Date();
+
+// Format tanggal
+const hari = now.toLocaleString("id-ID", { weekday: "long" }); // Nama hari
+const tanggal = now.toLocaleString("id-ID", { day: "2-digit" }); // Tanggal
+const bulan = now.toLocaleString("id-ID", { month: "2-digit" }); // Nama bulan
+const tahun = now.getFullYear(); // Tahun
+
+// Menyusun string tanggal
+const formatTanggal = `${hari}, ${tanggal} / ${bulan} / ${tahun}`;
+
 const truncateText = (text, maxLength) => {
   if (!text) {
     return "";
@@ -150,13 +161,24 @@ const WargaKebersihan = () => {
           </Typography>
         </Stack>
         <Container sx={{ marginBottom: 2 }}>
+          <Typography
+            sx={{
+              justifyContent: "flex-end",
+              display: "flex",
+              marginBottom: 3,
+            }}
+          >
+            {formatTanggal}
+          </Typography>
           <Box sx={{ marginLeft: "0%" }}>
             <Calender />
           </Box>
         </Container>
         <Container sx={{ marginBottom: 2 }}>
           <Box sx={{ marginLeft: "0%" }}>
-            <InformasiJadwalToday />
+            <Typography fontSize={16} textAlign={"center"} fontWeight={"bold"}>
+              JADWAL KEBERSIHAN
+            </Typography>
           </Box>
         </Container>
       </Stack>

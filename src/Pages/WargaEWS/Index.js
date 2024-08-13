@@ -8,10 +8,6 @@ import TabPanel from "@mui/lab/TabPanel";
 import DataCurahHujan from "./DataCurahHujan";
 import DataPompaAir from "./DataPompaAir";
 import DataTinggiMukaAir from "./DataTinggiMukaAir";
-import ThunderstormIcon from "@mui/icons-material/Thunderstorm";
-import PoolIcon from "@mui/icons-material/Pool";
-import SanitizerIcon from "@mui/icons-material/Sanitizer";
-import WavesIcon from "@mui/icons-material/Waves";
 import Hujan from "../../Assets/Heavy Rain.png";
 import PompaAir from "../../Assets/Water Pipe.png";
 import AirSungai from "../../Assets/Sea Waves.png";
@@ -92,12 +88,14 @@ const WargaEWS = () => {
                 width: "165px",
                 height: "152px",
                 borderRadius: "10px",
-                marginRight: "30px",
+                marginRight: "15px",
+                marginLeft: "15px",
               }}
             >
               <Box sx={{ displlay: "fluid" }}>
                 <img
                   src={PompaAir}
+                  alt="PompaAir"
                   sx={{
                     alignItems: "center",
                     width: "64px",
@@ -131,12 +129,14 @@ const WargaEWS = () => {
                 width: "165px",
                 height: "152px",
                 borderRadius: "10px",
-                marginRight: "30px",
+                marginRight: "15px",
+                marginLeft: "15px",
               }}
             >
               <Box sx={{ displlay: "fluid" }}>
                 <img
                   src={TinggiAir}
+                  alt="TinggiAir"
                   sx={{
                     alignItems: "center",
                     width: "64px",
@@ -170,12 +170,14 @@ const WargaEWS = () => {
                 width: "165px",
                 height: "152px",
                 borderRadius: "10px",
-                marginRight: "30px",
+                marginRight: "15px",
+                marginLeft: "15px",
               }}
             >
               <Box sx={{ displlay: "fluid" }}>
                 <img
                   src={AirSungai}
+                  alt="AirSungai"
                   sx={{
                     alignItems: "center",
                     width: "64px",
@@ -209,12 +211,14 @@ const WargaEWS = () => {
                 width: "165px",
                 height: "152px",
                 borderRadius: "10px",
-                marginRight: "30px",
+                marginRight: "15px",
+                marginLeft: "15px",
               }}
             >
               <Box sx={{ displlay: "fluid" }}>
                 <img
                   src={Hujan}
+                  alt="Hujan"
                   sx={{
                     alignItems: "center",
                     width: "64px",
