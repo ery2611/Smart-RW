@@ -13,6 +13,7 @@ import Pengumuman from './Pages/Warga/dashboard/pengumuman';
 
 import FormPanggilan from './Pages/Warga/panggilanDarurat/formPanggilan';
 
+import DetailIKK from './Pages/Warga/IKK/Detail';
 
 const App=()=> {
   const [dataList, setDataList] = useState([]);
@@ -41,12 +42,15 @@ const App=()=> {
           <Route path='/detail/:id' element={<DetailEWS dataList={dataList} />}/>
           <Route path='/dashboard' element={<EWS dataList={dataList} onDetail={toggleDetail}/>}/>
 
+          {/* WARGA */}
           <Route path='/formWarga' element={<FormKeamananWarga/>}/>
           <Route path='/dashboard2' element={<DashboardKeamanan/>}/>
 
           <Route path='/dashboard/pengumuman' element={<Pengumuman/>}/>
 
           <Route path='/panggilanDarurat/form' element={<FormPanggilan/>}/>
+
+          <Route path='/detail2' element={<DetailIKK/>} />
 
 
           {/* Mungkin ada rute lain di sini */} 
