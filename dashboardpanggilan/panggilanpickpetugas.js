@@ -18,6 +18,8 @@ import {
   Box,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+{/**import Bar from "../../../components/WargaComponents/Navbar";**/}
+{/**import { useNavigate } from "react-router-dom";**/}
 
 const data = [
   {
@@ -88,6 +90,7 @@ const Pilihpetugas = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCheckboxes, setSelectedCheckboxes] = useState([]);
   const itemsPerPage = 5;
+  {/**const Navigate = useNavigate();**/}
 
   const handleSearchChange = (event) => {
     setSearchText(event.target.value);
@@ -121,26 +124,38 @@ const Pilihpetugas = () => {
 
   return (
     <div>
+      {/**<Bar />**/}
       <Stack direction="column">
         <Typography
           variant="h5"
           sx={{ marginBottom: 0, color: "#00A9AD", fontSize: 18 }}
         >
-          COMMAND CENTER
+          WARGA
         </Typography>
         <Stack direction="row" sx={{ marginBottom: 2, fontSize: 14 }}>
           <Typography variant="h8" sx={{ color: "#A0A1A4" }}>
             Dashboard/
           </Typography>
+          <Typography variant="h9" sx={{ color: "black", fontWeight: "bold" }}>
+            Pilih Petugas
+          </Typography>
         </Stack>
 
-        <Typography variant="h6" sx={{ textAlign: 'center' }}>
+        <Typography variant="h6" sx={{ textAlign: "center" }}>
           PILIH PETUGAS
         </Typography>
         <Box>
           <Stack direction="row" spacing={5} sx={{ ml: 5, mt: 4 }}>
-            <Typography sx={{ color: '#A1A5B7', fontSize: '16px', textAlign: 'left' }}>Panggilan Yang Dipilih</Typography>
-            <Typography sx={{ color: '#000', fontSize: '16px', textAlign: 'left' }}>: Keamanan</Typography>
+            <Typography
+              sx={{ color: "#A1A5B7", fontSize: "16px", textAlign: "left" }}
+            >
+              Panggilan Yang Dipilih
+            </Typography>
+            <Typography
+              sx={{ color: "#000", fontSize: "16px", textAlign: "left" }}
+            >
+              : Keamanan
+            </Typography>
           </Stack>
         </Box>
       </Stack>
@@ -163,30 +178,35 @@ const Pilihpetugas = () => {
         <Button
           variant="contained"
           onClick={handleSearch}
-          sx={{ backgroundColor: "#00A9AD", height: 38, mt: '20px !important' }}
+          sx={{ backgroundColor: "#00A9AD", height: 38, mt: "20px !important" }}
         >
           CARI
         </Button>
 
-        <Stack direction="row" justifyContent="end" spacing={2} sx={{width:"100%"}}>
+        <Stack
+          direction="row"
+          justifyContent="end"
+          spacing={2}
+          sx={{ width: "100%" }}
+        >
           {selectedCheckboxes.length > 0 && (
             <Typography sx={{ fontSize: 18 }}>
               {selectedCheckboxes.length} petugas
             </Typography>
-
           )}
-          {selectedCheckboxes.length > 0 && (
+          {/**onClick={() => Navigate("/Warga/Panggilan/Keamanan/Form")}nanti lu taro bawah**/ }
+          {selectedCheckboxes.length > 0 && (          
             <Button
-            size="small"
+              size="small"
               variant="contained"
               color="primary"
-              onClick={handleAdd}
+              /**taro sini */
               sx={{
                 backgroundColor: "#00A9AD",
                 height: 38,
                 display: "flex",
                 alignItems: "center",
-                mr: '25px !important',
+                mr: "25px !important",
                 ml: "auto",
               }}
             >
@@ -199,16 +219,40 @@ const Pilihpetugas = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell sx={{ fontFamily: "Montserrat, sans-serif", fontWeight: "bold", color: "#A0A1A4" }}>
+              <TableCell
+                sx={{
+                  fontFamily: "Montserrat, sans-serif",
+                  fontWeight: "bold",
+                  color: "#A0A1A4",
+                }}
+              >
                 NO
               </TableCell>
-              <TableCell sx={{ fontFamily: "Montserrat, sans-serif", fontWeight: "bold", color: "#A0A1A4" }}>
+              <TableCell
+                sx={{
+                  fontFamily: "Montserrat, sans-serif",
+                  fontWeight: "bold",
+                  color: "#A0A1A4",
+                }}
+              >
                 BENCANA
               </TableCell>
-              <TableCell sx={{ fontFamily: "Montserrat, sans-serif", fontWeight: "bold", color: "#A0A1A4" }}>
+              <TableCell
+                sx={{
+                  fontFamily: "Montserrat, sans-serif",
+                  fontWeight: "bold",
+                  color: "#A0A1A4",
+                }}
+              >
                 LOKASI
               </TableCell>
-              <TableCell sx={{ fontFamily: "Montserrat, sans-serif", fontWeight: "bold", color: "#A0A1A4" }}>
+              <TableCell
+                sx={{
+                  fontFamily: "Montserrat, sans-serif",
+                  fontWeight: "bold",
+                  color: "#A0A1A4",
+                }}
+              >
                 STATUS
               </TableCell>
               <TableCell />
@@ -259,6 +303,28 @@ const Pilihpetugas = () => {
           }}
         />
       </Stack>
+      <Box
+            sx={{
+              display: "flex",
+              justifyContent: "flex-end", // Memindahkan kotak ke kanan
+              padding: 2,
+            }}
+          >
+            <Button
+              sx={{
+                color: "#00a9ad",
+                fontWeight: "bolder",
+                border: "2px solid #00a9ad",
+                "&:hover": {
+                  border: "2px solid #00a9ad",
+                  color: "#00a9ad",
+                },
+              }}
+              variant="outlined"
+            >
+              KEMBALI
+            </Button>
+          </Box>
     </div>
   );
 };
