@@ -33,16 +33,17 @@ function RiwayatIkk() {
     marginBottom: theme.spacing(2),
   }));
   return (
-    <div>
+    <div style={{ marginBottom: 3, paddingBottom: 5 }}>
       <Container
         maxWidth="lg " // Mengatur ukuran maksimum container menjadi "md" (medium)
         sx={{
           maxWidth: "1200px", // Anda dapat menyesuaikan nilai ini untuk mengatur lebar maksimum container
           marginTop: 2,
-          marginBottom: 2,
+          marginBottom: 3,
+
           fontFamily: "Montserrat, sans-serif",
           bgcolor: "#EFEFEF",
-          padding: 1,
+
           borderRadius: "10px",
         }}
       >

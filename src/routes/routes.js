@@ -115,6 +115,9 @@ const RiwayatPanggilanDaruratWarga = Loadable(
     import("../pages/pagesWarga/PanggilanDarurat/Riwayat/panggilanUtama")
   )
 );
+const DetailTagihan = Loadable(
+  lazy(() => import("../pages/pagesWarga/IKK/detailTagihan"))
+);
 
 const mainRoutes = [
   {
@@ -277,6 +280,10 @@ const mainRoutes = [
   {
     path: "/Warga/PanggilanDarurat/Riwayat",
     element: <RiwayatPanggilanDaruratWarga />,
+  },
+  {
+    path: "/Warga/Ikk/DetailTagihan",
+    element: <DetailTagihan />,
   },
 ];
 

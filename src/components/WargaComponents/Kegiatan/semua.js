@@ -119,8 +119,8 @@ function Semua() {
           width: "100%",
         }}
       >
-        <IconButton onClick={handlePrev}>
-          <ArrowBackIos sx={{ color: "#00A9AD" }} />
+        <IconButton onClick={handlePrev} sx={{ mb: 10 }}>
+          <ArrowBackIos sx={{ color: "#00A9AD", fontSize: 40 }} />
         </IconButton>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           <Box
@@ -261,8 +261,8 @@ function Semua() {
           </Box>
         </Box>
 
-        <IconButton onClick={handleNext}>
-          <ArrowForwardIos sx={{ color: "#00A9AD" }} />
+        <IconButton onClick={handleNext} sx={{ mb: 10 }}>
+          <ArrowForwardIos sx={{ color: "#00A9AD", fontSize: 40 }} />
         </IconButton>
       </Box>
 

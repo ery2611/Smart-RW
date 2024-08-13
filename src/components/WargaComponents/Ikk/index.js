@@ -11,6 +11,8 @@ import {
   TableHead,
   TableRow,
   Pagination,
+  Card,
+  CardContent,
 } from "@mui/material";
 import React from "react";
 import Dompet from "@mui/icons-material/AccountBalanceWalletOutlined";
@@ -19,6 +21,7 @@ import Datepicker from "../../CommandComponents/Datepicker/Index";
 import { useState } from "react";
 import Mata from "@mui/icons-material/RemoveRedEyeOutlined";
 import { useNavigate } from "react-router-dom";
+import Arrow from "@mui/icons-material/ArrowForwardIos";
 
 const data = [
   {
@@ -82,6 +85,57 @@ function Index() {
   return (
     <div>
       <Box
+        sx={{
+          display: "flex",
+          height: "80px",
+          marginBottom: "30px",
+          justifyContent: "center",
+        }}
+      >
+        <Card
+          onClick={() => Navigate("/Warga/Ikk/DetailTagihan")}
+          sx={{
+            display: "flex",
+            justifyContent: "flex-start",
+            width: "550px",
+            height: "80px",
+            marginBottom: "30px",
+            boxShadow: 5,
+            borderRadius: "10px",
+          }}
+        >
+          <CardContent>
+            <Box
+              sx={{
+                display: "fluid",
+                marginLeft: "10px",
+                alignContent: "center",
+              }}
+            >
+              <Typography fontWeight="bold">
+                SELESAIKAN PEMBAYARAN ANDA!
+              </Typography>
+              <Typography variant="body1" sx={{ color: "#A1A5B7" }}>
+                Pembayaran anda akan berakhir pada 1 hari lagi.
+              </Typography>
+            </Box>
+          </CardContent>
+          <CardContent sx={{}}>
+            <Box
+              sx={{
+                alignContent: "center",
+                alignItems: "center",
+                justifyContent: "center",
+                marginLeft: "30px",
+                marginTop: "3px",
+              }}
+            >
+              <Arrow fontSize="large" sx={{ color: "#00A9AD" }} />
+            </Box>
+          </CardContent>
+        </Card>
+      </Box>
+      <Box
         sx={{ display: "flex", justifyContent: "center", marginBottom: "50px" }}
       >
         <Box
@@ -137,7 +191,7 @@ function Index() {
         </Box>
       </Box>
       <Typography variant="h6" textAlign="center">
-        TAGIHAN ANDA
+        TAGIHAN YANG SUDAH LUNAS
       </Typography>
 
       <Stack>

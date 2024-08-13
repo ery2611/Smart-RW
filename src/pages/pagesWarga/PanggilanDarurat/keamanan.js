@@ -130,31 +130,19 @@ const Pilihpetugas = () => {
           variant="h5"
           sx={{ marginBottom: 0, color: "#00A9AD", fontSize: 18 }}
         >
-          COMMAND CENTER
+          WARGA
         </Typography>
         <Stack direction="row" sx={{ marginBottom: 2, fontSize: 14 }}>
           <Typography variant="h8" sx={{ color: "#A0A1A4" }}>
             Dashboard/
           </Typography>
+          <Typography variant="h8" sx={{ color: "#A0A1A4" }}>
+            Panggilan Darurat/
+          </Typography>
+          <Typography variant="h9" sx={{ color: "black", fontWeight: "bold" }}>
+            Pilih Petugas
+          </Typography>
         </Stack>
-
-        <Typography variant="h6" sx={{ textAlign: "center" }}>
-          PILIH PETUGAS
-        </Typography>
-        <Box>
-          <Stack direction="row" spacing={5} sx={{ ml: 5, mt: 4 }}>
-            <Typography
-              sx={{ color: "#A1A5B7", fontSize: "16px", textAlign: "left" }}
-            >
-              Panggilan Yang Dipilih
-            </Typography>
-            <Typography
-              sx={{ color: "#000", fontSize: "16px", textAlign: "left" }}
-            >
-              : Keamanan
-            </Typography>
-          </Stack>
-        </Box>
       </Stack>
       <Stack
         direction="row"

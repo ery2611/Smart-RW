@@ -9,10 +9,10 @@ import DataCurahHujan from "./DataCurahHujan/dataCurahHujan";
 import DataPompaAir from "./DataPompaAir/dataPompaAir";
 import DataTinggiMukaAir from "./DataTinggiMukaAir/dataTinggiMukaAir";
 import Bar from "../../../components/WargaComponents/Navbar";
-import ThunderstormIcon from "@mui/icons-material/Thunderstorm";
-import PoolIcon from "@mui/icons-material/Pool";
-import SanitizerIcon from "@mui/icons-material/Sanitizer";
-import WavesIcon from "@mui/icons-material/Waves";
+import Hujan from "../../../assets/Heavy Rain.png";
+import PompaAir from "../../../assets/Water Pipe.png";
+import AirSungai from "../../../assets/Sea Waves.png";
+import TinggiAir from "../../../assets/Rip Current.png";
 
 const WargaEWS = () => {
   const [value, setValue] = React.useState("1");
@@ -93,7 +93,8 @@ const WargaEWS = () => {
               }}
             >
               <Box sx={{ displlay: "fluid" }}>
-                <SanitizerIcon
+                <img
+                  src={PompaAir}
                   sx={{
                     alignItems: "center",
                     width: "64px",
@@ -131,7 +132,8 @@ const WargaEWS = () => {
               }}
             >
               <Box sx={{ displlay: "fluid" }}>
-                <PoolIcon
+                <img
+                  src={TinggiAir}
                   sx={{
                     alignItems: "center",
                     width: "64px",
@@ -169,7 +171,8 @@ const WargaEWS = () => {
               }}
             >
               <Box sx={{ displlay: "fluid" }}>
-                <WavesIcon
+                <img
+                  src={AirSungai}
                   sx={{
                     alignItems: "center",
                     width: "64px",
@@ -207,7 +210,8 @@ const WargaEWS = () => {
               }}
             >
               <Box sx={{ displlay: "fluid" }}>
-                <ThunderstormIcon
+                <img
+                  src={Hujan}
                   sx={{
                     alignItems: "center",
                     width: "64px",

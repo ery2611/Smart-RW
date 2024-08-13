@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Typography, Stack } from "@mui/material";
 import HealthIcon from "@mui/icons-material/LocalHospital";
 import LocalPoliceOutlinedIcon from "@mui/icons-material/LocalPoliceOutlined";
 import LocalFireDepartmentOutlinedIcon from "@mui/icons-material/LocalFireDepartmentOutlined";
@@ -12,14 +12,22 @@ const Dashboard = () => {
   return (
     <Box>
       <Bar />
-      <Box>
+      <Stack direction="column">
         <Typography
           variant="h5"
           sx={{ marginBottom: 0, color: "#00A9AD", fontSize: 18 }}
         >
-          COMMAND CENTER
+          WARGA
         </Typography>
-      </Box>
+        <Stack direction="row" sx={{ marginBottom: 2, fontSize: 14 }}>
+          <Typography variant="h8" sx={{ color: "#A0A1A4" }}>
+            Dashboard/
+          </Typography>
+          <Typography variant="h9" sx={{ color: "black", fontWeight: "bold" }}>
+            Panggilan Darurat
+          </Typography>
+        </Stack>
+      </Stack>
 
       <Typography
         variant="h6"

@@ -35,6 +35,7 @@ function Riwayat() {
         sx={{
           marginTop: "20px",
           width: "100%", // memastikan Box mengisi lebar penuh container
+          marginBottom: "20px",
         }}
       >
         <RiwayatIKK />

@@ -24,7 +24,7 @@ function Detailpayment() {
             Dashboard/
           </Typography>
           <Typography variant="h9" sx={{ color: "black", fontWeight: "bold" }}>
-            Detail Forum
+            Tagihan
           </Typography>
         </Stack>
       </Stack>

@@ -26,7 +26,7 @@ function Detailpembayaranwarga() {
   }));
   const Navigate = useNavigate();
   return (
-    <div>
+    <div style={{ paddingBottom: 4 }}>
       <Container
         maxWidth="md" // Mengatur ukuran maksimum container menjadi "md" (medium)
         sx={{
@@ -35,7 +35,7 @@ function Detailpembayaranwarga() {
           marginBottom: 2,
           fontFamily: "Montserrat, sans-serif",
           bgcolor: "#EFEFEF",
-          padding: 1,
+
           borderRadius: "10px",
         }}
       >
