@@ -1,5 +1,5 @@
 import React from 'react'
-import DetailTagihanLunas from '../../Component/DTagihanLunas/dtagihanlunas'
+import Tagihan from '../../Component/DTagihanLunas/dtagihanlunas'
 import { Stack, Typography,Box } from '@mui/material'
 
 export default function DTagihanLunas() {
@@ -35,7 +35,7 @@ export default function DTagihanLunas() {
             width: "100%", // memastikan Box mengisi lebar penuh container
           }}
         >
-         <DetailTagihanLunas/>
+         <Tagihan/>
         </Box>
     </div>
   )
