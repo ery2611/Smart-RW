@@ -1,4 +1,5 @@
 import React, { lazy, Suspense } from "react";
+import Detailpanggilandarurat from "../pages/pagesWarga/PanggilanDarurat/detailPanggilan";
 
 const Loadable = (Component) => (props) => {
   return (
@@ -117,6 +118,12 @@ const RiwayatPanggilanDaruratWarga = Loadable(
 );
 const DetailTagihan = Loadable(
   lazy(() => import("../pages/pagesWarga/IKK/detailTagihan"))
+);
+const CaraBayar = Loadable(
+  lazy(() => import("../pages/pagesWarga/IKK/caraBayar"))
+);
+const DPanggilanWarga = Loadable(
+  lazy(() => import("../pages/pagesWarga/PanggilanDarurat/detailPanggilan"))
 );
 
 const mainRoutes = [
@@ -284,6 +291,14 @@ const mainRoutes = [
   {
     path: "/Warga/Ikk/DetailTagihan",
     element: <DetailTagihan />,
+  },
+  {
+    path: "/Warga/Ikk/DetailTagihan/CaraBayar",
+    element: <CaraBayar />,
+  },
+  {
+    path: "/Warga/PanggilanDarurat/DetailPanggilanDarurat",
+    element: <DPanggilanWarga />,
   },
 ];
 

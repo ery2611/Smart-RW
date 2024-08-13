@@ -477,6 +477,7 @@ const DetailIKK = () => {
                   CARA PEMBAYARAN
                 </Typography>
                 <Button
+                  onClick={() => Navigate("/Warga/Ikk/DetailTagihan/CaraBayar")}
                   sx={{
                     backgroundColor: "#00A9AD",
                     color: "white",

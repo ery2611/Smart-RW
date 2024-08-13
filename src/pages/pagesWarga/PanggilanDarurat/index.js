@@ -6,6 +6,7 @@ import LocalFireDepartmentOutlinedIcon from "@mui/icons-material/LocalFireDepart
 import FloodOutlinedIcon from "@mui/icons-material/FloodOutlined";
 import Bar from "../../../components/WargaComponents/Navbar";
 import { useNavigate } from "react-router-dom";
+import Progress from "../../../components/WargaComponents/PanggilanDarurat/ContainerProgress";
 
 const Dashboard = () => {
   const Navigate = useNavigate();
@@ -147,13 +148,7 @@ const Dashboard = () => {
       <Typography variant="h6" sx={{ mt: 10, textAlign: "center" }}>
         PETUGAS YANG MERESPON
       </Typography>
-      <Typography
-        variant="body2"
-        color="textSecondary"
-        sx={{ textAlign: "center" }}
-      >
-        Belum ada petugas
-      </Typography>
+      <Progress />
     </Box>
   );
 };
