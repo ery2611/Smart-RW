@@ -15,6 +15,7 @@ const DetailRiwayat = Loadable(lazy(()=>import('../Pages/DetailRiwayat')))
 const Kegiatan = Loadable(lazy(()=>import('../Pages/Kegiatan/kegiatan')))
 const Pengumuman = Loadable(lazy(()=>import('../Pages/DetailPengumuman/index')))
 const FormPengaduan = Loadable(lazy(()=>import('../Pages/FormPengaduanWarga/form')))
+const FormJadwalPetugas = Loadable(lazy(()=>import('../Pages/FormJadwalPetugas/index')))
 const ProgressDarurat = Loadable(lazy(()=>import('../Pages/ProgressPanggilanDarurat/index')))
 const ForumLihat = Loadable(lazy(()=>import('../Pages/ForumLihat/index')))
 const DetailTinggiMukaAir = Loadable(lazy(()=>import('../Pages/DetailTinggiMukaAir/index')))
@@ -48,6 +49,10 @@ const mainRoutes =[{
 {
     path:'/FormPengaduan',
     element: <FormPengaduan/>
+},
+{
+    path:'/FormJadwalPetugas',
+    element: <FormJadwalPetugas/>
 },
 {
     path:'/ProgressDarurat',
