@@ -126,6 +126,27 @@ const DPanggilanWarga = Loadable(
   lazy(() => import("../pages/pagesWarga/PanggilanDarurat/detailPanggilan"))
 );
 
+// Routes Kebersihan
+const DashKebersihan = Loadable(
+  lazy(() => import("../pages/pagesKebersihan/Dashboard/index"))
+);
+const JadwalKebersihanPetugas = Loadable(
+  lazy(() => import("../pages/pagesKebersihan/Jadwal/index"))
+);
+const LaporanKebersihan = Loadable(
+  lazy(() => import("../pages/pagesKebersihan/Laporan/index"))
+);
+const FormJadwalKebersihanPetugas = Loadable(
+  lazy(() => import("../pages/pagesKebersihan/Jadwal/form"))
+);
+
+const DetailJadwalKebersihanPetugas = Loadable(
+  lazy(() => import("../pages/pagesKebersihan/Jadwal/detail"))
+);
+const Cuti = Loadable(
+  lazy(() => import("../pages/pagesKebersihan/Cuti/index"))
+);
+
 const mainRoutes = [
   {
     path: "/",
@@ -195,6 +216,7 @@ const mainRoutes = [
     path: "/Panggilan/Riwayat/DetailRiwayat",
     element: <DRpanggilan />,
   },
+
   // path warga
   {
     path: "/Warga",
@@ -299,6 +321,32 @@ const mainRoutes = [
   {
     path: "/Warga/PanggilanDarurat/DetailPanggilanDarurat",
     element: <DPanggilanWarga />,
+  },
+
+  //
+  {
+    path: "/DashboardKebersihan",
+    element: <DashKebersihan />,
+  },
+  {
+    path: "/JadwalKebersihan",
+    element: <JadwalKebersihanPetugas />,
+  },
+  {
+    path: "/LaporanKebersihan",
+    element: <LaporanKebersihan />,
+  },
+  {
+    path: "/JadwalKebersihan/Form",
+    element: <FormJadwalKebersihanPetugas />,
+  },
+  {
+    path: "/CutiKebersihan",
+    element: <Cuti />,
+  },
+  {
+    path: "/JadwalKebersihan/Detail",
+    element: <DetailJadwalKebersihanPetugas />,
   },
 ];
 
