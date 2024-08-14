@@ -20,6 +20,7 @@ const ProgressDarurat = Loadable(lazy(()=>import('../Pages/ProgressPanggilanDaru
 const ForumLihat = Loadable(lazy(()=>import('../Pages/ForumLihat/index')))
 const DetailTinggiMukaAir = Loadable(lazy(()=>import('../Pages/DetailTinggiMukaAir/index')))
 const DetailTagihanLunas = Loadable(lazy(()=>import('../Pages/DetailTagihanLunas/index')))
+const DetailJadwalPetugas = Loadable(lazy(()=>import('../Pages/DetailJadwalPetugas/index')))
 const RiwayatPanggilan = Loadable(lazy(()=>import('../Pages/RiwayatPanggilanUtama/panggilanUtama')))
 
 const mainRoutes =[{
@@ -65,6 +66,10 @@ const mainRoutes =[{
 {
     path:'/DetailTinggiMukaAir',
     element: <DetailTinggiMukaAir/>
+},
+{
+    path:'/DetailJadwalPetugas',
+    element: <DetailJadwalPetugas/>
 },
 {
     path:'/Tagihan',
