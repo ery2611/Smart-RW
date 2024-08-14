@@ -101,7 +101,7 @@ const DataPompaAir = () => {
       <Stack
         direction="row"
         spacing={2}
-        alignItems="center"
+        alignItems="flex-end"
         sx={{ marginBottom: 2 }}
       >
         <Stack direction={"column"}>

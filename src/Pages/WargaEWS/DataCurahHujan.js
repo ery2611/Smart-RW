@@ -143,7 +143,7 @@ const DataCurahHujan = () => {
       <Stack
         direction="row"
         spacing={2}
-        alignItems="center"
+        alignItems="flex-end"
         sx={{ marginBottom: 2 }}
       >
         <Stack direction={"column"}>
@@ -295,7 +295,7 @@ const DataCurahHujan = () => {
                 <TableCell>{row.siaga1}</TableCell>
                 <TableCell>{row.siaga2}</TableCell>
                 <TableCell>{row.siaga3}</TableCell>
-                <TableCell>{row.siaga4}</TableCell>
+                <TableCell>{row.siaga4npm}</TableCell>
                 <TableCell>{truncateText(row.tinggi_air, 40)}</TableCell>
                 <TableCell>
                   <Chip

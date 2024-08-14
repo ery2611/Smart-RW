@@ -185,7 +185,7 @@ const WargaKebersihan = () => {
       <Stack
         direction="row"
         spacing={2}
-        alignItems="center"
+        alignItems="flex-end"
         sx={{ marginBottom: 2 }}
       >
         <TextField
