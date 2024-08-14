@@ -128,7 +128,7 @@ const DPanggilanWarga = Loadable(
 
 const mainRoutes = [
   {
-    path: "*",
+    path: "/",
     element: <Home />,
   },
   {

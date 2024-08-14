@@ -1,14 +1,16 @@
-import Routes from "./routes";
+import mainRoutes from "../src/routes/routes";
 import "./App.css";
 import Header from "./components/CommandComponents/Header";
 import Bar from "./components/CommandComponents/Navbar";
 import { Box } from "@mui/material";
+import { Routes, Route } from "react-router-dom";
+import React from "react";
 
 function App() {
   return (
-   <Box>
-    <Header />
-    <Box
+    <Box>
+      <Header />
+      <Box
         sx={{
           flex: "1 1 auto",
           display: "flex",
@@ -23,23 +25,25 @@ function App() {
             alignItems: "center",
             justifyContent: "center",
           }}
-        >
-         
-        </Box>
-        
+        ></Box>
+
         <Box
           sx={{
-            flex: 1,  // Allow Routes to take up the remaining space
+            flex: 1, // Allow Routes to take up the remaining space
             marginLeft: "5px", // Optional: add some space between the sidebar and the main content
-            marginTop: '20px',
-            maxHeight:'700px',
-            marginBottom:'10px'
+            marginTop: "20px",
+            maxHeight: "700px",
+            marginBottom: "10px",
           }}
         >
-          <Routes />
+          <Routes>
+            {mainRoutes.map((route, index) => (
+              <Route key={index} path={route.path} element={route.element} />
+            ))}
+          </Routes>
         </Box>
       </Box>
-   </Box>
+    </Box>
   );
 }
 
