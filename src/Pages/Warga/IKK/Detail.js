@@ -98,19 +98,17 @@ const DetailIKK = () => {
     return daysOfWeek[date.getDay()];
   };
 
-  const getFormattedDate = (date,type) => {
+  const getFormattedDate = (date, type) => {
     //mengambil format tanggal, c/: 22 agustus 2024
-    if(type === 'panjang') {
-      const options = {day:'numeric', month: 'long', year: 'numeric'};
-      return date.toLocaleDateString('id-ID', options);
+    if (type === "panjang") {
+      const options = { day: "numeric", month: "long", year: "numeric" };
+      return date.toLocaleDateString("id-ID", options);
     } //mengambil format tanggal 08/22/2024
-    if(type === 'singkat') {
-      const options = {day:'2-digit', month: '2-digit', year: 'numeric'};
+    if (type === "singkat") {
+      const options = { day: "2-digit", month: "2-digit", year: "numeric" };
       return date.toLocaleDateString(undefined, options);
     }
-
   };
-
 
   //mengambil format waktu dengan detik
   const getTimeName = (date) => {
@@ -124,6 +122,9 @@ const DetailIKK = () => {
     return date.toLocaleTimeString(undefined, options);
   };
 
+
+
+
   return (
     <Box>
       <Box
@@ -134,6 +135,7 @@ const DetailIKK = () => {
           overflowY: "auto",
         }}
       >
+        
         {/* Text pojok kiri atas */}
         <Box height="70px">
           <Stack direction="column" textAlign="left">
@@ -193,7 +195,7 @@ const DetailIKK = () => {
                   SEGERA LAKUKAN PEMBAYARAN DALAM WAKTU
                 </Typography>
 
-              {/* menampilkan hari jika targetdata > 24 jam */}
+                {/* menampilkan hari jika targetdata > 24 jam */}
                 {timeLeft.days !== undefined && (
                   <Stack
                     direction="row"
@@ -234,41 +236,41 @@ const DetailIKK = () => {
                 {/* jika targetdata <= 24 jam, maka tidak menampilkan hari */}
                 {timeLeft.days === undefined && (
                   <Stack
-                  direction="row"
-                  sx={{
-                    mt: 1,
-                    display: "flex",
-                    justifyContent: "center",
-                    alignContent: "end",
-                  }}
-                >
-                  <Typography variant="h4" fontWeight="bold">
-                    {timeLeft.hours}
-                  </Typography>
-                  <Typography variant="h5" alignContent="end">
-                    Jam :
-                  </Typography>
-                  <Typography variant="h4" fontWeight="bold">
-                    {timeLeft.minutes}
-                  </Typography>
-                  <Typography variant="h5" alignContent="end">
-                    Menit :
-                  </Typography>
-                  <Typography variant="h4" fontWeight="bold">
-                    {timeLeft.seconds}
-                  </Typography>
-                  <Typography variant="h5" alignContent="end">
-                    Detilk{" "}
-                  </Typography>
-                </Stack>
+                    direction="row"
+                    sx={{
+                      mt: 1,
+                      display: "flex",
+                      justifyContent: "center",
+                      alignContent: "end",
+                    }}
+                  >
+                    <Typography variant="h4" fontWeight="bold">
+                      {timeLeft.hours}
+                    </Typography>
+                    <Typography variant="h5" alignContent="end">
+                      Jam :
+                    </Typography>
+                    <Typography variant="h4" fontWeight="bold">
+                      {timeLeft.minutes}
+                    </Typography>
+                    <Typography variant="h5" alignContent="end">
+                      Menit :
+                    </Typography>
+                    <Typography variant="h4" fontWeight="bold">
+                      {timeLeft.seconds}
+                    </Typography>
+                    <Typography variant="h5" alignContent="end">
+                      Detilk{" "}
+                    </Typography>
+                  </Stack>
                 )}
 
                 {/* menampilkan tulisan batas waktu pembayaran
                 c:/ (sebelum Rabu, 22 Agustus 2024, 23:59:59) */}
-                <Stack sx={{mt:1}}>
-                  <Typography variant='h6'>
+                <Stack sx={{ mt: 1 }}>
+                  <Typography variant="h6">
                     (sebelum {getDayName(targetDateObj)},{" "}
-                    {getFormattedDate(targetDateObj, 'panjang')},{" "}
+                    {getFormattedDate(targetDateObj, "panjang")},{" "}
                     {getTimeName(targetDateObj)} )
                   </Typography>
                 </Stack>
@@ -384,7 +386,7 @@ const DetailIKK = () => {
                         color="#333333"
                         sx={{ mt: 1 }}
                       >
-                        : {getFormattedDate(targetDateObj, 'singkat')}
+                        : {getFormattedDate(targetDateObj, "singkat")}
                       </Typography>
                       <Typography variant="body1" color="#A1A5B7" ml={1}>
                         {getTimeNotSecond(targetDateObj)}

@@ -13,8 +13,6 @@ import Mata from "@mui/icons-material/VisibilityOutlined";
 import Lokasi from "@mui/icons-material/LocationOnOutlined";
 import { useNavigate } from "react-router";
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
-import Jam from "@mui/icons-material/QueryBuilderOutlined";
-import Kalender from "@mui/icons-material/CalendarMonthOutlined";
 import { useState } from "react";
 
 const cards = [
@@ -75,13 +73,13 @@ const Pengumuman = () => {
       prevIndex === cards.length - 1 ? 0 : prevIndex + 1
     );
   };
-  // Format tanggal
+  //! Format tanggal
   const hari = now.toLocaleString("id-ID", { weekday: "long" }); // Nama hari
   const tanggal = now.toLocaleString("id-ID", { day: "2-digit" }); // Tanggal
   const bulan = now.toLocaleString("id-ID", { month: "2-digit" }); // Nama bulan
   const tahun = now.getFullYear(); // Tahun
 
-  // Menyusun string tanggal
+  //! Menyusun string tanggal
   const formatHari = `${hari}`;
   const formatTanggal = `${formatHari}, ${tanggal} / ${bulan} / ${tahun}`;
   return (
