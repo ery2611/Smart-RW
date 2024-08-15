@@ -17,58 +17,8 @@ import {
 import Mata from "@mui/icons-material/VisibilityOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
-const data = [
-  {
-    id: 1,
-    nama: "Kautsar Hakam",
-    tanggal_pengajuan: "24/08/2024",
-    jam_pengajuan: "08:00",
-    status: "DITERIMA",
-  },
-  {
-    id: 2,
-    nama: "Bintang Fathurahman",
-    tanggal_pengajuan: "16/08/2024",
-    jam_pengajuan: "09:00",
-    status: "DITERIMA",
-  },
-  {
-    id: 3,
-    nama: "Rafif Muhammad Faiz",
-    tanggal_pengajuan: "14/08/2024",
-    jam_pengajuan: "23:00",
-    status: "DITOLAK",
-  },
-  {
-    id: 4,
-    nama: "Farrel Savero Suta",
-    tanggal_pengajuan: "30/08/2024",
-    jam_pengajuan: "12:00",
-    status: "BELUM DITERIMA",
-  },
-  {
-    id: 5,
-    nama: "Muhammad Parsya",
-    tanggal_pengajuan: "15/08/2024",
-    jam_pengajuan: "08:00",
-    status: "BELUM DITERIMA",
-  },
-  {
-    id: 6,
-    nama: "Galih Simantung",
-    tanggal_pengajuan: "20/08/2024",
-    jam_pengajuan: "10:00",
-    status: "DITERIMA",
-  },
-  {
-    id: 7,
-    nama: "Kautsar Hakamu",
-    tanggal_pengajuan: "24/08/2024",
-    jam_pengajuan: "08:00",
-    status: "DITOLAK",
-  },
-];
 
 const getStatus = (status) => {
   switch (status) {
@@ -92,8 +42,61 @@ const getStatus = (status) => {
       };
   }
 };
+ export const data = [
+    {
+      id: 1,
+      nama: "Kautsar Hakam",
+      tanggal_pengajuan: "24/08/2024",
+      jam_pengajuan: "08:00",
+      status: "DITERIMA",
+    },
+    {
+      id: 2,
+      nama: "Bintang Fathurahman",
+      tanggal_pengajuan: "16/08/2024",
+      jam_pengajuan: "09:00",
+      status: "DITERIMA",
+    },
+    {
+      id: 3,
+      nama: "Rafif Muhammad Faiz",
+      tanggal_pengajuan: "14/08/2024",
+      jam_pengajuan: "23:00",
+      status: "DITOLAK",
+    },
+    {
+      id: 4,
+      nama: "Farrel Savero Suta",
+      tanggal_pengajuan: "30/08/2024",
+      jam_pengajuan: "12:00",
+      status: "BELUM DITERIMA",
+    },
+    {
+      id: 5,
+      nama: "Muhammad Parsya",
+      tanggal_pengajuan: "15/08/2024",
+      jam_pengajuan: "08:00",
+      status: "BELUM DITERIMA",
+    },
+    {
+      id: 6,
+      nama: "Galih Simantung",
+      tanggal_pengajuan: "20/08/2024",
+      jam_pengajuan: "10:00",
+      status: "DITERIMA",
+    },
+    {
+      id: 7,
+      nama: "Kautsar Hakamu",
+      tanggal_pengajuan: "24/08/2024",
+      jam_pengajuan: "08:00",
+      status: "DITOLAK",
+    },
+  ];
+export const CutiKebersihan = () => {
 
-const CutiKebersihan = () => {
+  const navigate = useNavigate()
+  
   const [currentPage, setCurrentPage] = useState(1);
   const itemPerPage = 5;
 
@@ -114,6 +117,8 @@ const CutiKebersihan = () => {
   const pindahHalaman = (e, v) => {
     setCurrentPage(v);
   };
+
+
   return (
     <Box>
       <Box
@@ -272,7 +277,7 @@ const CutiKebersihan = () => {
                         <Chip label={row.status} sx={getStatus(row.status)}/>
                     </TableCell>
                     <TableCell sx={{mr:10}}>
-                  <IconButton aria-label="Example">
+                  <IconButton aria-label="Example" onClick={()=> navigate(`/kebersihan/cuti/detail/${row.id}`)}>
                     <Mata sx={{ color: "#00A9AD" }}  />
                   </IconButton>
                 </TableCell>
@@ -302,4 +307,3 @@ const CutiKebersihan = () => {
   );
 };
 
-export default CutiKebersihan;

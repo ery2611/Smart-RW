@@ -443,6 +443,7 @@ const DetailIKK = () => {
                 <Box sx={{ height: "10px" }} />
               </Card>
             </Box>
+            
           </Box>
         </Box>
       </Box>

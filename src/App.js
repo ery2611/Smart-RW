@@ -16,7 +16,8 @@ import FormPanggilan from './Pages/Warga/panggilanDarurat/formPanggilan';
 import DetailIKK from './Pages/Warga/IKK/Detail';
 
 //? kebersihan
-import CutiKebersihan from './Pages/Kebersihan/Cuti';
+import {CutiKebersihan} from './Pages/Kebersihan/Cuti';
+import DetailCuti from './Pages/Kebersihan/Cuti/detail';
 
 const App=()=> {
   const [dataList, setDataList] = useState([]);
@@ -58,6 +59,7 @@ const App=()=> {
 
           {/* Kebersihan */}
           <Route path='kebersihan/cuti' element={<CutiKebersihan/>}/>
+          <Route path='kebersihan/cuti/detail/:id' element={<DetailCuti/>}/>
 
 
           {/* Mungkin ada rute lain di sini */} 
