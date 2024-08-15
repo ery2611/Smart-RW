@@ -80,30 +80,27 @@ const StatusCard = () => {
 
   return (
     <div>
-        <Stack direction="column">
-          <Typography
-            variant="h5"
-            sx={{
-              marginBottom: 0,
-              color: "#00A9AD",
-              fontSize: 18,
-              textAlign: "left",
-            }}
-          >
-            WARGA
+      <Stack direction="column">
+        <Typography
+          variant="h5"
+          sx={{
+            marginBottom: 0,
+            color: "#00A9AD",
+            fontSize: 18,
+            textAlign: "left",
+          }}
+        >
+          WARGA
+        </Typography>
+        <Stack direction="row" sx={{ marginBottom: 2, fontSize: 14 }}>
+          <Typography variant="h8" sx={{ color: "#A0A1A4" }}>
+            Dashboard/ Laporan/
           </Typography>
-          <Stack direction="row" sx={{ marginBottom: 2, fontSize: 14 }}>
-            <Typography variant="h8" sx={{ color: "#A0A1A4" }}>
-            Dashboard/ Laporan/ 
-            </Typography>
-            <Typography
-              variant="h9"
-              sx={{ color: "black", fontWeight: "bold" }}
-            >
-              Detail Laporan
-            </Typography>
-          </Stack>
+          <Typography variant="h9" sx={{ color: "black", fontWeight: "bold" }}>
+            Detail Laporan
+          </Typography>
         </Stack>
+      </Stack>
       <Container
         maxWidth="md"
         sx={{
@@ -333,7 +330,6 @@ const StatusCard = () => {
                 <Grid item xs={5}>
                   <Typography
                     sx={{
-                      color: getJobStatusColor(),
                       fontSize: "16px",
                       textAlign: "left",
                     }}
@@ -341,7 +337,11 @@ const StatusCard = () => {
                     <span>
                       <b>: </b>
                     </span>
-                    <span style={{ fontWeight: "bold" }}>{jobStatus}</span>
+                    <span
+                      style={{ fontWeight: "bold", color: getJobStatusColor() }}
+                    >
+                      {jobStatus}
+                    </span>
                   </Typography>
                 </Grid>
               </Grid>
@@ -482,7 +482,7 @@ const StatusCard = () => {
               color: "#00a9ad",
               fontWeight: "bolder",
               border: "2px solid #00a9ad",
-              mr:2,
+              mr: 2,
               "&:hover": {
                 border: "2px solid #00a9ad",
                 color: "#00a9ad",
