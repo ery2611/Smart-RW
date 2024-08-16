@@ -10,12 +10,13 @@ import WargaKebersihan from "./Pages/WargaKebersihan/Index";
 import IndexKegiatan from "./Pages/IKKdetail/Index";
 import TransferCodeQR from "./Pages/QR/Index";
 import KebersihanJadwal from "./Pages/KebersihanJadwal/Index";
+import KeamananPos from "./Pages/KeamananPos/Index";
 
 function App() {
   return (
     <div style={{ display: "flex" }}>
       <CssBaseline />
-      <Container style={{ marginLeft: 240, marginTop: 20, marginBottom: 20 }}>
+      <Container style={{ marginTop: 20, marginBottom: 20 }}>
         <Routes>
           <Route path="/" element={<DashBoard />} />
           <Route path="Tambah" element={<SmartCity />} />
@@ -26,6 +27,7 @@ function App() {
           <Route path="detil" element={<IndexKegiatan />} />
           <Route path="qr" element={<TransferCodeQR />} />
           <Route path="KebersihanJadwal" element={<KebersihanJadwal />} />
+          <Route path="KeamananPos" element={<KeamananPos />} />
         </Routes>
       </Container>
     </div>
