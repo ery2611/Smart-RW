@@ -1,8 +1,8 @@
 import {
-  Box,
   Card,
   CardContent,
   Container,
+  Grid,
   Paper,
   Stack,
   Typography,
@@ -73,8 +73,9 @@ function KeamananPos() {
   const formatTanggal = `${hari}, ${tanggal} / ${bulan} / ${tahun}`;
 
   return (
-    <div>
-      <Stack direction="column">
+    <Container maxWidth="sm">
+      {/* Membatasi lebar pada perangkat besar */}
+      <Stack direction="column" justifyContent={"flex-start"}>
         <Typography
           variant="h5"
           sx={{ marginBottom: 0, color: "#00A9AD", fontSize: 14 }}
@@ -87,66 +88,65 @@ function KeamananPos() {
           </Typography>
         </Stack>
       </Stack>
-      <Container>
+      <Grid container spacing={2}>
         {data.map((card, index) => (
-          <Card
-            component={Paper}
-            key={index}
-            sx={{
-              width: "328px",
-              height: "58px",
-              display: "flex",
-              alignItems: "center",
-              padding: 1,
-              marginBottom: 1,
-              marginTop: 1,
-              boxShadow: 3,
-            }}
-          >
-            <HomeRoundedIcon
+          <Grid item xs={12} sm={6} key={index}>
+            <Card
+              component={Paper}
               sx={{
-                width: "32.25px",
-                height: "32.25px",
-                color: "#00A9AD",
-                marginRight: 2,
-              }}
-            />
-            <CardContent
-              sx={{
+                maxWidth: "328px",
+                maxHeight: "58px",
                 display: "flex",
-                justifyContent: "space-between",
                 alignItems: "center",
-                width: "100%", // Agar mengisi penuh Card
-                padding: 0,
-                marginTop: "auto",
+                padding: 1,
+                boxShadow: 3,
               }}
             >
-              <Stack direction={"column"} sx={{ marginLeft: 1 }}>
-                <Typography sx={{ fontSize: 14, fontWeight: "bold" }}>
-                  {card.pos}
-                </Typography>
-                <Typography sx={{ fontSize: 10, color: "#AEAEAE" }}>
-                  <i>{card.jam}</i>
-                </Typography>
-              </Stack>
-              <Stack direction={"column"} sx={{ textAlign: "right" }}>
-                <Typography sx={{ fontSize: 12, color: "#AEAEAE" }}>
-                  {card.nama}
-                </Typography>
-                <Typography
-                  sx={{
-                    ...getPeringatanColor(card.status_kehadiran),
-                    fontSize: 10,
-                  }}
-                >
-                  {card.status_kehadiran}
-                </Typography>
-              </Stack>
-            </CardContent>
-          </Card>
+              <HomeRoundedIcon
+                sx={{
+                  width: "32.25px",
+                  height: "32.25px",
+                  color: "#00A9AD",
+                  marginRight: 2,
+                }}
+              />
+              <CardContent
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  width: "100%", // Agar mengisi penuh Card
+                  padding: 0,
+                  marginTop: "auto",
+                }}
+              >
+                <Stack direction={"column"} sx={{ marginLeft: 1 }}>
+                  <Typography sx={{ fontSize: 14, fontWeight: "bold" }}>
+                    {card.pos}
+                  </Typography>
+                  <Typography sx={{ fontSize: 10, color: "#AEAEAE" }}>
+                    <i>{card.jam}</i>
+                  </Typography>
+                </Stack>
+                <Stack direction={"column"} sx={{ textAlign: "right" }}>
+                  <Typography sx={{ fontSize: 12, color: "#AEAEAE" }}>
+                    {card.nama}
+                  </Typography>
+                  <Typography
+                    sx={{
+                      ...getPeringatanColor(card.status_kehadiran),
+                      fontSize: 10,
+                    }}
+                  >
+                    {card.status_kehadiran}
+                  </Typography>
+                </Stack>
+              </CardContent>
+            </Card>
+          </Grid>
         ))}
-      </Container>
-    </div>
+      </Grid>
+    </Container>
   );
 }
 
