@@ -20,6 +20,15 @@ function App() {
       >
         <Box
           sx={{
+            width: "250px", // Set a fixed width for the sidebar
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        ></Box>
+
+        <Box
+          sx={{
             flex: 1, // Allow Routes to take up the remaining space
             marginLeft: "5px", // Optional: add some space between the sidebar and the main content
             marginTop: "20px",
