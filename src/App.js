@@ -19,6 +19,9 @@ import DetailIKK from './Pages/Warga/IKK/Detail';
 import {CutiKebersihan} from './Pages/Kebersihan/Cuti';
 import DetailCuti from './Pages/Kebersihan/Cuti/detail';
 
+//?Keamanan 
+import PengaduanKeamanan from './Pages/keamanan/pengaduan/index.tsx';
+
 const App=()=> {
   const [dataList, setDataList] = useState([]);
   const [showDetail, setShowDetail] = useState(false);
@@ -61,6 +64,8 @@ const App=()=> {
           <Route path='kebersihan/cuti' element={<CutiKebersihan/>}/>
           <Route path='kebersihan/cuti/detail/:id' element={<DetailCuti/>}/>
 
+          {/* keamanan */}
+          <Route path='/keamanan' element={<PengaduanKeamanan/>}/>
 
           {/* Mungkin ada rute lain di sini */} 
           

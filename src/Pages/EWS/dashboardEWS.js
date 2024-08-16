@@ -23,7 +23,6 @@ import AddIcon from "@mui/icons-material/Add";
 import { useNavigate } from "react-router-dom";
 
 
-
 const EWS = ({dataList}) => {
 
   const getPeringatanColor = (peringatan) => {

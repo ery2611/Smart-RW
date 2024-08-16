@@ -239,7 +239,7 @@ const DetailCuti = ()=> {
                   {Keterangan}
                 </Typography>
 
-                {Keterangan == 'DITOLAK' | 'DITERIMA' && (
+                {Keterangan !== 'BELUM DITERIMA' && (
                 <Stack direction='row' spacing={0.5} sx={{mt:1,ml:2,mb:2, textAlign:'left'}}>
                 <Typography 
                 variant="body1"
