@@ -23,6 +23,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import Bar from "../../../components/KebersihanComponents/Navbar";
 import Calender from "../../../components/KebersihanComponents/Calender";
 import { useNavigate } from "react-router-dom";
+import Schedule from "@mui/icons-material/CachedOutlined";
 
 const data = [
   // Your data array
@@ -319,12 +320,24 @@ const WargaKebersihan = () => {
                   />
                 </TableCell>
                 <TableCell>
-                  <IconButton
-                    onClick={() => Navigate("/JadwalKebersihan/Detail")}
-                    aria-label="Example"
-                  >
-                    <VisibilityOutlinedIcon sx={{ color: "#00A9AD" }} />
-                  </IconButton>
+                  <Box sx={{ display: "flex", justifyContent: "flex-start" }}>
+                    <Box>
+                      <IconButton
+                        onClick={() => Navigate("/JadwalKebersihan/Detail")}
+                        aria-label="Example"
+                      >
+                        <VisibilityOutlinedIcon sx={{ color: "#00A9AD" }} />
+                      </IconButton>
+                    </Box>
+                    <Box>
+                      <IconButton
+                        onClick={() => Navigate("/JadwalKebersihan/Reschedule")}
+                        aria-label="Example"
+                      >
+                        <Schedule sx={{ color: "#00A9AD" }} />
+                      </IconButton>
+                    </Box>
+                  </Box>
                 </TableCell>
               </TableRow>
             ))}

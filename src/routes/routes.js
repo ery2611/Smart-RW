@@ -146,6 +146,14 @@ const DetailJadwalKebersihanPetugas = Loadable(
 const Cuti = Loadable(
   lazy(() => import("../pages/pagesKebersihan/Cuti/index"))
 );
+const Reschedule = Loadable(
+  lazy(() => import("../pages/pagesKebersihan/Jadwal/reschedule"))
+);
+
+// MOBILE KEAMANAN
+const MobileKeamanan = Loadable(
+  lazy(() => import("../pages/PagesKeamananMobile/Dashboard/index"))
+);
 
 const mainRoutes = [
   {
@@ -347,6 +355,16 @@ const mainRoutes = [
   {
     path: "/JadwalKebersihan/Detail",
     element: <DetailJadwalKebersihanPetugas />,
+  },
+  {
+    path: "/JadwalKebersihan/Reschedule",
+    element: <Reschedule />,
+  },
+  // PAGES KEAMANAN MOBILE
+
+  {
+    path: "/KeamananMobile",
+    element: <MobileKeamanan />,
   },
 ];
 

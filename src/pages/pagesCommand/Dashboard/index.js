@@ -12,11 +12,10 @@ import Keamanan from "../../../components/CommandComponents/Ckeamanan";
 import Panggilan from "../../../components/CommandComponents/Cpanggilan";
 import Peringatan from "../../../components/CommandComponents/CPeringatan";
 import Ogs from "../../../components/CommandComponents/Ogs";
-import Bar from '../../../components/CommandComponents/Navbar'
+import Bar from "../../../components/CommandComponents/Navbar";
 
 function index() {
   return (
-    
     <Box
       sx={{
         height: "1000px",
@@ -31,35 +30,40 @@ function index() {
           height: "3%",
         }}
       >
-         <Stack direction="column">
-        <Typography
-          variant="h5"
-          sx={{ marginBottom: 0, color: "#00A9AD", fontSize: 18 }}
-        >
-          COMMAND CENTER
-        </Typography>
-        <Stack direction="row" sx={{ marginBottom: 2, fontSize: 14, fontWeight:'bolder' }}>
-          <Typography variant="h9" sx={{ color: "black" }}>
-            Dashboard
+        <Stack direction="column">
+          <Typography
+            variant="h5"
+            sx={{ marginBottom: 0, color: "#00A9AD", fontSize: 18 }}
+          >
+            COMMAND CENTER
           </Typography>
+          <Stack
+            direction="row"
+            sx={{ marginBottom: 2, fontSize: 14, fontWeight: "bolder" }}
+          >
+            <Typography variant="h9" sx={{ color: "black" }}>
+              Dashboard
+            </Typography>
+          </Stack>
         </Stack>
-      </Stack>
       </Box>
-     
+
       <Box
         sx={{
           height: "40%",
           width: "100%",
           display: "flex",
           justifyContent: "flex-start",
-          marginBottom:'10px',
-          marginTop:'0px'
+          marginBottom: "10px",
+          marginTop: "0px",
         }}
       >
-        <Box sx={{
-          width:'60%',
-          marginRight:'40px'
-        }}>
+        <Box
+          sx={{
+            width: "60%",
+            marginRight: "40px",
+          }}
+        >
           <Cctv />
         </Box>
 
@@ -67,7 +71,7 @@ function index() {
           sx={{
             width: "20%",
             marginLeft: "30px",
-            marginTop:'0px'
+            marginTop: "0px",
           }}
         >
           <Ogs />
@@ -96,7 +100,7 @@ function index() {
           sx={{
             height: "100%",
             width: "30%",
-            marginRight:"30px"
+            marginRight: "30px",
           }}
         >
           <Panggilan />

@@ -6,3 +6,10 @@ html, body, #root {
   height: 100%;
   background-color: #FFFFFF; /* Set the background color */
 }
+
+/* Media query for 16:9 aspect ratio */
+@media (max-width: 650px) {
+  html, body, #root {
+    background-color: #EFEFEF; /* Set the background color for mobile devices */
+  }
+}
