@@ -73,7 +73,7 @@ function KeamananPos() {
   const formatTanggal = `${hari}, ${tanggal} / ${bulan} / ${tahun}`;
 
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="bg">
       {/* Membatasi lebar pada perangkat besar */}
       <Stack direction="column" justifyContent={"flex-start"}>
         <Typography
@@ -90,11 +90,11 @@ function KeamananPos() {
       </Stack>
       <Grid container spacing={2}>
         {data.map((card, index) => (
-          <Grid item xs={12} sm={6} key={index}>
+          <Grid item xs={12} md={12} key={index}>
             <Card
               component={Paper}
               sx={{
-                maxWidth: "328px",
+                maxWidth: "auto",
                 maxHeight: "58px",
                 display: "flex",
                 alignItems: "center",
