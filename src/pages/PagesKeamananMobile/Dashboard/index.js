@@ -50,6 +50,7 @@ const Dashboard = () => {
               }}
             >
               <Card
+                onClick={() => Navigate("/KeamananMobile/Pos")}
                 sx={{
                   width: "70px",
                   height: "70px",
@@ -89,6 +90,7 @@ const Dashboard = () => {
               }}
             >
               <Card
+                onClick={() => Navigate("/KeamananMobile/Jadwal")}
                 sx={{
                   width: "70px",
                   height: "70px",

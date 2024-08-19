@@ -160,6 +160,13 @@ const NotifikasiKeamanan = Loadable(
 const OgsKeamanan = Loadable(
   lazy(() => import("../pages/PagesKeamananMobile/OGS/index"))
 );
+const PosKeamanan = Loadable(
+  lazy(() => import("../pages/PagesKeamananMobile/Pos/index"))
+);
+const KeamananJadwal = Loadable(
+  lazy(() => import("../pages/PagesKeamananMobile/Jadwal/index"))
+);
+
 const mainRoutes = [
   {
     path: "/",
@@ -378,6 +385,14 @@ const mainRoutes = [
   {
     path: "/KeamananMobile/Ogs",
     element: <OgsKeamanan />,
+  },
+  {
+    path: "/KeamananMobile/Pos",
+    element: <PosKeamanan />,
+  },
+  {
+    path: "/KeamananMobile/Jadwal",
+    element: <KeamananJadwal />,
   },
 ];
 

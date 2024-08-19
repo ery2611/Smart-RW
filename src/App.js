@@ -19,6 +19,10 @@ function App() {
         return { title: "NOTIFIKASI", showBackButton: true };
       case "/KeamananMobile/Ogs":
         return { title: "ONE GATE SYSTEM", showBackButton: true };
+      case "/KeamananMobile/Pos":
+        return { title: "POS", showBackButton: true };
+      case "/KeamananMobile/Jadwal":
+        return { title: "JADWAL", showBackButton: true };
       default:
         return { title: "Page Title", showBackButton: true }; // Default value
     }
