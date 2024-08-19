@@ -21,6 +21,7 @@ import DetailCuti from './Pages/Kebersihan/Cuti/detail';
 
 //?Keamanan 
 import PengaduanKeamanan from './Pages/keamanan/pengaduan/index.tsx';
+import DetailPengaduan from './Pages/keamanan/detail.tsx';
 
 const App=()=> {
   const [dataList, setDataList] = useState([]);
@@ -66,6 +67,8 @@ const App=()=> {
 
           {/* keamanan */}
           <Route path='/keamanan' element={<PengaduanKeamanan/>}/>
+          <Route path='/keamanan/:id' element={<DetailPengaduan/>}/>
+
 
           {/* Mungkin ada rute lain di sini */} 
           
