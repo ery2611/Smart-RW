@@ -1,15 +1,34 @@
 import mainRoutes from "../src/routes/routes";
 import "./App.css";
 import Header from "./components/CommandComponents/Header";
+import SmHeader from "./components/ComponentKeamananMobile/Header/index";
 import Bar from "./components/CommandComponents/Navbar";
 import { Box } from "@mui/material";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import React from "react";
 
 function App() {
+  const location = useLocation();
+
+  //memberikan title pada s=navbar xs
+  const getTitleAndBackButton = (pathname) => {
+    switch (pathname) {
+      case "/KeamananMobile":
+        return { title: "SMART RW", showBackButton: false };
+      case "/KeamananMobile/Notifikasi":
+        return { title: "NOTIFIKASI", showBackButton: true };
+      case "/KeamananMobile/Ogs":
+        return { title: "ONE GATE SYSTEM", showBackButton: true };
+      default:
+        return { title: "Page Title", showBackButton: true }; // Default value
+    }
+  };
+
+  const { title, showBackButton } = getTitleAndBackButton(location.pathname);
   return (
     <Box>
       <Header />
+      <SmHeader title={title} showBackButton={showBackButton} />
       <Box
         sx={{
           flex: "1 1 auto",
@@ -21,7 +40,7 @@ function App() {
         <Box
           sx={{
             width: "250px", // Set a fixed width for the sidebar
-            display: "flex",
+            display: { xs: "none", md: "flex" },
             alignItems: "center",
             justifyContent: "center",
           }}

@@ -6,11 +6,12 @@ import Notif from "@mui/icons-material/Notifications";
 import Inbox from "@mui/icons-material/Inbox";
 import Home from "@mui/icons-material/Home";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function SimpleBottomNavigation() {
   const [value, setValue] = React.useState(0);
   const location = useLocation();
+  const Navigate = useNavigate();
 
   const isActive = (path) => location.pathname === path;
 
@@ -36,15 +37,30 @@ export default function SimpleBottomNavigation() {
       >
         <BottomNavigationAction
           label=""
+          onClick={() => Navigate("/KeamananMobile")}
           icon={
             <Home
               sx={{
-                color: isActive("/KeamananMobile") ? "#00A9AD" : "inherit",
+                color: isActive("/KeamananMobile")
+                  ? "#00A9AD"
+                  : "rgba(0, 0, 0, 0.6)",
               }}
             />
           }
         />
-        <BottomNavigationAction label="" icon={<Notif />} />
+        <BottomNavigationAction
+          label=""
+          onClick={() => Navigate("/KeamananMobile/Notifikasi")}
+          icon={
+            <Notif
+              sx={{
+                color: isActive("/KeamananMobile/Notifikasi")
+                  ? "#00A9AD"
+                  : "rgba(0, 0, 0, 0.6)",
+              }}
+            />
+          }
+        />
         <BottomNavigationAction label="" icon={<Inbox />} />
       </BottomNavigation>
     </Box>

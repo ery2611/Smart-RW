@@ -150,11 +150,16 @@ const Reschedule = Loadable(
   lazy(() => import("../pages/pagesKebersihan/Jadwal/reschedule"))
 );
 
-// MOBILE KEAMANAN
+// ROUTES MOBILE KEAMANAN
 const MobileKeamanan = Loadable(
   lazy(() => import("../pages/PagesKeamananMobile/Dashboard/index"))
 );
-
+const NotifikasiKeamanan = Loadable(
+  lazy(() => import("../pages/PagesKeamananMobile/Notifikasi/index"))
+);
+const OgsKeamanan = Loadable(
+  lazy(() => import("../pages/PagesKeamananMobile/OGS/index"))
+);
 const mainRoutes = [
   {
     path: "/",
@@ -365,6 +370,14 @@ const mainRoutes = [
   {
     path: "/KeamananMobile",
     element: <MobileKeamanan />,
+  },
+  {
+    path: "/KeamananMobile/Notifikasi",
+    element: <NotifikasiKeamanan />,
+  },
+  {
+    path: "/KeamananMobile/Ogs",
+    element: <OgsKeamanan />,
   },
 ];
 

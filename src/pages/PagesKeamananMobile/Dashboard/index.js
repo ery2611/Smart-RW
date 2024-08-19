@@ -6,204 +6,215 @@ import ComplaintSummary from "../../../components/ComponentKeamananMobile/Dashbo
 import OneGateSystemSummary from "../../../components/ComponentKeamananMobile/Dashboard/Ogs";
 import logo from "../../../assets/keamanan.png";
 import Bar from "../../../components/ComponentKeamananMobile/BottomBar";
+import Header from "../../../components/ComponentKeamananMobile/Header/index";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+  const Navigate = useNavigate();
+
   return (
-    <Container
-      maxWidth="sm"
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        minHeight: "100vh",
-        paddingBottom: 2,
-      }}
-    >
-      {/* BOX ATAS SAMPE BAWAH */}
-      <Box
-        sx={{ display: "fluid", justifyContent: "flex-start", marginBottom: 1 }}
+    <Box>
+      <Container
+        maxWidth="sm"
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          minHeight: "100vh",
+          paddingBottom: 2,
+        }}
       >
-        {/* BOX CARD MENU */}
+        {/* BOX ATAS SAMPE BAWAH */}
         <Box
           sx={{
-            display: "flex",
-            justifyContent: "space-around",
-            maxWidth: "100%",
-            marginBottom: "20px",
-            marginTop: "5px",
+            display: "fluid",
+            justifyContent: "flex-start",
+            marginBottom: 1,
           }}
         >
-          {/* CARD POS */}
+          {/* BOX CARD MENU */}
           <Box
             sx={{
-              display: "fluid",
-              justifyContent: "flex-start",
+              display: "flex",
+              justifyContent: "space-around",
+              maxWidth: "100%",
+              marginBottom: "20px",
+              marginTop: "5px",
             }}
           >
-            <Card
+            {/* CARD POS */}
+            <Box
               sx={{
-                width: "70px",
-                height: "70px",
-                justifyContent: "center",
-                alignContent: "center",
-                display: "flex",
-                backgroundColor: "#FFFFFF",
-                alignItems: "center",
-                textAlign: "center",
-                boxShadow: 5,
-                margin: "auto",
-                paddingBottom: "20px",
-                marginBottom: "10px",
+                display: "fluid",
+                justifyContent: "flex-start",
               }}
             >
-              <img
-                src={logo}
+              <Card
                 sx={{
-                  alignItems: "center",
-                  justifyContent: "center",
-                  alignContent: "center",
                   width: "70px",
                   height: "70px",
-                  color: "#000000",
+                  justifyContent: "center",
+                  alignContent: "center",
+                  display: "flex",
+                  backgroundColor: "#FFFFFF",
+                  alignItems: "center",
+                  textAlign: "center",
+                  boxShadow: 5,
+                  margin: "auto",
+                  paddingBottom: "20px",
+                  marginBottom: "10px",
                 }}
-              />
-            </Card>
-            <Typography textAlign="center" fontSize="10px">
-              POS
-            </Typography>
-          </Box>
-          {/* CARD JADWAL */}
-          <Box
-            sx={{
-              display: "fluid",
-              justifyContent: "flex-start",
-            }}
-          >
-            <Card
+              >
+                <img
+                  src={logo}
+                  sx={{
+                    alignItems: "center",
+                    justifyContent: "center",
+                    alignContent: "center",
+                    width: "70px",
+                    height: "70px",
+                    color: "#000000",
+                  }}
+                />
+              </Card>
+              <Typography textAlign="center" fontSize="10px">
+                POS
+              </Typography>
+            </Box>
+            {/* CARD JADWAL */}
+            <Box
               sx={{
-                width: "70px",
-                height: "70px",
-                justifyContent: "center",
-                alignContent: "center",
-                display: "flex",
-                backgroundColor: "#FFFFFF",
-                alignItems: "center",
-                textAlign: "center",
-                boxShadow: 5,
-                margin: "auto",
-                paddingBottom: "20px",
-                marginBottom: "10px",
+                display: "fluid",
+                justifyContent: "flex-start",
               }}
             >
-              <img
-                src={logo}
+              <Card
                 sx={{
-                  alignItems: "center",
-                  justifyContent: "center",
-                  alignContent: "center",
                   width: "70px",
                   height: "70px",
-                  color: "#000000",
+                  justifyContent: "center",
+                  alignContent: "center",
+                  display: "flex",
+                  backgroundColor: "#FFFFFF",
+                  alignItems: "center",
+                  textAlign: "center",
+                  boxShadow: 5,
+                  margin: "auto",
+                  paddingBottom: "20px",
+                  marginBottom: "10px",
                 }}
-              />
-            </Card>
-            <Typography fontSize="10px" textAlign="center">
-              JADWAL
-            </Typography>
-          </Box>
-          {/* cARD PENGADUAN */}
-          <Box
-            sx={{
-              display: "fluid",
-              justifyContent: "flex-start",
-            }}
-          >
-            <Card
+              >
+                <img
+                  src={logo}
+                  sx={{
+                    alignItems: "center",
+                    justifyContent: "center",
+                    alignContent: "center",
+                    width: "70px",
+                    height: "70px",
+                    color: "#000000",
+                  }}
+                />
+              </Card>
+              <Typography fontSize="10px" textAlign="center">
+                JADWAL
+              </Typography>
+            </Box>
+            {/* cARD PENGADUAN */}
+            <Box
               sx={{
-                width: "70px",
-                height: "70Px",
-                justifyContent: "center",
-                alignContent: "center",
-                display: "flex",
-                backgroundColor: "#FFFFFF",
-                alignItems: "center",
-                textAlign: "center",
-                boxShadow: 5,
-                margin: "auto",
-                paddingBottom: "20px",
-                marginBottom: "10px",
+                display: "fluid",
+                justifyContent: "flex-start",
               }}
             >
-              <img
-                src={logo}
+              <Card
                 sx={{
-                  alignItems: "center",
+                  width: "70px",
+                  height: "70Px",
                   justifyContent: "center",
                   alignContent: "center",
-                  width: "70px",
-                  height: "70px",
-                  color: "#000000",
+                  display: "flex",
+                  backgroundColor: "#FFFFFF",
+                  alignItems: "center",
+                  textAlign: "center",
+                  boxShadow: 5,
+                  margin: "auto",
+                  paddingBottom: "20px",
+                  marginBottom: "10px",
                 }}
-              />
-            </Card>
-            <Typography fontSize="10px" textAlign="center">
-              PENGADUAN
-            </Typography>
-          </Box>
-          {/* CARD OGS */}
-          <Box
-            sx={{
-              display: "fluid",
-              justifyContent: "flex-start",
-            }}
-          >
-            <Card
+              >
+                <img
+                  src={logo}
+                  sx={{
+                    alignItems: "center",
+                    justifyContent: "center",
+                    alignContent: "center",
+                    width: "70px",
+                    height: "70px",
+                    color: "#000000",
+                  }}
+                />
+              </Card>
+              <Typography fontSize="10px" textAlign="center">
+                PENGADUAN
+              </Typography>
+            </Box>
+            {/* CARD OGS */}
+            <Box
               sx={{
-                width: "70px",
-                height: "70px",
-                justifyContent: "center",
-                alignContent: "center",
-                display: "flex",
-                backgroundColor: "#FFFFFF",
-                alignItems: "center",
-                textAlign: "center",
-                boxShadow: 5,
-                margin: "auto",
-                paddingBottom: "20px",
-                marginBottom: "10px",
+                display: "fluid",
+                justifyContent: "flex-start",
               }}
             >
-              <img
-                src={logo}
+              <Card
+                onClick={() => Navigate("/KeamananMobile/Ogs")}
                 sx={{
-                  alignItems: "center",
-                  justifyContent: "center",
-                  alignContent: "center",
                   width: "70px",
                   height: "70px",
-                  color: "#000000",
+                  justifyContent: "center",
+                  alignContent: "center",
+                  display: "flex",
+                  backgroundColor: "#FFFFFF",
+                  alignItems: "center",
+                  textAlign: "center",
+                  boxShadow: 5,
+                  margin: "auto",
+                  paddingBottom: "20px",
+                  marginBottom: "10px",
                 }}
-              />
-            </Card>
-            <Typography fontSize="10px" textAlign="center">
-              OGS
-            </Typography>
+              >
+                <img
+                  src={logo}
+                  sx={{
+                    alignItems: "center",
+                    justifyContent: "center",
+                    alignContent: "center",
+                    width: "70px",
+                    height: "70px",
+                    color: "#000000",
+                  }}
+                />
+              </Card>
+              <Typography fontSize="10px" textAlign="center">
+                OGS
+              </Typography>
+            </Box>
           </Box>
+          <Box display="fluid" justifyContent="center" width="100%">
+            <Box marginBottom="20px">
+              <ScheduleCard />
+            </Box>
+            <Box marginBottom="20px">
+              <ComplaintSummary />
+            </Box>
+            <Box marginBottom="20px">
+              <OneGateSystemSummary />
+            </Box>
+          </Box>
+          <Bar />
         </Box>
-        <Box display="fluid" justifyContent="center" width="100%">
-          <Box marginBottom="20px">
-            <ScheduleCard />
-          </Box>
-          <Box marginBottom="20px">
-            <ComplaintSummary />
-          </Box>
-          <Box marginBottom="20px">
-            <OneGateSystemSummary />
-          </Box>
-        </Box>
-        <Bar />
-      </Box>
-    </Container>
+      </Container>
+    </Box>
   );
 };
 

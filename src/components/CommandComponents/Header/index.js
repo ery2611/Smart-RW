@@ -14,7 +14,11 @@ const CommandCenterAppBar = () => {
   const navigate = useNavigate();
 
   return (
-    <AppBar position="static" color="default" sx={{ backgroundColor: "white" }}>
+    <AppBar
+      position="static"
+      color="default"
+      sx={{ backgroundColor: "white", display: { xs: "none", md: "flex" } }}
+    >
       <Toolbar sx={{ display: "flex", alignItems: "center" }}>
         {/* Logo and Title Section */}
         <Box sx={{ display: "flex", alignItems: "center", flexGrow: 1 }}>
