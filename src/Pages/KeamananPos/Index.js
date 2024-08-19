@@ -73,7 +73,7 @@ function KeamananPos() {
   const formatTanggal = `${hari}, ${tanggal} / ${bulan} / ${tahun}`;
 
   return (
-    <Container maxWidth="bg">
+    <Container maxWidth="lg">
       {/* Membatasi lebar pada perangkat besar */}
       <Stack direction="column" justifyContent={"flex-start"}>
         <Typography
