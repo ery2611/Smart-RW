@@ -72,7 +72,7 @@ function KeamananJadwal() {
       </Box>
       <Stack direction="column" justifyContent={"flex-start"}>
         <Typography sx={{ color: "#A0A1A4", fontSize: "10px" }}>
-          Kondisi Pos Hari Ini
+          Hari Ini
         </Typography>
         <Stack direction="row" sx={{ marginBottom: 2 }}>
           <Typography

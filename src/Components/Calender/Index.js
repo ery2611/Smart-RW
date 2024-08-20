@@ -4,17 +4,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import { Box } from "@mui/material";
 
-const fullDayNames = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-
-const calender = () => {
+const Calender = () => {
   return (
     <div>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -30,7 +20,7 @@ const calender = () => {
         >
           <Box
             sx={{
-              width: "450px",
+              width: "auto",
               borderRadius: "8px",
               boxShadow: 5,
               bgcolor: "#00A9AD",
@@ -49,4 +39,4 @@ const calender = () => {
   );
 };
 
-export default calender;
+export default Calender;
