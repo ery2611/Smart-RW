@@ -166,6 +166,23 @@ const PosKeamanan = Loadable(
 const KeamananJadwal = Loadable(
   lazy(() => import("../pages/PagesKeamananMobile/Jadwal/index"))
 );
+const PengaduanKeamanan = Loadable(
+  lazy(() => import("../pages/PagesKeamananMobile/Pengaduan/index.tsx"))
+);
+const DetailPengaduanKeamanan = Loadable(
+  lazy(() => import("../pages/PagesKeamananMobile/Pengaduan/detail.tsx"))
+);
+const DetailJadwal = Loadable(
+  lazy(() => import("../pages/PagesKeamananMobile/Jadwal/jadwalOngoing.js"))
+);
+const FormOngoing = Loadable(
+  lazy(() => import("../pages/PagesKeamananMobile/Jadwal/OngoingEmpat.js"))
+);
+
+// Kebersihan Mobile
+const KebersihanMobile = Loadable(
+  lazy(() => import("../pages/PagesKebersihanMobile/Dashboard/index.js"))
+);
 
 const mainRoutes = [
   {
@@ -393,6 +410,29 @@ const mainRoutes = [
   {
     path: "/KeamananMobile/Jadwal",
     element: <KeamananJadwal />,
+  },
+  {
+    path: "/KeamananMobile/Pengaduan",
+    element: <PengaduanKeamanan />,
+  },
+  {
+    path: "/KeamananMobile/Pengaduan/Detail/:id",
+    element: <DetailPengaduanKeamanan />,
+  },
+  {
+    path: "/KeamananMobile/Jadwal/DetailOngoing",
+    element: <DetailJadwal />,
+  },
+  {
+    path: "/KeamananMobile/Jadwal/FormOngoing",
+    element: <FormOngoing />,
+  },
+
+  // Kebersihan Mobile
+
+  {
+    path: "/KebersihanMobile",
+    element: <KebersihanMobile />,
   },
 ];
 

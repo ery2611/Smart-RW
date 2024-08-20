@@ -11,8 +11,10 @@ import {
 import React from "react";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Calender from "../../../components/CommandComponents/Kalender/calender";
+import { useNavigate } from "react-router-dom";
 
 function KeamananJadwal() {
+  const Navigate = useNavigate();
   const data = [
     {
       tugas: "Jaga Pos Brotherhood",
@@ -65,7 +67,7 @@ function KeamananJadwal() {
   const formatTanggal = `${hari}, ${tanggal}  ${bulan}  ${tahun}`;
 
   return (
-    <Container maxWidth="lg">
+    <Container>
       {/* Membatasi lebar pada perangkat besar */}
       <Box marginBottom={2}>
         <Calender />
@@ -86,6 +88,7 @@ function KeamananJadwal() {
         {data.map((card, index) => (
           <Grid item xs={12} md={12} key={index}>
             <Card
+              onClick={() => Navigate("/KeamananMobile/Jadwal/DetailOngoing")}
               component={Paper}
               sx={{
                 maxWidth: "auto",

@@ -38,10 +38,10 @@ export default function SimpleBottomNavigation() {
           bottom: 0,
           left: "50%",
           transform: "translateX(-50%)",
-          width: "80%", // Sesuaikan lebar jika perlu
+          width: "75%",
           display: "flex",
           justifyContent: "center", // Memusatkan BottomNavigation secara horizontal
-          zIndex: 1000, // Menjamin BottomNavigation berada di atas konten lain
+          zIndex: 1000, //  BottomNavigation berada di atas konten lain
         }}
       >
         <BottomNavigation
@@ -57,11 +57,11 @@ export default function SimpleBottomNavigation() {
         >
           <BottomNavigationAction
             label=""
-            onClick={() => navigate("/KeamananMobile")}
+            onClick={() => navigate("/KebersihanMobile")}
             icon={
               <Home
                 sx={{
-                  color: isActive("/KeamananMobile")
+                  color: isActive("/KebersihanMobile")
                     ? "#00A9AD"
                     : "rgba(0, 0, 0, 0.6)",
                 }}
@@ -70,11 +70,11 @@ export default function SimpleBottomNavigation() {
           />
           <BottomNavigationAction
             label=""
-            onClick={() => navigate("/KeamananMobile/Notifikasi")}
+            onClick={() => navigate("/KebersihanMobile/Notifikasi")}
             icon={
               <Notif
                 sx={{
-                  color: isActive("/KeamananMobile/Notifikasi")
+                  color: isActive("/KebersihanMobile/Notifikasi")
                     ? "#00A9AD"
                     : "rgba(0, 0, 0, 0.6)",
                 }}

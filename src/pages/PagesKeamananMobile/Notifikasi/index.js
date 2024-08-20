@@ -79,8 +79,7 @@ function KeamananPos() {
       sx={{
         display: "flex",
         justifyContent: "center",
-        minHeight: "100vh",
-        paddingBottom: 2,
+        overflowY: "auto",
       }}
     >
       <Box

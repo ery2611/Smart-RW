@@ -31,7 +31,8 @@ const AppBarComponent = ({ title, showBackButton }) => {
     >
       <Toolbar sx={{ display: "flex", alignItems: "center" }}>
         {/* Jika di halaman home, tampilkan logo, jika tidak tampilkan tombol back */}
-        {location.pathname === "/KeamananMobile" ? (
+        {location.pathname === "/KeamananMobile" ||
+        location.pathname === "/KebersihanMobile" ? (
           <Box
             sx={{
               backgroundColor: "#00A9AD",

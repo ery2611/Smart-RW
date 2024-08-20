@@ -1,11 +1,11 @@
 // /src/pages/Dashboard.js
 import React from "react";
 import { Container, Grid, Box, Card, Typography } from "@mui/material";
-import ScheduleCard from "../../../components/ComponentKeamananMobile/Dashboard/schedule";
-import ComplaintSummary from "../../../components/ComponentKeamananMobile/Dashboard/pengaduan";
-import OneGateSystemSummary from "../../../components/ComponentKeamananMobile/Dashboard/Ogs";
+import ScheduleCard from "../../../components/ComponentKebersihanMobile/Dashboard/schedule";
+import ComplaintSummary from "../../../components/ComponentKebersihanMobile/Dashboard/pengaduan";
+import OneGateSystemSummary from "../../../components/ComponentKebersihanMobile/Dashboard/Laporan";
 import logo from "../../../assets/keamanan.png";
-import Bar from "../../../components/ComponentKeamananMobile/BottomBar";
+import Bar from "../../../components/ComponentKebersihanMobile/BottomBar";
 import Header from "../../../components/ComponentKeamananMobile/Header/index";
 import { useNavigate } from "react-router-dom";
 
@@ -79,7 +79,7 @@ const Dashboard = () => {
                 />
               </Card>
               <Typography textAlign="center" fontSize="10px">
-                POS
+                JADWAL
               </Typography>
             </Box>
             {/* CARD JADWAL */}
@@ -119,7 +119,7 @@ const Dashboard = () => {
                 />
               </Card>
               <Typography fontSize="10px" textAlign="center">
-                JADWAL
+                LAPORAN
               </Typography>
             </Box>
             {/* cARD PENGADUAN */}
@@ -163,45 +163,6 @@ const Dashboard = () => {
               </Typography>
             </Box>
             {/* CARD OGS */}
-            <Box
-              sx={{
-                display: "fluid",
-                justifyContent: "flex-start",
-              }}
-            >
-              <Card
-                onClick={() => Navigate("/KeamananMobile/Ogs")}
-                sx={{
-                  width: "70px",
-                  height: "70px",
-                  justifyContent: "center",
-                  alignContent: "center",
-                  display: "flex",
-                  backgroundColor: "#FFFFFF",
-                  alignItems: "center",
-                  textAlign: "center",
-                  boxShadow: 5,
-                  margin: "auto",
-                  paddingBottom: "20px",
-                  marginBottom: "10px",
-                }}
-              >
-                <img
-                  src={logo}
-                  sx={{
-                    alignItems: "center",
-                    justifyContent: "center",
-                    alignContent: "center",
-                    width: "70px",
-                    height: "70px",
-                    color: "#000000",
-                  }}
-                />
-              </Card>
-              <Typography fontSize="10px" textAlign="center">
-                OGS
-              </Typography>
-            </Box>
           </Box>
           <Box display="fluid" justifyContent="center" width="100%">
             <Box marginBottom="20px">

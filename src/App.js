@@ -4,7 +4,7 @@ import Header from "./components/CommandComponents/Header";
 import SmHeader from "./components/ComponentKeamananMobile/Header/index";
 import Bar from "./components/CommandComponents/Navbar";
 import { Box } from "@mui/material";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, useParams } from "react-router-dom";
 import React from "react";
 
 function App() {
@@ -12,8 +12,19 @@ function App() {
 
   //memberikan title pada s=navbar xs
   const getTitleAndBackButton = (pathname) => {
+    const detailMatch = pathname.match(
+      /^\/KeamananMobile\/Pengaduan\/Detail\/(\d+)$/
+    );
+
+    if (detailMatch) {
+      const id = detailMatch[1]; // Mengambil ID dari path
+      return { title: `DETAIL PENGADUAN`, showBackButton: true };
+    }
+
     switch (pathname) {
       case "/KeamananMobile":
+        return { title: "SMART RW", showBackButton: false };
+      case "/KebersihanMobile":
         return { title: "SMART RW", showBackButton: false };
       case "/KeamananMobile/Notifikasi":
         return { title: "NOTIFIKASI", showBackButton: true };
@@ -23,6 +34,13 @@ function App() {
         return { title: "POS", showBackButton: true };
       case "/KeamananMobile/Jadwal":
         return { title: "JADWAL", showBackButton: true };
+      case "/KeamananMobile/Pengaduan":
+        return { title: "PENGADUAN", showBackButton: true };
+      case "/KeamananMobile/Jadwal/DetailOngoing":
+        return { title: "DETAIL JADWAL", showBackButton: true };
+      case "/KeamananMobile/Jadwal/FormOngoing":
+        return { title: "DETAIL JADWAL", showBackButton: true };
+
       default:
         return { title: "Page Title", showBackButton: true }; // Default value
     }

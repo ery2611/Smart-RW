@@ -94,24 +94,23 @@ const calender = () => {
             justifyContent: "center",
             alignItems: "center",
             backgroundColor: "#fff",
-            marginTop:'10px'
+            marginTop: "10px",
           }}
         >
           <Box
             sx={{
-              width: "450px",
+              width: "auto",
               borderRadius: "8px",
               boxShadow: 5,
-              bgcolor:'#00A9AD',
+              bgcolor: "#00A9AD",
               p: 1,
-              
             }}
           >
             <DateCalendar
-            sx={{
-              backgroundColor: "white", // Pastikan background box berbeda dengan background luar
-            }}>
-            </DateCalendar>
+              sx={{
+                backgroundColor: "white", // Pastikan background box berbeda dengan background luar
+              }}
+            ></DateCalendar>
           </Box>
         </Box>
       </LocalizationProvider>

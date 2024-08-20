@@ -1,8 +1,10 @@
 // /src/components/ComplaintSummary.js
 import React from "react";
 import { Card, CardContent, Typography, Box, Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const ComplaintSummary = () => {
+  const Navigate = useNavigate();
   return (
     <Card sx={{ borderRadius: "10px" }}>
       <CardContent>
@@ -150,6 +152,7 @@ const ComplaintSummary = () => {
           }}
         >
           <Button
+            onClick={() => Navigate("/KeamananMobile/Ogs")}
             variant="contained"
             sx={{
               backgroundColor: "#00A9AD",

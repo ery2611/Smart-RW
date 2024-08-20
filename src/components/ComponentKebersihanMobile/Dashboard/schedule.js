@@ -14,11 +14,20 @@ import { useNavigate } from "react-router-dom";
 
 const ScheduleCard = () => {
   const Navigate = useNavigate();
+  const truncateText = (text, maxLength) => {
+    if (!text) {
+      return "";
+    }
+    if (text.length <= maxLength) {
+      return text;
+    }
+    return text.substring(0, maxLength) + "...";
+  };
   return (
     <Card sx={{ backgroundColor: "#CCEEEF" }}>
       <CardContent>
         <Typography variant="h6" fontWeight="bold" sx={{ color: "#00A9AD" }}>
-          Jadwal Berlangsung
+          Jadwal Saya
         </Typography>
 
         <Card sx={{ p: 1, borderRadius: 2, boxShadow: 3 }}>
@@ -42,10 +51,13 @@ const ScheduleCard = () => {
               />
               <Stack>
                 <Typography variant="body1" fontWeight="bold">
-                  Penjagaan Pos Lapangan
+                  {truncateText(
+                    "Pembersihan RT 03 / RW 024 Kemang Pratama",
+                    25
+                  )}
                 </Typography>
                 <Typography variant="body2" color="primary">
-                  09:00 - 11:30
+                  11:30
                 </Typography>
               </Stack>
             </Stack>
@@ -68,7 +80,7 @@ const ScheduleCard = () => {
             variant="body1"
             sx={{ color: "#00A9AD", fontWeight: "bold" }}
           >
-            12 Tugas Hari Ini
+            12 Agenda saya
           </Typography>
           <Button
             onClick={() => Navigate("/KeamananMobile/Jadwal")}
