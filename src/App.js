@@ -38,8 +38,11 @@ function App() {
         return { title: "PENGADUAN", showBackButton: true };
       case "/KeamananMobile/Jadwal/DetailOngoing":
         return { title: "DETAIL JADWAL", showBackButton: true };
+
       case "/KeamananMobile/Jadwal/FormOngoing":
         return { title: "DETAIL JADWAL", showBackButton: true };
+      case "/KebersihanMobile/Laporan":
+        return { title: "LAPORAN SAYA", showBackButton: true };
 
       default:
         return { title: "Page Title", showBackButton: true }; // Default value

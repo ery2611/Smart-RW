@@ -42,7 +42,7 @@ const Dashboard = () => {
               marginTop: "5px",
             }}
           >
-            {/* CARD POS */}
+            {/* CARD JADWAL */}
             <Box
               sx={{
                 display: "fluid",
@@ -82,7 +82,7 @@ const Dashboard = () => {
                 JADWAL
               </Typography>
             </Box>
-            {/* CARD JADWAL */}
+            {/* CARD LAPORAN */}
             <Box
               sx={{
                 display: "fluid",
@@ -90,7 +90,7 @@ const Dashboard = () => {
               }}
             >
               <Card
-                onClick={() => Navigate("/KeamananMobile/Jadwal")}
+                onClick={() => Navigate("/KebersihanMobile/Laporan")}
                 sx={{
                   width: "70px",
                   height: "70px",

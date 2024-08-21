@@ -183,6 +183,9 @@ const FormOngoing = Loadable(
 const KebersihanMobile = Loadable(
   lazy(() => import("../pages/PagesKebersihanMobile/Dashboard/index.js"))
 );
+const LaporanKebersihanMobile = Loadable(
+  lazy(() => import("../pages/PagesKebersihanMobile/Laporan/index.js"))
+);
 
 const mainRoutes = [
   {
@@ -433,6 +436,10 @@ const mainRoutes = [
   {
     path: "/KebersihanMobile",
     element: <KebersihanMobile />,
+  },
+  {
+    path: "/KebersihanMobile/Laporan",
+    element: <LaporanKebersihanMobile />,
   },
 ];
 

@@ -74,7 +74,7 @@ const ScheduleCard = () => {
           }}
         >
           <Button
-            onClick={() => Navigate("/KeamananMobile/Jadwal")}
+            onClick={() => Navigate("/KebersihanMobile/Laporan")}
             variant="contained"
             style={{
               backgroundColor: "#00A9AD",
