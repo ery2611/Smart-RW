@@ -186,6 +186,9 @@ const KebersihanMobile = Loadable(
 const LaporanKebersihanMobile = Loadable(
   lazy(() => import("../pages/PagesKebersihanMobile/Laporan/index.js"))
 );
+const JadwalKebersihanMobile = Loadable(
+  lazy(() => import("../pages/PagesKebersihanMobile/Jadwal/index.js"))
+);
 
 const mainRoutes = [
   {
@@ -440,6 +443,10 @@ const mainRoutes = [
   {
     path: "/KebersihanMobile/Laporan",
     element: <LaporanKebersihanMobile />,
+  },
+  {
+    path: "/KebersihanMobile/Jadwal",
+    element: <JadwalKebersihanMobile />,
   },
 ];
 

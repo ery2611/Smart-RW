@@ -83,7 +83,7 @@ const ScheduleCard = () => {
             12 Agenda saya
           </Typography>
           <Button
-            onClick={() => Navigate("/KeamananMobile/Jadwal")}
+            onClick={() => Navigate("/KebersihanMobile/Jadwal")}
             variant="contained"
             style={{
               backgroundColor: "#00A9AD",

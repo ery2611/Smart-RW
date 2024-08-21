@@ -43,6 +43,8 @@ function App() {
         return { title: "DETAIL JADWAL", showBackButton: true };
       case "/KebersihanMobile/Laporan":
         return { title: "LAPORAN SAYA", showBackButton: true };
+      case "/KebersihanMobile/Jadwal":
+        return { title: "JADWAL", showBackButton: true };
 
       default:
         return { title: "Page Title", showBackButton: true }; // Default value
