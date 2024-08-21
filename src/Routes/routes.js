@@ -26,6 +26,8 @@ const RiwayatPanggilan = Loadable(lazy(()=>import('../Pages/RiwayatPanggilanUtam
 const KeamananNotifikasi = Loadable(lazy(()=>import('../Pages/KeamananNotifikasi/index')))
 const KeamananOnGoing4 = Loadable(lazy(()=>import('../Pages/KeamananOngoing4/index')))
 const KeamananUpcoming = Loadable(lazy(()=>import('../Pages/KeamananOngoing4/upcoming')))
+const KebersihanDetail = Loadable(lazy(()=>import('../Pages/KebersihanDetail/index')))
+const KebersihanDetail2 = Loadable(lazy(()=>import('../Pages/KebersihanDetail/detail2')))
 
 const mainRoutes =[{
     path: '',
@@ -98,6 +100,14 @@ const mainRoutes =[{
 {
     path:'/KeamananUpcoming',
     element: <KeamananUpcoming/>
+},
+{
+    path:'/KebersihanDetail',
+    element: <KebersihanDetail/>
+},
+{
+    path:'/KebersihanDetail/BuatLaporan',
+    element: <KebersihanDetail2/>
 },
 
 
