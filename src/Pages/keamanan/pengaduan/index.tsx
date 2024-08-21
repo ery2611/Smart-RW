@@ -4,15 +4,12 @@ import {
   Box,
   Button,
   Card,
-  CardContent,
   Container,
   IconButton,
-  Link,
   Paper,
   Stack,
   Typography,
 } from "@mui/material";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { ArrowBack } from "@mui/icons-material";
 import {LaporanWarga, Warga, getColor} from '../../../Context/keamanan/laporan.tsx'

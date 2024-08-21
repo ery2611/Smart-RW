@@ -297,6 +297,7 @@ const TambahOGS = () => {
                 </Button>
               </Box>
             </Box>
+            
           </Box>
         </Box>
       </Box>

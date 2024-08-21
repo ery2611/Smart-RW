@@ -2,7 +2,6 @@ import { ArrowBack, Email, Phone } from "@mui/icons-material";
 import {
   Avatar,
   Box,
-  Button,
   Card,
   Container,
   Divider,
@@ -12,7 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 import {PendingActionsOutlined, LogoutOutlined} from '@mui/icons-material';
-import React, { useState } from "react";
+import React, { ChangeEventHandler, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import {
   getColor,
@@ -21,6 +20,9 @@ import {
 } from "../../Context/keamanan/laporan.tsx";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import DetailModal from "../../Component/detailKeamananModal/detailModal.tsx";
+import InputDetail from "../../Component/detailKeamananModal/input.tsx";
+import LaporanSelesai from "../../Component/detailKeamananModal/LaporanSelesai.tsx";
+import FooterKeamanan from "../../Component/detailKeamananModal/footer.tsx";
 
 const pengaduan = LaporanWarga();
 const dataPetugas = currentPertugas();
@@ -36,7 +38,12 @@ const DetailPengaduan: React.FC = () => {
 
   const [respon, setRespon] = useState(getDataWarga?.tanggapan);
   const [nowTime, setNowTime] = useState<string | undefined>(getDataPetugas?.waktu_masuk)
-  const [waktuSelesai, setWaktuSelesai] = useState<string | undefined>("--:--")
+  const [waktuSelesai, setWaktuSelesai] = useState<string | undefined>("--:--");
+  const [uploadLaporan, setUploadLaporan] = useState<string | null>(null)
+  const [foto, setFoto] = useState<string | ArrayBuffer | null>(null)
+  const [messagePetugas , setMeesagePetugas] = useState<string | null>(null)
+  
+  const scrollRef = useRef<HTMLDivElement>(null)
 
   const navigate = useNavigate();
 
@@ -56,14 +63,35 @@ const DetailPengaduan: React.FC = () => {
       case "Selesai":
         setRespon("Selesai");
         setWaktuSelesai(currentTime)
+        break;
+      case "Laporan":
+        setUploadLaporan("Input Access")
+        scrollRef.current?.scrollIntoView({behavior:'smooth'})
+        break;
+      case "Buat Tanggapan":
+        setUploadLaporan("Input Success")
     }
   };
   const handleClose = () => {
     setOpenModal(false);
   };
+  const handleFileClick = (e: React.ChangeEvent<HTMLInputElement> ) => {
+    const selectedFile = e.target.files?.[0];
+    
+    if(selectedFile) {
+      const reader = new FileReader()
+      reader.onloadend = () => {
+        setFoto(reader.result);
+      }
+      reader.readAsDataURL(selectedFile);
+    }
+  }
+  const handleChangeText: ChangeEventHandler<HTMLInputElement> = (e)=> {
+    setMeesagePetugas(e.target.value)
+  }
 
   return (
-    <Box sx={{ background: "#F0F0F0", height: "100vh" }}>
+    <Box sx={{ background: "#F0F0F0", height:'auto', minHeight:'100vh' }}>
       {/* navbar */}
       <Card
         sx={{
@@ -94,7 +122,7 @@ const DetailPengaduan: React.FC = () => {
         <Box sx={{ alignContent: "center" }}>
           <Avatar src="/path-to-profile-pic.jpg" />
         </Box>
-              
+        
       </Card>
 
       {/* halaman utama */}
@@ -254,10 +282,12 @@ const DetailPengaduan: React.FC = () => {
         </Box>
         ): (respon === "Sedang Ditanggap" || respon === "Selesai")? (
           <Stack direction='column'>
+
             {/* tulisan absensi */}
             <Box>
               <Typography sx={{fontSize:'13px', fontFamily:'Montserrat, sans-serif'}}>Absensi</Typography>
             </Box>
+
             {/* JAM MASUK DAN KELUAR */}
             <Box sx={{display:'flex', justifyContent:'space-between', mt:1, maxWidth:'500px', width:'60%'}}>
               <Stack direction='row'>
@@ -273,6 +303,7 @@ const DetailPengaduan: React.FC = () => {
                 </Typography>
               </Stack>
             </Box>
+
             {/* Petugas Keamanan */}
             <Box display="flex" justifyContent="start" sx={{mt:1}}>
             <Typography
@@ -286,6 +317,7 @@ const DetailPengaduan: React.FC = () => {
               Petugas Keamanan
             </Typography>
           </Box>
+
             {/* Profile dan contact */}
             <Box display="flex" justifyContent="space-between" sx={{mt:1,}}>
             <Box display="flex">
@@ -322,71 +354,18 @@ const DetailPengaduan: React.FC = () => {
             </Stack>
             </Box>
           </Box>
+
+          {/* media dan catatan dari petugas */}
+          {uploadLaporan === "Input Access"? (
+            <InputDetail kirimFoto={foto} handleFileClick={handleFileClick} handleChangeText={handleChangeText}/>
+          ) : uploadLaporan === "Input Success"? (
+            <LaporanSelesai kirimFoto={foto} pesan={messagePetugas}/>
+          ): null}
           </Stack>
         ): null}
 
           {/* button fotter */}
-          <Box
-            sx={{
-              bottom: 30,
-              left: 50,
-              right: 50,
-              position: "fixed",
-              display: "flex",
-              justifyContent: "space-between",
-            }}
-          >
-            <Button
-              onClick={() => navigate("/keamanan")}
-              variant="outlined"
-              sx={{ width: 100, height: 36, color: "#00A9AD" }}
-            >
-              Kembali
-            </Button>
-
-            {respon === "Belum Ditanggapi" ? (
-              <Button
-                onClick={() => handleOpen("Tanggapan")}
-                variant="contained"
-                sx={{
-                  width: 100,
-                  height: 36,
-                  backgroundColor: "#00A9AD",
-                  ":hover": { backgroundColor: "#00A9AD" },
-                }}
-              >
-                Tanggapi
-              </Button>
-
-            ) : respon === "Sedang Ditanggap" ? (
-              <Button
-                onClick={() => handleOpen("Selesai")}
-                variant="contained"
-                sx={{
-                  width: 100,
-                  height: 36,
-                  backgroundColor: "#CE1305",
-                  ":hover": { backgroundColor: "#CE1305" },
-                }}
-              >
-                Selesai
-              </Button>
-
-            ) : respon === "Selesai" ? (
-              <Button
-                onClick={() => handleOpen("Laporan")}
-                variant="contained"
-                sx={{
-                  width: 150,
-                  height: 36,
-                  backgroundColor: "#00A9AD",
-                  ":hover": { backgroundColor: "#00A9AD" },
-                }}
-              >
-                Buat Laporan
-              </Button>
-            ): null}
-          </Box>
+            <FooterKeamanan respon={respon} uploadLaporan={uploadLaporan} handleOpen={handleOpen} navigate={navigate}/>
 
         </Stack>
       </Container>
