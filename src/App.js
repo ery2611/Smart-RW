@@ -11,7 +11,8 @@ import IndexKegiatan from "./Pages/IKKdetail/Index";
 import TransferCodeQR from "./Pages/QR/Index";
 import KebersihanJadwal from "./Pages/KebersihanJadwal/Index";
 import KeamananPos from "./Pages/KeamananPos/Index";
-import KeamananJadwal from "./Pages/KeamananJadwal/Index";
+import KeamananJadwal from "./Pages/KeamananJadwalMobile/Index";
+import KebersihanJadwalMobile from "./Pages/KebersihanJadwalMobile/Index";
 
 function App() {
   return (
@@ -30,6 +31,10 @@ function App() {
           <Route path="KebersihanJadwal" element={<KebersihanJadwal />} />
           <Route path="KeamananPos" element={<KeamananPos />} />
           <Route path="KeamananJadwal" element={<KeamananJadwal />} />
+          <Route
+            path="KebersihanJadwalMobile"
+            element={<KebersihanJadwalMobile />}
+          />
         </Routes>
       </Container>
     </div>
