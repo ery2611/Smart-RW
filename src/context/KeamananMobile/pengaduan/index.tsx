@@ -1,4 +1,3 @@
-import { Box } from "@mui/material";
 import React from "react"
 
 export interface Warga {
@@ -9,6 +8,15 @@ export interface Warga {
     tanggal: Date | null;
     tanggapan: string;
     catatan: string;
+  }
+
+ interface petugas {
+    nama: string;
+    jabantan: string;
+    waktu_masuk: string;
+    waktu_selesai?: string;
+    media?: string;
+    catatan?: string
   }
 
 export const LaporanWarga = (): Warga[] => {
@@ -58,6 +66,12 @@ export const LaporanWarga = (): Warga[] => {
         catatan:"kucing saya menghilang"
       },
     ]
+  }
+
+  export const currentPertugas = (): petugas[] => {
+    return [{
+      nama:'Rafif Yulistian',jabantan:'Kepalan Keamanan', waktu_masuk:'10:45'
+    }]
   }
 
   export const getColor = (tanggap: string): React.CSSProperties => {

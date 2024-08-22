@@ -4,15 +4,12 @@ import {
   Box,
   Button,
   Card,
-  CardContent,
   Container,
   IconButton,
-  Link,
   Paper,
   Stack,
   Typography,
 } from "@mui/material";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { ArrowBack } from "@mui/icons-material";
 import {LaporanWarga, Warga, getColor} from '../../../context/KeamananMobile/pengaduan/index.tsx'
@@ -26,8 +23,7 @@ const PengaduanKeamanan: React.FC = () => {
   return (
     <Box sx={{background:'#F0F0F0'}}>
       {/* navbar */}
-    
-
+     
       {/* halaman utama */}
       <Container sx={{ maxWidth: "100%", width: "auto" }}>
         {pengaduan.map((items) => (

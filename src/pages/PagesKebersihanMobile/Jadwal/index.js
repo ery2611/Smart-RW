@@ -12,6 +12,7 @@ import React from "react";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Calender from "../../../components/CommandComponents/Kalender/calender";
 import AddIcon from "@mui/icons-material/Add";
+import { useNavigate } from "react-router-dom";
 
 function KebersihanJadwalMobile() {
   const data = [
@@ -64,7 +65,7 @@ function KebersihanJadwalMobile() {
 
   // Menyusun string tanggal
   const formatTanggal = `${hari}, ${tanggal}  ${bulan}  ${tahun}`;
-
+  const Navigate = useNavigate();
   return (
     <Container maxWidth="lg">
       {/* Membatasi lebar pada perangkat besar */}
@@ -87,6 +88,7 @@ function KebersihanJadwalMobile() {
         {data.map((card, index) => (
           <Grid item xs={12} md={12} key={index}>
             <Card
+              onClick={() => Navigate("/KebersihanMobile/Jadwal/Detail")}
               component={Paper}
               sx={{
                 maxWidth: "auto",

@@ -189,6 +189,12 @@ const LaporanKebersihanMobile = Loadable(
 const JadwalKebersihanMobile = Loadable(
   lazy(() => import("../pages/PagesKebersihanMobile/Jadwal/index.js"))
 );
+const DetailJadwalKebersihanMobile = Loadable(
+  lazy(() => import("../pages/PagesKebersihanMobile/Jadwal/detail.js"))
+);
+const FormDetailKebersihan = Loadable(
+  lazy(() => import("../pages/PagesKebersihanMobile/Jadwal/form.js"))
+);
 
 const mainRoutes = [
   {
@@ -447,6 +453,14 @@ const mainRoutes = [
   {
     path: "/KebersihanMobile/Jadwal",
     element: <JadwalKebersihanMobile />,
+  },
+  {
+    path: "/KebersihanMobile/Jadwal/Detail",
+    element: <DetailJadwalKebersihanMobile />,
+  },
+  {
+    path: "/KebersihanMobile/Jadwal/Detail/Form",
+    element: <FormDetailKebersihan />,
   },
 ];
 

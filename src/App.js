@@ -45,6 +45,10 @@ function App() {
         return { title: "LAPORAN SAYA", showBackButton: true };
       case "/KebersihanMobile/Jadwal":
         return { title: "JADWAL", showBackButton: true };
+      case "/KebersihanMobile/Jadwal/Detail":
+        return { title: "DETAIL JADWAL", showBackButton: true };
+      case "/KebersihanMobile/Jadwal/Detail/Form":
+        return { title: "DETAIL JADWAL", showBackButton: true };
 
       default:
         return { title: "Page Title", showBackButton: true }; // Default value
