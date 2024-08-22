@@ -242,6 +242,8 @@ const DetailPengaduan: React.FC = () => {
           <Divider sx={{ width: "80%", border: "1px solid #DEDEDE" }} />
         </Box>
 
+         {/* Jika belum ditanggapi, dia akan bisa buat lapran 
+         jika sedang / selesai, akan muncul petugas yang menangani*/}
         <Stack sx={{ mt: 2 }}>
         {respon === "Belum Ditanggapi"? (
           <Box>
@@ -368,6 +370,7 @@ const DetailPengaduan: React.FC = () => {
             <FooterKeamanan respon={respon} uploadLaporan={uploadLaporan} handleOpen={handleOpen} navigate={navigate}/>
 
         </Stack>
+        
       </Container>
 
       {/* modal kesayangan kita */}

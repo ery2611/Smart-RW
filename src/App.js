@@ -18,6 +18,7 @@ import DetailIKK from './Pages/Warga/IKK/Detail';
 //? kebersihan
 import {CutiKebersihan} from './Pages/Kebersihan/Cuti';
 import DetailCuti from './Pages/Kebersihan/Cuti/detail';
+import DetailLaporanKebersihan from './Pages/Kebersihan/laporan/Detail.tsx';
 
 //?Keamanan 
 import PengaduanKeamanan from './Pages/keamanan/pengaduan/index.tsx';
@@ -64,6 +65,7 @@ const App=()=> {
           {/* Kebersihan */}
           <Route path='kebersihan/cuti' element={<CutiKebersihan/>}/>
           <Route path='kebersihan/cuti/detail/:id' element={<DetailCuti/>}/>
+          <Route path='/kebersihan/laporan/detail' element={<DetailLaporanKebersihan/>}/>
 
           {/* keamanan */}
           <Route path='/keamanan' element={<PengaduanKeamanan/>}/>
