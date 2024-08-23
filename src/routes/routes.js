@@ -195,6 +195,18 @@ const DetailJadwalKebersihanMobile = Loadable(
 const FormDetailKebersihan = Loadable(
   lazy(() => import("../pages/PagesKebersihanMobile/Jadwal/form.js"))
 );
+const NotifKebersihan = Loadable(
+  lazy(() => import("../pages/PagesKebersihanMobile/Notifikasi/index.js"))
+);
+const PengaduanKebersihan = Loadable(
+  lazy(() => import("../pages/PagesKebersihanMobile/Pengaduan/index.tsx"))
+);
+const DetailPengaduanKebersihan = Loadable(
+  lazy(() => import("../pages/PagesKebersihanMobile/Pengaduan/detail.tsx"))
+);
+const LaporanKebersihanDetail = Loadable(
+  lazy(() => import("../pages/PagesKebersihanMobile/Laporan/detail.tsx"))
+);
 
 const mainRoutes = [
   {
@@ -447,8 +459,16 @@ const mainRoutes = [
     element: <KebersihanMobile />,
   },
   {
+    path: "/KebersihanMobile/Notifikasi",
+    element: <NotifKebersihan />,
+  },
+  {
     path: "/KebersihanMobile/Laporan",
     element: <LaporanKebersihanMobile />,
+  },
+  {
+    path: "/KebersihanMobile/Laporan/Detail",
+    element: <LaporanKebersihanDetail />,
   },
   {
     path: "/KebersihanMobile/Jadwal",
@@ -461,6 +481,14 @@ const mainRoutes = [
   {
     path: "/KebersihanMobile/Jadwal/Detail/Form",
     element: <FormDetailKebersihan />,
+  },
+  {
+    path: "/KebersihanMobile/Pengaduan",
+    element: <PengaduanKebersihan />,
+  },
+  {
+    path: "/KebersihanMobile/Pengaduan/Detail/:id",
+    element: <DetailPengaduanKebersihan />,
   },
 ];
 

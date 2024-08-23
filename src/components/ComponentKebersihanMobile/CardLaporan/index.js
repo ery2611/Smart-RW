@@ -2,8 +2,10 @@ import React from "react";
 import { Card, CardContent, Typography, Box, IconButton } from "@mui/material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { useNavigate } from "react-router-dom";
 
 const CleaningCard = () => {
+  const Navigate = useNavigate();
   const truncateText = (text, maxLength) => {
     if (!text) {
       return "";
@@ -97,7 +99,10 @@ const CleaningCard = () => {
               >
                 Laporan belum terbuat
               </Typography>
-              <Box sx={{ display: "flex", alignItems: "center" }}>
+              <Box
+                sx={{ display: "flex", alignItems: "center" }}
+                onClick={() => Navigate("/KebersihanMobile/Laporan/Detail")}
+              >
                 <Typography
                   sx={{ color: "#00A9AD", mr: 0.5, fontSize: "12px" }}
                 >

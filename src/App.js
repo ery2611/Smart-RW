@@ -12,9 +12,9 @@ function App() {
 
   //memberikan title pada s=navbar xs
   const getTitleAndBackButton = (pathname) => {
-    const detailMatch = pathname.match(
-      /^\/KeamananMobile\/Pengaduan\/Detail\/(\d+)$/
-    );
+    const detailMatch =
+      pathname.match(/^\/KeamananMobile\/Pengaduan\/Detail\/(\d+)$/) ||
+      pathname.match(/^\/KebersihanMobile\/Pengaduan\/Detail\/(\d+)$/);
 
     if (detailMatch) {
       const id = detailMatch[1]; // Mengambil ID dari path
@@ -43,12 +43,18 @@ function App() {
         return { title: "DETAIL JADWAL", showBackButton: true };
       case "/KebersihanMobile/Laporan":
         return { title: "LAPORAN SAYA", showBackButton: true };
+      case "/KebersihanMobile/Laporan/Detail":
+        return { title: "DETAIL LAPORAN", showBackButton: true };
       case "/KebersihanMobile/Jadwal":
         return { title: "JADWAL", showBackButton: true };
       case "/KebersihanMobile/Jadwal/Detail":
         return { title: "DETAIL JADWAL", showBackButton: true };
       case "/KebersihanMobile/Jadwal/Detail/Form":
         return { title: "DETAIL JADWAL", showBackButton: true };
+      case "/KebersihanMobile/Notifikasi":
+        return { title: "NOTIFIKASI", showBackButton: true };
+      case "/KebersihanMobile/Pengaduan":
+        return { title: "PENGADUAN", showBackButton: true };
 
       default:
         return { title: "Page Title", showBackButton: true }; // Default value

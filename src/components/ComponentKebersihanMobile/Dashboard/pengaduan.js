@@ -98,7 +98,7 @@ const ComplaintSummary = () => {
             3 Aduan Lainnya
           </Typography>
           <Button
-            onClick={() => Navigate("/KeamananMobile/Pengaduan")}
+            onClick={() => Navigate("/KebersihanMobile/Pengaduan")}
             variant="contained"
             sx={{
               backgroundColor: "#CCEEEF",
