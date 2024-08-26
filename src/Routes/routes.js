@@ -28,6 +28,7 @@ const KeamananOnGoing4 = Loadable(lazy(()=>import('../Pages/KeamananOngoing4/ind
 const KeamananUpcoming = Loadable(lazy(()=>import('../Pages/KeamananOngoing4/upcoming')))
 const KebersihanDetail = Loadable(lazy(()=>import('../Pages/KebersihanDetail/index')))
 const KebersihanDetail2 = Loadable(lazy(()=>import('../Pages/KebersihanDetail/detail2')))
+const WargaEWS = Loadable(lazy(()=>import('../Pages/Warga/WargaEWS/index')))
 
 const mainRoutes =[{
     path: '',
@@ -108,6 +109,10 @@ const mainRoutes =[{
 {
     path:'/KebersihanDetail/BuatLaporan',
     element: <KebersihanDetail2/>
+},
+{
+    path:'/WargaEWS',
+    element: <WargaEWS/>
 },
 
 
