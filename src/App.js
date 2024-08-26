@@ -64,29 +64,19 @@ function App() {
   const { title, showBackButton } = getTitleAndBackButton(location.pathname);
   return (
     <Box>
-      <Header />
       <SmHeader title={title} showBackButton={showBackButton} />
       <Box
         sx={{
           flex: "1 1 auto",
           display: "flex",
           flexDirection: "row", // Arrange children in a row
-          padding: "16px", // Optional: add some padding around the content
+          // Optional: add some padding around the content
         }}
       >
         <Box
           sx={{
-            width: "250px", // Set a fixed width for the sidebar
-            display: { xs: "none", md: "flex" },
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        ></Box>
-
-        <Box
-          sx={{
             flex: 1, // Allow Routes to take up the remaining space
-            marginLeft: "5px", // Optional: add some space between the sidebar and the main content
+            // Optional: add some space between the sidebar and the main content
             marginTop: "20px",
             maxHeight: "700px",
             marginBottom: "10px",

@@ -1,13 +1,13 @@
 import React from "react";
-import Bar from "../../../components/WargaComponents/Navbar";
+import Header from "../../../components/WargaComponents/Header";
 import { Stack, Typography } from "@mui/material";
 import Dashboard from "../../../components/WargaComponents/Ikk";
 
 function index() {
   return (
     <div>
-      <Bar />
-      <Stack direction="column">
+      <Header />
+      <Stack direction="column" sx={{ marginTop: "50px" }}>
         <Typography
           variant="h5"
           sx={{ marginBottom: 0, color: "#00A9AD", fontSize: 18 }}

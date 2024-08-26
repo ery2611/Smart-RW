@@ -8,7 +8,7 @@ import TabPanel from "@mui/lab/TabPanel";
 import DataCurahHujan from "./DataCurahHujan/dataCurahHujan";
 import DataPompaAir from "./DataPompaAir/dataPompaAir";
 import DataTinggiMukaAir from "./DataTinggiMukaAir/dataTinggiMukaAir";
-import Bar from "../../../components/WargaComponents/Navbar";
+import Header from "../../../components/WargaComponents/Header";
 import Hujan from "../../../assets/Heavy Rain.png";
 import PompaAir from "../../../assets/Water Pipe.png";
 import AirSungai from "../../../assets/Sea Waves.png";
@@ -34,8 +34,8 @@ const WargaEWS = () => {
 
   return (
     <div>
-      <Bar />
-      <Stack direction="column">
+      <Header />
+      <Stack direction="column" sx={{ marginTop: "50px" }}>
         <Typography
           variant="h5"
           sx={{ marginBottom: 0, color: "#00A9AD", fontSize: 18 }}

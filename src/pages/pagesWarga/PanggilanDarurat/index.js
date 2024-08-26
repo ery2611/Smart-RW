@@ -4,7 +4,7 @@ import HealthIcon from "@mui/icons-material/LocalHospital";
 import LocalPoliceOutlinedIcon from "@mui/icons-material/LocalPoliceOutlined";
 import LocalFireDepartmentOutlinedIcon from "@mui/icons-material/LocalFireDepartmentOutlined";
 import FloodOutlinedIcon from "@mui/icons-material/FloodOutlined";
-import Bar from "../../../components/WargaComponents/Navbar";
+import Header from "../../../components/WargaComponents/Header";
 import { useNavigate } from "react-router-dom";
 import Progress from "../../../components/WargaComponents/PanggilanDarurat/ContainerProgress";
 
@@ -12,8 +12,9 @@ const Dashboard = () => {
   const Navigate = useNavigate();
   return (
     <Box>
-      <Bar />
-      <Stack direction="column">
+      <Header />
+
+      <Stack direction="column" sx={{ marginTop: "50px" }}>
         <Typography
           variant="h5"
           sx={{ marginBottom: 0, color: "#00A9AD", fontSize: 18 }}

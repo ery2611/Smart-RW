@@ -15,9 +15,15 @@ const CommandCenterAppBar = () => {
 
   return (
     <AppBar
-      position="static"
+      position="fixed"
       color="default"
-      sx={{ backgroundColor: "white", display: { xs: "none", md: "flex" } }}
+      sx={{
+        backgroundColor: "white",
+        top: 0,
+        display: { xs: "none", md: "flex" },
+        marginBottom: "10px",
+        height: "70px",
+      }}
     >
       <Toolbar sx={{ display: "flex", alignItems: "center" }}>
         {/* Logo and Title Section */}
