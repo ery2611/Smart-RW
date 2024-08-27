@@ -24,6 +24,9 @@ import DetailLaporanKebersihan from './Pages/Kebersihan/laporan/Detail.tsx';
 import PengaduanKeamanan from './Pages/keamanan/pengaduan/index.tsx';
 import DetailPengaduan from './Pages/keamanan/detail.tsx';
 
+//? Warga dengan Design baru
+import { IkkMain } from './Pages/WargaBaru/IkkMain/index.tsx';
+
 const App=()=> {
   const [dataList, setDataList] = useState([]);
   const [showDetail, setShowDetail] = useState(false);
@@ -70,6 +73,9 @@ const App=()=> {
           {/* keamanan */}
           <Route path='/keamanan' element={<PengaduanKeamanan/>}/>
           <Route path='/keamanan/:id' element={<DetailPengaduan/>}/>
+
+          {/* newWarga */}
+          <Route path='ikk' element={<IkkMain/>}/>
 
 
           {/* Mungkin ada rute lain di sini */} 
