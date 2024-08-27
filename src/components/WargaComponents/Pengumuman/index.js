@@ -8,13 +8,32 @@ import {
   CardContent,
 } from "@mui/material";
 import Mata from "@mui/icons-material/VisibilityOutlined";
-import Lokasi from "@mui/icons-material/LocationOnOutlined";
+import Person from "@mui/icons-material/Person";
 import Jam from "@mui/icons-material/QueryBuilderOutlined";
 import Kalender from "@mui/icons-material/CalendarMonthOutlined";
 import { useNavigate } from "react-router-dom";
+import Lokasi from "@mui/icons-material/LocationOn"; // Replace with actual icon
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward"; // Icon for button
 
 function Index() {
   const Navigate = useNavigate();
+
+  const PengumumanData = [
+    {
+      title: "Kerja Bakti",
+      deskripsi:
+        "Bulan ini ada akan kerja bakti untuk perbaikan jalan Kemang Pratama 2",
+      gambar:
+        "https://tse1.mm.bing.net/th?id=OIP.rafmDrP9vNezAvoR7F6dAwHaE7&pid=Api&P=0&h=180",
+    },
+    {
+      title: "Pelebaran Selokan",
+      deskripsi: "Bulan ini ada akan ada renovasi untuk Selokan Jalanan Utama",
+      gambar:
+        "https://t-2.tstatic.net/jogja/foto/bank/images/Proses-Perbaikan-Selokan-Mataram-Dikeringkan.jpg", // Replace with the actual image path
+    },
+  ];
+
   const truncateText = (text, maxLength) => {
     if (!text) {
       return "";
@@ -30,6 +49,8 @@ function Index() {
         display: "fluid",
         justifyContent: "flex-start",
         marginTop: "10px",
+        pl: 4,
+        pr: 4,
       }}
     >
       <Box
@@ -39,7 +60,18 @@ function Index() {
         }}
       >
         <Box>
-          <Typography variant="h6" sx={{ color: "#00A9AD" }}>
+          <Typography
+            sx={{
+              position: "relative",
+              color: "#00A9AD",
+              pl: 5, //  text is inside the box
+              lineHeight: "60px",
+              zIndex: 6, // text is on top of the box
+              fontSize: "30px",
+              fontWeight: "bolder",
+              mt: 2,
+            }}
+          >
             Pengumuman Minggu Ini
           </Typography>
         </Box>
@@ -63,20 +95,19 @@ function Index() {
       </Box>
       <Box
         sx={{
-          padding: 2,
           display: "flex",
-          overflowX: "scroll", // Aktifkan scroll horizontal
-          whiteSpace: "nowrap",
-          "&::-webkit-scrollbar": { display: "none" },
-          "-ms-overflow-style": "none" /* Internet Explorer 10+ */,
-          "scrollbar-width": "none" /* Firefox */,
+          justifyContent: "center",
+          alignItems: "center",
+          mt: 4,
+          zIndex: 3,
+          marginBottom: "100px",
         }}
       >
-        {[1, 2, 2, 2, 2, 2].map((item) => (
+        {PengumumanData.map((item, index) => (
           <Card
-            key={item}
+            key={index}
             sx={{
-              width: "300px",
+              width: "320px",
               display: "inline-flex",
               marginRight: "20px", // Jarak antar card
               flexDirection: "column",
@@ -86,8 +117,8 @@ function Index() {
             <CardMedia
               component="img"
               height="200"
-              image="/path-to-your-image.png" // Ganti dengan path gambar yang benar
-              alt="Pengajian Banner"
+              image={item.gambar}
+              alt={item.title}
               sx={{
                 backgroundColor: "#EFEFEF",
               }}
@@ -104,56 +135,37 @@ function Index() {
                   whiteSpace: "nowrap",
                 }}
               >
-                {truncateText("Renovasi Masjid", 30)}
+                {truncateText(item.title, 30)}
+              </Typography>
+
+              <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                {truncateText(item.deskripsi, 40)}
               </Typography>
 
               <Box
                 sx={{
                   display: "flex",
-                  justifyContent: "flex-start",
+                  justifyContent: "end",
+                  alignItems: "center",
                 }}
               >
-                <Typography variant="body2" color="text.secondary">
-                  {truncateText(
-                    "Bulan ini ada akan ada renovasi untuk Toilet pria ",
-                    30
-                  )}
-                </Typography>
-              </Box>
-
-              <Box
-                sx={{
-                  display: "fluid",
-                  justifyContent: "flex-start",
-                  marginTop: "10px",
-                }}
-              >
-                <Box
+                <Button
+                  variant="contained"
+                  onClick={() => Navigate("/DetailPengumuman")}
                   sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    marginTop: "6px",
+                    backgroundColor: "#00A9AD",
+                    padding: "8px 16px", // Menyesuaikan padding sesuai dengan konten tombol
+                    display: "inline-flex", // Menjaga tombol agar sesuai dengan konten
+                    alignItems: "center",
+                    fontWeight: "bold",
+                    justifyContent: "center",
+                    "&:hover": {
+                      backgroundColor: "#00A9AD",
+                    },
                   }}
                 >
-                  <Box sx={{ display: "flex", justifyContent: "flex-start" }}>
-                    <Lokasi sx={{ color: "#EE1717" }} />
-                    <Typography
-                      variant="caption"
-                      sx={{
-                        marginLeft: "5px",
-                        marginTop: "5px",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      Kemang Pratama 2
-                    </Typography>
-                  </Box>
-                  <Box>
-                    <Button onClick={() => Navigate("/DetailPengumuman")}>
-                      <Mata fontSize="large" sx={{ color: "#00A9AD" }} />
-                    </Button>
-                  </Box>
-                </Box>
+                  Selebihnya
+                </Button>
               </Box>
             </CardContent>
           </Card>

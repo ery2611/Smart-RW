@@ -25,106 +25,26 @@ function Index() {
     }
     return text.substring(0, maxLength) + "...";
   };
+
+  const kegiatanData = [
+    {
+      title: "Lomba 17 Agustus",
+      deskripsi: "Lomba tingkat SD, bertema Republik Indonesia",
+      pelaku: "Terbuka untuk Umum",
+      lokasi: "Kemang Pratama 2",
+      gambar:
+        "https://tse2.mm.bing.net/th?id=OIP.b2HRVfXJOKOwikj1per-0QHaE5&pid=Api&P=0&h=180", // Replace with the actual image path
+    },
+    {
+      title: "Touring Sepeda",
+      deskripsi: "Bagi yang menyukai bersepeda",
+      pelaku: "Untuk yang ingin bersepeda",
+      lokasi: "Lapangan Banteng",
+      gambar:
+        "https://tse1.mm.bing.net/th?id=OIP.Wn-_RqW73zgz6rG1E5aKvwHaFj&pid=Api&P=0&h=180", // Replace with the actual image path
+    },
+  ];
   return (
-    // <Box sx={{
-    //     display:"fluid",
-    //     justifyContent:'flex-start',
-    //     marginTop:'10px',
-    // }}>
-    //     <Box sx={{
-    //         justifyContent:'space-between',
-    //         display:'flex'
-    //     }}>
-    //         <Box>
-    //             <Typography variant='h6' sx={{color:'#00A9AD'}}>Kegiatan Minggu Ini</Typography>
-    //         </Box>
-    //         <Box>
-    //           <Button onClick={()=> Navigate('/Warga/Kegiatan')} sx={{backgroundColor:'#00A9AD', color:'white',boxShadow:5,marginRight:'10px',
-    //           '&:hover': {
-    //             backgroundColor: '#00A9AD',
-    //             color:'white',
-    //             },}}>Semua Kegiatan</Button>
-    //         </Box>
-    //     </Box>
-    //     <Box sx={{ padding: 2, display: 'flex',  overflowX: 'scroll', // Aktifkan scroll horizontal
-    //     whiteSpace: 'nowrap','&::-webkit-scrollbar': { display: 'none' },
-    //     '-ms-overflow-style': 'none',  /* Internet Explorer 10+ */
-    //     'scrollbar-width': 'none'  /* Firefox */ }}>
-    //   {[1, 2,2,2,2,2,].map((item) => (
-    //     <Card
-    //       key={item}
-    //       sx={{
-    //         width: '400px',
-    //         display: 'inline-flex',
-    //         marginRight: '20px', // Jarak antar card
-    //         flexDirection: 'column',
-    //         flexShrink: 0 // Menghindari penyusutan card
-
-    //       }}
-    //     >
-    //       <CardMedia
-    //         component="img"
-    //         height="200"
-    //         image="/path-to-your-image.png" // Ganti dengan path gambar yang benar
-    //         alt="Pengajian Banner"
-    //         sx={{
-    //             backgroundColor:'#EFEFEF'
-    //         }}
-    //       />
-    //       <CardContent>
-    //         <Typography variant="h6" gutterBottom sx={{
-    //             color:'#00A9AD',
-    //             fontWeight:'bolder',
-    //             overflow: 'hidden',
-    //             textOverflow: 'ellipsis',
-    //             whiteSpace: 'nowrap'
-    //         }}>
-    //          {truncateText('Pengajian Aula Kemang Pratama',30)}
-    //         </Typography>
-
-    //         <Typography variant="body2" color="text.secondary">
-    //             {truncateText('Pengajian Aula bagi kaum perempuan Kemang Pratama 2',40)}
-
-    //         </Typography>
-    //         <Box sx={{
-    //             display:'fluid',
-    //             justifyContent:'flex-start',
-    //             marginTop:'10px'
-    //         }}>
-    //             <Box sx={{
-    //                 display:'flex',
-    //                 justifyContent:'flex-start'
-    //             }}>
-    //                 <Box sx={{display:'flex', justifyContent:'flex-start'}}>
-    //                      <Kalender sx={{color:'#00A9AD'}} />
-    //                      <Typography variant='caption' sx={{marginLeft:'5px', marginTop:'5px'}}>Selasa,02 / 01 / 2024</Typography>
-    //                 </Box>
-    //                 <Box sx={{display:'flex', justifyContent:'flex-start', marginLeft:'20px'}}>
-    //                      <Jam sx={{color:'#00A9AD'}} />
-    //                      <Typography variant='caption' sx={{marginLeft:'5px', marginTop:'5px'}}>10.00-11.30</Typography>
-    //                 </Box>
-
-    //             </Box>
-    //             <Box sx={{
-    //                 display:'flex',
-    //                 justifyContent:'space-between',
-    //                 marginTop:'6px'
-    //             }}>
-    //                 <Box sx={{display:'flex', justifyContent:'flex-start'}}>
-    //                      <Lokasi sx={{color:'#EE1717'}} />
-    //                      <Typography variant='caption' sx={{marginLeft:'5px', marginTop:'5px', fontWeight:'bold'}}>Kemang Pratama 2</Typography>
-    //                 </Box>
-    //                 <Box>
-    //                   <Button onClick={()=> Navigate('/DetailKegiatan')}><Mata fontSize='large' sx={{color:'#00A9AD'}}  /></Button>
-
-    //                 </Box>
-    //             </Box>
-    //         </Box>
-    //         </CardContent>
-    //     </Card>
-    //   ))}
-    // </Box>
-    // </Box>
     <Box
       sx={{
         marginTop: "20px",
@@ -233,9 +153,9 @@ function Index() {
             zIndex: 2,
           }}
         >
-          {[1, 2].map((item) => (
+          {kegiatanData.map((item, index) => (
             <Card
-              key={item}
+              key={index}
               sx={{
                 width: "400px",
                 display: "inline-flex",
@@ -247,8 +167,8 @@ function Index() {
               <CardMedia
                 component="img"
                 height="200"
-                image="http://3.bp.blogspot.com/-RGVNPsVvIPA/UPOp0r7wboI/AAAAAAAAB8Q/GMcOUpoWoc4/s1600/IMG_4072.JPG" // Ganti dengan path gambar yang benar
-                alt="Pengajian Banner"
+                image={item.gambar}
+                alt={item.title}
                 sx={{
                   backgroundColor: "#EFEFEF",
                 }}
@@ -265,7 +185,7 @@ function Index() {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  {truncateText("Kerja Bakti Warga RW 02 & 03", 40)}
+                  {truncateText(item.title, 40)}
                 </Typography>
 
                 <Typography
@@ -273,10 +193,7 @@ function Index() {
                   color="text.secondary"
                   sx={{ mb: 2 }}
                 >
-                  {truncateText(
-                    "Kerja bakti untuk hari Minggu, untuk warga RW 02 dan RW 03. Dari Gerbang hingga ",
-                    40
-                  )}
+                  {truncateText(item.deskripsi, 40)}
                 </Typography>
 
                 <Box
@@ -299,7 +216,7 @@ function Index() {
                       sx={{ display: "flex", alignItems: "center", mb: 1 }}
                     >
                       <Person sx={{ color: "#00A9AD", marginRight: "5px" }} />
-                      {truncateText("Warga Kemang Pratama 2 & Publik", 20)}
+                      {truncateText(item.pelaku, 20)}
                     </Typography>
 
                     <Typography
@@ -312,7 +229,7 @@ function Index() {
                       }}
                     >
                       <Lokasi sx={{ marginRight: "5px" }} />
-                      {truncateText("Kemang Pratama 2", 20)}
+                      {truncateText(item.lokasi, 20)}
                     </Typography>
                   </Box>
 

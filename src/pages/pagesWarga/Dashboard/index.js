@@ -13,6 +13,7 @@ import Pengumuman from "../../../components/WargaComponents/Pengumuman";
 import Forum from "../../../components/WargaComponents/Forum";
 import Header from "../../../components/WargaComponents/Header";
 import Highlight from "../../../components/WargaComponents/DashboardBaru/CardAtas/index";
+import Footer from "../../../components/WargaComponents/DashboardBaru/Footer/index";
 
 function index() {
   // Mendapatkan tanggal saat ini
@@ -41,33 +42,23 @@ function index() {
       >
         <Kegiatan />
       </Box>
-      <Container style={{ marginTop: "10px" }}>
-        <Box
-          display="fluid"
-          sx={{
-            justifyContent: "flex-start",
-            overflowY: "auto",
-            width: "100%",
-          }}
-        >
-          <Box
-            sx={{
-              marginTop: "30px",
-              maxWidth: "100%",
-            }}
-          >
-            <Pengumuman />
-          </Box>
-          <Box
-            sx={{
-              marginTop: "30px",
-              width: "100%",
-            }}
-          >
-            <Forum />
-          </Box>
-        </Box>
-      </Container>
+      <Box
+        sx={{
+          marginTop: "30px",
+          maxWidth: "100%",
+        }}
+      >
+        <Pengumuman />
+      </Box>
+      <Box
+        sx={{
+          marginTop: "30px",
+          width: "100%",
+        }}
+      >
+        <Forum />
+      </Box>
+      <Footer />
     </Box>
   );
 }

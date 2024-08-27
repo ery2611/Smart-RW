@@ -16,6 +16,28 @@ import { useNavigate } from "react-router-dom";
 
 function Index() {
   const Navigate = useNavigate();
+
+  const forumData = [
+    {
+      title: "Forum Les Anak Bahasa Inggris",
+      deskripsi: "Forum untuk pendataan dan pendaftaran les anak RW 02",
+      gambar:
+        "https://tse4.mm.bing.net/th?id=OIP.mz2m_TmTFmxfJEDbIHHQbwHaFU&pid=Api&P=0&h=180", // Replace with the actual image path
+    },
+    {
+      title: "Touring Sepeda",
+      deskripsi: "Bagi yang menyukai bersepeda",
+      gambar:
+        "https://tse1.mm.bing.net/th?id=OIP.Wn-_RqW73zgz6rG1E5aKvwHaFj&pid=Api&P=0&h=180", // Replace with the actual image path
+    },
+    {
+      title: "Pengelolaan Sampah",
+      deskripsi: "Forum untuk pendataan dan pendaftaran les anak RW 02",
+      gambar:
+        "https://tse4.mm.bing.net/th?id=OIP.PuWdejBsHn6GhP9QJ-lTugHaEK&pid=Api&P=0&h=180", // Replace with the actual image path
+    },
+  ];
+
   const truncateText = (text, maxLength) => {
     if (!text) {
       return "";
@@ -28,9 +50,12 @@ function Index() {
   return (
     <Box
       sx={{
-        display: "fluid",
-        justifyContent: "flex-start",
-        marginTop: "10px",
+        marginTop: "20px",
+
+        borderRadius: 2,
+        pl: 4,
+        pr: 4,
+        pb: 2,
       }}
     >
       <Box
@@ -40,7 +65,18 @@ function Index() {
         }}
       >
         <Box>
-          <Typography variant="h6" sx={{ color: "#00A9AD" }}>
+          <Typography
+            sx={{
+              position: "relative",
+              color: "#00A9AD",
+              pl: 5, //  text is inside the box
+              lineHeight: "60px",
+              zIndex: 6, // text is on top of the box
+              fontSize: "30px",
+              fontWeight: "bolder",
+              mt: 2,
+            }}
+          >
             Forum
           </Typography>
         </Box>
@@ -64,20 +100,19 @@ function Index() {
       </Box>
       <Box
         sx={{
-          padding: 2,
           display: "flex",
-          overflowX: "scroll", // Aktifkan scroll horizontal
-          whiteSpace: "nowrap",
-          "&::-webkit-scrollbar": { display: "none" },
-          "-ms-overflow-style": "none" /* Internet Explorer 10+ */,
-          "scrollbar-width": "none" /* Firefox */,
+          justifyContent: "center",
+          alignItems: "center",
+          mt: 4,
+          zIndex: 3,
+          marginBottom: "100px",
         }}
       >
-        {[1, 2, 2, 2, 2, 2].map((item) => (
+        {forumData.map((item, index) => (
           <Card
-            key={item}
+            key={index}
             sx={{
-              width: "380px",
+              width: "320px",
               display: "inline-flex",
               marginRight: "20px", // Jarak antar card
               flexDirection: "column",
@@ -87,8 +122,8 @@ function Index() {
             <CardMedia
               component="img"
               height="200"
-              image="/path-to-your-image.png" // Ganti dengan path gambar yang benar
-              alt="Pengajian Banner"
+              image={item.gambar}
+              alt={item.title}
               sx={{
                 backgroundColor: "#EFEFEF",
               }}
@@ -105,59 +140,37 @@ function Index() {
                   whiteSpace: "nowrap",
                 }}
               >
-                {truncateText("Forum Les Anak Bahasa Inggris TK-SD-SMP", 30)}
+                {truncateText(item.title, 30)}
               </Typography>
 
-              <Typography variant="body2" color="text.secondary">
-                {truncateText(
-                  "Forum untuk pendataan dan pendaftaran lhjbyghkbvtuyjghkbn,es anak RW 02",
-                  30
-                )}
+              <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+                {truncateText(item.deskripsi, 35)}
               </Typography>
+
               <Box
                 sx={{
                   display: "flex",
-                  justifyContent: "space-around",
-                  marginTop: "10px",
+                  justifyContent: "end",
+                  alignItems: "center",
                 }}
               >
-                <Box
+                <Button
+                  variant="contained"
+                  onClick={() => Navigate("/DetailPengumuman")}
                   sx={{
-                    display: "flex",
-                    justifyContent: "flex-start",
-                    marginTop: "10px",
-                    marginLeft: "-10px",
+                    backgroundColor: "#00A9AD",
+                    padding: "8px 16px", // Menyesuaikan padding sesuai dengan konten tombol
+                    display: "inline-flex", // Menjaga tombol agar sesuai dengan konten
+                    alignItems: "center",
+                    fontWeight: "bold",
+                    justifyContent: "center",
+                    "&:hover": {
+                      backgroundColor: "#00A9AD",
+                    },
                   }}
                 >
-                  <Avatar />
-                  <Typography>Khairul Mustaan</Typography>
-                </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    marginTop: "6px",
-                  }}
-                >
-                  <Box sx={{ marginRight: "0px" }}>
-                    <Button
-                      onClick={() => Navigate("/Forum/Lihat")}
-                      sx={{
-                        backgroundColor: "#00A9AD",
-                        color: "white",
-                        boxShadow: 5,
-                        marginRight: "10px",
-                        width: "150px",
-                        "&:hover": {
-                          backgroundColor: "#00A9AD",
-                          color: "white",
-                        },
-                      }}
-                    >
-                      Informasi Forum
-                    </Button>
-                  </Box>
-                </Box>
+                  Lihat Forum
+                </Button>
               </Box>
             </CardContent>
           </Card>
