@@ -16,6 +16,7 @@ import KebersihanJadwalMobile from "./Pages/KebersihanJadwalMobile/Index";
 import PemotonganRumput from "./Pages/RiwayatIKK/PemotonganRumput";
 import PengambilanSampah from "./Pages/RiwayatIKK/PengambilanSampah";
 import SapuJalan from "./Pages/RiwayatIKK/SapuJalan";
+import FormPemotonganRumput from "./Pages/FormPengaduan/PemotonganRumput";
 
 function App() {
   return (
@@ -36,6 +37,10 @@ function App() {
           <Route path="KeamananJadwal" element={<KeamananJadwal />} />
           <Route path="PemotonganRumput" element={<PemotonganRumput />} />
           <Route path="PengambilanSampah" element={<PengambilanSampah />} />
+          <Route
+            path="FormPemotonganRumput"
+            element={<FormPemotonganRumput />}
+          />
           <Route path="SapuJalan" element={<SapuJalan />} />
           <Route
             path="KebersihanJadwalMobile"
