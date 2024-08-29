@@ -1,44 +1,37 @@
-import React from 'react'
-import Detail from '../../../components/WargaComponents/Pengumuman/detail'
-import Bar from '../../../components/WargaComponents/Navbar'
-import { Box,Stack,Typography } from '@mui/material'
+import React from "react";
+import Bar from "../../../components/WargaComponents/Navbar";
+import {
+  Box,
+  Stack,
+  Typography,
+  Card,
+  CardContent,
+  Container,
+} from "@mui/material";
+import Pengumuman from "../../../components/WargaComponents/Pengumuman/detail";
 
-function detail() {
+import Header from "../../../components/WargaComponents/Header";
+
+import Footer from "../../../components/WargaComponents/DashboardBaru/Footer/index";
+
+function index() {
+  // Mendapatkan tanggal saat ini
+
   return (
-    <div>
-        
-        <Stack direction="column">
-          <Typography
-            variant="h5"
-            sx={{
-              marginBottom: 0,
-              color: "#00A9AD",
-              fontSize: 18,
-              textAlign: "left",
-            }}
-          >
-            WARGA
-          </Typography>
-          <Stack direction="row" sx={{ marginBottom: 2, fontSize: 14 }}>
-            <Typography variant="h8" sx={{ color: "#A0A1A4" }}>
-              Dashboard/
-            </Typography>
-            <Typography
-              variant="h9"
-              sx={{ color: "black", fontWeight: "bold" }}
-            >
-              Pengumuman
-            </Typography>
-          </Stack>
-        </Stack>
-    <Bar />
-    <Box sx={{
-        paddingBottom:3
-    }}>
-        <Detail />
+    <Box>
+      <Header />
+
+      <Box
+        sx={{
+          marginTop: "30px",
+          width: "100%",
+        }}
+      >
+        <Pengumuman />
+      </Box>
+      <Footer />
     </Box>
-    </div>
-  )
+  );
 }
 
-export default detail
+export default index;

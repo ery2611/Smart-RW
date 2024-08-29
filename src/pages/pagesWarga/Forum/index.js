@@ -1,46 +1,49 @@
 import React from "react";
-import Forum from "../../../components/WargaComponents/Forum/semua";
 import Bar from "../../../components/WargaComponents/Navbar";
-import { Box, Stack, Typography, Card, CardContent } from "@mui/material";
+import {
+  Box,
+  Stack,
+  Typography,
+  Card,
+  CardContent,
+  Container,
+} from "@mui/material";
+import Kegiatan from "../../../components/WargaComponents/Kegiatan/index";
+import Pengumuman from "../../../components/WargaComponents/Pengumuman";
+import Forum from "../../../components/WargaComponents/Forum/all";
+import Header from "../../../components/WargaComponents/Header";
+import Highlight from "../../../components/WargaComponents/Forum/highlight";
+import Footer from "../../../components/WargaComponents/DashboardBaru/Footer/index";
 
 function index() {
+  // Mendapatkan tanggal saat ini
   const now = new Date();
 
   // Format tanggal
   const hari = now.toLocaleString("id-ID", { weekday: "long" }); // Nama hari
   const tanggal = now.toLocaleString("id-ID", { day: "2-digit" }); // Tanggal
-  const bulan = now.toLocaleString("id-ID", { month: "2-digit" }); // Nama bulan
+  const bulan = now.toLocaleString("id-ID", { month: "long" }); // Nama bulan
   const tahun = now.getFullYear(); // Tahun
 
   // Menyusun string tanggal
-  const formatHari = `${hari}`;
-  const formatTanggal = `${tanggal} / ${bulan} / ${tahun}`;
-  return (
-    <div
-      sx={{
-        width: "1200px",
-      }}
-    >
-      <Bar />
+  const formatTanggal = `${hari}, ${tanggal} ${bulan} ${tahun}`;
 
+  return (
+    <Box>
+      <Header />
+      <Box sx={{ width: "100%" }}>
+        <Highlight />
+      </Box>
       <Box
-        display="fluid"
         sx={{
-          justifyContent: "flex-start",
-          overflowY: "auto",
+          marginTop: "30px",
           width: "100%",
         }}
       >
-        <Box
-          sx={{
-            marginTop: "30px",
-            width: "100%",
-          }}
-        >
-          <Forum />
-        </Box>
+        <Forum />
       </Box>
-    </div>
+      <Footer />
+    </Box>
   );
 }
 

@@ -1,294 +1,245 @@
 import React from "react";
 import {
-  Box,
-  Typography,
-  Button,
-  Container,
   Card,
   CardContent,
+  CardMedia,
+  Typography,
+  Grid,
+  Box,
+  Button,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-function DetailPengumuman() {
-  const Navigate = useNavigate();
+const EventCard = () => {
+  const navigate = useNavigate();
   return (
-    <div>
-      <Container
-        maxWidth="md" // Mengatur ukuran maksimum container menjadi "md" (medium)
-        sx={{
-          maxWidth: "1200px", // Anda dapat menyesuaikan nilai ini untuk mengatur lebar maksimum container
-          marginTop: 2,
-          marginBottom: 2,
-          fontFamily: "Montserrat, sans-serif",
-          bgcolor: "#EFEFEF",
-          padding: 1,
-          borderRadius: "10px",
-        }}
+    <Card
+      sx={{
+        width: "70%", // Lebarkan card
+        margin: "auto",
+        borderRadius: "16px",
+        pt: 1,
+        mt: "100px",
+        mb: "20px",
+        position: "relative",
+      }}
+    >
+      {/* Title */}
+      <Typography
+        variant="h5"
+        component="div"
+        textAlign="center"
+        fontWeight="bold"
+        sx={{ mt: 2, mb: 2 }}
       >
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignContent: "center",
-          }}
-        >
-          <h3 style={{ marginBottom: "0" }}>PENGUMUMAN</h3>
-        </Box>
-        <Card
-          sx={{
-            maxWidth: 700,
-            margin: "0 auto",
-            borderRadius: 2,
-            p: 2,
-            background: "white",
-            marginTop: 2,
-            maxWidth: "auto",
-            boxShadow: 5,
-          }}
-        >
-          <CardContent>
-            <Typography
-              textAlign="center"
-              variant="h6"
-              component="div"
-              gutterBottom
-              fontWeight="bolder"
-              fontFamily="Montserrat"
-            >
-              RENOVASI MASJID
-            </Typography>
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "flex-start", // Menyelaraskan item dengan awal (atas)
-                gap: "215px", // Mengatur jarak antar box
-                textAlign: "left",
-              }}
-            >
-              <Box
+        KERJA BAKTI
+      </Typography>
+
+      <CardMedia
+        component="img"
+        height="310"
+        image="https://1.bp.blogspot.com/-k_cNB25TtGE/YTn3EOVAR_I/AAAAAAAAMSw/URNNHLYEz9wx9Nvr17gfwkRYa6yALUNOACLcBGAsYHQ/s2048/DSC_0934.jpg"
+        alt="Kerja Bakti"
+      />
+
+      <CardContent>
+        <Grid container spacing={1}>
+          {/* Keterangan */}
+          <Grid item xs={12}>
+            <Box>
+              <Typography
                 sx={{
-                  display: "flex",
-                  flexDirection: "column",
+                  color: "#A0A1A4",
+                  fontSize: "16px",
+                  fontWeight: "regular",
                 }}
               >
-                <Typography
-                  variant="body1"
-                  height="40px"
-                  color="#A0A1A4"
-                  marginBottom={1}
-                >
-                  Pembuatan Pengumuman
-                </Typography>
-                <Typography
-                  variant="body1"
-                  height="40px"
-                  color="#A0A1A4"
-                  marginBottom={1}
-                >
-                  Jenis Pengumuman
-                </Typography>
-                <Typography
-                  variant="body1"
-                  height="40px"
-                  color="#A0A1A4"
-                  marginBottom={1}
-                >
-                  Lokasi
-                </Typography>
-                <Typography
-                  variant="body1"
-                  height="40px"
-                  color="#A0A1A4"
-                  marginBottom={1}
-                >
-                  Tanggal Mulai
-                </Typography>
-                <Typography
-                  variant="body1"
-                  height="40px"
-                  color="#A0A1A4"
-                  marginBottom={1}
-                >
-                  Tanggal Selesai
-                </Typography>
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
-                <Typography
-                  variant="body1"
-                  height="40px"
-                  color="#333333"
-                  marginBottom={1}
-                >
-                  : 16 / 8 / 2024
-                  <Box ml="10px">
-                    <Typography>10.00</Typography>
-                  </Box>
-                </Typography>
-                <Typography
-                  variant="body1"
-                  height="40px"
-                  color="#333333"
-                  marginBottom={1}
-                >
-                  : Perbaikan
-                </Typography>
-                <Typography
-                  variant="body1"
-                  height="40px"
-                  color="#333333"
-                  marginBottom={1}
-                >
-                  : Masjid Baitul Jihad, Kemang Pratama RW 02
-                </Typography>
-                <Typography
-                  variant="body1"
-                  height="40px"
-                  color="#333333"
-                  marginBottom={1}
-                >
-                  : 21 / 03 / 2024
-                </Typography>
-                <Typography
-                  variant="body1"
-                  height="40px"
-                  color="#333333"
-                  marginBottom={1}
-                >
-                  : 01 / 04 / 2024
-                </Typography>
-              </Box>
-            </Box>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                textAlign: "start",
-                marginTop: 2,
-              }}
-            >
-              <Typography variant="body1" color="#A0A1A4">
                 Keterangan
               </Typography>
-              <Typography variant="body1" color="#333333">
-                Bulan ini ada akan ada renovasi untuk Toilet pria yang rusak di
-                masjid Baitul Jihad Kemang Pratama. Kami mengundang seluruh
-                warga RW 02 untuk berpartisipasi dalam renovasi atap toilet pria
-                yang sempat rusak serta beberapa perabotan yang rusak seperti WC
-                dan wastafel; renovasi akan dimulai pada tanggal 21 Maret 2024
-                besok sampai dengan tanggal 1 April 2024. Agenda renovasi masjid
-                meliputi: <br /> <br />
-                1. Gotong royong membersihkan area toilet pria yang kotor akibat
-                sampah berserakan jatuh dari atas atap
-                <br />
-                2. Memperbaiki atap yang berlubang
-                <br />
-                3. Memperbaiki WC toilet pria
-                <br />
-                4. Memperbaiki wastafel toilet pria
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                textAlign: "start",
-                marginTop: 2,
-              }}
-            >
-              <Typography variant="body1" color="#A0A1A4">
-                Contact Person
-              </Typography>
-              <Box
+              <Typography
                 sx={{
-                  display: "flex",
-                  alignItems: "flex-start", // Menyelaraskan item dengan awal (atas)
-                  gap: "215px", // Mengatur jarak antar box
-                  textAlign: "left",
+                  color: "#333333 ",
+                  fontSize: "16px",
+                  fontWeight: "regular",
                 }}
               >
-                <Box
-                  sx={{
-                    justifyContent: "space-around",
-                    display: "flex",
-                    gap: "215px",
+                Bulan ini akan ada melakukan kerja bakti setiap hari Minggu di
+                RW 36, dimana untuk memperbaiki jalanan yang rusak serta
+                membersihkan area RW 36 yang kotor akibat hujan deras minggu
+                lalu.
+              </Typography>
+            </Box>
+          </Grid>
+
+          {/* Lomba Details */}
+          <Grid item xs={12}>
+            <Box>
+              <Typography
+                sx={{
+                  color: "#333333 ",
+                  fontSize: "16px",
+                  fontWeight: "regular",
+                }}
+              >
+                Berikut langkah-langkah kegiatan yang akan dilakukan:
+                <ul
+                  style={{
+                    paddingLeft: "20px",
+                    marginTop: "8px",
+                    marginBottom: "8px",
                   }}
                 >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                    }}
-                  >
-                    <Typography variant="body1" color="#333333">
-                      Pak Budi
-                    </Typography>
-                    <Typography variant="body1" color="#A0A1A4">
-                      0878893422226
-                    </Typography>
-                  </Box>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                    }}
-                  >
-                    <Typography variant="body1" color="#333333">
-                      Pak Daffa
-                    </Typography>
-                    <Typography variant="body1" color="#A0A1A4">
-                      0878893422226
-                    </Typography>
-                  </Box>
-                </Box>
-              </Box>
+                  <li>Memperbaiki jalanan yang rusak</li>
+                  <li>Membersihkan area perumahan</li>
+                  <li>Membersihkan selokan</li>
+                </ul>
+              </Typography>
+            </Box>
+          </Grid>
+
+          {/* Lokasi */}
+          <Grid item xs={12}>
+            <Box>
               <Typography
-                variant="body1"
-                fontWeight={700}
-                marginTop={1}
-                color="#333333"
+                sx={{
+                  color: "#A0A1A4",
+                  fontSize: "16px",
+                  fontWeight: "regular",
+                }}
+              >
+                Lokasi
+              </Typography>
+              <Typography
+                sx={{
+                  color: "#333333 ",
+                  fontSize: "16px",
+                  fontWeight: "regular",
+                }}
+              >
+                Area Kemang Pratama 02 & 03
+              </Typography>
+            </Box>
+          </Grid>
+
+          {/* Contact Person */}
+          <Grid item xs={12}>
+            <Box>
+              <Typography
+                sx={{
+                  color: "#A0A1A4",
+                  fontSize: "16px",
+                  fontWeight: "regular",
+                }}
+              >
+                Contact Person
+              </Typography>
+              <Grid container spacing={2}>
+                <Grid item xs={6}>
+                  <Typography
+                    sx={{
+                      color: "#333333 ",
+                      fontSize: "16px",
+                      fontWeight: "regular",
+                    }}
+                  >
+                    Pak Budi
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: "#A0A1A4",
+                      fontSize: "16px",
+                      fontWeight: "regular",
+                    }}
+                  >
+                    087898342226
+                  </Typography>
+                </Grid>
+                <Grid item xs={6}>
+                  <Typography
+                    sx={{
+                      color: "#333333 ",
+                      fontSize: "16px",
+                      fontWeight: "regular",
+                    }}
+                  >
+                    Pak Daffa
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: "#A0A1A4",
+                      fontSize: "16px",
+                      fontWeight: "regular",
+                    }}
+                  >
+                    087898342226
+                  </Typography>
+                </Grid>
+              </Grid>
+            </Box>
+          </Grid>
+
+          {/* Closing Remarks */}
+          <Grid item xs={12}>
+            <Box>
+              <Typography
+                sx={{
+                  color: "#333333 ",
+                  fontSize: "16px",
+                  fontWeight: "regular",
+                }}
               >
                 Terimakasih atas kerjasamanya
               </Typography>
-              <Typography variant="body1" fontWeight={700} color="#333333">
-                Hormat Kami
+              <Typography
+                sx={{
+                  color: "#333333 ",
+                  fontSize: "16px",
+                  fontWeight: "regular",
+                }}
+              >
+                Hormat kami,
               </Typography>
-              <Typography variant="body1" fontWeight={700} color="#333333">
-                Ketua RW 02
+              <Typography
+                sx={{
+                  color: "#333333 ",
+                  fontSize: "16px",
+                  fontWeight: "regular",
+                }}
+              >
+                Ketua RW 36
               </Typography>
             </Box>
-          </CardContent>
-        </Card>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "flex-end", // Memindahkan kotak ke kanan
-            padding: 2,
-          }}
-        >
-          <Button
-            onClick={() => Navigate("/Warga")}
-            sx={{
-              color: "#00a9ad",
-              fontWeight: "bolder",
-              border: "2px solid #00a9ad",
-              "&:hover": {
-                border: "2px solid #00a9ad",
-                color: "#00a9ad",
-              },
-            }}
-            variant="outlined"
-          >
-            KEMBALI
-          </Button>
-        </Box>
-      </Container>
-    </div>
-  );
-}
+          </Grid>
 
-export default DetailPengumuman;
+          {/* Button */}
+          <Box
+            sx={{
+              width: "100%",
+              justifyContent: "end",
+              display: "flex",
+            }}
+          >
+            <Button
+              variant="outlined"
+              onClick={() => navigate("/Warga")}
+              sx={{
+                borderColor: "#00A9AD",
+                color: "#00A9AD",
+                fontWeight: "bold",
+                "&:hover": {
+                  backgroundColor: "#E0F7F8", // Warna latar belakang saat hover
+                  borderColor: "#00A9AD",
+                },
+                marginBottom: "20px",
+              }}
+            >
+              KEMBALI
+            </Button>
+          </Box>
+        </Grid>
+      </CardContent>
+    </Card>
+  );
+};
+
+export default EventCard;

@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import {
   Box,
   Button,
@@ -6,8 +6,10 @@ import {
   Card,
   CardMedia,
   CardContent,
+  Menu,
+  MenuItem,
 } from "@mui/material";
-import Mata from "@mui/icons-material/VisibilityOutlined";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 import Lokasi from "@mui/icons-material/LocationOn"; // Replace with actual icon
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"; // Icon for button
@@ -15,6 +17,23 @@ import Person from "@mui/icons-material/Person";
 import { useNavigate } from "react-router-dom";
 
 function Index() {
+  // const dropdown
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [selectedOption, setSelectedOption] = useState("Pilih Minggu");
+  const open = Boolean(anchorEl);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = (option) => {
+    setAnchorEl(null);
+    if (option) {
+      setSelectedOption(option);
+    }
+  };
+
+  // akhir const dropdown
   const Navigate = useNavigate();
   const truncateText = (text, maxLength) => {
     if (!text) {
@@ -88,23 +107,37 @@ function Index() {
               mt: 2,
             }}
           >
-            Kegiatan Minggu Ini
+            Semua Kegiatan
           </Typography>
         </Box>
         <Button
-          variant="contained"
-          onClick={() => Navigate("/Warga/Kegiatan")}
+          variant="outlined"
+          onClick={handleClick}
+          endIcon={<ArrowDropDownIcon />}
           sx={{
-            backgroundColor: "#00A9AD",
-            color: "#fff",
+            backgroundColor: "#fff",
+            borderColor: "#00A9AD",
+            color: "#00A9AD",
             "&:hover": {
-              backgroundColor: "#00A9AD",
-              color: "#fff",
+              backgroundColor: "#fff",
+              borderColor: "#00A9AD",
+              color: "#00A9AD",
             },
           }}
         >
-          Semua Kegiatan
+          {selectedOption}
         </Button>
+        <Menu anchorEl={anchorEl} open={open} onClose={() => handleClose(null)}>
+          <MenuItem onClick={() => handleClose("Minggu Ini")}>
+            Minggu Ini
+          </MenuItem>
+          <MenuItem onClick={() => handleClose("Minggu Depan")}>
+            Minggu Depan
+          </MenuItem>
+          <MenuItem onClick={() => handleClose("Minggu Lalu")}>
+            Minggu Lalu
+          </MenuItem>
+        </Menu>
       </Box>
       {/* BOX CARD  */}
       <Box
@@ -115,7 +148,7 @@ function Index() {
           mt: -3,
           position: "relative",
           zIndex: 3,
-          marginBottom: "100px",
+          marginBottom: "73px",
         }}
       >
         {/* Dots pattern */}
@@ -260,6 +293,31 @@ function Index() {
             </Card>
           ))}
         </Box>
+      </Box>
+      <Box
+        sx={{
+          width: "86%",
+          justifyContent: "end",
+          display: "flex",
+        }}
+      >
+        <Button
+          variant="outlined"
+          onClick={() => Navigate("/Warga")}
+          sx={{
+            borderColor: "#00A9AD",
+            color: "#00A9AD",
+            fontWeight: "bold",
+
+            "&:hover": {
+              backgroundColor: "#E0F7F8", // Warna latar belakang saat hover
+              borderColor: "#00A9AD",
+            },
+            marginBottom: "50px",
+          }}
+        >
+          KEMBALI
+        </Button>
       </Box>
     </Box>
   );

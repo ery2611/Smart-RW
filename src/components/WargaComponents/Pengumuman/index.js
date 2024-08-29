@@ -72,7 +72,7 @@ function Index() {
               mt: 2,
             }}
           >
-            Pengumuman Minggu Ini
+            Pengumuman Bulan Ini
           </Typography>
         </Box>
         <Box>

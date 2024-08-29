@@ -22,7 +22,7 @@ function Index() {
       title: "Forum Les Anak Bahasa Inggris",
       deskripsi: "Forum untuk pendataan dan pendaftaran les anak RW 02",
       gambar:
-        "https://tse4.mm.bing.net/th?id=OIP.mz2m_TmTFmxfJEDbIHHQbwHaFU&pid=Api&P=0&h=180", // Replace with the actual image path
+        "https://www.karebasulsel.id/wp-content/uploads/2022/11/les-bahasa-inggris-terdekat-1.jpg",
     },
     {
       title: "Touring Sepeda",
@@ -69,7 +69,7 @@ function Index() {
             sx={{
               position: "relative",
               color: "#00A9AD",
-              pl: 5, //  text is inside the box
+              pl: 5, // text is inside the box
               lineHeight: "60px",
               zIndex: 6, // text is on top of the box
               fontSize: "30px",
@@ -78,6 +78,33 @@ function Index() {
             }}
           >
             Forum
+          </Typography>
+          <Typography
+            sx={{
+              position: "relative",
+              color: "#000000",
+              pl: 5, // text is inside the box
+              lineHeight: "60px",
+              zIndex: 6, // text is on top of the box
+              fontSize: "20px",
+              mt: -3,
+            }}
+          >
+            14 Forum Aktif
+            <Typography
+              component="span"
+              sx={{
+                position: "relative",
+                color: "#AEAEAE",
+                pl: 2, // text is inside the box
+                lineHeight: "60px",
+                zIndex: 6, // text is on top of the box
+                fontSize: "20px",
+                mt: -3,
+              }}
+            >
+              dari 24 Forum
+            </Typography>
           </Typography>
         </Box>
         <Box>

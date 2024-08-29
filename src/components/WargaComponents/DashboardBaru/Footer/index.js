@@ -1,7 +1,10 @@
 import React from "react";
 import { Box, Typography, Grid } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const Navigate = useNavigate();
+
   return (
     <Box
       sx={{
@@ -24,13 +27,26 @@ const Footer = () => {
         </Grid>
 
         <Grid item xs={12} sm={2}>
-          <Typography variant="body2" sx={{ mb: 1 }}>
+          <Typography
+            onClick={() => Navigate("/Warga")}
+            variant="body2"
+            sx={{ mb: 1 }}
+          >
             Home
           </Typography>
-          <Typography variant="body2" sx={{ mb: 1 }}>
+          <Typography
+            variant="body2"
+            onClick={() => Navigate("/Warga/Pengumuman")}
+            sx={{ mb: 1 }}
+          >
             Pengumuman
           </Typography>
-          <Typography variant="body2">Kegiatan</Typography>
+          <Typography
+            variant="body2"
+            onClick={() => Navigate("/Warga/Kegiatan")}
+          >
+            Kegiatan
+          </Typography>
         </Grid>
 
         <Grid item xs={12} sm={3}>

@@ -1,5 +1,4 @@
 import React from "react";
-import Kegiatan from "../../../components/WargaComponents/Kegiatan/semua";
 import Bar from "../../../components/WargaComponents/Navbar";
 import {
   Box,
@@ -10,59 +9,41 @@ import {
   Container,
 } from "@mui/material";
 
+import Pengumuman from "../../../components/WargaComponents/Pengumuman";
+import Kegiatan from "../../../components/WargaComponents/Kegiatan/all";
+import Header from "../../../components/WargaComponents/Header";
+import Highlight from "../../../components/WargaComponents/Kegiatan/highlight";
+import Footer from "../../../components/WargaComponents/DashboardBaru/Footer/index";
+
 function index() {
+  // Mendapatkan tanggal saat ini
+  const now = new Date();
+
+  // Format tanggal
+  const hari = now.toLocaleString("id-ID", { weekday: "long" }); // Nama hari
+  const tanggal = now.toLocaleString("id-ID", { day: "2-digit" }); // Tanggal
+  const bulan = now.toLocaleString("id-ID", { month: "long" }); // Nama bulan
+  const tahun = now.getFullYear(); // Tahun
+
+  // Menyusun string tanggal
+  const formatTanggal = `${hari}, ${tanggal} ${bulan} ${tahun}`;
+
   return (
-    <Container
-      sx={{
-        width: "1200px",
-      }}
-    >
-      <Bar />
-
-      <Box
-        sx={{
-          height: "3%",
-        }}
-      >
-        <Stack direction="column">
-          <Typography
-            variant="h5"
-            sx={{ marginBottom: 0, color: "#00A9AD", fontSize: 18 }}
-          >
-            WARGA
-          </Typography>
-          <Stack direction="row" sx={{ marginBottom: 2, fontSize: 14 }}>
-            <Typography variant="h8" sx={{ color: "#A0A1A4" }}>
-              Dashboard/
-            </Typography>
-            <Typography
-              variant="h9"
-              sx={{ color: "black", fontWeight: "bold" }}
-            >
-              Kegiatan
-            </Typography>
-          </Stack>
-        </Stack>
+    <Box>
+      <Header />
+      <Box sx={{ width: "100%" }}>
+        <Highlight />
       </Box>
-
       <Box
-        display="fluid"
         sx={{
-          justifyContent: "flex-start",
-          overflowY: "auto",
+          marginTop: "30px",
           width: "100%",
         }}
       >
-        <Box
-          sx={{
-            marginTop: "30px",
-            width: "100%",
-          }}
-        >
-          <Kegiatan />
-        </Box>
+        <Kegiatan />
       </Box>
-    </Container>
+      <Footer />
+    </Box>
   );
 }
 
