@@ -3,11 +3,13 @@ import { Avatar, Box, Card, Container, IconButton, Stack, Typography } from "@mu
 import { Home } from "@mui/icons-material";
 import React, { useState } from "react";
 import MainCard from "../../../Component/WargaComponnent/IKK/mainCard/index.tsx";
+import RumputIndex from "../../../Component/WargaComponnent/IKK/clickedCard/rumput.tsx";
 
 export const IkkMain: React.FC = () => {
-    const [hover, setHover] = useState<boolean>(true)
+    const [hover3, setHover3] = useState<boolean>(true)
+
     return(
-        <Box sx={{height:'auto', minHeight:'100vh'}}>
+        <Box sx={{height:'auto'}}>
             {/* navbar */}
       <Card
         sx={{
@@ -58,8 +60,8 @@ export const IkkMain: React.FC = () => {
           <Stack direction='column' spacing={3} sx={{mt:2}}>
         {/* Box pertama untuk jadwal patroli, kendaraan, dan pengaduan keamanan */}
         <Box sx={{display:'flex', justifyContent:'space-between'}}>
-            <div onMouseEnter={()=> setHover(false)} onMouseLeave={() => setHover(true)}>
-                {hover === true? (<MainCard jenisCard='satpam'/>): (<div>halo</div>)}
+            <div>
+                <MainCard jenisCard='satpam'/>
             </div>
             <div>
                 <MainCard jenisCard="kendaraan"/>
@@ -81,8 +83,12 @@ export const IkkMain: React.FC = () => {
 
         {/* Box Ketiga ada 3, untuk potong rumput, pengambilan sampah, dan jadwal sapu */}
         <Box sx={{display:'flex', justifyContent:'space-between'}}>
-            <div>
-                <MainCard jenisCard="rumput"/>
+            <div onMouseEnter={()=> setHover3(false)} onMouseLeave={() => setHover3(true)}
+             style={{
+              transition: 'transform 0.3s ease',
+              transform: hover3 ? 'scale(1.1)' : 'scale(1)',
+             }}>
+                {hover3 === true? <MainCard jenisCard="rumput"/>: <RumputIndex hover={hover3}/>}
             </div>
             <div>
                 <MainCard jenisCard="sampah"/>
