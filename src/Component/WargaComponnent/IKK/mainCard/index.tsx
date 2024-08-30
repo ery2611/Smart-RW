@@ -68,7 +68,7 @@ const MainCard: React.FC<TypeCard> = ({jenisCard}) =>{
                     <Typography sx={{fontFamily:'Montserrat, sans-serif', fontSize:'20px', fontWeight:'bold'}}> 20</Typography>
                 </Card>
                 
-            {/* judul */}
+            
         </Container>
     )
 }

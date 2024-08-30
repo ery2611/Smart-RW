@@ -4,6 +4,9 @@ import { Home } from "@mui/icons-material";
 import React, { useState } from "react";
 import MainCard from "../../../Component/WargaComponnent/IKK/mainCard/index.tsx";
 import RumputIndex from "../../../Component/WargaComponnent/IKK/clickedCard/rumput.tsx";
+import SampahIndex from "../../../Component/WargaComponnent/IKK/clickedCard/sampah.tsx";
+import JadwalSapuIndex from "../../../Component/WargaComponnent/IKK/clickedCard/JadwalSapu.tsx";
+
 
 export const IkkMain: React.FC = () => {
     const [hover3, setHover3] = useState<boolean>(true)
@@ -85,16 +88,27 @@ export const IkkMain: React.FC = () => {
         <Box sx={{display:'flex', justifyContent:'space-between'}}>
             <div onMouseEnter={()=> setHover3(false)} onMouseLeave={() => setHover3(true)}
              style={{
+              flex:1,
               transition: 'transform 0.3s ease',
               transform: hover3 ? 'scale(1.1)' : 'scale(1)',
              }}>
                 {hover3 === true? <MainCard jenisCard="rumput"/>: <RumputIndex hover={hover3}/>}
             </div>
-            <div>
-                <MainCard jenisCard="sampah"/>
+            <div onMouseEnter={()=> setHover3(false)} onMouseLeave={() => setHover3(true)}
+             style={{
+              flex:1,
+              transition: 'transform 0.3s ease',
+              transform: hover3 ? 'scale(1.1)' : 'scale(1)',
+             }}>
+                {hover3 === true? <MainCard jenisCard="sampah"/>: <SampahIndex hover={hover3}/>}
             </div>
-            <div>
-                <MainCard jenisCard="jadwalSapu"/>
+            <div onMouseEnter={()=> setHover3(false)} onMouseLeave={() => setHover3(true)}
+             style={{
+              flex:1,
+              transition: 'transform 0.3s ease',
+              transform: hover3 ? 'scale(1.1)' : 'scale(1)',
+             }}>
+                {hover3 === true? <MainCard jenisCard="jadwalSapu"/>: <JadwalSapuIndex hover={hover3}/>}
             </div>
         </Box>
 

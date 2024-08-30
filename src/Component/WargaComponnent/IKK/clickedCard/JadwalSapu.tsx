@@ -1,28 +1,28 @@
 import { Button, Card, Container, Paper, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
-import { dataPemotonganRumput } from "../../../../Context/Warga/IKK/PemotonganRumputData.tsx";
 import { getColorSudahBelum } from "../../../../Context/SudahorBelumColor.tsx";
+import { DataJadwalSapu } from "../../../../Context/Warga/IKK/JadwalSapuData.tsx";
 
-//TODO Benerin height dan Button nya
 interface Ihover {
     hover: boolean;
 }
-const RumputIndex: React.FC<Ihover> = ({hover}) => {
-    const [tahun, setTahun] = useState<number>(2024);
+
+const JadwalSapuIndex: React.FC<Ihover> = ({hover}) => {
+    const [pekan, setPekan] = useState<string>("Pekan ke-1")
 
     return(
         <Container>
-            <Card sx={{height:'430px', width:'330px', opacity: hover ? 0 : 1,
+            <Card sx={{height:'auto', width:'330px', opacity: hover ? 0 : 1,
     transition: 'opacity 0.3s ease'}}>
                 <Container sx={{mb:2}}>
                 <Stack direction='column' textAlign='center' spacing={2}>
                     {/* Judul */}
                     <Typography sx={{fontFamily:'Montserrat, sans-serif', color:'#00A9AD', fontSize:'20px', fontWeight:'bold'}}>
-                        Jadwal Pemotongan Rumput
+                        Jadwal Sapu Jalan
                     </Typography>
 
                     {/* Pilih tahun */}
-                    <TextField size="small" select label={tahun} onChange={(e)=> setTahun(parseInt(e.target.value))} sx={{color:'#00A9AD', width:'40%'}}></TextField>
+                    <TextField size="small" select label={pekan} onChange={(e)=> setPekan(e.target.value)} sx={{color:'#00A9AD', width:'50%'}}></TextField>
                     
                     {/* table */}
                     <TableContainer component={Paper}>
@@ -58,19 +58,19 @@ const RumputIndex: React.FC<Ihover> = ({hover}) => {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {dataPemotonganRumput.map((row)=>(
+                            {DataJadwalSapu.map((row)=>(
                                 <TableRow 
                                 key={row.id}
                                 sx={{
                                     marginBottom: 2,
                                     display: "table-row",
                                     borderBottom:'none',
-                                    '& > *': { borderBottom: 'none', padding: '4px 8px' }
+                                    '& > *':{padding: '4px 8px', borderBottom:'none'}
                                   }}
                                 >
                                     <TableCell>
                                         <Typography>
-                                            {row.tanggal.toLocaleDateString()}
+                                            {row.hari}
                                         </Typography>
                                     </TableCell>
                                     <TableCell>
@@ -96,9 +96,8 @@ const RumputIndex: React.FC<Ihover> = ({hover}) => {
                         fontFamily: "Montserrat, sans-serif",
                         fontWeight: "bold",
                         borderRadius:'8px',
-                        position:'fixed',
-                        bottom:15,
-                        width:'75%',
+                        marginTop:'auto',
+                        bottom:0,
                         ":hover":{backgroundColor:'#00A9AD'}}}>
 
                     Lapor
@@ -112,4 +111,4 @@ const RumputIndex: React.FC<Ihover> = ({hover}) => {
     )
 }
 
-export default RumputIndex
+export default JadwalSapuIndex;
