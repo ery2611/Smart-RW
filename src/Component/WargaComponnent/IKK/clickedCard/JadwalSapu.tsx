@@ -26,9 +26,9 @@ const JadwalSapuIndex: React.FC<Ihover> = ({hover}) => {
                     
                     {/* table */}
                     <TableContainer component={Paper}>
-                    <Table>
+                    <Table size="small">
                         <TableHead>
-                            <TableRow sx={{ backgroundColor:'#00A9AD', color:'#FFFF', '& > *':{padding:'4px 8px'}}}>
+                            <TableRow sx={{ backgroundColor:'#00A9AD', color:'#FFFF', '& > *':{borderBottom:'none',padding:'4px 8px'}}}>
                                 <TableCell 
                                 sx={{color:'#FFF',
                                     fontSize:'16px',
@@ -65,7 +65,7 @@ const JadwalSapuIndex: React.FC<Ihover> = ({hover}) => {
                                     marginBottom: 2,
                                     display: "table-row",
                                     borderBottom:'none',
-                                    '& > *':{padding: '4px 8px', borderBottom:'none'}
+                                    '& > *':{borderBottom:'none',padding: '4px 16px', }
                                   }}
                                 >
                                     <TableCell>
