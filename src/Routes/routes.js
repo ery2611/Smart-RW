@@ -29,6 +29,8 @@ const KeamananUpcoming = Loadable(lazy(()=>import('../Pages/KeamananOngoing4/upc
 const KebersihanDetail = Loadable(lazy(()=>import('../Pages/KebersihanDetail/index')))
 const KebersihanDetail2 = Loadable(lazy(()=>import('../Pages/KebersihanDetail/detail2')))
 const WargaEWS = Loadable(lazy(()=>import('../Pages/Warga/WargaEWS/index')))
+const WargaKonfirmasiPAM = Loadable(lazy(()=>import('../Pages/Warga/WargaKonfirmasiPAM/index')))
+const WargaFormPengaduan = Loadable(lazy(()=>import('../Pages/Warga/WargaFormPengaduan/index')))
 
 const mainRoutes =[{
     path: '',
@@ -113,6 +115,14 @@ const mainRoutes =[{
 {
     path:'/WargaEWS',
     element: <WargaEWS/>
+},
+{
+    path:'/KonfirmasiPAM',
+    element: <WargaKonfirmasiPAM/>
+},
+{
+    path:'/FormPengaduanWarga',
+    element: <WargaFormPengaduan/>
 },
 
 
