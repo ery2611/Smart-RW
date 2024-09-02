@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import Kegiatan from "../../../components/WargaComponents/Kegiatan/index";
 import Pengumuman from "../../../components/WargaComponents/Pengumuman";
-import Forum from "../../../components/WargaComponents/Forum";
+import Forum from "../../../components/WargaComponents/Berita";
 import Header from "../../../components/WargaComponents/Header";
 import Highlight from "../../../components/WargaComponents/DashboardBaru/CardAtas/index";
 import Footer from "../../../components/WargaComponents/DashboardBaru/Footer/index";
@@ -50,14 +50,7 @@ function index() {
       >
         <Pengumuman />
       </Box>
-      <Box
-        sx={{
-          marginTop: "30px",
-          width: "100%",
-        }}
-      >
-        <Forum />
-      </Box>
+
       <Footer />
     </Box>
   );

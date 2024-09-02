@@ -183,7 +183,7 @@ function Index() {
               >
                 <Button
                   variant="contained"
-                  onClick={() => Navigate("/DetailPengumuman")}
+                  onClick={() => Navigate("/Forum/Lihat")}
                   sx={{
                     backgroundColor: "#00A9AD",
                     padding: "8px 16px", // Menyesuaikan padding sesuai dengan konten tombol

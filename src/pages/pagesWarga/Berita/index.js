@@ -10,9 +10,9 @@ import {
 } from "@mui/material";
 import Kegiatan from "../../../components/WargaComponents/Kegiatan/index";
 import Pengumuman from "../../../components/WargaComponents/Pengumuman";
-import Forum from "../../../components/WargaComponents/Forum/all";
+import Forum from "../../../components/WargaComponents/Berita/all";
 import Header from "../../../components/WargaComponents/Header";
-import Highlight from "../../../components/WargaComponents/Forum/highlight";
+import Highlight from "../../../components/WargaComponents/Berita/highlight";
 import Footer from "../../../components/WargaComponents/DashboardBaru/Footer/index";
 
 function index() {

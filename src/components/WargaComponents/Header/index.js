@@ -74,6 +74,7 @@ const CommandCenterAppBar = () => {
             flexGrow: 1,
           }}
         >
+          {/* Home */}
           <Box
             sx={{
               padding: "5px 15px",
@@ -93,13 +94,14 @@ const CommandCenterAppBar = () => {
               Home
             </Typography>
           </Box>
+          {/* Berita */}
           <Box
             sx={{
               padding: "5px 15px",
               margin: "0 10px",
               cursor: "pointer",
             }}
-            onClick={() => navigate("/Warga/Ikk")}
+            onClick={() => navigate("/Warga/Berita")}
           >
             <Typography
               variant="body1"
@@ -109,9 +111,70 @@ const CommandCenterAppBar = () => {
                 textDecoration: "none",
               }}
             >
-              IKK
+              Berita
             </Typography>
           </Box>
+          {/* Kegutan */}
+          <Box
+            sx={{
+              padding: "5px 15px",
+              margin: "0 10px",
+              cursor: "pointer",
+            }}
+            onClick={() => navigate("/Warga/Kegiatan")}
+          >
+            <Typography
+              variant="body1"
+              sx={{
+                color: "#00A9AD",
+                fontWeight: "bold",
+                textDecoration: "none",
+              }}
+            >
+              Kegiatan
+            </Typography>
+          </Box>
+          {/* pENGUMUMAN */}
+          <Box
+            sx={{
+              padding: "5px 15px",
+              margin: "0 10px",
+              cursor: "pointer",
+            }}
+            onClick={() => navigate("/Warga/Pengumuman")}
+          >
+            <Typography
+              variant="body1"
+              sx={{
+                color: "#00A9AD",
+                fontWeight: "bold",
+                textDecoration: "none",
+              }}
+            >
+              Pengumuman
+            </Typography>
+          </Box>
+          {/* Galllery */}
+          <Box
+            sx={{
+              padding: "5px 15px",
+              margin: "0 10px",
+              cursor: "pointer",
+            }}
+            onClick={() => navigate("/Warga/Gallery")}
+          >
+            <Typography
+              variant="body1"
+              sx={{
+                color: "#00A9AD",
+                fontWeight: "bold",
+                textDecoration: "none",
+              }}
+            >
+              Galllery
+            </Typography>
+          </Box>
+          {/* EWS */}
           <Box
             sx={{
               padding: "5px 15px",
@@ -131,13 +194,14 @@ const CommandCenterAppBar = () => {
               EWS
             </Typography>
           </Box>
+          {/* OGs */}
           <Box
             sx={{
               padding: "5px 15px",
               margin: "0 10px",
               cursor: "pointer",
             }}
-            onClick={() => navigate("/Warga/Panggilan")}
+            onClick={() => navigate("/Warga/Ogs")}
           >
             <Typography
               variant="body1"
@@ -147,7 +211,47 @@ const CommandCenterAppBar = () => {
                 textDecoration: "none",
               }}
             >
-              Darurat
+              OGS
+            </Typography>
+          </Box>
+          {/* About */}
+          <Box
+            sx={{
+              padding: "5px 15px",
+              margin: "0 10px",
+              cursor: "pointer",
+            }}
+            onClick={() => navigate("/Warga/About")}
+          >
+            <Typography
+              variant="body1"
+              sx={{
+                color: "#00A9AD",
+                fontWeight: "bold",
+                textDecoration: "none",
+              }}
+            >
+              About
+            </Typography>
+          </Box>
+          {/* IKK */}
+          <Box
+            sx={{
+              padding: "5px 15px",
+              margin: "0 10px",
+              cursor: "pointer",
+            }}
+            onClick={() => navigate("/Warga/Ikk")}
+          >
+            <Typography
+              variant="body1"
+              sx={{
+                color: "#00A9AD",
+                fontWeight: "bold",
+                textDecoration: "none",
+              }}
+            >
+              IKK
             </Typography>
           </Box>
         </Box>

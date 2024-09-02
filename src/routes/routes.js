@@ -74,12 +74,12 @@ const FormKebersihan = Loadable(
 const Kegiatan = Loadable(
   lazy(() => import("../pages/pagesWarga/Kegiatan/index"))
 );
-const Forum = Loadable(lazy(() => import("../pages/pagesWarga/Forum/index")));
+const Berita = Loadable(lazy(() => import("../pages/pagesWarga/Berita/index")));
 const PengumumanWarga = Loadable(
   lazy(() => import("../pages/pagesWarga/Pengumuman/index"))
 );
-const LihatForum = Loadable(
-  lazy(() => import("../pages/pagesWarga/Forum/lihat"))
+const DetailBerita = Loadable(
+  lazy(() => import("../pages/pagesWarga/Berita/lihat.js"))
 );
 const KeamananWarga = Loadable(
   lazy(() => import("../pages/pagesWarga/Keamanan/Index"))
@@ -292,8 +292,8 @@ const mainRoutes = [
     element: <Kegiatan />,
   },
   {
-    path: "/Warga/Forum",
-    element: <Forum />,
+    path: "/Warga/Berita",
+    element: <Berita />,
   },
   {
     path: "/Warga/Pengumuman",
@@ -324,8 +324,8 @@ const mainRoutes = [
     element: <FormKebersihan />,
   },
   {
-    path: "/Forum/Lihat",
-    element: <LihatForum />,
+    path: "/DetailBerita",
+    element: <DetailBerita />,
   },
   {
     path: "/Warga/Keamanan",

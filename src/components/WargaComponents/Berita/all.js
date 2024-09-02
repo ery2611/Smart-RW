@@ -8,77 +8,87 @@ import {
   CardContent,
   Pagination,
 } from "@mui/material";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-
-import Lokasi from "@mui/icons-material/LocationOn"; // Replace with actual icon
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward"; // Icon for button
+import Lokasi from "@mui/icons-material/LocationOn";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Person from "@mui/icons-material/Person";
 import { useNavigate } from "react-router-dom";
 
 function Index() {
   const [currentPage, setCurrentPage] = useState(1);
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
+
   const truncateText = (text, maxLength) => {
-    if (!text) {
-      return "";
-    }
-    if (text.length <= maxLength) {
-      return text;
-    }
-    return text.substring(0, maxLength) + "...";
+    if (!text) return "";
+    return text.length <= maxLength
+      ? text
+      : text.substring(0, maxLength) + "...";
   };
 
-  const pengumumanData = [
+  const beritaData = [
     {
-      title: "Kerja Bakti",
+      title: "Maling Laptop Tertangkap",
       deskripsi:
-        "Bulan ini ada akan kerja bakti untuk perbaikan jalan Kemang Pratama 2",
+        "Maling yang mencuri laptop bapak Aan akhirnya sudah tertangkap oleh warga RW 36",
       pelaku: "Terbuka untuk Umum",
       lokasi: "Kemang Pratama 2",
       gambar:
-        "https://tse1.mm.bing.net/th?id=OIP.rafmDrP9vNezAvoR7F6dAwHaE7&pid=Api&P=0&h=180",
+        "https://i.ytimg.com/vi/PD_FUVrOb-w/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH2CYAC0AWKAgwIABABGEIgYShlMA8=&rs=AOn4CLAaGihwnjRfmOQOlQ5YuexHnD-oqw", // Replace with the actual image path
     },
     {
-      title: "Pelebaran Selokan",
-      deskripsi: "Bulan ini akan ada renovasi untuk Selokan Jalanan Utama",
-      pelaku: "Terbuka untuk Umum",
-      lokasi: "Kemang Pratama 2",
-
-      gambar:
-        "https://t-2.tstatic.net/jogja/foto/bank/images/Proses-Perbaikan-Selokan-Mataram-Dikeringkan.jpg", // Replace with the actual image path
-    },
-    {
-      title: "Pemilihan Ketua RW",
-      deskripsi: "Bulan ini akan dilaksanakan Pemilihan Ketua RW024",
-      pelaku: "Warga RW024",
-      lokasi: "Balai RW",
-      gambar: " https://sekilasinfo.net/wp-content/uploads/2020/03/pemilu.jpg",
-    },
-    {
-      title: "Bazaar",
+      title: "Kebakaran",
       deskripsi:
-        "Minggu depan akan diadakan bazaar di lapangan utama Kemang Pratama",
-      pelaku: "Terbuka untuk Umum",
-      lokasi: "Lapangan Utama Kemang",
-      gambar:
-        "https://cdn-2.tstatic.net/bangka/foto/bank/images/20220108_food-bazar-pgk-01.jpg",
-    },
-    {
-      title: "Pengcoran Jalan",
-      deskripsi:
-        "Minggu depan akan dilaksanakan pengecoran di jalan utama Kemang Pratama",
+        "Telah Terjadi Kebakaran di RT003, dan menyebabkan kerugian sebesar 5M",
       pelaku: "-",
-      lokasi: "Jalan Utama Kemang",
+      lokasi: "RT 003",
       gambar:
-        "https://www.rumahaspal.com/wp-content/uploads/2022/05/jasa-borong-cor-jalan.jpg",
+        "https://independensi.com/wp-content/uploads/2018/08/pemadam-kebakaran.jpg", // Replace with the actual image path
     },
+    {
+      title: "Bayi Hilang",
+      deskripsi:
+        "Telah terjadi seoranh bayi yang hilang pada hari senin dini hari",
+      pelaku: "Untuk yang ingin Olahraga Pagi",
+      lokasi: "Lapangan Kemang Pratama 2",
+      gambar:
+        "https://tse2.mm.bing.net/th?id=OIP.P7N31XHcVJVVZLktOGMumgHaE8&pid=Api&P=0&h=180", // Replace with the actual image path
+    },
+    {
+      title: "Kebakaran",
+      deskripsi:
+        "Telah Terjadi Kebakaran di RT003, dan menyebabkan kerugian sebesar 5M",
+      pelaku: "-",
+      lokasi: "RT 003",
+      gambar:
+        "https://independensi.com/wp-content/uploads/2018/08/pemadam-kebakaran.jpg", // Replace with the actual image path
+    },
+    {
+      title: "Bayi Hilang",
+      deskripsi:
+        "Telah terjadi seoranh bayi yang hilang pada hari senin dini hari",
+      pelaku: "Untuk yang ingin Olahraga Pagi",
+      lokasi: "Lapangan Kemang Pratama 2",
+      gambar:
+        "https://tse2.mm.bing.net/th?id=OIP.P7N31XHcVJVVZLktOGMumgHaE8&pid=Api&P=0&h=180", // Replace with the actual image path
+    },
+    {
+      title: "Maling Laptop Tertangkap",
+      deskripsi:
+        "Maling yang mencuri laptop bapak Aan akhirnya sudah tertangkap oleh warga RW 36",
+      pelaku: "Terbuka untuk Umum",
+      lokasi: "Kemang Pratama 2",
+      gambar:
+        "https://i.ytimg.com/vi/PD_FUVrOb-w/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH2CYAC0AWKAgwIABABGEIgYShlMA8=&rs=AOn4CLAaGihwnjRfmOQOlQ5YuexHnD-oqw", // Replace with the actual image path
+    },
+    // Add 9 more data entries to reach 11 items
+    // Ensure each entry has title, deskripsi, pelaku, lokasi, and gambar fields
   ];
 
   const itemsPerPage = 4;
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = pengumumanData.slice(indexOfFirstItem, indexOfLastItem);
-  const totalPages = Math.ceil(pengumumanData.length / itemsPerPage);
+  const currentItems = beritaData.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(beritaData.length / itemsPerPage);
+
   return (
     <Box sx={{ marginTop: "20px", borderRadius: 2, pl: 2, pr: 2 }}>
       <Box>
@@ -92,7 +102,7 @@ function Index() {
             mb: 4,
           }}
         >
-          Semua Pengumuman
+          Semua Berita
         </Typography>
 
         <Box
@@ -120,7 +130,7 @@ function Index() {
                 boxShadow: "none",
                 background: "transparent",
               }}
-              onClick={() => Navigate("/DetailPengumuman")}
+              onClick={() => navigate("/DetailBerita")}
             >
               <CardMedia
                 component="img"

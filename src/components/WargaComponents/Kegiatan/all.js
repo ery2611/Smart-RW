@@ -6,43 +6,22 @@ import {
   Card,
   CardMedia,
   CardContent,
-  Menu,
-  MenuItem,
+  Pagination,
 } from "@mui/material";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-
-import Lokasi from "@mui/icons-material/LocationOn"; // Replace with actual icon
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward"; // Icon for button
+import Lokasi from "@mui/icons-material/LocationOn";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Person from "@mui/icons-material/Person";
 import { useNavigate } from "react-router-dom";
 
 function Index() {
-  // const dropdown
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [selectedOption, setSelectedOption] = useState("Pilih Minggu");
-  const open = Boolean(anchorEl);
+  const [currentPage, setCurrentPage] = useState(1);
+  const navigate = useNavigate();
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = (option) => {
-    setAnchorEl(null);
-    if (option) {
-      setSelectedOption(option);
-    }
-  };
-
-  // akhir const dropdown
-  const Navigate = useNavigate();
   const truncateText = (text, maxLength) => {
-    if (!text) {
-      return "";
-    }
-    if (text.length <= maxLength) {
-      return text;
-    }
-    return text.substring(0, maxLength) + "...";
+    if (!text) return "";
+    return text.length <= maxLength
+      ? text
+      : text.substring(0, maxLength) + "...";
   };
 
   const kegiatanData = [
@@ -52,7 +31,7 @@ function Index() {
       pelaku: "Terbuka untuk Umum",
       lokasi: "Kemang Pratama 2",
       gambar:
-        "https://tse2.mm.bing.net/th?id=OIP.b2HRVfXJOKOwikj1per-0QHaE5&pid=Api&P=0&h=180", // Replace with the actual image path
+        "https://1.bp.blogspot.com/-Hmq-wmMVKhY/YO6IsaXzxuI/AAAAAAAAN9E/cMERi4z8mcESg96CcjOGFgXoOyqt6iFogCLcBGAsYHQ/s700/Lomba-17-Agustus.jpg",
     },
     {
       title: "Touring Sepeda",
@@ -60,264 +39,140 @@ function Index() {
       pelaku: "Untuk yang ingin bersepeda",
       lokasi: "Lapangan Banteng",
       gambar:
-        "https://tse1.mm.bing.net/th?id=OIP.Wn-_RqW73zgz6rG1E5aKvwHaFj&pid=Api&P=0&h=180", // Replace with the actual image path
+        "https://1.bp.blogspot.com/-Hmq-wmMVKhY/YO6IsaXzxuI/AAAAAAAAN9E/cMERi4z8mcESg96CcjOGFgXoOyqt6iFogCLcBGAsYHQ/s700/Lomba-17-Agustus.jpg",
     },
+    {
+      title: "Senam Pagi",
+      deskripsi: "Bagi yang ingin melakukan senam kebugaran jasmani",
+      pelaku: "Untuk yang ingin bersepeda",
+      lokasi: "Lapangan Banteng",
+      gambar: "https://i.ytimg.com/vi/QToHGCrDaxA/maxresdefault.jpg",
+    },
+    {
+      title: "Touring Sepeda",
+      deskripsi: "Bagi yang menyukai bersepeda",
+      pelaku: "Untuk yang ingin bersepeda",
+      lokasi: "Lapangan Banteng",
+      gambar:
+        "https://4.bp.blogspot.com/-xQ9qgwa9fAk/VyTLEzbAXlI/AAAAAAAAP58/oNfkpNkT3WYCKJGQjBAiP5GmoU3I45MAwCLcB/s1600/itdbi%2Badu%2Bsprint.jpg",
+    },
+    ,
+    {
+      title: "Senam Pagi",
+      deskripsi: "Bagi yang ingin melakukan senam kebugaran jasmani",
+      pelaku: "Untuk yang ingin bersepeda",
+      lokasi: "Lapangan Banteng",
+      gambar: "https://i.ytimg.com/vi/QToHGCrDaxA/maxresdefault.jpg",
+    },
+    {
+      title: "Imunisasi Balita",
+      deskripsi: "Kegiatan Imunisasi untuk Anak dibawah Usia Lima Tahun",
+      pelaku: "Warga",
+      lokasi: "Lapangan Banteng",
+      gambar:
+        "https://www.ruangbunda.com/wp-content/uploads/2023/04/bayi_30_jadwal-imunisasi-bayi-800x450.png",
+    },
+    // Add 9 more data entries to reach 11 items
+    // Ensure each entry has title, deskripsi, pelaku, lokasi, and gambar fields
   ];
+
+  const itemsPerPage = 4;
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = kegiatanData.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(kegiatanData.length / itemsPerPage);
+
   return (
-    <Box
-      sx={{
-        marginTop: "20px",
-
-        borderRadius: 2,
-        pl: 4,
-        pr: 4,
-      }}
-    >
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          mb: 4,
-          position: "relative",
-        }}
-      >
-        <Box sx={{ display: "inline-block", position: "relative" }}>
-          <Box
-            sx={{
-              position: "absolute",
-              left: 0,
-              top: 0,
-              width: "480px",
-              height: "300px",
-              background: "linear-gradient(to bottom, #CCEEEF, #EFEFEF)",
-
-              zIndex: 1, // Ensure the box is behind the text
-            }}
-          />
-          <Typography
-            sx={{
-              position: "relative",
-              color: "#00A9AD",
-              pl: 5, //  text is inside the box
-              lineHeight: "60px",
-              zIndex: 6, // text is on top of the box
-              fontSize: "30px",
-              fontWeight: "bolder",
-              mt: 2,
-            }}
-          >
-            Semua Kegiatan
-          </Typography>
-        </Box>
-        <Button
-          variant="outlined"
-          onClick={handleClick}
-          endIcon={<ArrowDropDownIcon />}
+    <Box sx={{ marginTop: "20px", borderRadius: 2, pl: 2, pr: 2 }}>
+      <Box>
+        <Typography
           sx={{
-            backgroundColor: "#fff",
-            borderColor: "#00A9AD",
             color: "#00A9AD",
-            "&:hover": {
-              backgroundColor: "#fff",
-              borderColor: "#00A9AD",
-              color: "#00A9AD",
-            },
+            lineHeight: "60px",
+            fontSize: "30px",
+            fontWeight: "bolder",
+            mt: 2,
+            mb: 4,
           }}
         >
-          {selectedOption}
-        </Button>
-        <Menu anchorEl={anchorEl} open={open} onClose={() => handleClose(null)}>
-          <MenuItem onClick={() => handleClose("Minggu Ini")}>
-            Minggu Ini
-          </MenuItem>
-          <MenuItem onClick={() => handleClose("Minggu Depan")}>
-            Minggu Depan
-          </MenuItem>
-          <MenuItem onClick={() => handleClose("Minggu Lalu")}>
-            Minggu Lalu
-          </MenuItem>
-        </Menu>
-      </Box>
-      {/* BOX CARD  */}
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          mt: -3,
-          position: "relative",
-          zIndex: 3,
-          marginBottom: "73px",
-        }}
-      >
-        {/* Dots pattern */}
-        <Box
-          sx={{
-            display: "grid",
-            gridTemplateColumns: "repeat(7, 30px)", // Adjust the number of columns and size
-            gridGap: "30px", // Spasi antar dots
-            position: "absolute",
-            right: "-30px", // Membuat posisinya di kanan card
-            bottom: "-40px", // Membuat posisinya di bawah card
-            zIndex: 1, // Membuat posisinya di belakang card
-          }}
-        >
-          {Array.from({ length: 35 }).map((_, index) => (
-            <Box
-              key={index}
-              sx={{
-                width: "15px",
-                height: "15px",
-                borderRadius: "50%",
-                backgroundColor: "#CCEEEF",
-                fontWeight: "bold",
-                right: 0,
-              }}
-            />
-          ))}
-        </Box>
+          Semua Kegiatan
+        </Typography>
 
         <Box
           sx={{
-            padding: 2,
             display: "flex",
-            justifyContent: "center",
+            justifyContent: "center", // Centers the cards horizontally
+
+            flexWrap: "wrap", // Ensures cards wrap properly on different screen sizes
+            gap: 2, // Adds spacing between cards
+            mt: -3,
             position: "relative",
-            zIndex: 2,
+            zIndex: 3,
+            marginBottom: "73px",
           }}
         >
-          {kegiatanData.map((item, index) => (
+          {currentItems.map((item, index) => (
             <Card
               key={index}
               sx={{
-                width: "400px",
-                display: "inline-flex",
-                marginRight: "20px", // Jarak antar card
+                width: "300px",
+                display: "flex",
                 flexDirection: "column",
-                flexShrink: 0, // Menghindari penyusutan card
+                flexShrink: 0,
+                marginRight: "20px",
+                boxShadow: "none",
+                background: "transparent",
               }}
+              onClick={() => navigate("/DetailKegiatan")}
             >
               <CardMedia
                 component="img"
-                height="200"
+                sx={{
+                  height: "200px",
+                  width: "100%",
+                  objectFit: "cover",
+                }}
                 image={item.gambar}
                 alt={item.title}
-                sx={{
-                  backgroundColor: "#EFEFEF",
-                }}
               />
-              <CardContent>
+              <CardContent
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  flexGrow: 1,
+                  padding: 2,
+                }}
+              >
                 <Typography
                   variant="h6"
-                  gutterBottom
-                  sx={{
-                    color: "#00A9AD",
-                    fontWeight: "bolder",
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
-                    whiteSpace: "nowrap",
-                  }}
+                  sx={{ fontWeight: "bold", mb: 1, color: "#00A9AD" }}
                 >
-                  {truncateText(item.title, 40)}
+                  {truncateText(item.title, 20)}
                 </Typography>
-
-                <Typography
-                  variant="body2"
-                  color="text.secondary"
-                  sx={{ mb: 2 }}
-                >
-                  {truncateText(item.deskripsi, 40)}
+                <Typography variant="body2" color="text.secondary">
+                  {truncateText(item.deskripsi, 100)}
                 </Typography>
-
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                  }}
-                >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "space-between",
-                      alignItems: "flex-start",
-                    }}
-                  >
-                    <Typography
-                      variant="caption"
-                      sx={{ display: "flex", alignItems: "center", mb: 1 }}
-                    >
-                      <Person sx={{ color: "#00A9AD", marginRight: "5px" }} />
-                      {truncateText(item.pelaku, 20)}
-                    </Typography>
-
-                    <Typography
-                      variant="caption"
-                      sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        color: "#EE1717",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      <Lokasi sx={{ marginRight: "5px" }} />
-                      {truncateText(item.lokasi, 20)}
-                    </Typography>
-                  </Box>
-
-                  <Button
-                    variant="contained"
-                    onClick={() => Navigate("/DetailKegiatan")}
-                    sx={{
-                      backgroundColor: "#00A9AD",
-                      borderRadius: "50%", // Membuat buttonnya bulat
-                      width: "40px",
-                      height: "40px",
-                      minWidth: "0", // Prevents the button from stretching due to content
-                      padding: 0,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      ml: "auto",
-                      "&:hover": {
-                        backgroundColor: "#00A9AD",
-                      },
-                    }}
-                  >
-                    <ArrowForwardIcon />
-                  </Button>
-                </Box>
               </CardContent>
             </Card>
           ))}
         </Box>
       </Box>
-      <Box
-        sx={{
-          width: "86%",
-          justifyContent: "end",
-          display: "flex",
-        }}
-      >
-        <Button
-          variant="outlined"
-          onClick={() => Navigate("/Warga")}
+      {/* Pagination */}
+      <Box sx={{ display: "flex", justifyContent: "center", mb: 4, mt: -4 }}>
+        <Pagination
+          count={totalPages}
+          page={currentPage}
+          onChange={(event, value) => setCurrentPage(value)}
           sx={{
-            borderColor: "#00A9AD",
-            color: "#00A9AD",
-            fontWeight: "bold",
-
-            "&:hover": {
-              backgroundColor: "#E0F7F8", // Warna latar belakang saat hover
-              borderColor: "#00A9AD",
+            "& .Mui-selected": {
+              backgroundColor: "#00A9AD !important",
+              color: "#FFFFFF !important",
             },
-            marginBottom: "50px",
+            "& .MuiPaginationItem-root": {
+              color: "#A1A5B7",
+            },
           }}
-        >
-          KEMBALI
-        </Button>
+        />
       </Box>
     </Box>
   );

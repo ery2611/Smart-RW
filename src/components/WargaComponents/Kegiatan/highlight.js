@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Card,
@@ -6,16 +6,18 @@ import {
   CardMedia,
   Typography,
   Button,
+  IconButton,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import Kalender from "@mui/icons-material/CalendarToday"; // Replace with actual icon
-import Jam from "@mui/icons-material/AccessTime"; // Replace with actual icon
 import Lokasi from "@mui/icons-material/LocationOn"; // Replace with actual icon
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward"; // Icon for button
+
 import Person from "@mui/icons-material/Person";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 function Semua() {
   const Navigate = useNavigate();
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const truncateText = (text, maxLength) => {
     if (!text) {
@@ -26,6 +28,43 @@ function Semua() {
     }
     return text.substring(0, maxLength) + "...";
   };
+  const kegiatanData = [
+    {
+      title: "Lomba 17 Agustus",
+      deskripsi: "Lomba tingkat SD, bertema Republik Indonesia",
+      pelaku: "Terbuka untuk Umum",
+      lokasi: "Kemang Pratama 2",
+      gambar:
+        "https://tse2.mm.bing.net/th?id=OIP.b2HRVfXJOKOwikj1per-0QHaE5&pid=Api&P=0&h=180", // Replace with the actual image path
+    },
+    {
+      title: "Touring Sepeda",
+      deskripsi: "Bagi yang menyukai bersepeda",
+      pelaku: "Untuk yang ingin bersepeda",
+      lokasi: "Lapangan Banteng",
+      gambar:
+        "https://tse1.mm.bing.net/th?id=OIP.Wn-_RqW73zgz6rG1E5aKvwHaFj&pid=Api&P=0&h=180", // Replace with the actual image path
+    },
+    {
+      title: "Senam Pagi - Minggu",
+      deskripsi: "Senam Pagi untuk ibu ibu RT003",
+      pelaku: "Untuk yang ingin Olahraga Pagi",
+      lokasi: "Lapangan Kemang Pratama 2",
+      gambar: "https://i.ytimg.com/vi/QToHGCrDaxA/maxresdefault.jpg", // Replace with the actual image path
+    },
+  ];
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % kegiatanData.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + kegiatanData.length) % kegiatanData.length
+    );
+  };
+
+  const currentData = kegiatanData[currentIndex];
 
   return (
     <Box
@@ -34,8 +73,25 @@ function Semua() {
         alignItems: "center",
         width: "100%",
         marginTop: "50px",
+        position: "relative",
       }}
     >
+      <IconButton
+        onClick={handlePrev}
+        sx={{
+          position: "absolute",
+          top: "30%",
+          left: 10,
+          zIndex: 10,
+
+          color: "white",
+        }}
+      >
+        <ArrowForwardIosIcon
+          sx={{ transform: "rotate(180deg)", fontSize: "3.5rem" }}
+        />
+      </IconButton>
+
       <Box sx={{ display: "flex", justifyContent: "center", width: "100%" }}>
         <Box
           sx={{
@@ -44,6 +100,7 @@ function Semua() {
             display: "flex",
             flexDirection: "column",
             marginBottom: "10px",
+            position: "relative",
           }}
         >
           {/* Gambar */}
@@ -54,30 +111,43 @@ function Semua() {
               marginRight: "20px", // Jarak antar card
               flexDirection: "column",
               flexShrink: 0, // Menghindari penyusutan card
+              position: "relative",
             }}
           >
             <CardMedia
               component="img"
               height="350"
-              image="https://media.suara.com/pictures/653x366/2023/07/20/44578-ilustrasi-17-agustus-freepik.jpg"
+              image={currentData.gambar}
               alt={""}
               sx={{
                 backgroundColor: "#EFEFEF",
                 width: "100%", // Make the image span the full width of the card
                 objectFit: "cover", // Ensure the image covers the area
-                justifyContent: "center",
-                alignItems: "center",
-                display: "flex",
+              }}
+            />
+            {/* White shadow overlay */}
+            <Box
+              sx={{
+                position: "absolute",
+                bottom: 0, // White shadow starts from the bottom
+                left: 0,
+                width: "100%",
+                height: "100%",
+                background:
+                  "linear-gradient(0deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 100%)",
               }}
             />
           </Card>
+
           {/* Card deskripsi */}
           <Box
             sx={{
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              marginTop: "-50px",
+              marginTop: "-100px", // Lowered further down
+              position: "relative",
+              zIndex: 2,
             }}
           >
             <Card
@@ -90,6 +160,7 @@ function Semua() {
                 padding: "16px",
                 boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.1)",
                 borderRadius: "8px",
+                backgroundColor: "rgba(355, 355, 355, 0.9)", // Slightly transparent card effect
               }}
             >
               <CardContent>
@@ -104,7 +175,7 @@ function Semua() {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  {truncateText("Lomba 17 Agustus", 70)}
+                  {truncateText(currentData.title, 70)}
                 </Typography>
 
                 <Typography
@@ -112,10 +183,7 @@ function Semua() {
                   color="text.secondary"
                   sx={{ mb: 2 }}
                 >
-                  {truncateText(
-                    "Lomba tingkat SD, bertema republik Indonesia",
-                    60
-                  )}
+                  {truncateText(currentData.deskripsi, 60)}
                 </Typography>
 
                 <Box
@@ -138,7 +206,7 @@ function Semua() {
                       sx={{ display: "flex", alignItems: "center", mb: 1 }}
                     >
                       <Person sx={{ color: "#00A9AD", marginRight: "5px" }} />
-                      {truncateText("Terbuka untuk Umum", 35)}
+                      {truncateText(currentData.pelaku, 35)}
                     </Typography>
 
                     <Typography
@@ -151,7 +219,7 @@ function Semua() {
                       }}
                     >
                       <Lokasi sx={{ marginRight: "5px" }} />
-                      {truncateText("Kemang Pratama 2", 20)}
+                      {truncateText(currentData.lokasi, 20)}
                     </Typography>
                   </Box>
 
@@ -173,6 +241,20 @@ function Semua() {
           </Box>
         </Box>
       </Box>
+
+      <IconButton
+        onClick={handleNext}
+        sx={{
+          position: "absolute",
+          top: "30%",
+          right: 10,
+          zIndex: 10,
+
+          color: "white",
+        }}
+      >
+        <ArrowForwardIosIcon sx={{ fontSize: "3.5rem" }} />
+      </IconButton>
     </Box>
   );
 }
