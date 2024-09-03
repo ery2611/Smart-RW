@@ -52,6 +52,7 @@ const DRpanggilan = Loadable(
 const DashboardWarga = Loadable(
   lazy(() => import("../pages/pagesWarga/Dashboard"))
 );
+const OgsWarga = Loadable(lazy(() => import("../pages/pagesWarga/Ogs")));
 const DKegiatan = Loadable(
   lazy(() => import("../pages/pagesWarga/Kegiatan/detail"))
 );
@@ -59,6 +60,9 @@ const DPengumuman = Loadable(
   lazy(() => import("../pages/pagesWarga/Pengumuman/detail"))
 );
 const EwsWarga = Loadable(lazy(() => import("../pages/pagesWarga/Ews/index")));
+const Gallery = Loadable(
+  lazy(() => import("../pages/pagesWarga/Galeri/index.js"))
+);
 const PanggilanWarga = Loadable(
   lazy(() => import("../pages/pagesWarga/PanggilanDarurat/index"))
 );
@@ -308,6 +312,10 @@ const mainRoutes = [
     element: <EwsWarga />,
   },
   {
+    path: "/Warga/Ogs",
+    element: <OgsWarga />,
+  },
+  {
     path: "/Warga/Panggilan",
     element: <PanggilanWarga />,
   },
@@ -326,6 +334,10 @@ const mainRoutes = [
   {
     path: "/DetailBerita",
     element: <DetailBerita />,
+  },
+  {
+    path: "/Warga/Gallery",
+    element: <Gallery />,
   },
   {
     path: "/Warga/Keamanan",
