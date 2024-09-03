@@ -9,10 +9,13 @@ import JadwalSapuIndex from "../../../Component/WargaComponnent/IKK/clickedCard/
 import JadwalSatpamIndex from "../../../Component/WargaComponnent/IKK/clickedCard/JadwalSatpam.tsx";
 import KendaraanIndex from "../../../Component/WargaComponnent/IKK/clickedCard/KendaraanIndex.tsx";
 import PengaduanIndex from "../../../Component/WargaComponnent/IKK/clickedCard/PengaduanIndex.tsx";
+import IkkIndex from "../../../Component/WargaComponnent/IKK/clickedCard/IkkIndex.tsx";
+import AirPamIndex from "../../../Component/WargaComponnent/IKK/clickedCard/AirPamIndex.tsx";
 
 
 export const IkkMain: React.FC = () => {
     const [hover1, setHover1] = useState<boolean>(true)
+    const [hover2, setHover2] = useState<boolean>(true)
     const [hover3, setHover3] = useState<boolean>(true)
 
     return(
@@ -96,11 +99,19 @@ export const IkkMain: React.FC = () => {
 
         {/* Box kedua space beetween untuk jatuh tempo dan tagihan air */}
         <Box sx={{display:'flex', justifyContent:'space-between'}}>
-        <div>
-                <MainCard jenisCard="jatuhTempo"/>
+        <div onMouseEnter={()=> setHover2(false)} onMouseLeave={() => setHover2(true)}
+             style={{
+              transition: 'transform 0.5s ease-in-out',
+              transform: hover2 ? 'scale(0.9)' : 'scale(1)',
+             }}>
+                {hover2 === true? <MainCard jenisCard="jatuhTempo"/>: <IkkIndex hover={hover2}/>}
             </div>
-            <div>
-                <MainCard jenisCard="tagihanAir"/>
+            <div onMouseEnter={()=> setHover2(false)} onMouseLeave={() => setHover2(true)}
+             style={{
+              transition: 'transform 0.5s ease-in-out',
+              transform: hover2 ? 'scale(0.9)' : 'scale(1)',
+             }}>
+                {hover2 === true? <MainCard jenisCard="tagihanAir"/>: <AirPamIndex hover={hover2}/>}
             </div>
         </Box>
 
