@@ -31,6 +31,7 @@ const KebersihanDetail2 = Loadable(lazy(()=>import('../Pages/KebersihanDetail/de
 const WargaEWS = Loadable(lazy(()=>import('../Pages/Warga/WargaEWS/index')))
 const WargaKonfirmasiPAM = Loadable(lazy(()=>import('../Pages/Warga/WargaKonfirmasiPAM/index')))
 const WargaFormPengaduan = Loadable(lazy(()=>import('../Pages/Warga/WargaFormPengaduan/index')))
+const WargaGallery = Loadable(lazy(()=>import('../Pages/Warga/WargaGallery/index')))
 
 const mainRoutes =[{
     path: '',
@@ -123,6 +124,10 @@ const mainRoutes =[{
 {
     path:'/FormPengaduanWarga',
     element: <WargaFormPengaduan/>
+},
+{
+    path:'/GalleryWarga',
+    element: <WargaGallery/>
 },
 
 
