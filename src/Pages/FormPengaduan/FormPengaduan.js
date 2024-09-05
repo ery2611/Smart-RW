@@ -11,7 +11,7 @@ import {
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 import { useState } from "react";
 
-const FormPengambilanSampah = () => {
+const FormPengaduan = () => {
   const [file, setFile] = useState(null);
 
   const handleFileChange = (event) => {
@@ -34,7 +34,7 @@ const FormPengambilanSampah = () => {
         {/* halaman utama */}
         {/* card form panggilan */}
         <Typography marginTop="10px" fontSize={"16px"} textAlign={"center"}>
-          FORM PENGADUAN PENGAMBILAN SAMPAH
+          FORM PENGADUAN KEAMANAN WARGA
         </Typography>
         <Box sx={{ display: "flex", justifyContent: "center", mt: 3 }}>
           <Card sx={{ width: "85%", borderRadius: "12px" }}>
@@ -65,32 +65,6 @@ const FormPengambilanSampah = () => {
                   variant="outlined"
                   type="text"
                 />
-              </Stack>
-              <Stack direction="row" spacing={2}>
-                <Stack direction={"column"} sx={{ width: "50%" }}>
-                  <Typography sx={{ mt: 2 }} fontSize={"14px"}>
-                    Tanggal Pengaduan
-                  </Typography>
-                  <TextField
-                    sx={{ width: "100%" }}
-                    placeholder="Masukkan Tanggal"
-                    size="small"
-                    variant="outlined"
-                    type="date"
-                  />
-                </Stack>
-                <Stack direction={"column"} sx={{ width: "50%" }}>
-                  <Typography sx={{ mt: 2 }} fontSize={"14px"}>
-                    Tanggal Pengaduan
-                  </Typography>
-                  <TextField
-                    sx={{ width: "100%" }}
-                    placeholder="Masukkan Tanggal"
-                    size="small"
-                    variant="outlined"
-                    type="date"
-                  />
-                </Stack>
               </Stack>
               <Stack direction={"column"}>
                 <Typography sx={{ mt: 2 }} fontSize={"14px"}>
@@ -200,4 +174,4 @@ const FormPengambilanSampah = () => {
   );
 };
 
-export default FormPengambilanSampah;
+export default FormPengaduan;
