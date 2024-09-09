@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardContent, CardHeader, Typography } from "@mui/material";
+import { Card, CardContent } from "@mui/material";
 import { BarChart } from "@mui/x-charts/BarChart";
 
 const CustomBarChart = ({ data }) => {
@@ -10,7 +10,7 @@ const CustomBarChart = ({ data }) => {
           xAxis={[
             {
               dataKey: "time",
-              scaleType: "band", // Menentukan tipe skala sebagai 'band' untuk waktu
+              scaleType: "band",
               ticks: [
                 "00:01 - 04:00",
                 "04:01 - 08:00",
@@ -23,7 +23,7 @@ const CustomBarChart = ({ data }) => {
           ]}
           yAxis={[
             {
-              ticks: [0, 20, 40, 60, 80, 100], // Menentukan frekuensi kendaraan sebagai ticks
+              ticks: [0, 20, 40, 60, 80, 100],
             },
           ]}
           series={[
@@ -31,16 +31,18 @@ const CustomBarChart = ({ data }) => {
               dataKey: "mobil",
               label: "Mobil",
               color: "#E200CB",
+              labelPosition: "top",
             },
             {
               dataKey: "motor",
               label: "Motor",
               color: "#3B2ECC",
+              labelPosition: "top",
             },
           ]}
-          height={300} // Menentukan tinggi grafik
-          dataset={data} // Dataset berisi data kendaraan masuk dan keluar
-          margin={{ top: 10, right: 30, left: 40, bottom: 30 }} // Menyesuaikan margin
+          height={300}
+          dataset={data}
+          margin={{ top: 50, right: 30, left: 40, bottom: 30 }}
         />
       </CardContent>
     </Card>

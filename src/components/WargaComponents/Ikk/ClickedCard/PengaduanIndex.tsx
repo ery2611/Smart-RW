@@ -2,12 +2,16 @@ import { Button, Card, Container, Paper, Stack, Table, TableBody, TableCell, Tab
 import React from "react";
 import { getColorSudahBelum } from "../../../../context/SudahorBelumColor.tsx";
 import { DataPengaduan } from "../../../../context/Warga/IKK/PengaduanData.tsx";
+import { useNavigate } from "react-router-dom";
 
 interface Ihover {
   hover: boolean;
 }
 
 const PengaduanIndex: React.FC<Ihover> = ({ hover }) => {
+  const Navigate = useNavigate();
+  
+
   return (
     <Container>
       <Card
@@ -78,7 +82,7 @@ const PengaduanIndex: React.FC<Ihover> = ({ hover }) => {
                     </TableContainer>
 
                     {/* Button */}
-                    <Button fullWidth sx={{
+                    <Button fullWidth onClick={()=> Navigate('/Warga/RiwayatPengaduan')} sx={{
                         backgroundColor:'#00A9AD', 
                         color:'#FFF',
                         fontSize:'16px',

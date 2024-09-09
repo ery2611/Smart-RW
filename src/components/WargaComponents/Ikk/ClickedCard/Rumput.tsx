@@ -2,6 +2,7 @@ import { Button, Card, Container, Paper, Stack, Table, TableBody, TableCell, Tab
 import React, { useState } from "react";
 import { dataPemotonganRumput } from "../../../../context/Warga/IKK/PemotonganRumputData.tsx";
 import { getColorSudahBelum } from "../../../../context/SudahorBelumColor.tsx";
+import { useNavigate } from "react-router-dom";
 
 //TODO Benerin height dan Button nya
 interface Ihover {
@@ -9,6 +10,7 @@ interface Ihover {
 }
 const RumputIndex: React.FC<Ihover> = ({hover}) => {
     const [tahun, setTahun] = useState<number>(2024);
+    const Navigate = useNavigate();
 
     return(
         <Container>
@@ -89,7 +91,7 @@ const RumputIndex: React.FC<Ihover> = ({hover}) => {
                     </TableContainer>
 
                     {/* Button lapor */}
-                    <Button fullWidth sx={{
+                    <Button fullWidth onClick={()=> Navigate('/Warga/RiwayatPemotonganRumput')}  sx={{
                         backgroundColor:'#00A9AD', 
                         color:'#FFF',
                         fontSize:'16px',

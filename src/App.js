@@ -57,7 +57,7 @@ function App() {
         return { title: "PENGADUAN", showBackButton: true };
 
       default:
-        return { title: "Page Title", showBackButton: true }; // Default value
+        return { title: "Smart RW", showBackButton: true }; // Default value
     }
   };
 

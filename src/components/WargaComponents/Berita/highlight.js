@@ -73,7 +73,7 @@ function Semua() {
   return (
     <Box
       sx={{
-        display: "flex",
+        display: { md: "flex", sm: "none" },
         alignItems: "center",
         width: "100%",
         marginTop: "50px",

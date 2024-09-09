@@ -7,11 +7,16 @@ import Badge from "@mui/material/Badge";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import Avatar from "@mui/material/Avatar";
 import AdbIcon from "@mui/icons-material/Adb";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-const CommandCenterAppBar = () => {
+const CommandCenterAppBar = ({ title, showBackButton }) => {
   const navigate = useNavigate();
+
+  const handleBackClick = () => {
+    navigate(-1); // Navigate to the previous page
+  };
 
   return (
     <AppBar
@@ -20,14 +25,14 @@ const CommandCenterAppBar = () => {
       sx={{
         backgroundColor: "white",
         top: 0,
-        display: { xs: "none", md: "flex" },
-        marginBottom: "10px",
         height: "70px",
+        display: { xs: "flex", md: "flex" },
       }}
     >
       <Toolbar sx={{ display: "flex", alignItems: "center" }}>
-        {/* Logo and Title Section */}
-        <Box sx={{ display: "flex", alignItems: "center" }}>
+        {/* Mobile View: Show Logo and Title */}
+        <Box sx={{ display: { xs: "flex", md: "flex" }, alignItems: "center" }}>
+          {/* Logo */}
           <Box
             sx={{
               backgroundColor: "#00A9AD",
@@ -38,18 +43,19 @@ const CommandCenterAppBar = () => {
               padding: 1,
               height: 43,
               width: 43,
-              position: "relative",
+              marginRight: 2,
             }}
           >
             <AdbIcon
               sx={{
-                display: { md: "flex" },
                 height: 40,
                 width: 40,
                 color: "white",
               }}
             />
           </Box>
+
+          {/* Title */}
           <Typography
             variant="h5"
             component="div"
@@ -57,23 +63,25 @@ const CommandCenterAppBar = () => {
               color: "#00A9AD",
               fontSize: "1.5rem",
               fontWeight: "bolder",
+              textAlign: "center",
+              flexGrow: 1,
               marginLeft: 1,
-              display: { xs: "none", md: "block" },
             }}
           >
             SMART RW
           </Typography>
         </Box>
 
-        {/* Navigation Links */}
+        {/* Desktop View: Navigation Links */}
         <Box
           sx={{
-            display: "flex",
+            display: { xs: "none", md: "flex" },
             alignItems: "center",
             justifyContent: "center",
             flexGrow: 1,
           }}
         >
+          {/* Navigation Links (same as desktop layout) */}
           {/* Home */}
           <Box
             sx={{
@@ -114,7 +122,7 @@ const CommandCenterAppBar = () => {
               Berita
             </Typography>
           </Box>
-          {/* Kegutan */}
+          {/* Kegiatan */}
           <Box
             sx={{
               padding: "5px 15px",
@@ -134,7 +142,7 @@ const CommandCenterAppBar = () => {
               Kegiatan
             </Typography>
           </Box>
-          {/* pENGUMUMAN */}
+          {/* Pengumuman */}
           <Box
             sx={{
               padding: "5px 15px",
@@ -154,7 +162,7 @@ const CommandCenterAppBar = () => {
               Pengumuman
             </Typography>
           </Box>
-          {/* Galllery */}
+          {/* Gallery */}
           <Box
             sx={{
               padding: "5px 15px",
@@ -171,7 +179,7 @@ const CommandCenterAppBar = () => {
                 textDecoration: "none",
               }}
             >
-              Galllery
+              Gallery
             </Typography>
           </Box>
           {/* EWS */}
@@ -194,7 +202,7 @@ const CommandCenterAppBar = () => {
               EWS
             </Typography>
           </Box>
-          {/* OGs */}
+          {/* OGS */}
           <Box
             sx={{
               padding: "5px 15px",
@@ -261,8 +269,8 @@ const CommandCenterAppBar = () => {
           <IconButton
             aria-label="notifications"
             color="inherit"
-            onClick={() => navigate("/Notif")}
-            sx={{ display: { xs: "none", md: "flex" } }} // Hide on mobile
+            onClick={() => navigate("/Warga/Notifikasi")}
+            sx={{ display: { xs: "flex", md: "flex" } }} // Hide on mobile
           >
             <Badge badgeContent={2} color="error">
               <NotificationsIcon />

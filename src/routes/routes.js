@@ -53,9 +53,59 @@ const DRpanggilan = Loadable(
 const DashboardWarga = Loadable(
   lazy(() => import("../pages/pagesWarga/Dashboard"))
 );
-
+const About = Loadable(lazy(() => import("../pages/pagesWarga/About")));
 const Ikk = Loadable(lazy(() => import("../pages/pagesWarga/Ikk/index.tsx")));
+const PemotonganRumput = Loadable(
+  lazy(() => import("../pages/pagesWarga/Ikk/Riwayat/PemotonganRumput.js"))
+);
+const FormPemotonganRumput = Loadable(
+  lazy(() => import("../pages/pagesWarga/Ikk/Form/PemotonganRumput.js"))
+);
+const PengambilanSampah = Loadable(
+  lazy(() => import("../pages/pagesWarga/Ikk/Riwayat/PengambilanSampah.js"))
+);
+const FormPengambilanSampah = Loadable(
+  lazy(() => import("../pages/pagesWarga/Ikk/Form/PengambilanSampah.js"))
+);
+const SapuJalan = Loadable(
+  lazy(() => import("../pages/pagesWarga/Ikk/Riwayat/SapuJalan.js"))
+);
+const FormSapuJalan = Loadable(
+  lazy(() => import("../pages/pagesWarga/Ikk/Form/SapuJalan.js"))
+);
 
+const Pengaduan = Loadable(
+  lazy(() => import("../pages/pagesWarga/Ikk/Riwayat/Pengaduan.js"))
+);
+const FormPengaduan = Loadable(
+  lazy(() => import("../pages/pagesWarga/Ikk/Form/Pengaduan.js"))
+);
+const AirPam = Loadable(
+  lazy(() => import("../pages/pagesWarga/Ikk/Riwayat/RiwayatAirPam.js"))
+);
+const RiwayatIkk = Loadable(
+  lazy(() => import("../pages/pagesWarga/Ikk/Riwayat/RiwayatIkk.js"))
+);
+const PembayaranIkk = Loadable(
+  lazy(() => import("../pages/pagesWarga/Ikk/Pembayaran/Ikk/pembayaranIkk.js"))
+);
+const PembayaranIkkLunasi = Loadable(
+  lazy(() =>
+    import("../pages/pagesWarga/Ikk/Pembayaran/Ikk/pembayaranIkkLunasi.js")
+  )
+);
+const PembayaranAirPam = Loadable(
+  lazy(() => import("../pages/pagesWarga/Ikk/Pembayaran/Pam/pembayaranPam.js"))
+);
+const PembayaranAirPamLunasi = Loadable(
+  lazy(() =>
+    import("../pages/pagesWarga/Ikk/Pembayaran/Pam/pembayaranPamLunasi.js")
+  )
+);
+
+const NotifWarga = Loadable(
+  lazy(() => import("../pages/pagesWarga/Notif/index.js"))
+);
 const OgsWarga = Loadable(lazy(() => import("../pages/pagesWarga/Ogs")));
 const DKegiatan = Loadable(
   lazy(() => import("../pages/pagesWarga/Kegiatan/detail"))
@@ -302,6 +352,62 @@ const mainRoutes = [
     element: <Ikk />,
   },
   {
+    path: "/Warga/RiwayatIkk",
+    element: <RiwayatIkk />,
+  },
+  {
+    path: "/Warga/RiwayatPam",
+    element: <AirPam />,
+  },
+  {
+    path: "/Warga/BayarIkk",
+    element: <PembayaranIkk />,
+  },
+  {
+    path: "/Warga/BayarPam",
+    element: <PembayaranAirPam />,
+  },
+  {
+    path: "/Warga/LunasIkk",
+    element: <PembayaranIkkLunasi />,
+  },
+  {
+    path: "/Warga/LunasPam",
+    element: <PembayaranAirPamLunasi />,
+  },
+  {
+    path: "/Warga/RiwayatPengaduan",
+    element: <Pengaduan />,
+  },
+  {
+    path: "/Warga/FormPengaduan",
+    element: <FormPengaduan />,
+  },
+  {
+    path: "/Warga/RiwayatSapuJalan",
+    element: <SapuJalan />,
+  },
+  {
+    path: "/Warga/FormSapuJalan",
+    element: <FormSapuJalan />,
+  },
+  {
+    path: "/Warga/RiwayatPemotonganRumput",
+    element: <PemotonganRumput />,
+  },
+  {
+    path: "/Warga/FormPemotonganRumput",
+    element: <FormPemotonganRumput />,
+  },
+  {
+    path: "/Warga/RiwayatPengambilanSampah",
+    element: <PengambilanSampah />,
+  },
+  {
+    path: "/Warga/FormPengambilanSampah",
+    element: <FormPengambilanSampah />,
+  },
+  {
     path: "/Warga/Panggilan",
     element: <PanggilanWarga />,
   },
@@ -348,6 +454,14 @@ const mainRoutes = [
   {
     path: "/Warga/PanggilanDarurat/DetailPanggilanDarurat",
     element: <DPanggilanWarga />,
+  },
+  {
+    path: "/Warga/About",
+    element: <About />,
+  },
+  {
+    path: "/Warga/Notifikasi",
+    element: <NotifWarga />,
   },
 
   //

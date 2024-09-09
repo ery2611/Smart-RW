@@ -2,6 +2,7 @@ import { Button, Card, Container, Paper, Stack, Table, TableBody, TableCell, Tab
 import React, { useState } from "react";
 import { getColorSudahBelum } from "../../../../context/SudahorBelumColor.tsx";
 import { DataAirPam } from "../../../../context/Warga/IKK/AirPamData.tsx";
+import { useNavigate } from "react-router-dom";
 
 //TODO Benerin height dan Button nya
 interface Ihover {
@@ -11,6 +12,7 @@ const AirPamIndex: React.FC<Ihover> = ({hover}) => {
     const [tahun, setTahun] = useState<number>(2024);
     const [semester, setSemester] = useState<number>(1)
     //todo semester 1 = jan - jun, sem.2 = jul-des
+    const Navigate = useNavigate();
 
     return(
         <Container>
@@ -101,7 +103,7 @@ const AirPamIndex: React.FC<Ihover> = ({hover}) => {
                     </TableContainer>
 
                     {/* Button lapor */}
-                    <Button fullWidth sx={{
+                    <Button onClick={()=> Navigate('/Warga/RiwayatPam')} fullWidth sx={{
                         backgroundColor:'#00A9AD', 
                         color:'#FFF',
                         fontSize:'16px',

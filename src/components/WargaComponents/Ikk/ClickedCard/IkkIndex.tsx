@@ -2,6 +2,7 @@ import { Button, Card, Container, Paper, Stack, Table, TableBody, TableCell, Tab
 import React, { useState } from "react";
 import { getColorSudahBelum } from "../../../../context/SudahorBelumColor.tsx";
 import { DataIkk } from "../../../../context/Warga/IKK/IkkData.tsx";
+import { useNavigate } from "react-router-dom";
 
 //TODO Benerin height dan Button nya
 interface Ihover {
@@ -9,8 +10,9 @@ interface Ihover {
 }
 const IkkIndex: React.FC<Ihover> = ({hover}) => {
     const [tahun, setTahun] = useState<number>(2024);
-    const [semester, setSemester] = useState<number>(1)
+    const [semester, setSemester] = useState<number>(1);
     //todo semester 1 = jan - jun, sem.2 = jul-des
+    const Navigate = useNavigate();
 
     return(
         <Container>
@@ -100,7 +102,7 @@ const IkkIndex: React.FC<Ihover> = ({hover}) => {
                     </TableContainer>
 
                     {/* Button lapor */}
-                    <Button fullWidth sx={{
+                    <Button fullWidth onClick={()=> Navigate('/Warga/RiwayatIkk')} sx={{
                         backgroundColor:'#00A9AD', 
                         color:'#FFF',
                         fontSize:'16px',

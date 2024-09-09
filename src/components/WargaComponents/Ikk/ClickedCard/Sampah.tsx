@@ -2,6 +2,7 @@ import { Button, Card, Container, Paper, Stack, Table, TableBody, TableCell, Tab
 import React, { useState } from "react";
 import { DataPembuanganSampah } from "../../../../context/Warga/IKK/PembuanganSampahData.tsx";
 import { getColorSudahBelum } from "../../../../context/SudahorBelumColor.tsx";
+import { useNavigate } from "react-router-dom";
 
 interface Ihover {
     hover: boolean;
@@ -9,6 +10,7 @@ interface Ihover {
 
 const SampahIndex: React.FC<Ihover> = ({hover}) => {
     const [pekan, setPekan] = useState<string>("Pekan ke-1")
+    const Navigate = useNavigate();
 
     return(
         <Container>
@@ -89,7 +91,7 @@ const SampahIndex: React.FC<Ihover> = ({hover}) => {
                     </TableContainer>
 
                     {/* Button lapor */}
-                    <Button fullWidth sx={{
+                    <Button fullWidth onClick={()=> Navigate('/Warga/RiwayatPengambilanSampah')} sx={{
                         backgroundColor:'#00A9AD', 
                         color:'#FFF',
                         fontSize:'16px',

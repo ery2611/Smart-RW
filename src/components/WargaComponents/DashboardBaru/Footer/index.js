@@ -12,7 +12,7 @@ const Footer = () => {
         color: "white",
         p: 4,
         mt: "auto",
-        display: "flex",
+        display: { xs: "none", md: "flex" },
         flexDirection: "column",
       }}
     >

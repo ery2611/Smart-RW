@@ -1,11 +1,25 @@
-import React, { useState } from "react";
-import { Grid, Container, Typography, Box } from "@mui/material";
+import React, { useState, useEffect } from "react";
+import { Grid, Container, Typography, Box, useMediaQuery } from "@mui/material";
 import Infomobild from "../../../components/WargaComponents/Ogs/info";
 import CustomBarChart from "../../../components/WargaComponents/Ogs/chart";
 import Header from "../../../components/WargaComponents/Header";
+import BottomBar from "../../../components/WargaComponents/BottomBar";
 
 const TrafficPage = () => {
   const [chartData, setChartData] = useState([]);
+  const [currentDate, setCurrentDate] = useState("");
+  const isMobile = useMediaQuery("(max-width:600px)");
+
+  useEffect(() => {
+    const today = new Date();
+    const options = {
+      weekday: "long",
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    };
+    setCurrentDate(today.toLocaleDateString("id-ID", options));
+  }, []);
 
   const masukData = [
     { time: "00:01 - 04:00", mobil: 20, motor: 20 },
@@ -36,6 +50,7 @@ const TrafficPage = () => {
     const motorCount = data.reduce((total, item) => total + item.motor, 0);
     return { mobilCount, motorCount };
   };
+
   const { mobilCount: masukMobilCount, motorCount: masukMotorCount } =
     calculateCounts(masukData);
   const { mobilCount: keluarMobilCount, motorCount: keluarMotorCount } =
@@ -46,12 +61,25 @@ const TrafficPage = () => {
   return (
     <Box>
       <Header />
-      <Container sx={{ mt: "100px" }}>
+      <Container sx={{ mt: { md: "100px", sm: "" }, pb: { xs: 4, sm: 6 } }}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: isMobile ? "center" : "flex-end",
+                mb: 1,
+              }}
+            >
+              <Typography sx={{ color: "#333333", fontSize: "18px" }}>
+                {currentDate}
+              </Typography>
+            </Box>
             <CustomBarChart data={chartData} />
           </Grid>
-          <Grid item xs={4}>
+
+          {/*  cards untuk "Kendaraan Masuk", "Kendaraan Keluar", and "Total Kendaraan" */}
+          <Grid item xs={12} sm={4} sx={{ marginBottom: "10px" }}>
             <Infomobild
               title="Kendaraan Masuk"
               mobilCount={masukMobilCount}
@@ -59,7 +87,7 @@ const TrafficPage = () => {
               onClick={() => setChartData(masukData)}
             />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={12} sm={4}>
             <Infomobild
               title="Kendaraan Keluar"
               mobilCount={keluarMobilCount}
@@ -67,7 +95,7 @@ const TrafficPage = () => {
               onClick={() => setChartData(keluarData)}
             />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={12} sm={4} sx={{ mb: { xs: 3, sm: 6 } }}>
             <Infomobild
               title="Total Kendaraan"
               mobilCount={totalMobilCount}
@@ -77,6 +105,7 @@ const TrafficPage = () => {
           </Grid>
         </Grid>
       </Container>
+      <BottomBar />
     </Box>
   );
 };
