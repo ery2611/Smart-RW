@@ -32,6 +32,7 @@ const WargaEWS = Loadable(lazy(()=>import('../Pages/Warga/WargaEWS/index')))
 const WargaKonfirmasiPAM = Loadable(lazy(()=>import('../Pages/Warga/WargaKonfirmasiPAM/index')))
 const WargaFormPengaduan = Loadable(lazy(()=>import('../Pages/Warga/WargaFormPengaduan/index')))
 const WargaGallery = Loadable(lazy(()=>import('../Pages/Warga/WargaGallery/index')))
+const EWS = Loadable(lazy(()=>import('../Pages/WargaMobile/EWS/index')))
 
 const mainRoutes =[{
     path: '',
@@ -114,20 +115,24 @@ const mainRoutes =[{
     element: <KebersihanDetail2/>
 },
 {
-    path:'/WargaEWS',
+    path:'/Warga/WargaEWS',
     element: <WargaEWS/>
 },
 {
-    path:'/KonfirmasiPAM',
+    path:'/Warga/KonfirmasiPAM',
     element: <WargaKonfirmasiPAM/>
 },
 {
-    path:'/FormPengaduanWarga',
+    path:'/Warga/FormPengaduanWarga',
     element: <WargaFormPengaduan/>
 },
 {
-    path:'/GalleryWarga',
+    path:'/Warga/GalleryWarga',
     element: <WargaGallery/>
+},
+{
+    path:'/WargaEWSmobile',
+    element: <EWS/>
 },
 
 
