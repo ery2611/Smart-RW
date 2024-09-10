@@ -7,10 +7,15 @@ import {
   CardMedia,
   CardContent,
   Pagination,
+  useMediaQuery,
+  IconButton,
 } from "@mui/material";
 import Lokasi from "@mui/icons-material/LocationOn";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+
 import Person from "@mui/icons-material/Person";
+import LocationOnIcon from "@mui/icons-material/PlaceOutlined";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForwardIos";
+import CalendarTodayIcon from "@mui/icons-material/CalendarMonthRounded";
 import { useNavigate } from "react-router-dom";
 
 function Index() {
@@ -31,6 +36,7 @@ function Index() {
         "Maling yang mencuri laptop bapak Aan akhirnya sudah tertangkap oleh warga RW 36",
       pelaku: "Terbuka untuk Umum",
       lokasi: "Kemang Pratama 2",
+      tanggal: "Kamis, 23 November 2023",
       gambar:
         "https://i.ytimg.com/vi/PD_FUVrOb-w/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH2CYAC0AWKAgwIABABGEIgYShlMA8=&rs=AOn4CLAaGihwnjRfmOQOlQ5YuexHnD-oqw", // Replace with the actual image path
     },
@@ -40,6 +46,7 @@ function Index() {
         "Telah Terjadi Kebakaran di RT003, dan menyebabkan kerugian sebesar 5M",
       pelaku: "-",
       lokasi: "RT 003",
+      tanggal: "Sabtu, 25 Desember 2023",
       gambar:
         "https://independensi.com/wp-content/uploads/2018/08/pemadam-kebakaran.jpg", // Replace with the actual image path
     },
@@ -49,6 +56,7 @@ function Index() {
         "Telah terjadi seoranh bayi yang hilang pada hari senin dini hari",
       pelaku: "Untuk yang ingin Olahraga Pagi",
       lokasi: "Lapangan Kemang Pratama 2",
+      tanggal: "Sabtu, 27 April 2024",
       gambar:
         "https://tse2.mm.bing.net/th?id=OIP.P7N31XHcVJVVZLktOGMumgHaE8&pid=Api&P=0&h=180", // Replace with the actual image path
     },
@@ -58,6 +66,7 @@ function Index() {
         "Telah Terjadi Kebakaran di RT003, dan menyebabkan kerugian sebesar 5M",
       pelaku: "-",
       lokasi: "RT 003",
+      tanggal: "Jumat, 7 Juni 2024",
       gambar:
         "https://independensi.com/wp-content/uploads/2018/08/pemadam-kebakaran.jpg", // Replace with the actual image path
     },
@@ -67,6 +76,7 @@ function Index() {
         "Telah terjadi seoranh bayi yang hilang pada hari senin dini hari",
       pelaku: "Untuk yang ingin Olahraga Pagi",
       lokasi: "Lapangan Kemang Pratama 2",
+      tanggal: "8 Juni 2024",
       gambar:
         "https://tse2.mm.bing.net/th?id=OIP.P7N31XHcVJVVZLktOGMumgHaE8&pid=Api&P=0&h=180", // Replace with the actual image path
     },
@@ -76,6 +86,7 @@ function Index() {
         "Maling yang mencuri laptop bapak Aan akhirnya sudah tertangkap oleh warga RW 36",
       pelaku: "Terbuka untuk Umum",
       lokasi: "Kemang Pratama 2",
+      tanggal: "Sabtu, 7 September 2024",
       gambar:
         "https://i.ytimg.com/vi/PD_FUVrOb-w/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH2CYAC0AWKAgwIABABGEIgYShlMA8=&rs=AOn4CLAaGihwnjRfmOQOlQ5YuexHnD-oqw", // Replace with the actual image path
     },
@@ -88,84 +99,115 @@ function Index() {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = beritaData.slice(indexOfFirstItem, indexOfLastItem);
   const totalPages = Math.ceil(beritaData.length / itemsPerPage);
+  const isLargerThanSm = useMediaQuery("(min-width:600px)");
+  const isSm = useMediaQuery("(max-width:600px)"); // Check if the screen size is small
 
   return (
     <Box sx={{ marginTop: "20px", borderRadius: 2, pl: 2, pr: 2 }}>
-      <Box>
-        <Typography
-          sx={{
-            color: "#00A9AD",
-            lineHeight: "60px",
-            fontSize: "30px",
-            fontWeight: "bolder",
-            mt: 2,
-            mb: 4,
-          }}
-        >
-          Semua Berita
-        </Typography>
-
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center", // Centers the cards horizontally
-
-            flexWrap: "wrap", // Ensures cards wrap properly on different screen sizes
-            gap: 2, // Adds spacing between cards
-            mt: -3,
-            position: "relative",
-            zIndex: 3,
-            marginBottom: "73px",
-          }}
-        >
-          {currentItems.map((item, index) => (
-            <Card
-              key={index}
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          flexWrap: "wrap",
+          gap: 2,
+          position: "relative",
+          zIndex: 3,
+          marginBottom: "73px",
+        }}
+      >
+        {currentItems.map((item, index) => (
+          <Card
+            key={index}
+            sx={{
+              width: isSm ? "90%" : "300px",
+              display: "flex",
+              flexDirection: "column",
+              boxShadow: "none",
+              backgroundColor: isSm ? "#FFFFFF" : "transparent",
+              cursor: "pointer",
+              borderRadius: "10px",
+            }}
+            onClick={() => navigate("/DetailBerita")}
+          >
+            <CardMedia
+              component="img"
               sx={{
-                width: "300px",
+                height: "200px",
+                width: "100%",
+                objectFit: "cover",
+              }}
+              image={item.gambar}
+              alt={item.title}
+            />
+
+            <CardContent
+              sx={{
                 display: "flex",
                 flexDirection: "column",
-                flexShrink: 0,
-                marginRight: "20px",
-                boxShadow: "none",
-                background: "transparent",
+                justifyContent: "center",
+                padding: 2,
               }}
-              onClick={() => navigate("/DetailBerita")}
             >
-              <CardMedia
-                component="img"
+              {/* Title */}
+              <Typography
+                variant="h6"
                 sx={{
-                  height: "200px",
-                  width: "100%",
-                  objectFit: "cover",
-                }}
-                image={item.gambar}
-                alt={item.title}
-              />
-              <CardContent
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  flexGrow: 1,
-                  padding: 2,
+                  fontWeight: "bold",
+                  color: isSm ? "#333333" : "#00A9AD",
+                  textAlign: isSm ? "center" : "left",
+                  mb: 1,
                 }}
               >
-                <Typography
-                  variant="h6"
-                  sx={{ fontWeight: "bold", mb: 1, color: "#00A9AD" }}
-                >
-                  {truncateText(item.title, 20)}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {truncateText(item.deskripsi, 100)}
-                </Typography>
-              </CardContent>
-            </Card>
-          ))}
-        </Box>
+                {truncateText(item.title, 20)}
+              </Typography>
+              {/* Description */}
+              <Typography variant="body2" sx={{ color: "#282828", mb: 1 }}>
+                {truncateText(item.deskripsi, 100)}
+              </Typography>
+              {/* Additional details only on small screens */}
+              {isSm && (
+                <>
+                  {/* Date */}
+                  <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
+                    <CalendarTodayIcon sx={{ color: "#00A9AD", mr: 1 }} />
+                    <Typography sx={{ color: "#282828" }}>
+                      {item.tanggal}
+                    </Typography>
+                  </Box>
+                  {/* Location */}
+                  <Box sx={{ display: "flex", alignItems: "center" }}>
+                    <LocationOnIcon sx={{ color: "#00A9AD", mr: 1 }} />
+                    <Typography sx={{ color: "#282828" }}>
+                      {item.lokasi}
+                    </Typography>
+                  </Box>
+                  {/* Arrow Button */}
+                  <Box
+                    sx={{ display: "flex", justifyContent: "flex-end", mt: 1 }}
+                  >
+                    <IconButton
+                      sx={{
+                        backgroundColor: "#00A9AD",
+                        color: "#FFFFFF",
+                        borderRadius: "50%",
+                        padding: 1,
+                        "&:hover": { backgroundColor: "#00A9AD" },
+                      }}
+                      onClick={() => navigate("/DetailBerita")}
+                    >
+                      <ArrowForwardIcon />
+                    </IconButton>
+                  </Box>
+                </>
+              )}
+            </CardContent>
+          </Card>
+        ))}
       </Box>
       {/* Pagination */}
-      <Box sx={{ display: "flex", justifyContent: "center", mb: 4, mt: -4 }}>
+      <Box
+        sx={{ display: "flex", justifyContent: "center", mb: 4, mt: -4, pb: 2 }}
+      >
         <Pagination
           count={totalPages}
           page={currentPage}
