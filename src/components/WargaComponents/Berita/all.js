@@ -104,106 +104,127 @@ function Index() {
 
   return (
     <Box sx={{ marginTop: "20px", borderRadius: 2, pl: 2, pr: 2 }}>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          flexWrap: "wrap",
-          gap: 2,
-          position: "relative",
-          zIndex: 3,
-          marginBottom: "73px",
-        }}
-      >
-        {currentItems.map((item, index) => (
-          <Card
-            key={index}
+      <Box>
+        {isLargerThanSm && (
+          <Typography
             sx={{
-              width: isSm ? "90%" : "300px",
-              display: "flex",
-              flexDirection: "column",
-              boxShadow: "none",
-              backgroundColor: isSm ? "#FFFFFF" : "transparent",
-              cursor: "pointer",
-              borderRadius: "10px",
+              color: "#00A9AD",
+              lineHeight: "60px",
+              fontSize: "30px",
+              fontWeight: "bolder",
+              mt: 2,
+              mb: 4,
             }}
-            onClick={() => navigate("/DetailBerita")}
           >
-            <CardMedia
-              component="img"
+            Semua Berita
+          </Typography>
+        )}
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            flexWrap: "wrap",
+            gap: 2,
+            position: "relative",
+            zIndex: 3,
+            marginBottom: "73px",
+          }}
+        >
+          {currentItems.map((item, index) => (
+            <Card
+              key={index}
               sx={{
-                height: "200px",
-                width: "100%",
-                objectFit: "cover",
-              }}
-              image={item.gambar}
-              alt={item.title}
-            />
-
-            <CardContent
-              sx={{
+                width: isSm ? "90%" : "300px",
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "center",
-                padding: 2,
+                boxShadow: "none",
+                backgroundColor: isSm ? "#FFFFFF" : "transparent",
+                cursor: "pointer",
+                borderRadius: "10px",
               }}
+              onClick={() => navigate("/DetailBerita")}
             >
-              {/* Title */}
-              <Typography
-                variant="h6"
+              <CardMedia
+                component="img"
                 sx={{
-                  fontWeight: "bold",
-                  color: isSm ? "#333333" : "#00A9AD",
-                  textAlign: isSm ? "center" : "left",
-                  mb: 1,
+                  height: "200px",
+                  width: "100%",
+                  objectFit: "cover",
+                }}
+                image={item.gambar}
+                alt={item.title}
+              />
+
+              <CardContent
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  padding: 2,
                 }}
               >
-                {truncateText(item.title, 20)}
-              </Typography>
-              {/* Description */}
-              <Typography variant="body2" sx={{ color: "#282828", mb: 1 }}>
-                {truncateText(item.deskripsi, 100)}
-              </Typography>
-              {/* Additional details only on small screens */}
-              {isSm && (
-                <>
-                  {/* Date */}
-                  <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
-                    <CalendarTodayIcon sx={{ color: "#00A9AD", mr: 1 }} />
-                    <Typography sx={{ color: "#282828" }}>
-                      {item.tanggal}
-                    </Typography>
-                  </Box>
-                  {/* Location */}
-                  <Box sx={{ display: "flex", alignItems: "center" }}>
-                    <LocationOnIcon sx={{ color: "#00A9AD", mr: 1 }} />
-                    <Typography sx={{ color: "#282828" }}>
-                      {item.lokasi}
-                    </Typography>
-                  </Box>
-                  {/* Arrow Button */}
-                  <Box
-                    sx={{ display: "flex", justifyContent: "flex-end", mt: 1 }}
-                  >
-                    <IconButton
+                {/* Title */}
+                <Typography
+                  variant="h6"
+                  sx={{
+                    fontWeight: "bold",
+                    color: isSm ? "#333333" : "#00A9AD",
+                    textAlign: isSm ? "center" : "left",
+                    mb: 1,
+                  }}
+                >
+                  {truncateText(item.title, 20)}
+                </Typography>
+                {/* Description */}
+                <Typography variant="body2" sx={{ color: "#282828", mb: 1 }}>
+                  {truncateText(item.deskripsi, 100)}
+                </Typography>
+                {/* Additional details only on small screens */}
+                {isSm && (
+                  <>
+                    {/* Date */}
+                    <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
+                      <CalendarTodayIcon sx={{ color: "#00A9AD", mr: 1 }} />
+                      <Typography sx={{ color: "#282828" }}>
+                        {item.tanggal}
+                      </Typography>
+                    </Box>
+                    {/* Location */}
+                    <Box sx={{ display: "flex", alignItems: "center" }}>
+                      <LocationOnIcon sx={{ color: "#00A9AD", mr: 1 }} />
+                      <Typography sx={{ color: "#282828" }}>
+                        {item.lokasi}
+                      </Typography>
+                    </Box>
+                    {/* Arrow Button */}
+                    <Box
                       sx={{
-                        backgroundColor: "#00A9AD",
-                        color: "#FFFFFF",
-                        borderRadius: "50%",
-                        padding: 1,
-                        "&:hover": { backgroundColor: "#00A9AD" },
+                        display: "flex",
+                        justifyContent: "flex-end",
+                        mt: 1,
                       }}
-                      onClick={() => navigate("/DetailBerita")}
                     >
-                      <ArrowForwardIcon />
-                    </IconButton>
-                  </Box>
-                </>
-              )}
-            </CardContent>
-          </Card>
-        ))}
+                      <IconButton
+                        sx={{
+                          backgroundColor: "#00A9AD",
+                          color: "#FFFFFF",
+                          borderRadius: "50%",
+                          padding: 1,
+                          "&:hover": { backgroundColor: "#00A9AD" },
+                        }}
+                        onClick={() => navigate("/DetailBerita")}
+                      >
+                        <ArrowForwardIcon />
+                      </IconButton>
+                    </Box>
+                  </>
+                )}
+              </CardContent>
+            </Card>
+          ))}
+        </Box>
       </Box>
+
       {/* Pagination */}
       <Box
         sx={{ display: "flex", justifyContent: "center", mb: 4, mt: -4, pb: 2 }}

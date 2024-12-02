@@ -13,11 +13,13 @@ import Forum from "../../../components/WargaComponents/Berita/all";
 import Header from "../../../components/WargaComponents/Header";
 import Highlight from "../../../components/WargaComponents/Berita/highlight";
 import Footer from "../../../components/WargaComponents/DashboardBaru/Footer/index";
+import { useNavigate } from "react-router-dom";
 
 function Index() {
-  // Check if the screen size is 'sm' or smaller
+  // mwengeccek ukuran screen
   const isSmOrSmaller = useMediaQuery("(max-width:600px)");
   const isLargerThanSm = useMediaQuery("(min-width:600px)");
+  const Navigate = useNavigate();
 
   return (
     <Box>
@@ -46,7 +48,7 @@ function Index() {
             <IconButton
               edge="start"
               sx={{ color: "#00A9AD", marginRight: "auto" }}
-              onClick={() => window.history.back()}
+              onClick={() => Navigate("/Warga")}
             >
               <ArrowBackIcon />
             </IconButton>
